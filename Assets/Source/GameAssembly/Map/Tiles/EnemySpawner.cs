@@ -9,11 +9,6 @@ namespace MishapsOfATimeTraveler.GameAssembly
     {
         Enemy.Factory factory;
 
-        private void Start()
-        {
-            InvokeRepeating(nameof(Spawn), 1f, 1f);
-        }
-
         [Inject]
         public void Construct(Enemy.Factory factory)
         {

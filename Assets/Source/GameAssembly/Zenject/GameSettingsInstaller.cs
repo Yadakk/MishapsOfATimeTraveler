@@ -7,14 +7,18 @@ using Zenject.Asteroids;
 namespace MishapsOfATimeTraveler.GameAssembly
 {
     [CreateAssetMenu(fileName = "SettingsInstaller", menuName = "Installers/Settings Installer", order = 51)]
-    public class SettingsInstaller : ScriptableObjectInstaller
+    public class GameSettingsInstaller : ScriptableObjectInstaller
     {
         [SerializeField]
         private LevelInstaller.Settings levelInstaller;
 
+        [SerializeField]
+        private WaveSpawner.Settings waves;
+
         public override void InstallBindings()
         {
             Container.BindInstance(levelInstaller);
+            Container.BindInstance(waves);
         }
     }
 }

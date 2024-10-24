@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
+using Timers;
 
 namespace MishapsOfATimeTraveler.GameAssembly
 {
@@ -20,18 +21,25 @@ namespace MishapsOfATimeTraveler.GameAssembly
         {
             InstallMap();
             InstallEnemies();
+            InstallMisc();
         }
 
         private void InstallMap()
         {
             Container.Bind<Tilemap>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Tile>().FromComponentsInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<WaveSpawner>().AsSingle();
         }
 
         private void InstallEnemies()
         {
             Container.BindFactory<Enemy, Enemy.Factory>().FromComponentInNewPrefab(settings.EnemyPrefab).
                 WithGameObjectName("Enemy").UnderTransformGroup("Enemies");
+        }
+
+        private void InstallMisc()
+        {
+            Container.Bind<Timer>().AsTransient();
         }
 
         [System.Serializable]

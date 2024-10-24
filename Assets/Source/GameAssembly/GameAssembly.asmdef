@@ -3,8 +3,9 @@
     "rootNamespace": "MishapsOfATimeTraveler.GameAssembly",
     "references": [
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:65f6e3125724ebe4db8d6389cfa6de62",
         "GUID:a9977c65d0459b248a0d44300bcf8ac7",
-        "GUID:65f6e3125724ebe4db8d6389cfa6de62"
+        "GUID:3660c09869cc3654c9047479251ba5c6"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

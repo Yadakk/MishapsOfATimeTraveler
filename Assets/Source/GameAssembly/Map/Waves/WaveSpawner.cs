@@ -43,16 +43,32 @@ namespace MishapsOfATimeTraveler.GameAssembly
             switch(state)
             {
                 case State.WaveDelay:
-
+                    WaveDelayTick();
                     break;
 
                 case State.Spawning:
-
+                    SpawningTick();
                     break;
 
                 case State.EnemiesAlive:
 
                     break;
+            }
+        }
+
+        private void WaveDelayTick()
+        {
+            if (timer.Elapsed < settings.WaveDelay) return;
+            timer.Reset();
+            SetState(State.Spawning);
+        }
+
+        private void SpawningTick()
+        {
+            if (timer.Elapsed > settings.EnemySpawnInterval)
+            {
+                SpawnEnemy();
+                timer.Reset();
             }
         }
 
@@ -79,6 +95,9 @@ namespace MishapsOfATimeTraveler.GameAssembly
         {
             [field: SerializeField]
             public float EnemySpawnInterval { get; private set; } = 1f;
+
+            [field: SerializeField]
+            public float WaveDelay { get; private set; } = 5f;
         }
     }
 }

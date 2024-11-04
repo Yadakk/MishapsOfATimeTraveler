@@ -15,10 +15,11 @@ namespace MishapsOfATimeTraveler.GameAssembly
             this.factory = factory;
         }
 
-        public void Spawn()
+        public Enemy Spawn()
         {
             Enemy enemy = factory.Create();
             enemy.transform.position = transform.position;
+            return enemy;
         }
     }
 }

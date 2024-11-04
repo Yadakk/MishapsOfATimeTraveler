@@ -1,10 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
+using MOATT.Map.Tiles;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Enemies
 {
     public class Enemy : MonoBehaviour
     {

@@ -1,20 +1,21 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using DG.Tweening;
 using System.Linq;
-using MishapsOfATimeTraveler.RndPathfinding;
+using RndPathfinding;
+using MOATT.Map.Tiles;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Enemies
 {
     public class MapNavigator
     {
         private readonly List<Tile> tiles;
         private readonly Transform transform;
-        private readonly Tilemap tilemap;
+        private readonly UnityEngine.Tilemaps.Tilemap tilemap;
 
-        public MapNavigator(List<Tile> tiles, Transform transform, Tilemap tilemap)
+        public MapNavigator(List<Tile> tiles, Transform transform, 
+            UnityEngine.Tilemaps.Tilemap tilemap)
         {
             this.tiles = tiles;
             this.transform = transform;

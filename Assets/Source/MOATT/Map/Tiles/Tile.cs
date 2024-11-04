@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using MishapsOfATimeTraveler.RndPathfinding;
+using RndPathfinding;
 using Zenject;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Map.Tiles
 {
     public class Tile : MonoBehaviour, ICell
     {

@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
-using Timers;
+using TimeTimers;
+using MOATT.Map.Tiles;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Map.Waves
 {
     public class WaveSpawner : ITickable, IInitializable
     {

@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MishapsOfATimeTraveler.RndPathfinding
+namespace RndPathfinding
 {
     public class Fork
     {

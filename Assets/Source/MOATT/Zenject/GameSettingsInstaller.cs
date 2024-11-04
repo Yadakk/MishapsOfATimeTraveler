@@ -1,10 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
+using MOATT.Map.Waves;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Zenject
 {
     [CreateAssetMenu(fileName = "SettingsInstaller", menuName = "Installers/Settings Installer", order = 51)]
     public class GameSettingsInstaller : ScriptableObjectInstaller

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f9f0c7df201e840ace940c6e573ac2, type: 3}
   m_Name: SmartNSSettings
   m_EditorClassIdentifier: 
-  m_ScriptRoot: Source
+  m_ScriptRoot: Assets/Source
   m_NamespacePrefix: 
   m_UniversalNamespace: 
   m_IndentUsingSpaces: 1

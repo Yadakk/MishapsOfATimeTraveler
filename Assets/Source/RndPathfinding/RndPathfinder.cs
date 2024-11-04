@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MishapsOfATimeTraveler.RndPathfinding
+namespace RndPathfinding
 {
     public static class RndPathfinder
     {

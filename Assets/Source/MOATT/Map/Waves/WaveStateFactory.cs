@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Map.Waves
 {
     public class WaveStateFactory : MonoBehaviour
     {

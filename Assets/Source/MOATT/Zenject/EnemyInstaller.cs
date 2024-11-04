@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using MOATT.Enemies;
 
-namespace MishapsOfATimeTraveler.GameAssembly
+namespace MOATT.Zenject
 {
     public class EnemyInstaller : MonoInstaller
     {

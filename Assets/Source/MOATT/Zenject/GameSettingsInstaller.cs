@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
-using MOATT.Map.Waves;
+using MOATT.Map.Waves.States;
 
 namespace MOATT.Zenject
 {
@@ -14,12 +14,23 @@ namespace MOATT.Zenject
         private LevelInstaller.Settings levelInstaller;
 
         [SerializeField]
-        private WaveSpawner.Settings waves;
+        private WaveSettings waveSettings;
 
         public override void InstallBindings()
         {
             Container.BindInstance(levelInstaller);
-            Container.BindInstance(waves);
+            BindWaves();
+        }
+
+        private void BindWaves()
+        {
+            Container.BindInstance(waveSettings.spawning);
+        }
+
+        [System.Serializable]
+        public class WaveSettings
+        {
+            public Spawning.Settings spawning;
         }
     }
 }

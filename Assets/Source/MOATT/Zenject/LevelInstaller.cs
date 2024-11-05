@@ -30,7 +30,7 @@ namespace MOATT.Zenject
         {
             Container.Bind<Tilemap>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Tile>().FromComponentsInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<WaveSpawner>().AsSingle();
+            Container.BindInterfacesAndSelfTo<WaveStateMachine>().AsSingle();
         }
 
         private void InstallEnemies()

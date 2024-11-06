@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
-using TimeTimers;
-using MOATT.Levels.Waves.States;
 
 namespace MOATT.Levels.Waves
 {
-    public class WaveStateMachine : ITickable
+    using States;
+
+    public class WaveStateMachine : IInitializable, ITickable
     {
-        private readonly StateFactory stateFactory;
+        private readonly Delay.Factory delayFactory;
 
         private State state;
 
-        public WaveStateMachine(StateFactory stateFactory)
+        public WaveStateMachine(Delay.Factory delayFactory)
         {
-            this.stateFactory = stateFactory;
+            this.delayFactory = delayFactory;
+        }
+
+        public void Initialize()
+        {
+            SetState(delayFactory.Create());
         }
 
         public void Tick()
@@ -24,10 +29,10 @@ namespace MOATT.Levels.Waves
             state?.Update();
         }
 
-        public void SetState(StateFactory.States newState)
+        public void SetState(State newState)
         {
             state?.Dispose();
-            state = stateFactory.Create(newState);
+            state = newState;
             state?.Start();
         }
     }

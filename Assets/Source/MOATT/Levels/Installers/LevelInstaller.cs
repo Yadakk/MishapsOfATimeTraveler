@@ -17,6 +17,7 @@ namespace MOATT.Levels.Installers
         public void Construct(Settings settings)
         {
             this.settings = settings;
+            new WaveInstaller().InstallBindings();
         }
 
         public override void InstallBindings()

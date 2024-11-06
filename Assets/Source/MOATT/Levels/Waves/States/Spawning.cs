@@ -10,19 +10,21 @@ namespace MOATT.Levels.Waves.States
     public class Spawning : State
     {
         private readonly Settings settings;
+        private readonly WaveStateMachine stateMachine;
+        private readonly Factory factory;
         private readonly Timer timer;
         private readonly EnemySpawner[] spawners;
-        private readonly WaveStateMachine stateMachine;
 
         private int remainingToSpawn;
 
-        public Spawning(Settings settings, WaveStateMachine stateMachine,
+        public Spawning(Settings settings, WaveStateMachine stateMachine, Factory factory,
             Timer timer, EnemySpawner[] spawners)
         {
             this.settings = settings;
+            this.stateMachine = stateMachine;
+            this.factory = factory;
             this.timer = timer;
             this.spawners = spawners;
-            this.stateMachine = stateMachine;
             remainingToSpawn = settings.enemiesToSpawn;
         }
 
@@ -30,7 +32,7 @@ namespace MOATT.Levels.Waves.States
         {
             if (remainingToSpawn == 0)
             {
-                stateMachine.SetState(StateFactory.States.EnemiesAlive);
+                stateMachine.SetState(factory.Create());
             }
 
             if (timer.Elapsed >= settings.spawnInterval)

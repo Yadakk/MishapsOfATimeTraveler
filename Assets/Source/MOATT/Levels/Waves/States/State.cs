@@ -16,7 +16,7 @@ namespace MOATT.Levels.Waves.States
             // Optionally overridden
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
             // Optionally overridden
         }

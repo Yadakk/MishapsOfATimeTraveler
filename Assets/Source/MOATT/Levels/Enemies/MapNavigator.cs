@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using DG.Tweening;
 using System.Linq;
 using RndPathfinding;
-using MOATT.Levels.Map.Tiles;
 
 namespace MOATT.Levels.Enemies
 {
+    using Map.Tiles;
+
     public class MapNavigator
     {
         private readonly List<Tile> tiles;
         private readonly Transform transform;
-        private readonly UnityEngine.Tilemaps.Tilemap tilemap;
+        private readonly Tilemap tilemap;
 
         public MapNavigator(List<Tile> tiles, Transform transform, 
-            UnityEngine.Tilemaps.Tilemap tilemap)
+            Tilemap tilemap)
         {
             this.tiles = tiles;
             this.transform = transform;

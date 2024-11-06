@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
 using TimeTimers;
-using MOATT.Enemies;
-using MOATT.Map.Waves;
+using MOATT.Levels.Enemies;
+using MOATT.Levels.Waves;
 
-namespace MOATT.Zenject
+namespace MOATT.Levels.Installers
 {
     public class LevelInstaller : MonoInstaller
     {

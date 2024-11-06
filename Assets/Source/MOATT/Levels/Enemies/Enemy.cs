@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
-using MOATT.Map.Tiles;
+using MOATT.Levels.Map.Tiles;
 
-namespace MOATT.Enemies
+namespace MOATT.Levels.Enemies
 {
     public class Enemy : MonoBehaviour
     {

@@ -4,9 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 using RndPathfinding;
-using MOATT.Map.Tiles;
+using MOATT.Levels.Map.Tiles;
 
-namespace MOATT.Enemies
+namespace MOATT.Levels.Enemies
 {
     public class MapNavigator
     {

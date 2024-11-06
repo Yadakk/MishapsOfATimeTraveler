@@ -4,9 +4,9 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 using TimeTimers;
-using MOATT.Map.Waves.States;
+using MOATT.Levels.Waves.States;
 
-namespace MOATT.Map.Waves
+namespace MOATT.Levels.Waves
 {
     public class WaveStateMachine : ITickable
     {

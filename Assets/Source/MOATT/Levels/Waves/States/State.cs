@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MOATT.Map.Waves.States
+namespace MOATT.Levels.Waves.States
 {
     public abstract class State : System.IDisposable
     {

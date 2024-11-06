@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
-using MOATT.Map.Waves.States;
+using MOATT.Levels.Waves.States;
 
-namespace MOATT.Zenject
+namespace MOATT.Levels.Installers
 {
     [CreateAssetMenu(fileName = "SettingsInstaller", menuName = "Installers/Settings Installer", order = 51)]
     public class GameSettingsInstaller : ScriptableObjectInstaller

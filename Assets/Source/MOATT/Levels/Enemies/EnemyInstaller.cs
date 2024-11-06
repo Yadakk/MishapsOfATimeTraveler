@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using MOATT.Enemies;
+using MOATT.Levels.Enemies;
 
-namespace MOATT.Zenject
+namespace MOATT.Levels.Enemies
 {
     public class EnemyInstaller : MonoInstaller
     {

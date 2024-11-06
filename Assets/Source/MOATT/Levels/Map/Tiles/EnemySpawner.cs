@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using MOATT.Enemies;
+using MOATT.Levels.Enemies;
 
-namespace MOATT.Map.Tiles
+namespace MOATT.Levels.Map.Tiles
 {
     public class EnemySpawner : Tile
     {

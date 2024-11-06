@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Map.Waves.States
+namespace MOATT.Levels.Waves.States
 {
     public class EnemiesAlive : State
     {

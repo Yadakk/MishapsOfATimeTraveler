@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MOATT.Map.Waves.States;
+using MOATT.Levels.Waves.States;
 using Zenject;
 
-namespace MOATT.Map.Waves
+namespace MOATT.Levels.Waves
 {
     public class StateFactory
     {

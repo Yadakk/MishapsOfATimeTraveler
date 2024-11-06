@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 using RndPathfinding;
 using Zenject;
 
-namespace MOATT.Map.Tiles
+namespace MOATT.Levels.Map.Tiles
 {
     public class Tile : MonoBehaviour, ICell
     {

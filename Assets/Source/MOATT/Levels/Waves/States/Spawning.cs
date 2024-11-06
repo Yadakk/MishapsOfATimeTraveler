@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using MOATT.Map.Tiles;
+using MOATT.Levels.Map.Tiles;
 using TimeTimers;
 
-namespace MOATT.Map.Waves.States
+namespace MOATT.Levels.Waves.States
 {
     public class Spawning : State
     {

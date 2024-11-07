@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Codice.Client.BaseCommands;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace TimeTimers
             Reset();
         }
 
-        public float Elapsed => start - Time.time;
+        public float Elapsed => Time.time - start;
 
         public void Reset()
         {

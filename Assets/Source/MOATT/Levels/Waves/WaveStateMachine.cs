@@ -10,30 +10,30 @@ namespace MOATT.Levels.Waves
 
     public class WaveStateMachine : IInitializable, ITickable
     {
-        private readonly Delay.Factory delayFactory;
+        private readonly StateFactory stateFactory;
 
-        private State state;
+        private State currentState;
 
-        public WaveStateMachine(Delay.Factory delayFactory)
+        public WaveStateMachine(StateFactory stateFactory)
         {
-            this.delayFactory = delayFactory;
+            this.stateFactory = stateFactory;
         }
 
         public void Initialize()
         {
-            SetState(delayFactory.Create());
+            SetState(StateFactory.EState.Delay);
         }
 
         public void Tick()
         {
-            state?.Update();
+            currentState?.Update();
         }
 
-        public void SetState(State newState)
+        public void SetState(StateFactory.EState eState)
         {
-            state?.Dispose();
-            state = newState;
-            state?.Start();
+            currentState?.Dispose();
+            currentState = stateFactory.Create(eState);
+            currentState?.Start();
         }
     }
 }

@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
 using TimeTimers;
-using MOATT.Levels.Enemies;
-using MOATT.Levels.Waves;
 
 namespace MOATT.Levels.Installers
 {
+    using Map.Tiles;
+    using Enemies;
+    using Waves;
+
     public class LevelInstaller : MonoInstaller
     {
         private Settings settings;
@@ -17,7 +19,7 @@ namespace MOATT.Levels.Installers
         public void Construct(Settings settings)
         {
             this.settings = settings;
-            new WaveInstaller().InstallBindings();
+            Container.Install<WaveInstaller>();
         }
 
         public override void InstallBindings()

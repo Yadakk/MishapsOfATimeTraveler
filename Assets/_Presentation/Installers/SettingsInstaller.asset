@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5c4d19119855b45b88bc1b2abb441b, type: 3}
+  m_Script: {fileID: 11500000, guid: dfe4ed4856fe09a4db392ebd004377ad, type: 3}
   m_Name: SettingsInstaller
   m_EditorClassIdentifier: 
   levelInstaller:
     <EnemyPrefab>k__BackingField: {fileID: 3131715034811329566, guid: 4199dbdbdd14d0e4e8c6892aaee2f814,
       type: 3}
+  waveSettings:
+    spawning:
+      spawnInterval: 1
+      enemiesToSpawn: 5

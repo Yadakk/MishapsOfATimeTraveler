@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 using MOATT.Levels.Map.Tiles;
@@ -11,28 +12,28 @@ namespace MOATT.Levels.Waves.States
     {
         private readonly Settings settings;
         private readonly WaveStateMachine stateMachine;
-        private readonly Factory factory;
         private readonly Timer timer;
         private readonly EnemySpawner[] spawners;
+        private readonly WaveInfo waveInfo;
 
         private int remainingToSpawn;
 
-        public Spawning(Settings settings, WaveStateMachine stateMachine, Factory factory,
-            Timer timer, EnemySpawner[] spawners)
+        public Spawning(Settings settings, WaveStateMachine stateMachine,
+            Timer timer, Tile[] tiles, WaveInfo waveInfo)
         {
             this.settings = settings;
             this.stateMachine = stateMachine;
-            this.factory = factory;
             this.timer = timer;
-            this.spawners = spawners;
+            spawners = tiles.OfType<EnemySpawner>().ToArray();
             remainingToSpawn = settings.enemiesToSpawn;
+            this.waveInfo = waveInfo;
         }
 
         public override void Update()
         {
             if (remainingToSpawn == 0)
             {
-                stateMachine.SetState(factory.Create());
+                stateMachine.SetState(StateFactory.EState.EnemiesAlive);
             }
 
             if (timer.Elapsed >= settings.spawnInterval)
@@ -45,7 +46,7 @@ namespace MOATT.Levels.Waves.States
         private void SpawnEnemy()
         {
             EnemySpawner selectedSpawner = spawners[Random.Range(0, spawners.Length)];
-            selectedSpawner.Spawn();
+            waveInfo.enemies.Add(selectedSpawner.Spawn());
             remainingToSpawn--;
         }
 

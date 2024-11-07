@@ -16,6 +16,8 @@ namespace MOATT.Levels.Waves
             Container.BindFactory<Delay, Delay.Factory>();
             Container.BindFactory<Spawning, Spawning.Factory>();
             Container.BindFactory<EnemiesAlive, EnemiesAlive.Factory>();
+            Container.Bind<WaveInfo>().AsSingle();
+            Container.Bind<StateFactory>().AsSingle();
         }
     }
 }

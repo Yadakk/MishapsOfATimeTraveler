@@ -7,11 +7,19 @@ namespace MOATT.Levels.Waves.States
 {
     public class EnemiesAlive : State
     {
-        private readonly Factory factory;
+        private readonly WaveInfo waveInfo;
+        private readonly WaveStateMachine stateMachine;
 
-        public EnemiesAlive(Factory factory)
+        public EnemiesAlive(WaveInfo waveInfo, WaveStateMachine stateMachine)
         {
-            this.factory = factory;
+            this.waveInfo = waveInfo;
+            this.stateMachine = stateMachine;
+        }
+
+        public override void Update()
+        {
+            if (waveInfo.CountClearNullEnemies() == 0)
+                stateMachine.SetState(StateFactory.EState.Delay);
         }
 
         public class Factory : PlaceholderFactory<EnemiesAlive> { }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +15,29 @@ namespace MOATT.Levels.Health
         private void Awake()
         {
             slider = GetComponentInChildren<Slider>();
+
+            iHealth.OnHealthChanged += HealthChangedHandler;
+            iHealth.OnMaxHealthChanged += MaxHealthChangedHandler;
         }
 
-        private void Update()
+        private void HealthChangedHandler()
         {
-            slider.maxValue = iHealth.MaxHealth;
+            ViewCurrent();
+        }
+
+        private void MaxHealthChangedHandler()
+        {
+            ViewMax();
+        }
+
+        private void ViewCurrent()
+        {
             slider.value = iHealth.CurrentHealth;
+        }
+
+        private void ViewMax()
+        {
+            slider.value = iHealth.MaxHealth;
         }
     }
 }

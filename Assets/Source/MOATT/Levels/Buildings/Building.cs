@@ -1,4 +1,5 @@
 ﻿using MOATT.Levels.Health;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,16 +14,29 @@ namespace MOATT.Levels.Buildings
         private float currentHealth;
 
         public float MaxHealth 
-        { 
-            get => maxHealth; 
-            set => maxHealth = value;
+        {
+            get => maxHealth;
+            set
+            {
+                if (value == maxHealth) return;
+                OnMaxHealthChanged?.Invoke();
+                maxHealth = value;
+            }
         }
 
-        public float CurrentHealth 
-        { 
+        public float CurrentHealth
+        {
             get => currentHealth;
-            set => currentHealth = value; 
+            set
+            {
+                if (value == currentHealth) return;
+                OnHealthChanged?.Invoke();
+                currentHealth = value;
+            }
         }
+
+        public event Action OnHealthChanged;
+        public event Action OnMaxHealthChanged;
 
         private void Awake()
         {

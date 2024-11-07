@@ -11,6 +11,7 @@ namespace RTS_Cam
 
         private TabsBlock tabs;
 
+        [System.Obsolete]
         private void OnEnable()
         {
             tabs = new TabsBlock(new Dictionary<string, System.Action>() 
@@ -32,6 +33,7 @@ namespace RTS_Cam
             EditorUtility.SetDirty(camera);
         }
 
+        [System.Obsolete]
         private void MovementTab()
         {
             using (new HorizontalBlock())

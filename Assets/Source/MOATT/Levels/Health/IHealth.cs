@@ -8,5 +8,8 @@ namespace MOATT.Levels.Health
     {
         float MaxHealth { get; set; }
         float CurrentHealth { get; set; }
+
+        event System.Action OnHealthChanged;
+        event System.Action OnMaxHealthChanged;
     }
 }

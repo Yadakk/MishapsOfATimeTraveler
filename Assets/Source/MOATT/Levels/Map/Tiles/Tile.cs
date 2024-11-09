@@ -16,7 +16,7 @@ namespace MOATT.Levels.Map.Tiles
 
         private Tilemap tilemap;
 
-        public Building CurrentBuilding { get; private set; }
+        public BuildingFacade CurrentBuilding { get; private set; }
 
         public Vector2Int CellPos => (Vector2Int)TilemapPos;
         public bool IsWalkable => isWalkable;
@@ -25,13 +25,13 @@ namespace MOATT.Levels.Map.Tiles
         public Vector3 WorldPos => transform.position;
 
         [Inject]
-        public void Construct(Tilemap tilemap, [InjectOptional] Building building)
+        public void Construct(Tilemap tilemap, [InjectOptional] BuildingFacade building)
         {
             this.tilemap = tilemap;
             CurrentBuilding = building;
         }
         
-        public void ConstructOptional(Tilemap tilemap, Building building)
+        public void ConstructOptional(Tilemap tilemap, BuildingFacade building)
         {
             this.tilemap = tilemap;
             CurrentBuilding = building;

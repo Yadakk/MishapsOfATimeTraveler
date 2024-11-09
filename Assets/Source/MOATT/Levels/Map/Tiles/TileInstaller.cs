@@ -9,7 +9,7 @@ namespace MOATT.Levels.Map.Tiles
     {
         public override void InstallBindings()
         {
-            Container.Bind<Building>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<BuildingFacade>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

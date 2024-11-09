@@ -50,9 +50,9 @@ namespace MOATT.Levels.Installers
 
         private void InstallBillboards()
         {
-            Container.BindFactory<IDisplayer, IBillboard, Billboard, Billboard.Factory>();
+            Container.BindFactory< BillboardSource, Transform, Billboard, Billboard.Factory>();
 
-            Container.BindFactory<IHealth, Healthbar, Healthbar.Factory>().
+            Container.BindFactory<HealthModel, Healthbar, Healthbar.Factory>().
                 FromComponentInNewPrefab(settings.HealthbarPrefab).
                 WithGameObjectName("Healthbar").UnderTransform(billboardGroup);
         }

@@ -16,7 +16,7 @@ namespace MOATT.Levels.Installers
         private LevelInstaller.Settings levelInstaller;
 
         [SerializeField]
-        private BillboardDisplaySettings billboardDisplay;
+        private BillboardSource.Settings billboardSource;
 
         [SerializeField]
         private WaveSettings waves;
@@ -36,7 +36,7 @@ namespace MOATT.Levels.Installers
 
         private void BindBillboardDisplay()
         {
-            Container.BindInstance(billboardDisplay);
+            Container.BindInstance(billboardSource);
         }
 
         [System.Serializable]

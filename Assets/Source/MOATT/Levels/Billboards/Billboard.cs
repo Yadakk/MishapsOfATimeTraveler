@@ -7,24 +7,25 @@ namespace MOATT.Levels.Billboards
 {
     public class Billboard
     {
+        public readonly Transform transform;
         private readonly Camera camera;
-        private readonly IDisplayer iDisplayer;
-        private readonly IBillboard iBillboard;
+        private readonly BillboardSource source;
 
-        public Billboard(IDisplayer iDisplayer, Camera camera, IBillboard iBillboard = null)
+        public Billboard(BillboardSource source, Camera camera, Transform transform)
         {
-            this.iDisplayer = iDisplayer;
+            this.source = source;
             this.camera = camera;
-            this.iBillboard = iBillboard;
+            this.transform = transform;
         }
 
         public void Update()
         {
-            Vector3 displayerTop = iDisplayer.Bounds.center;
-            displayerTop.y = iDisplayer.Bounds.max.y + iDisplayer.DisplayHeight;
-            iBillboard.RT.position = camera.WorldToScreenPoint(displayerTop);
+            Vector3 displayerTop = source.bounds.center;
+            displayerTop.y = source.bounds.max.y;
+            displayerTop += source.offset;
+            transform.position = camera.WorldToScreenPoint(displayerTop);
         }
 
-        public class Factory : PlaceholderFactory<IDisplayer, IBillboard, Billboard> { }
+        public class Factory : PlaceholderFactory<BillboardSource, Transform, Billboard> { }
     }
 }

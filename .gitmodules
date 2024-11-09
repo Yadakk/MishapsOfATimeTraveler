@@ -1,0 +1,4 @@
+[submodule "Assets/Source/BoundsMeasurement"]
+	path = Assets/Source/BoundsMeasurement
+	url = git@gitlab.com:cannedenuum-group/unity/utils/bounds-measurement.git
+	branch = master

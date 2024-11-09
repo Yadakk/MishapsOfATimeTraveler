@@ -10,9 +10,14 @@ namespace MOATT.Levels.Installers
     using Map.Tiles;
     using Enemies;
     using Waves;
+    using Health;
+    using Billboards;
 
     public class LevelInstaller : MonoInstaller
     {
+        [SerializeField]
+        private Transform billboardGroup;
+
         private Settings settings;
 
         [Inject]
@@ -27,6 +32,7 @@ namespace MOATT.Levels.Installers
             InstallMap();
             InstallEnemies();
             InstallMisc();
+            InstallBillboards();
         }
 
         private void InstallMap()
@@ -42,9 +48,19 @@ namespace MOATT.Levels.Installers
                 WithGameObjectName("Enemy").UnderTransformGroup("Enemies");
         }
 
+        private void InstallBillboards()
+        {
+            Container.BindFactory<IDisplayer, IBillboard, Billboard, Billboard.Factory>();
+
+            Container.BindFactory<IHealth, Healthbar, Healthbar.Factory>().
+                FromComponentInNewPrefab(settings.HealthbarPrefab).
+                WithGameObjectName("Healthbar").UnderTransform(billboardGroup);
+        }
+
         private void InstallMisc()
         {
             Container.Bind<Timer>().AsTransient();
+            Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
         }
 
         [System.Serializable]
@@ -52,6 +68,9 @@ namespace MOATT.Levels.Installers
         {
             [field: SerializeField]
             public Enemy EnemyPrefab { get; private set; }
+
+            [field: SerializeField]
+            public Healthbar HealthbarPrefab { get; private set; }
         }
     }
 }

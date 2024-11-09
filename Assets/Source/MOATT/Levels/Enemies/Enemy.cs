@@ -12,6 +12,11 @@ namespace MOATT.Levels.Enemies
         private Tile[] tiles;
         private MapNavigator navigator;
 
+        private void Awake()
+        {
+            navigator.OnTileReached += TileReachedHandler;
+        }
+
         private void Start()
         {
             var towerTiles = tiles.Where(tile => tile is TowerTile).ToArray();
@@ -23,6 +28,13 @@ namespace MOATT.Levels.Enemies
         {
             this.tiles = tiles;
             this.navigator = navigator;
+        }
+
+        private void TileReachedHandler(Tile tile)
+        {
+            if (tile.CurrentBuilding == null) return;
+            tile.CurrentBuilding.Damage(1);
+            Destroy(gameObject);
         }
 
         public class Factory : PlaceholderFactory<Enemy> { }

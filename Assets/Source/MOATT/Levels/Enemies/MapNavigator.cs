@@ -16,6 +16,8 @@ namespace MOATT.Levels.Enemies
         private readonly Transform transform;
         private readonly Tilemap tilemap;
 
+        public event System.Action<Tile> OnTileReached;
+
         public MapNavigator(List<Tile> tiles, Transform transform, 
             Tilemap tilemap)
         {
@@ -34,7 +36,8 @@ namespace MOATT.Levels.Enemies
 
             Vector3[] path = tilePath.Select(tile => tile.WorldPos).ToArray();
 
-            transform.DOPath(path, 1f).SetSpeedBased().SetEase(Ease.Linear);
+            transform.DOPath(path, 1f).SetSpeedBased().SetEase(Ease.Linear).
+                OnComplete(() => OnTileReached?.Invoke(target));
         }
     }
 }

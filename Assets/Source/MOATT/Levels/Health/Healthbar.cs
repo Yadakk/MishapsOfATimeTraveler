@@ -6,18 +6,30 @@ using UnityEngine.UI;
 
 namespace MOATT.Levels.Health
 {
-    public class Healthbar : MonoBehaviour
+    using Billboards;
+    using Zenject;
+
+    public class Healthbar : MonoBehaviour, IBillboard
     {
-        public IHealth iHealth;
+        private IHealth iHealth;
 
         private Slider slider;
 
+        public RectTransform RT { get; private set; }
+
         private void Awake()
         {
+            RT = GetComponent<RectTransform>();
             slider = GetComponentInChildren<Slider>();
 
             iHealth.OnHealthChanged += HealthChangedHandler;
             iHealth.OnMaxHealthChanged += MaxHealthChangedHandler;
+        }
+
+        [Inject]
+        public void Construct(IHealth iHealth)
+        {
+            this.iHealth = iHealth;
         }
 
         private void HealthChangedHandler()
@@ -39,5 +51,7 @@ namespace MOATT.Levels.Health
         {
             slider.value = iHealth.MaxHealth;
         }
+
+        public class Factory : PlaceholderFactory<IHealth, Healthbar> { }
     }
 }

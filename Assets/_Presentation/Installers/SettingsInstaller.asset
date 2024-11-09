@@ -15,7 +15,13 @@ MonoBehaviour:
   levelInstaller:
     <EnemyPrefab>k__BackingField: {fileID: 3131715034811329566, guid: 4199dbdbdd14d0e4e8c6892aaee2f814,
       type: 3}
-  waveSettings:
+    <HealthbarPrefab>k__BackingField: {fileID: 4638089516827921219, guid: 0f56dedc156656c438036f887c07410f,
+      type: 3}
+  billboardDisplay:
+    displayHeight: 1
+  waves:
+    delay:
+      waveDelay: 1
     spawning:
       spawnInterval: 1
       enemiesToSpawn: 5

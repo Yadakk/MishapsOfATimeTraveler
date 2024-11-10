@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: a5a56c81874c7ef4da9b9ef34f93ce53, type: 2}
   _monoInstallers:
   - {fileID: 5827730735127885276}
   _installerPrefabs: []
@@ -182,8 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c385deccc3167f488c148168c4a0497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthModelSettings:
-    maxHealth: 100
 --- !u!1001 &5946014949767344331
 PrefabInstance:
   m_ObjectHideFlags: 0

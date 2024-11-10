@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd81a5a9c28973e439a1845d2cedc9e5, type: 3}
-  m_Name: EnemySettingsInstaller
+  m_Script: {fileID: 11500000, guid: 1d49c4d99eb45eb4aa0bb34f6604aa3c, type: 3}
+  m_Name: BuildingSettingsInstaller
   m_EditorClassIdentifier: 
-  towerDamager:
-    damage: 2
   healthModel:
-    maxHealth: 100
+    maxHealth: 12

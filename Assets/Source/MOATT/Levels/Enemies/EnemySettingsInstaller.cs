@@ -5,6 +5,8 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
+    using Health;
+
     [CreateAssetMenu(fileName = nameof(EnemySettingsInstaller),
         menuName = "Installers/" + nameof(EnemySettingsInstaller))]
     public class EnemySettingsInstaller : ScriptableObjectInstaller
@@ -12,9 +14,13 @@ namespace MOATT.Levels.Enemies
         [SerializeField]
         private EnemyTowerDamager.Settings towerDamager;
 
+        [SerializeField]
+        private HealthModel.Settings healthModel;
+
         public override void InstallBindings()
         {
             Container.BindInstance(towerDamager);
+            Container.BindInstance(healthModel);
         }
     }
 }

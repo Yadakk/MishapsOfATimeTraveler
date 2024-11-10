@@ -11,6 +11,7 @@ namespace MOATT.Levels.Installers
     using Enemies;
     using Waves;
     using Health;
+    using Healthbars;
     using Billboards;
 
     public class LevelInstaller : MonoInstaller

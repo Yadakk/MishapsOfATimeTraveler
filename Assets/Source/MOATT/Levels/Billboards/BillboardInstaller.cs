@@ -19,7 +19,6 @@ namespace MOATT.Levels.Billboards
         {
             Container.BindInstance(billboardSource).AsSingle();
             Container.BindInterfacesAndSelfTo<BillboardPositioner>().AsSingle();
-            Container.Bind<BillboardTunables>().AsSingle();
         }
     }
 }

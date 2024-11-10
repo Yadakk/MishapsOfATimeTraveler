@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Health
+namespace MOATT.Levels.Healthbars
 {
     using Billboards;
+    using Health;
 
     public class HealthbarBillboard : IInitializable, System.IDisposable
     {

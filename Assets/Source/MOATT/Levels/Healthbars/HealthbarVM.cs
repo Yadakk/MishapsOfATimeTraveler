@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace MOATT.Levels.Health
+namespace MOATT.Levels.Healthbars
 {
+    using Health;
+
     public class HealthbarVM : IInitializable, System.IDisposable
     {
         private readonly HealthModel model;

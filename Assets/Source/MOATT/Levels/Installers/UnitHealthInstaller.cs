@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Health
+namespace MOATT.Levels.Installers
 {
-    public class HealthInstaller : MonoInstaller
+    using Health;
+    using Healthbars;
+
+    public class UnitHealthInstaller : MonoInstaller
     {
         [SerializeField]
         private HealthModel.Settings healthModelSettings;

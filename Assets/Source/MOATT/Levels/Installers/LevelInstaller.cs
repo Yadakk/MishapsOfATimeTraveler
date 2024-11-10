@@ -19,12 +19,15 @@ namespace MOATT.Levels.Installers
         [SerializeField]
         private Transform billboardGroup;
 
+        private GlobalSettings globalSettings;
         private Settings settings;
 
         [Inject]
-        public void Construct(Settings settings)
+        public void Construct(GlobalSettings globalSettings, Settings settings)
         {
             this.settings = settings;
+            this.globalSettings = globalSettings;
+
             Container.Install<WaveInstaller>();
         }
 
@@ -46,15 +49,17 @@ namespace MOATT.Levels.Installers
 
         private void InstallEnemies()
         {
-            Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().FromComponentInNewPrefab(settings.EnemyPrefab).
-                WithGameObjectName("Enemy").UnderTransformGroup("Enemies");
+            Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().
+                FromComponentInNewPrefab(settings.enemyPrefab).
+                WithGameObjectName("Enemy").
+                UnderTransformGroup("Enemies");
         }
 
         private void InstallBillboards()
         {
             Container.BindFactory<BillboardSource, BillboardFacade, BillboardFacade.Factory>().
                 FromSubContainerResolve().
-                ByNewContextPrefab<BillboardInstaller>(settings.BillboardPrefab).
+                ByNewContextPrefab<BillboardInstaller>(globalSettings.billboardPrefab).
                 WithGameObjectName("Billboard").
                 UnderTransform(billboardGroup);
         }
@@ -63,27 +68,26 @@ namespace MOATT.Levels.Installers
         {
             Container.BindFactory<HealthModel, HealthbarFacade, HealthbarFacade.Factory>().
                 FromSubContainerResolve().
-                ByNewContextPrefab<HealthbarInstaller>(settings.HealthbarPrefab).
+                ByNewContextPrefab<HealthbarInstaller>(globalSettings.healthbarPrefab).
                 WithGameObjectName("Healthbar");
         }
 
         private void InstallMisc()
         {
-            Container.Bind<Timer>().AsTransient();
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
         }
 
         [System.Serializable]
         public class Settings
         {
-            [field: SerializeField]
-            public EnemyFacade EnemyPrefab { get; private set; }
+            public EnemyFacade enemyPrefab;
+        }
 
-            [field: SerializeField]
-            public GameObject HealthbarPrefab { get; private set; }
-
-            [field: SerializeField]
-            public GameObject BillboardPrefab { get; internal set; }
+        [System.Serializable]
+        public class GlobalSettings
+        {
+            public HealthbarFacade healthbarPrefab;
+            public BillboardFacade billboardPrefab;
         }
     }
 }

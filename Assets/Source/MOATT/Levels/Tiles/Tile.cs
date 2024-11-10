@@ -30,11 +30,5 @@ namespace MOATT.Levels.Map.Tiles
             this.tilemap = tilemap;
             CurrentBuilding = building;
         }
-        
-        public void ConstructOptional(Tilemap tilemap, BuildingFacade building)
-        {
-            this.tilemap = tilemap;
-            CurrentBuilding = building;
-        }
     }
 }

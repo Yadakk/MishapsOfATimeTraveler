@@ -21,7 +21,6 @@ namespace MOATT.Levels.Buildings
         public void Damage(int damage)
         {
             healthModel.CurrentHealth -= damage;
-            if (healthModel.CurrentHealth <= 0) Destroy(gameObject);
         }
     }
 }

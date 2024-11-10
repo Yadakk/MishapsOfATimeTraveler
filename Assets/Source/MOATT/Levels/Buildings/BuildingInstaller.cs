@@ -13,11 +13,13 @@ namespace MOATT.Levels.Buildings
 
         public override void InstallBindings()
         {
+            Container.BindInstance(gameObject).AsSingle();
             Container.Bind<Renderer>().FromComponentsInHierarchy().AsSingle();
-            Container.BindInstance(healthModelSettings).AsSingle();
             Container.Bind<HealthModel>().AsSingle();
+            Container.BindInstance(healthModelSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
             Container.BindInterfacesAndSelfTo<HealthbarBillboard>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HealthWatcher>().AsSingle();
         }
     }
 }

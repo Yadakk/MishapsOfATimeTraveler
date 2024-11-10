@@ -1,12 +1,12 @@
-﻿using MOATT.Levels.Billboards;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Global.Installers
+namespace MOATT.Installers
 {
     using Levels.Installers;
+    using Billboards;
 
     [CreateAssetMenu(fileName = nameof(GameSettingsInstaller),
         menuName = "Installers/" + nameof(GameSettingsInstaller))]

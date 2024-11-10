@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Health
+namespace MOATT.Health
 {
     public class HealthWatcher : IInitializable
     {

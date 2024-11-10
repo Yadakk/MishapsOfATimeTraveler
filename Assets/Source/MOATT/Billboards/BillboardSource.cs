@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Billboards
+namespace MOATT.Billboards
 {
     public class BillboardSource : IInitializable, ITickable
     {

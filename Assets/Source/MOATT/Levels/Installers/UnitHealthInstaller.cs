@@ -1,5 +1,4 @@
-﻿using MOATT.Levels.Billboards;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -8,6 +7,7 @@ namespace MOATT.Levels.Installers
 {
     using Health;
     using Healthbars;
+    using Billboards;
 
     public class UnitHealthInstaller : MonoInstaller
     {

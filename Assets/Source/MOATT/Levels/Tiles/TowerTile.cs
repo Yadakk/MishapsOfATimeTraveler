@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MOATT.Levels.Map.Tiles
+namespace MOATT.Levels.Tiles
 {
     public class TowerTile : Tile
     {

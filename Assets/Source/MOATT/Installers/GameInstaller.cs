@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using TimeTimers;
 
-namespace MOATT.Global.Installers
+namespace MOATT.Installers
 {
     public class GameInstaller : MonoInstaller
     {

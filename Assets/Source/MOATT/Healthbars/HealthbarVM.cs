@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace MOATT.Levels.Healthbars
+namespace MOATT.Healthbars
 {
     using Health;
 

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
-using MOATT.Levels.Map.Tiles;
-using MOATT.Levels.Health;
 
 namespace MOATT.Levels.Enemies
 {
+    using Health;
+
     public class EnemyFacade : MonoBehaviour
     {
         private HealthModel healthModel;

@@ -7,7 +7,7 @@ using TimeTimers;
 
 namespace MOATT.Levels.Installers
 {
-    using Map.Tiles;
+    using Tiles;
     using Enemies;
     using Waves;
     using Health;

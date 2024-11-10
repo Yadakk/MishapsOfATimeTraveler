@@ -8,7 +8,7 @@ using RndPathfinding;
 
 namespace MOATT.Levels.Enemies
 {
-    using Map.Tiles;
+    using Tiles;
     using Zenject;
 
     public class EnemyPathfinder : IInitializable

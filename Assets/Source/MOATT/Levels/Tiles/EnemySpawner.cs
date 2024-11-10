@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using MOATT.Levels.Enemies;
 
-namespace MOATT.Levels.Map.Tiles
+namespace MOATT.Levels.Tiles
 {
     public class EnemySpawner : Tile
     {

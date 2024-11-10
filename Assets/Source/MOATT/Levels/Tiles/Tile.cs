@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 using RndPathfinding;
 using Zenject;
 
-namespace MOATT.Levels.Map.Tiles
+namespace MOATT.Levels.Tiles
 {
     using Buildings;
 

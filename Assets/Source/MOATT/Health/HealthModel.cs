@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MOATT.Levels.Health
+namespace MOATT.Health
 {
     public class HealthModel
     {

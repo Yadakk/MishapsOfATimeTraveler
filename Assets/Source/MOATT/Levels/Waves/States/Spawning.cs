@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
-using MOATT.Levels.Map.Tiles;
 using TimeTimers;
 
 namespace MOATT.Levels.Waves.States
 {
+    using Tiles;
+
     public class Spawning : State
     {
         private readonly Settings settings;

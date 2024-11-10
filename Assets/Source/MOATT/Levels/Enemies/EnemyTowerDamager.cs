@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
-    using Map.Tiles;
+    using Tiles;
 
     public class EnemyTowerDamager : IInitializable, System.IDisposable
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Map.Tiles
+namespace MOATT.Levels.Tiles
 {
     using Buildings;
 

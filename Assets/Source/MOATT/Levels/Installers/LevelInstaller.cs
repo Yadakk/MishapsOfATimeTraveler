@@ -50,7 +50,7 @@ namespace MOATT.Levels.Installers
 
         private void InstallBillboards()
         {
-            Container.BindFactory< BillboardSource, Transform, Billboard, Billboard.Factory>();
+            Container.BindFactory<BillboardSource, Transform, Billboard, Billboard.Factory>();
 
             Container.BindFactory<HealthModel, Healthbar, Healthbar.Factory>().
                 FromComponentInNewPrefab(settings.HealthbarPrefab).
@@ -70,7 +70,7 @@ namespace MOATT.Levels.Installers
             public Enemy EnemyPrefab { get; private set; }
 
             [field: SerializeField]
-            public Healthbar HealthbarPrefab { get; private set; }
+            public GameObject HealthbarPrefab { get; private set; }
         }
     }
 }

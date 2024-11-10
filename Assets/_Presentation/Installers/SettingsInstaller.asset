@@ -15,7 +15,7 @@ MonoBehaviour:
   levelInstaller:
     <EnemyPrefab>k__BackingField: {fileID: 3131715034811329566, guid: 4199dbdbdd14d0e4e8c6892aaee2f814,
       type: 3}
-    <HealthbarPrefab>k__BackingField: {fileID: 4638089516827921219, guid: 0f56dedc156656c438036f887c07410f,
+    <HealthbarPrefab>k__BackingField: {fileID: 3285626309802662004, guid: 0f56dedc156656c438036f887c07410f,
       type: 3}
   billboardSource:
     offset: {x: 0, y: 1, z: 0}

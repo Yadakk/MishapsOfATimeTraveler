@@ -28,6 +28,7 @@ namespace MOATT.Levels.Billboards
 
         public void Dispose()
         {
+            if (transform == null) return;
             Object.Destroy(transform.gameObject);
         }
 

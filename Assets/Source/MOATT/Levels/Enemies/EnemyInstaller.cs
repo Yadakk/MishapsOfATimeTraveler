@@ -10,8 +10,8 @@ namespace MOATT.Levels.Enemies
     {
         public override void InstallBindings()
         {
-            Container.Bind<Transform>().FromInstance(transform).AsSingle();
-            Container.Bind<MapNavigator>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyPathfinder>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyTowerDamager>().AsSingle();
         }
     }
 }

@@ -45,7 +45,7 @@ namespace MOATT.Levels.Installers
 
         private void InstallEnemies()
         {
-            Container.BindFactory<Enemy, Enemy.Factory>().FromComponentInNewPrefab(settings.EnemyPrefab).
+            Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().FromComponentInNewPrefab(settings.EnemyPrefab).
                 WithGameObjectName("Enemy").UnderTransformGroup("Enemies");
         }
 
@@ -73,7 +73,7 @@ namespace MOATT.Levels.Installers
         public class Settings
         {
             [field: SerializeField]
-            public Enemy EnemyPrefab { get; private set; }
+            public EnemyFacade EnemyPrefab { get; private set; }
 
             [field: SerializeField]
             public GameObject HealthbarPrefab { get; private set; }

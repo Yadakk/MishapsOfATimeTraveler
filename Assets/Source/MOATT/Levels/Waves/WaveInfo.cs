@@ -8,7 +8,7 @@ namespace MOATT.Levels.Waves
 
     public class WaveInfo
     {
-        public readonly List<Enemy> enemies = new();
+        public readonly List<EnemyFacade> enemies = new();
 
         public int CountClearNullEnemies()
         {

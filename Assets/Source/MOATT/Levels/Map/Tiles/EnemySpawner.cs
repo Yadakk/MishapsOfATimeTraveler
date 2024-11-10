@@ -8,17 +8,17 @@ namespace MOATT.Levels.Map.Tiles
 {
     public class EnemySpawner : Tile
     {
-        Enemy.Factory factory;
+        EnemyFacade.Factory factory;
 
         [Inject]
-        public void Construct(Enemy.Factory factory)
+        public void Construct(EnemyFacade.Factory factory)
         {
             this.factory = factory;
         }
 
-        public Enemy Spawn()
+        public EnemyFacade Spawn()
         {
-            Enemy enemy = factory.Create();
+            EnemyFacade enemy = factory.Create();
             enemy.transform.position = transform.position;
             return enemy;
         }

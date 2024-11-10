@@ -18,7 +18,7 @@ namespace MOATT.Levels.Buildings
             this.healthModel = healthModel;
         }
 
-        public void Damage(int damage)
+        public void Damage(float damage)
         {
             healthModel.CurrentHealth -= damage;
         }

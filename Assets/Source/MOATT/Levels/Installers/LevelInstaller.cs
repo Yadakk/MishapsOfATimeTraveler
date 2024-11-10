@@ -34,6 +34,7 @@ namespace MOATT.Levels.Installers
             InstallEnemies();
             InstallMisc();
             InstallBillboards();
+            InstallHealthbars();
         }
 
         private void InstallMap()
@@ -56,7 +57,10 @@ namespace MOATT.Levels.Installers
                 ByNewContextPrefab<BillboardInstaller>(settings.BillboardPrefab).
                 WithGameObjectName("Billboard").
                 UnderTransform(billboardGroup);
+        }
 
+        private void InstallHealthbars()
+        {
             Container.BindFactory<HealthModel, HealthbarFacade, HealthbarFacade.Factory>().
                 FromSubContainerResolve().
                 ByNewContextPrefab<HealthbarInstaller>(settings.HealthbarPrefab).

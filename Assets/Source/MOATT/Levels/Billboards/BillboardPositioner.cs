@@ -23,7 +23,7 @@ namespace MOATT.Levels.Billboards
         {
             Vector3 displayerTop = source.bounds.center;
             displayerTop.y = source.bounds.max.y;
-            displayerTop += source.offset;
+            displayerTop += source.Offset;
             transform.position = camera.WorldToScreenPoint(displayerTop);
         }
     }

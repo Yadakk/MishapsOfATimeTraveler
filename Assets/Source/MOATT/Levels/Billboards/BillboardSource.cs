@@ -9,15 +9,17 @@ namespace MOATT.Levels.Billboards
     public class BillboardSource : IInitializable, ITickable
     {
         public Bounds bounds;
-        public Vector3 offset;
 
         private readonly Renderer[] renderers;
+        private readonly Settings settings;
 
         public BillboardSource(Renderer[] renderers, Settings settings)
         {
             this.renderers = renderers;
-            offset = settings.offset;
+            this.settings = settings;
         }
+
+        public Vector3 Offset => settings.offset;
 
         [Inject]
         public void Initialize()

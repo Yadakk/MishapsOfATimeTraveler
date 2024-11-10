@@ -7,36 +7,25 @@ using MOATT.Levels.Waves.States;
 
 namespace MOATT.Levels.Installers
 {
-    using Billboards;
-
-    [CreateAssetMenu(fileName = "LevelSettingsInstaller", menuName = "Installers/Level Settings Installer", order = 51)]
+    [CreateAssetMenu(fileName = nameof(LevelSettingsInstaller), menuName = "Installers/" + nameof(LevelSettingsInstaller), order = 51)]
     public class LevelSettingsInstaller : ScriptableObjectInstaller
     {
         [SerializeField]
         private LevelInstaller.Settings levelInstaller;
 
         [SerializeField]
-        private BillboardSource.Settings billboardSource;
-
-        [SerializeField]
         private WaveSettings waves;
 
         public override void InstallBindings()
         {
-            BindWaves();
-            BindBillboardDisplay();
+            InstallWaves();
         }
 
-        private void BindWaves()
+        private void InstallWaves()
         {
             Container.BindInstance(levelInstaller);
             Container.BindInstance(waves.delay);
             Container.BindInstance(waves.spawning);
-        }
-
-        private void BindBillboardDisplay()
-        {
-            Container.BindInstance(billboardSource);
         }
 
         [System.Serializable]

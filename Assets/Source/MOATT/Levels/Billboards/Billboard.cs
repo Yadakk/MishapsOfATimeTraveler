@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Billboards
 {
-    public class Billboard
+    public class Billboard : System.IDisposable
     {
         public readonly Transform transform;
         private readonly Camera camera;
@@ -24,6 +24,11 @@ namespace MOATT.Levels.Billboards
             displayerTop.y = source.bounds.max.y;
             displayerTop += source.offset;
             transform.position = camera.WorldToScreenPoint(displayerTop);
+        }
+
+        public void Dispose()
+        {
+            Object.Destroy(transform.gameObject);
         }
 
         public class Factory : PlaceholderFactory<BillboardSource, Transform, Billboard> { }

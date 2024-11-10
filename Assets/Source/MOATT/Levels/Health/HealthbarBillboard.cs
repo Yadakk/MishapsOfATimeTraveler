@@ -7,7 +7,7 @@ namespace MOATT.Levels.Health
 {
     using Billboards;
 
-    public class HealthbarBillboard : IInitializable, ITickable
+    public class HealthbarBillboard : IInitializable, ITickable, System.IDisposable
     {
         private readonly HealthModel healthmodel;
         private readonly BillboardSource billboardSource;
@@ -38,9 +38,9 @@ namespace MOATT.Levels.Health
             billboard.Update();
         }
 
-        public void Destroy()
+        public void Dispose()
         {
-            Object.Destroy(billboard.transform.gameObject);
+            billboard.Dispose();
         }
     }
 }

@@ -7,19 +7,20 @@ namespace MOATT.Levels.Health
 {
     using Billboards;
 
-    public class HealthbarBillboard : IInitializable, ITickable, System.IDisposable
+    public class HealthbarBillboard : IInitializable, System.IDisposable
     {
         private readonly HealthModel healthmodel;
         private readonly BillboardSource billboardSource;
-        private readonly Healthbar.Factory healthbarFactory;
-        private readonly Billboard.Factory billboardFactory;
+        private readonly HealthbarFacade.Factory healthbarFactory;
+        private readonly BillboardFacade.Factory billboardFactory;
 
-        private Billboard billboard;
+        private BillboardFacade billboard;
 
-        public HealthbarBillboard(HealthModel healthmodel,
+        public HealthbarBillboard(
+            HealthModel healthmodel,
             BillboardSource billboardSource,
-            Healthbar.Factory healthbarFactory,
-            Billboard.Factory billboardFactory)
+            HealthbarFacade.Factory healthbarFactory,
+            BillboardFacade.Factory billboardFactory)
         {
             this.healthmodel = healthmodel;
             this.billboardSource = billboardSource;
@@ -27,17 +28,15 @@ namespace MOATT.Levels.Health
             this.billboardFactory = billboardFactory;
         }
 
+        [Inject]
         public void Initialize()
         {
-            billboard = billboardFactory.Create(
-                billboardSource, healthbarFactory.Create(healthmodel).transform);
+            billboard = billboardFactory.Create(billboardSource);
+            var healthbar = healthbarFactory.Create(healthmodel);
+            healthbar.transform.SetParent(billboard.transform, false);
         }
 
-        public void Tick()
-        {
-            billboard.Update();
-        }
-
+        [Inject]
         public void Dispose()
         {
             billboard.Dispose();

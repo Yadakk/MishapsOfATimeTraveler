@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace MOATT.Levels.Health
 {
-    using Zenject;
-
-    public class Healthbar : MonoBehaviour
+    public class HealthbarVM : IInitializable, System.IDisposable
     {
-        private HealthModel model;
+        private readonly HealthModel model;
+        private readonly Slider slider;
 
-        private Slider slider;
-
-        private void Awake()
+        public HealthbarVM(HealthModel model, Slider slider)
         {
-            slider = GetComponentInChildren<Slider>();
+            this.model = model;
+            this.slider = slider;
+        }
 
+        [Inject]
+        public void Initialize()
+        {
             model.OnHealthChanged += HealthChangedHandler;
             model.OnMaxHealthChanged += MaxHealthChangedHandler;
 
@@ -26,9 +28,10 @@ namespace MOATT.Levels.Health
         }
 
         [Inject]
-        public void Construct(HealthModel model)
+        public void Dispose()
         {
-            this.model = model;
+            model.OnHealthChanged -= HealthChangedHandler;
+            model.OnMaxHealthChanged -= MaxHealthChangedHandler;
         }
 
         private void HealthChangedHandler()
@@ -50,7 +53,5 @@ namespace MOATT.Levels.Health
         {
             slider.maxValue = model.MaxHealth;
         }
-
-        public class Factory : PlaceholderFactory<HealthModel, Healthbar> { }
     }
 }

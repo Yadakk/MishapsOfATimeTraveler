@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 8650489344335929958}
   - component: {fileID: 2487182164016597111}
   - component: {fileID: 4369992948512681480}
-  - component: {fileID: 3933554314909407519}
   - component: {fileID: 7245018459466766822}
   - component: {fileID: 4167796433158050098}
   m_Layer: 0
@@ -157,7 +156,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 4369992948512681480}
-  - {fileID: 3933554314909407519}
+  - {fileID: 7245018459466766822}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -173,20 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c978e92d39a85b4498dd6a4a044f3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3933554314909407519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8230181447478690943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0760a40250dad2e4ba3c7c1d6f1118f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthModelSettings:
-    maxHealth: 10
 --- !u!114 &7245018459466766822
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ MonoBehaviour:
       type: 3}
     <HealthbarPrefab>k__BackingField: {fileID: 3285626309802662004, guid: 0f56dedc156656c438036f887c07410f,
       type: 3}
+    <BillboardPrefab>k__BackingField: {fileID: 6717614961413707571, guid: 47c0d5fc296bb67488d0e6fe88bdc63d,
+      type: 3}
   billboardSource:
     offset: {x: 0, y: 1, z: 0}
   waves:

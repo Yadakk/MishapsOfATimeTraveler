@@ -50,11 +50,16 @@ namespace MOATT.Levels.Installers
 
         private void InstallBillboards()
         {
-            Container.BindFactory<BillboardSource, Transform, Billboard, Billboard.Factory>();
+            Container.BindFactory<BillboardSource, BillboardFacade, BillboardFacade.Factory>().
+                FromSubContainerResolve().
+                ByNewContextPrefab<BillboardInstaller>(settings.BillboardPrefab).
+                WithGameObjectName("Billboard").
+                UnderTransform(billboardGroup);
 
-            Container.BindFactory<HealthModel, Healthbar, Healthbar.Factory>().
-                FromComponentInNewPrefab(settings.HealthbarPrefab).
-                WithGameObjectName("Healthbar").UnderTransform(billboardGroup);
+            Container.BindFactory<HealthModel, HealthbarFacade, HealthbarFacade.Factory>().
+                FromSubContainerResolve().
+                ByNewContextPrefab<HealthbarInstaller>(settings.HealthbarPrefab).
+                WithGameObjectName("Healthbar");
         }
 
         private void InstallMisc()
@@ -71,6 +76,9 @@ namespace MOATT.Levels.Installers
 
             [field: SerializeField]
             public GameObject HealthbarPrefab { get; private set; }
+
+            [field: SerializeField]
+            public GameObject BillboardPrefab { get; internal set; }
         }
     }
 }

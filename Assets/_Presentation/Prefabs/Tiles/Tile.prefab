@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7577221623819995268}
   - component: {fileID: 4894145733685582614}
   - component: {fileID: 3434572286082767690}
-  - component: {fileID: 8946383072081903777}
+  - component: {fileID: 3368819830837744430}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: e37970ac7b8855543929ee5010cd075e, type: 2}
   _monoInstallers:
   - {fileID: 3434572286082767690}
   _installerPrefabs: []
@@ -65,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42244966dfdf94349ae7ac1753add43c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8946383072081903777
+--- !u!114 &3368819830837744430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,10 +75,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2012217534374810893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced99407914b1294c95f7f72872c8375, type: 3}
+  m_Script: {fileID: 11500000, guid: c217730f2e4d8774b986c2dab6fe951f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWalkable: 0
 --- !u!1 &3911604163281650318
 GameObject:
   m_ObjectHideFlags: 0

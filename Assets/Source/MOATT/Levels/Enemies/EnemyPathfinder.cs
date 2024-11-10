@@ -13,14 +13,14 @@ namespace MOATT.Levels.Enemies
 
     public class EnemyPathfinder : IInitializable
     {
-        private readonly Tile[] tiles;
+        private readonly TileFacade[] tiles;
         private readonly EnemyFacade facade;
         private readonly Tilemap tilemap;
 
-        public event System.Action<Tile> OnTileReached;
+        public event System.Action<TileFacade> OnTileReached;
 
         public EnemyPathfinder(
-            Tile[] tiles,
+            TileFacade[] tiles,
             EnemyFacade facade, 
             Tilemap tilemap)
         {
@@ -31,19 +31,22 @@ namespace MOATT.Levels.Enemies
 
         public void Initialize()
         {
-            var towerTiles = tiles.Where(tile => tile is TowerTile).ToArray();
+            var towerTiles = tiles.Where(tile => tile is TowerTileFacade).ToArray();
             MoveToTile(towerTiles[Random.Range(0, towerTiles.Length)]);
         }
 
-        public void MoveToTile(Tile target)
+        public void MoveToTile(TileFacade target)
         {
-            Tile sourceTile = System.Array.Find(tiles,
-                tile => tile.TilemapPos == tilemap.WorldToCell(facade.transform.position));
+            TileFacade sourceTile = System.Array.Find(tiles,
+                tile => tile.TileCell.TilemapPos == tilemap.WorldToCell(facade.transform.position));
 
-            List<Tile> tilePath = RndPathfinder.Pathfind(
-                tiles.Cast<ICell>().ToList(), sourceTile, target).Cast<Tile>().ToList();
+            List<TileFacade> tilePath = RndPathfinder.Pathfind(
+                tiles.Select(tile => tile.TileCell).
+                Cast<ICell>().ToList(), 
+                sourceTile.TileCell, target.TileCell).
+                Cast<TileCell>().Select(tileCell => tileCell.facade).ToList();
 
-            Vector3[] path = tilePath.Select(tile => tile.WorldPos).ToArray();
+            Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();
 
             facade.transform.DOPath(path, 1f).SetSpeedBased().SetEase(Ease.Linear).
                 OnComplete(() => OnTileReached?.Invoke(target));

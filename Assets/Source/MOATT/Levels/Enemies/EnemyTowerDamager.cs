@@ -32,7 +32,7 @@ namespace MOATT.Levels.Enemies
             navigator.OnTileReached -= TileReachedHandler;
         }
 
-        private void TileReachedHandler(Tile tile)
+        private void TileReachedHandler(TileFacade tile)
         {
             if (tile.CurrentBuilding == null) return;
             tile.CurrentBuilding.Damage(settings.damage);

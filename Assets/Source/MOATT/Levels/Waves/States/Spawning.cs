@@ -14,18 +14,18 @@ namespace MOATT.Levels.Waves.States
         private readonly Settings settings;
         private readonly WaveStateMachine stateMachine;
         private readonly Timer timer;
-        private readonly EnemySpawner[] spawners;
+        private readonly SpawnerTileFacade[] spawners;
         private readonly WaveInfo waveInfo;
 
         private int remainingToSpawn;
 
         public Spawning(Settings settings, WaveStateMachine stateMachine,
-            Timer timer, Tile[] tiles, WaveInfo waveInfo)
+            Timer timer, TileFacade[] tiles, WaveInfo waveInfo)
         {
             this.settings = settings;
             this.stateMachine = stateMachine;
             this.timer = timer;
-            spawners = tiles.OfType<EnemySpawner>().ToArray();
+            spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
             remainingToSpawn = settings.enemiesToSpawn;
             this.waveInfo = waveInfo;
         }
@@ -46,7 +46,7 @@ namespace MOATT.Levels.Waves.States
 
         private void SpawnEnemy()
         {
-            EnemySpawner selectedSpawner = spawners[Random.Range(0, spawners.Length)];
+            SpawnerTileFacade selectedSpawner = spawners[Random.Range(0, spawners.Length)];
             waveInfo.enemies.Add(selectedSpawner.Spawn());
             remainingToSpawn--;
         }

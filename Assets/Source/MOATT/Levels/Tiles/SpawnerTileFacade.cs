@@ -6,7 +6,7 @@ using MOATT.Levels.Enemies;
 
 namespace MOATT.Levels.Tiles
 {
-    public class EnemySpawner : Tile
+    public class SpawnerTileFacade : TileFacade
     {
         EnemyFacade.Factory factory;
 

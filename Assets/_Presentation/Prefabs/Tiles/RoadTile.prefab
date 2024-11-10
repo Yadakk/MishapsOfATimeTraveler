@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4761638504110819844
+--- !u!1001 &816158130651865103
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -21,13 +21,24 @@ PrefabInstance:
     - target: {fileID: 2012217534374810893, guid: dd44b26e49d01ff43b40e6cdddc5df55,
         type: 3}
       propertyPath: m_Name
-      value: EnemySpawner
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 2016863560148309275, guid: dd44b26e49d01ff43b40e6cdddc5df55,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 03f1100b3356a1942a9fd9ee73c57e7f, type: 2}
+      objectReference: {fileID: 2100000, guid: ac912ca0361a7ab4e81222b86325dc59, type: 2}
+    - target: {fileID: 4894145733685582614, guid: dd44b26e49d01ff43b40e6cdddc5df55,
+        type: 3}
+      propertyPath: _scriptableObjectInstallers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894145733685582614, guid: dd44b26e49d01ff43b40e6cdddc5df55,
+        type: 3}
+      propertyPath: _scriptableObjectInstallers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a19aa1952225567428ae3b153cc667ca,
+        type: 2}
     - target: {fileID: 7577221623819995268, guid: dd44b26e49d01ff43b40e6cdddc5df55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,32 +94,8 @@ PrefabInstance:
       propertyPath: isWalkable
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8946383072081903777, guid: dd44b26e49d01ff43b40e6cdddc5df55, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2012217534374810893, guid: dd44b26e49d01ff43b40e6cdddc5df55,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4755749544230265790}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd44b26e49d01ff43b40e6cdddc5df55, type: 3}
---- !u!1 &6483048016166002441 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2012217534374810893, guid: dd44b26e49d01ff43b40e6cdddc5df55,
-    type: 3}
-  m_PrefabInstance: {fileID: 4761638504110819844}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4755749544230265790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6483048016166002441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f069c016a8b2e47ba15637830b292b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWalkable: 1

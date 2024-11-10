@@ -43,7 +43,7 @@ namespace MOATT.Levels.Installers
         private void InstallMap()
         {
             Container.Bind<Tilemap>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<Tile>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<TileFacade>().FromComponentsInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<WaveStateMachine>().AsSingle();
         }
 

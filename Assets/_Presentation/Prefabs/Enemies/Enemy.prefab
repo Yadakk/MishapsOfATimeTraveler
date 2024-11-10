@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 3131715034811329566}
   - component: {fileID: 5645626263474020273}
   - component: {fileID: 1710205075516090468}
+  - component: {fileID: 1248608097149862471}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -169,6 +170,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1710205075516090468}
+  - {fileID: 1248608097149862471}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -184,3 +186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884432068e463374e838ba39bb608c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1248608097149862471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197787614227845537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0760a40250dad2e4ba3c7c1d6f1118f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthModelSettings:
+    maxHealth: 100

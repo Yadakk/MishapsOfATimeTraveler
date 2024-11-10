@@ -6,7 +6,7 @@ using Zenject;
 
 namespace MOATT.Levels.Billboards
 {
-    public class BillboardSource : IInitializable
+    public class BillboardSource : IInitializable, ITickable
     {
         public Bounds bounds;
         public Vector3 offset;
@@ -19,7 +19,19 @@ namespace MOATT.Levels.Billboards
             offset = settings.offset;
         }
 
+        [Inject]
         public void Initialize()
+        {
+            UpdateBounds();
+        }
+
+        [Inject]
+        public void Tick()
+        {
+            UpdateBounds();
+        }
+
+        private void UpdateBounds()
         {
             bounds = renderers.GetBounds().Value;
         }

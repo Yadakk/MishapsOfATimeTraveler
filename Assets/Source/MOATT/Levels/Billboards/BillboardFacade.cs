@@ -13,6 +13,11 @@ namespace MOATT.Levels.Billboards
             Destroy(gameObject);
         }
 
+        public void SetGUI(GameObject gameObject)
+        {
+            gameObject.transform.SetParent(transform, false);
+        }
+
         public class Factory : PlaceholderFactory<BillboardSource, BillboardFacade> { }
     }
 }

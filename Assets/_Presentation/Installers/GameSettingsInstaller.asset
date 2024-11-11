@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24411f5a3b3f88f41932f5dc5a971a7c, type: 3}
   m_Name: GameSettingsInstaller
   m_EditorClassIdentifier: 
-  levelInstallers:
+  unitHealthInstallers:
     healthbarPrefab: {fileID: 3543531467613048514, guid: 0f56dedc156656c438036f887c07410f,
       type: 3}
+  billboardGroupInstaller:
     billboardPrefab: {fileID: 4544618973586550484, guid: 47c0d5fc296bb67488d0e6fe88bdc63d,
       type: 3}
   billboardSource:

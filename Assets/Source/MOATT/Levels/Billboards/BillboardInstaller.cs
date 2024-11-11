@@ -7,17 +7,18 @@ namespace MOATT.Levels.Billboards
 {
     public class BillboardInstaller : MonoInstaller
     {
-        private BillboardSource billboardSource;
+        private BillboardSource source;
 
         [Inject]
-        public void Construct(BillboardSource billboardSource)
+        public void Construct(BillboardSource source)
         {
-            this.billboardSource = billboardSource;
+            this.source = source;
         }
 
         public override void InstallBindings()
         {
-            Container.BindInstance(billboardSource).AsSingle();
+            Container.BindInstance(source);
+
             Container.BindInterfacesAndSelfTo<BillboardPositioner>().AsSingle();
         }
     }

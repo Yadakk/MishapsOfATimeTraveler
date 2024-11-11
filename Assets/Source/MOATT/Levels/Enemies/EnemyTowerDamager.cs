@@ -20,13 +20,11 @@ namespace MOATT.Levels.Enemies
             this.settings = settings;
         }
 
-        [Inject]
         public void Initialize()
         {
             navigator.OnTileReached += TileReachedHandler;
         }
 
-        [Inject]
         public void Dispose()
         {
             navigator.OnTileReached -= TileReachedHandler;

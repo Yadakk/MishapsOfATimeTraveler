@@ -21,13 +21,11 @@ namespace MOATT.Levels.Billboards
 
         public Vector3 Offset => settings.offset;
 
-        [Inject]
         public void Initialize()
         {
             UpdateBounds();
         }
 
-        [Inject]
         public void Tick()
         {
             UpdateBounds();

@@ -40,7 +40,8 @@ namespace MOATT.Levels.Installers
         private void InstallEnemies()
         {
             Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().
-                FromComponentInNewPrefab(settings.enemyPrefab).
+                FromSubContainerResolve().
+                ByNewContextPrefab(settings.enemyPrefab).
                 WithGameObjectName("Enemy").
                 UnderTransformGroup("Enemies");
         }

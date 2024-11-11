@@ -15,7 +15,6 @@ namespace MOATT.Levels.Billboards
 
         public void SetGUI(GameObject gameObject)
         {
-            Debug.Log(Time.frameCount);
             gameObject.transform.SetParent(transform, false);
         }
 

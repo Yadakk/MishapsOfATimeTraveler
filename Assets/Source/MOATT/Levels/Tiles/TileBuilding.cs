@@ -9,12 +9,11 @@ namespace MOATT.Levels.Tiles
 
     public class TileBuilding
     {
-        public BuildingFacade CurrentBuilding { get; private set; }
-
-        [Inject]
-        public void Construct([InjectOptional] BuildingFacade building)
+        public TileBuilding([InjectOptional] BuildingFacade building)
         {
             CurrentBuilding = building;
         }
+
+        public BuildingFacade CurrentBuilding { get; private set; }
     }
 }

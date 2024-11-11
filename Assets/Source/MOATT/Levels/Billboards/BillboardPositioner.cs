@@ -21,6 +21,11 @@ namespace MOATT.Levels.Billboards
         [Inject]
         public void Tick()
         {
+            UpdatePosition();
+        }
+
+        public void UpdatePosition()
+        {
             Vector3 displayerTop = source.bounds.center;
             displayerTop.y = source.bounds.max.y;
             displayerTop += source.Offset;

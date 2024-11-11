@@ -23,13 +23,11 @@ namespace MOATT.Levels.Healthbars
             this.source = source;
         }
 
-        [Inject]
         public void Initialize()
         {
             healthbarBillboard = billboardGroup.AddBillboard(source, healthbar.gameObject);
         }
 
-        [Inject]
         public void Dispose()
         {
             healthbarBillboard.Dispose();

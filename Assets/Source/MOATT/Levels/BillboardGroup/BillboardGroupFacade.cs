@@ -20,6 +20,7 @@ namespace MOATT.Levels.BillboardGroup
         public BillboardFacade AddBillboard(BillboardSource source, GameObject gui)
         {
             var billboard = billboardFactory.Create(source);
+            Debug.Log(Time.frameCount);
             billboard.SetGUI(gui);
             return billboard;
         }

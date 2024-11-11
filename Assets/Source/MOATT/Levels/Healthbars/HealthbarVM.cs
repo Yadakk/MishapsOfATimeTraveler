@@ -19,7 +19,6 @@ namespace MOATT.Levels.Healthbars
             this.slider = slider;
         }
 
-        [Inject]
         public void Initialize()
         {
             model.OnHealthChanged += HealthChangedHandler;
@@ -29,7 +28,6 @@ namespace MOATT.Levels.Healthbars
             ViewCurrent();
         }
 
-        [Inject]
         public void Dispose()
         {
             model.OnHealthChanged -= HealthChangedHandler;

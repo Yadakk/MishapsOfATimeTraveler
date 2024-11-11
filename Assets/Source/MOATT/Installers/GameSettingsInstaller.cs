@@ -6,7 +6,7 @@ using Zenject;
 namespace MOATT.Installers
 {
     using Levels.Installers;
-    using Billboards;
+    using Levels.Billboards;
 
     [CreateAssetMenu(fileName = nameof(GameSettingsInstaller),
         menuName = "Installers/" + nameof(GameSettingsInstaller))]

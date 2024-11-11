@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Healthbars
+namespace MOATT.Levels.Healthbars
 {
     using Health;
 

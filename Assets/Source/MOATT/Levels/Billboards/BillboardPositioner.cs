@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Billboards
+namespace MOATT.Levels.Billboards
 {
     public class BillboardPositioner : ITickable
     {

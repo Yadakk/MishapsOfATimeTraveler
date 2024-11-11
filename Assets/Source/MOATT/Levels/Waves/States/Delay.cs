@@ -22,7 +22,7 @@ namespace MOATT.Levels.Waves.States
         public override void Update()
         {
             if (timer.Elapsed > settings.waveDelay)
-                stateMachine.SetState(StateFactory.EState.Spawning);
+                stateMachine.SetState<Spawning>();
         }
 
         public class Factory : PlaceholderFactory<Delay> { }

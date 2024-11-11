@@ -34,7 +34,7 @@ namespace MOATT.Levels.Waves.States
         {
             if (remainingToSpawn == 0)
             {
-                stateMachine.SetState(StateFactory.EState.EnemiesAlive);
+                stateMachine.SetState<EnemiesAlive>();
             }
 
             if (timer.Elapsed >= settings.spawnInterval)

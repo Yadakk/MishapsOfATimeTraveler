@@ -19,7 +19,7 @@ namespace MOATT.Levels.Waves.States
         public override void Update()
         {
             if (waveInfo.CountClearNullEnemies() == 0)
-                stateMachine.SetState(StateFactory.EState.Delay);
+                stateMachine.SetState<Delay>();
         }
 
         public class Factory : PlaceholderFactory<EnemiesAlive> { }

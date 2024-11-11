@@ -21,7 +21,7 @@ namespace MOATT.Levels.Waves
 
         public void Initialize()
         {
-            SetState(StateFactory.EState.Delay);
+            SetState<Delay>();
         }
 
         public void Tick()
@@ -29,10 +29,10 @@ namespace MOATT.Levels.Waves
             currentState?.Update();
         }
 
-        public void SetState(StateFactory.EState eState)
+        public void SetState<T>() where T : State
         {
             currentState?.Dispose();
-            currentState = stateFactory.Create(eState);
+            currentState = stateFactory.Create(typeof(T));
             currentState?.Start();
         }
     }

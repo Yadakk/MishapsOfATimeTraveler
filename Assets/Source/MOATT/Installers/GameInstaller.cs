@@ -11,6 +11,7 @@ namespace MOATT.Installers
         public override void InstallBindings()
         {
             Container.Bind<Timer>().AsTransient();
+            Container.Bind<InputAsset>().AsSingle();
         }
     }
 }

@@ -9,8 +9,17 @@ namespace MOATT.Levels.Tiles
 
     public class TileBuilding
     {
-        public TileBuilding([InjectOptional] BuildingFacade building)
+        private readonly TileFacade facade;
+
+        public TileBuilding([InjectOptional] BuildingFacade building, TileFacade facade = null)
         {
+            CurrentBuilding = building;
+            this.facade = facade;
+        }
+
+        public void SetBuilding(BuildingFacade building)
+        {
+            building.transform.SetParent(facade.transform);
             CurrentBuilding = building;
         }
 

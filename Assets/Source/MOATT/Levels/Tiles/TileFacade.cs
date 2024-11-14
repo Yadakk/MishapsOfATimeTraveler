@@ -20,5 +20,10 @@ namespace MOATT.Levels.Tiles
             TileCell = tileCell;
             this.tileBuilding = tileBuilding;
         }
+
+        public void SetBuilding(BuildingFacade building)
+        {
+            tileBuilding.SetBuilding(building);
+        }
     }
 }

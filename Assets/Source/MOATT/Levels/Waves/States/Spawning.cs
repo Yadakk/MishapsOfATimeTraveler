@@ -8,6 +8,7 @@ using TimeTimers;
 namespace MOATT.Levels.Waves.States
 {
     using Tiles;
+    using Enemies;
 
     public class Spawning : State
     {
@@ -15,19 +16,20 @@ namespace MOATT.Levels.Waves.States
         private readonly WaveStateMachine stateMachine;
         private readonly Timer timer;
         private readonly SpawnerTileFacade[] spawners;
-        private readonly WaveInfo waveInfo;
+        private readonly EnemyRegistry enemyRegistry;
 
         private int remainingToSpawn;
 
         public Spawning(Settings settings, WaveStateMachine stateMachine,
-            Timer timer, TileFacade[] tiles, WaveInfo waveInfo)
+            Timer timer, TileFacade[] tiles, EnemyRegistry enemyRegistry)
         {
             this.settings = settings;
             this.stateMachine = stateMachine;
             this.timer = timer;
+            this.enemyRegistry = enemyRegistry;
+
             spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
             remainingToSpawn = settings.enemiesToSpawn;
-            this.waveInfo = waveInfo;
         }
 
         public override void Update()
@@ -47,7 +49,7 @@ namespace MOATT.Levels.Waves.States
         private void SpawnEnemy()
         {
             SpawnerTileFacade selectedSpawner = spawners[Random.Range(0, spawners.Length)];
-            waveInfo.enemies.Add(selectedSpawner.Spawn());
+            selectedSpawner.Spawn();
             remainingToSpawn--;
         }
 

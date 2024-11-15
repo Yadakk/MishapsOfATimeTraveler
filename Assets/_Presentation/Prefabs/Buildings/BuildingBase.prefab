@@ -115,10 +115,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8018147270344598630}
   - component: {fileID: 3877220274243636855}
-  - component: {fileID: 3358669966204147506}
   - component: {fileID: 5164180123917087708}
+  - component: {fileID: 3358669966204147506}
   m_Layer: 0
-  m_Name: Building
+  m_Name: BuildingBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,18 +159,6 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &3358669966204147506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7313250030912258687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc3bc28265396c0489e25d7619fb5288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5164180123917087708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,5 +169,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c385deccc3167f488c148168c4a0497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3358669966204147506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313250030912258687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3bc28265396c0489e25d7619fb5288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -7,11 +7,13 @@ using Zenject;
 
 namespace MOATT.Levels.Waves
 {
+    using Enemies;
+
     public class WaveInstaller : Installer
     {
         public override void InstallBindings()
         {
-            Container.Bind<WaveInfo>().AsSingle();
+            Container.Bind<EnemyRegistry>().AsSingle();
             Container.Bind<StateFactory>().AsSingle();
         }
     }

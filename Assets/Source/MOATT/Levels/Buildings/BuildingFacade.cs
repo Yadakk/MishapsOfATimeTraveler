@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -22,5 +21,7 @@ namespace MOATT.Levels.Buildings
         {
             healthModel.CurrentHealth -= damage;
         }
+
+        public class Factory : PlaceholderFactory<Object, BuildingFacade> { }
     }
 }

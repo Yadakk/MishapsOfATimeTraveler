@@ -6,36 +6,51 @@ using Zenject;
 namespace MOATT.Levels.BuildingPlacement
 {
     using Buildings;
+    using MOATT.InputLogic;
     using MOATT.Levels.Tiles;
 
     public class BuildingPlacer
     {
-        private readonly TileSelector tileSelector;
+        private readonly InteractionModeSwitcher modeSwitcher;
+        private readonly BuildingFacade.Factory buildingFactory;
 
         private BuildingFacade pickedBuilding;
 
-        public BuildingPlacer(TileSelector tileSelector)
+        public BuildingPlacer(InteractionModeSwitcher modeSwitcher = null, BuildingFacade.Factory buildingFactory = null)
         {
-            this.tileSelector = tileSelector;
+            this.modeSwitcher = modeSwitcher;
+            this.buildingFactory = buildingFactory;
+        }
+
+        public BuildingFacade PickedBuilding
+        {
+            get => pickedBuilding;
+            set
+            {
+                pickedBuilding = value;
+                modeSwitcher.CurrentMap = pickedBuilding != null ?
+                    modeSwitcher.inputAsset.BuildingPlacement :
+                    modeSwitcher.inputAsset.Selection;
+            }
         }
 
         public void SelectBuilding(BuildingFacade buildingPrefab)
         {
-            pickedBuilding = buildingPrefab;
+            PickedBuilding = buildingPrefab;
         }
 
         public void PlaceBuilding()
         {
-            if (!TryPlaceBuilding()) pickedBuilding = null;
+            if (!TryPlaceBuilding()) PickedBuilding = null;
         }
 
         private bool TryPlaceBuilding()
         {
-            if (pickedBuilding == null) return false;
-            var selectedTile = tileSelector.TileUnderMouse;
+            if (PickedBuilding == null) return false;
+            var selectedTile = TileHoverListener.TileUnderMouse;
             if (selectedTile == null) return false;
             if (selectedTile.CurrentBuilding != null) return false;
-            selectedTile.SetBuilding(pickedBuilding);
+            selectedTile.SetBuilding(buildingFactory.Create(PickedBuilding));
             return true;
         }
     }

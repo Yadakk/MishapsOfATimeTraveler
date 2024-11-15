@@ -10,7 +10,9 @@ namespace MOATT.Levels.Installers
     using Enemies;
     using Waves;
     using BillboardGroup;
-    using MOATT.Levels.BuildingPlacement;
+    using Buildings;
+    using BuildingPlacement;
+    using InputLogic;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -30,6 +32,7 @@ namespace MOATT.Levels.Installers
             InstallEnemies();
             InstallMisc();
             InstallBuildingPlacer();
+            InstallInputLogic();
         }
 
         private void InstallMap()
@@ -56,9 +59,15 @@ namespace MOATT.Levels.Installers
 
         private void InstallBuildingPlacer()
         {
-            Container.BindInterfacesAndSelfTo<TileSelector>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacer>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacementInputBinder>().AsSingle();
+            Container.BindFactory<Object, BuildingFacade, BuildingFacade.Factory>().
+                FromFactory<PrefabFactory<BuildingFacade>>();
+        }
+
+        private void InstallInputLogic()
+        {
+            Container.BindInterfacesAndSelfTo<InteractionModeSwitcher>().AsSingle();
         }
 
         [System.Serializable]

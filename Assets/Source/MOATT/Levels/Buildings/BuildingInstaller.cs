@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Buildings.Turrets
+namespace MOATT.Levels.Buildings
 {
-    public class TurretInstaller : MonoInstaller
+    public class BuildingInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<TurretRotater>().AsSingle();
+            Container.Bind<BuildingFacade>().FromComponentOnRoot();
         }
     }
 }

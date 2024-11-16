@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
+using TransformGrouping;
 
 namespace MOATT.Levels.Installers
 {
@@ -17,17 +18,18 @@ namespace MOATT.Levels.Installers
     public class LevelInstaller : MonoInstaller
     {
         private Settings settings;
+        private TransformGrouper transformGrouper;
 
         [Inject]
-        public void Construct(Settings settings)
+        public void Construct(Settings settings, TransformGrouper transformGrouper)
         {
             this.settings = settings;
-
-            Container.Install<WaveInstaller>();
+            this.transformGrouper = transformGrouper;
         }
 
         public override void InstallBindings()
         {
+            Container.Install<WaveInstaller>();
             InstallMap();
             InstallEnemies();
             InstallMisc();
@@ -47,8 +49,7 @@ namespace MOATT.Levels.Installers
             Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().
                 FromSubContainerResolve().
                 ByNewContextPrefab(settings.enemyPrefab).
-                WithGameObjectName("Enemy").
-                UnderTransformGroup("Enemies");
+                UnderTransform(transformGrouper.GetGroup("Enemies"));
         }
 
         private void InstallMisc()

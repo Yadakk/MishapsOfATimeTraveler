@@ -12,6 +12,7 @@ namespace MOATT.Levels.Enemies
         {
             Container.BindInterfacesAndSelfTo<EnemyPathfinder>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyTowerDamager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyRotater>().AsSingle();
         }
     }
 }

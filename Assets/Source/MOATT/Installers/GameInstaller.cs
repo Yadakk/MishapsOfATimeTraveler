@@ -6,6 +6,8 @@ using TimeTimers;
 
 namespace MOATT.Installers
 {
+    using Layers;
+
     public class GameInstaller : MonoInstaller
     {
         public override void InstallBindings()

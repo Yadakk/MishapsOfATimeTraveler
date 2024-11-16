@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd81a5a9c28973e439a1845d2cedc9e5, type: 3}
-  m_Name: EnemySettingsInstaller
+  m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
+  m_Name: TurretSettingsInstaller
   m_EditorClassIdentifier: 
-  towerDamager:
-    damage: 2
   healthModel:
-    maxHealth: 3
+    maxHealth: 100
+  installer:
+    bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
+      type: 3}

@@ -107,6 +107,50 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &5242522172022500454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3065740028360423307}
+  - component: {fileID: 6618749690289255593}
+  m_Layer: 0
+  m_Name: TurretShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3065740028360423307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242522172022500454}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.7500014, z: 1.4000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1921123794262264701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6618749690289255593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242522172022500454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4823399202e22154ebbd756c1cb3f744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7288693860454771013
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +213,17 @@ PrefabInstance:
       propertyPath: _monoInstallers.Array.data[2]
       value: 
       objectReference: {fileID: 1089167292613154599}
+    - target: {fileID: 3877220274243636855, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: _scriptableObjectInstallers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877220274243636855, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: _scriptableObjectInstallers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 339e4a8e4de942049b72216ef3288d25,
+        type: 2}
     - target: {fileID: 7313250030912258687, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}
       propertyPath: m_Name
@@ -237,6 +292,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8018147270344598630, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 3065740028360423307}
     - targetCorrespondingSourceObject: {fileID: 8018147270344598630, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}
       insertIndex: -1

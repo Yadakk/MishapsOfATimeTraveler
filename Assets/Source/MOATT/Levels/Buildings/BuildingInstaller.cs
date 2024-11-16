@@ -9,7 +9,7 @@ namespace MOATT.Levels.Buildings
     {
         public override void InstallBindings()
         {
-            Container.Bind<BuildingFacade>().FromComponentOnRoot();
+            Container.Bind<BuildingFacade>().FromComponentOnRoot().AsSingle();
         }
     }
 }

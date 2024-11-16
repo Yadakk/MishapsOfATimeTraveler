@@ -20,11 +20,15 @@ namespace MOATT.Levels.Installers
         private Settings settings;
         private TransformGrouper transformGrouper;
 
+        private void Awake()
+        {
+            transformGrouper = Container.Resolve<TransformGrouper>();
+        }
+
         [Inject]
-        public void Construct(Settings settings, TransformGrouper transformGrouper)
+        public void Construct(Settings settings)
         {
             this.settings = settings;
-            this.transformGrouper = transformGrouper;
         }
 
         public override void InstallBindings()
@@ -49,7 +53,7 @@ namespace MOATT.Levels.Installers
             Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().
                 FromSubContainerResolve().
                 ByNewContextPrefab(settings.enemyPrefab).
-                UnderTransform(transformGrouper.GetGroup("Enemies"));
+                UnderTransform(context => transformGrouper.GetGroup("Enemies"));
         }
 
         private void InstallMisc()

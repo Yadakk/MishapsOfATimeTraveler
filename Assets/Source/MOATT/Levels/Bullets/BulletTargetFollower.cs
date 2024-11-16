@@ -35,10 +35,10 @@ namespace MOATT.Levels.Bullets
 
         private void MoveToTarget()
         {
-            var targetTransform = target.transform;
+            var targetCenter = target.Center;
             Transform.SetPositionAndRotation(
-                Vector3.MoveTowards(Transform.position, targetTransform.position, 1f),
-                Quaternion.LookRotation(targetTransform.position - Transform.position));
+                Vector3.MoveTowards(Transform.position, targetCenter, 1f),
+                Quaternion.LookRotation(targetCenter - Transform.position));
         }
 
         private void MoveForward()

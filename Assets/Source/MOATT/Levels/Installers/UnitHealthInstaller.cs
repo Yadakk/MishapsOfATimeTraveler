@@ -21,8 +21,6 @@ namespace MOATT.Levels.Installers
 
         public override void InstallBindings()
         {
-            Container.BindInstance(gameObject);
-            Container.Bind<Renderer>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<HealthModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
             Container.BindInterfacesAndSelfTo<UnitHealthbarDisplayer>().AsSingle();

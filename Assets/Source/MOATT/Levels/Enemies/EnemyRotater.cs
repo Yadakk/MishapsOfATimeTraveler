@@ -25,6 +25,7 @@ namespace MOATT.Levels.Enemies
         {
             var transform = facade.transform;
             Vector3 delta = transform.position - lastPos;
+            if (delta == Vector3.zero) return;
             transform.rotation = Quaternion.LookRotation(delta);
             UpdateLastPos();
         }

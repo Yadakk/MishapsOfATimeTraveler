@@ -22,6 +22,11 @@ namespace MOATT.Levels.Buildings
             healthModel.CurrentHealth -= damage;
         }
 
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
+
         public class Factory : PlaceholderFactory<Object, BuildingFacade> { }
     }
 }

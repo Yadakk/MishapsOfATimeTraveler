@@ -26,8 +26,8 @@ namespace MOATT.Levels.Billboards
 
         public void UpdatePosition()
         {
-            Vector3 displayerTop = source.bounds.center;
-            displayerTop.y = source.bounds.max.y;
+            Vector3 displayerTop = source.Bounds.center;
+            displayerTop.y = source.Bounds.max.y;
             displayerTop += source.Offset;
             transform.position = camera.WorldToScreenPoint(displayerTop);
         }

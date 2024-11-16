@@ -6,35 +6,21 @@ using Zenject;
 
 namespace MOATT.Levels.Billboards
 {
-    public class BillboardSource : IInitializable, ITickable
-    {
-        public Bounds bounds;
+    using BoundsCalculation;
 
-        private readonly Renderer[] renderers;
+    public class BillboardSource
+    {
+        private readonly BoundsCalculator boundsCalculator;
         private readonly Settings settings;
 
-        public BillboardSource(Renderer[] renderers, Settings settings)
+        public BillboardSource(BoundsCalculator boundsCalculator, Settings settings)
         {
-            this.renderers = renderers;
+            this.boundsCalculator = boundsCalculator;
             this.settings = settings;
         }
 
-        public Vector3 Offset => settings.offset;
-
-        public void Initialize()
-        {
-            UpdateBounds();
-        }
-
-        public void Tick()
-        {
-            UpdateBounds();
-        }
-
-        private void UpdateBounds()
-        {
-            bounds = renderers.GetBounds().Value;
-        }
+        public Bounds Bounds => boundsCalculator.Bounds;
+        public Vector3 Offset => settings.offset; 
 
         [System.Serializable]
         public class Settings

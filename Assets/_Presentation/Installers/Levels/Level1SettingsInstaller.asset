@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1SettingsInstaller
   m_EditorClassIdentifier: 
   levelInstaller:
-    enemyPrefab: {fileID: 349108344835802811, guid: f6a2ad330f2150b4e8f836fe146f3741,
+    enemyPrefab: {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741,
       type: 3}
   waves:
     delay:

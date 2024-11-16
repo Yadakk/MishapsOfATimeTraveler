@@ -6,16 +6,18 @@ using Zenject;
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Bullets;
-    using Enemies;
+    using TransformGrouping;
 
     public class TurretInstaller : MonoInstaller
     {
         private Settings settings;
+        private TransformGrouper grouper;
 
         [Inject]
-        public void Construct(Settings settings)
+        public void Construct(Settings settings, TransformGrouper grouper)
         {
             this.settings = settings;
+            this.grouper = grouper;
         }
 
         public override void InstallBindings()
@@ -26,7 +28,7 @@ namespace MOATT.Levels.Buildings.Turrets
             Container.Bind<TurretShooter>().FromComponentInHierarchy().AsSingle();
             Container.BindFactory<BulletFacade, BulletFacade.Factory>().
                 FromComponentInNewPrefab(settings.bulletPrefab).
-                UnderTransform(new GameObject("Bullets").transform);
+                UnderTransform(grouper.GetGroup("Bullets"));
         }
 
         [System.Serializable]

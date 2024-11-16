@@ -19,7 +19,7 @@ namespace TransformGrouping
             }
 
             Transform newGroup = new GameObject(name).transform;
-            newGroup.SetParent(transform.root);
+            newGroup.SetParent(transform.parent);
             groups.Add(newGroup);
             return newGroup;
         }

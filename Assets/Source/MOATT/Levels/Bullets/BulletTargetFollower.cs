@@ -43,7 +43,7 @@ namespace MOATT.Levels.Bullets
 
         private void MoveForward()
         {
-            Transform.position += Vector3.forward;
+            Transform.position += Transform.forward;
         }
     }
 }

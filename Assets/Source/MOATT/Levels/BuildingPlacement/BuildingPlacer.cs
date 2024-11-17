@@ -59,6 +59,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void ModeChangedHandler(InputActionMap newMap)
         {
+            if (newMap == null) return;
             hologramDisplayer.SetActive(newMap.name == nameof(modeSwitcher.inputAsset.BuildingPlacement));
         }
 

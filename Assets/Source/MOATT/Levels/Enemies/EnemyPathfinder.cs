@@ -18,6 +18,7 @@ namespace MOATT.Levels.Enemies
         private readonly Tilemap tilemap;
 
         public event System.Action<TileFacade> OnTileReached;
+        public event System.Action<TileFacade[]> OnPathCreated;
 
         public EnemyPathfinder(
             TileFacade[] tiles,
@@ -56,6 +57,7 @@ namespace MOATT.Levels.Enemies
                 sourceTile.TileCell, target.TileCell).
                 Cast<TileCell>().Select(tileCell => tileCell.facade).ToList();
 
+            OnPathCreated?.Invoke(tilePath.ToArray());
             Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();
 
             facade.transform.DOPath(path, 1f).SetSpeedBased().SetEase(Ease.Linear).

@@ -17,7 +17,6 @@ namespace MOATT.Levels.Enemies
         private BoundsCalculator boundsCalculator;
 
         public event System.Action OnStarted;
-        public event System.Action OnUpdated;
 
         public Vector3 Center => boundsCalculator.Bounds.center;
 
@@ -29,11 +28,6 @@ namespace MOATT.Levels.Enemies
         private void Start()
         {
             OnStarted?.Invoke();
-        }
-
-        private void Update()
-        {
-            OnUpdated.Invoke();
         }
 
         [Inject]

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
-    public class EnemyRotater : IInitializable, ITickable
+    public class EnemyRotater : IInitializable, System.IDisposable
     {
         private Vector3 lastPos;
 
@@ -18,10 +18,22 @@ namespace MOATT.Levels.Enemies
 
         public void Initialize()
         {
+            facade.OnStarted += StartHandler;
+            facade.OnUpdated += UpdateHandler;
+        }
+
+        public void Dispose()
+        {
+            facade.OnStarted -= StartHandler;
+            facade.OnUpdated -= UpdateHandler;
+        }
+
+        private void StartHandler()
+        {
             UpdateLastPos();
         }
 
-        public void Tick()
+        private void UpdateHandler()
         {
             var transform = facade.transform;
             Vector3 delta = transform.position - lastPos;

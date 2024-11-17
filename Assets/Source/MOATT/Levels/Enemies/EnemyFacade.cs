@@ -16,11 +16,24 @@ namespace MOATT.Levels.Enemies
         private EnemyRegistry registry;
         private BoundsCalculator boundsCalculator;
 
+        public event System.Action OnStarted;
+        public event System.Action OnUpdated;
+
         public Vector3 Center => boundsCalculator.Bounds.center;
 
         private void Awake()
         {
             registry.Add(this);
+        }
+
+        private void Start()
+        {
+            OnStarted?.Invoke();
+        }
+
+        private void Update()
+        {
+            OnUpdated.Invoke();
         }
 
         [Inject]

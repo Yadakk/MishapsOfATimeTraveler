@@ -12,9 +12,7 @@ namespace MOATT.Levels.Installers
     using Enemies;
     using Waves;
     using BillboardGroup;
-    using Buildings;
     using BuildingPlacement;
-    using InputLogic;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -66,7 +64,7 @@ namespace MOATT.Levels.Installers
 
         private void InstallInputLogic()
         {
-            Container.BindInterfacesAndSelfTo<InputAssetMapSwapper>().AsSingle();
+            
         }
 
         [System.Serializable]

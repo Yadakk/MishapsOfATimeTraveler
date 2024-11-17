@@ -13,6 +13,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 7712013694049353002, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712013694049353002, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712013694049353002, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712013694049353002, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8018147270344598630, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}
       propertyPath: m_LocalPosition.x

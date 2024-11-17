@@ -11,7 +11,7 @@ namespace MOATT.Levels.Enemies
     using Tiles;
     using Zenject;
 
-    public class EnemyPathfinder : IInitializable
+    public class EnemyPathfinder : IInitializable, System.IDisposable
     {
         private readonly TileFacade[] tiles;
         private readonly EnemyFacade facade;
@@ -30,6 +30,16 @@ namespace MOATT.Levels.Enemies
         }
 
         public void Initialize()
+        {
+            facade.OnStarted += StartHandler;
+        }
+
+        public void Dispose()
+        {
+            facade.OnStarted -= StartHandler;
+        }
+
+        private void StartHandler()
         {
             var towerTiles = tiles.Where(tile => tile is TowerTileFacade).ToArray();
             MoveToTile(towerTiles[Random.Range(0, towerTiles.Length)]);

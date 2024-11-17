@@ -8,22 +8,22 @@ namespace MOATT.Levels.BuildingPlacement
 {
     using Buildings;
 
-    public class BuildingSelector : MonoBehaviour
+    public class BuildingPlacementSelectorVM : MonoBehaviour
     {
         [SerializeField]
         private BuildingFacade buildingPrefab;
 
-        private BuildingPlacer placer;
+        private BuildingPlacementSelector selector;
 
         [Inject]
-        public void Construct(BuildingPlacer placer)
+        public void Construct(BuildingPlacementSelector selector)
         {
-            this.placer = placer;
+            this.selector = selector;
         }
 
         public void Select()
         {
-            placer.SelectBuilding(buildingPrefab);
+            selector.SelectBuilding(buildingPrefab);
         }
     }
 }

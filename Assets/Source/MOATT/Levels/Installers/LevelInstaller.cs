@@ -35,10 +35,10 @@ namespace MOATT.Levels.Installers
         public override void InstallBindings()
         {
             Container.Install<WaveInstaller>();
+            Container.Install<BuildingPlacementInstaller>();
             InstallMap();
             InstallEnemies();
             InstallMisc();
-            InstallBuildingPlacer();
             InstallInputLogic();
         }
 
@@ -64,17 +64,9 @@ namespace MOATT.Levels.Installers
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
         }
 
-        private void InstallBuildingPlacer()
-        {
-            Container.BindInterfacesAndSelfTo<BuildingPlacer>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BuildingPlacementInputBinder>().AsSingle();
-            Container.BindFactory<Object, BuildingFacade, BuildingFacade.Factory>().
-                FromFactory<PrefabFactory<BuildingFacade>>();
-        }
-
         private void InstallInputLogic()
         {
-            Container.BindInterfacesAndSelfTo<InteractionModeSwitcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InputAssetMapSwapper>().AsSingle();
         }
 
         [System.Serializable]

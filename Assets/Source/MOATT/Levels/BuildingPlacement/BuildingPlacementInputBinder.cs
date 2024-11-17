@@ -9,9 +9,9 @@ namespace MOATT.Levels.BuildingPlacement
     public class BuildingPlacementInputBinder : IInitializable, System.IDisposable
     {
         private readonly InputAsset inputAsset;
-        private readonly BuildingPlacer buildingPlacer;
+        private readonly BuildingPlacementPlacer buildingPlacer;
 
-        public BuildingPlacementInputBinder(InputAsset inputAsset, BuildingPlacer buildingPlacer = null)
+        public BuildingPlacementInputBinder(InputAsset inputAsset, BuildingPlacementPlacer buildingPlacer = null)
         {
             this.inputAsset = inputAsset;
             this.buildingPlacer = buildingPlacer;

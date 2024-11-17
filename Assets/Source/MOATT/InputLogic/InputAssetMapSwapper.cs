@@ -6,7 +6,7 @@ using Zenject;
 
 namespace MOATT.InputLogic
 {
-    public class InteractionModeSwitcher : IInitializable, System.IDisposable
+    public class InputAssetMapSwapper : IInitializable, System.IDisposable
     {
         public readonly InputAsset inputAsset;
 
@@ -26,7 +26,7 @@ namespace MOATT.InputLogic
             }
         }
 
-        public InteractionModeSwitcher(InputAsset inputAsset)
+        public InputAssetMapSwapper(InputAsset inputAsset)
         {
             this.inputAsset = inputAsset;
         }

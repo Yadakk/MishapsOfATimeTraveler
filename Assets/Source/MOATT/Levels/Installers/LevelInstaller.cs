@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
 using TransformGrouping;
+using HologramDisplayers;
 
 namespace MOATT.Levels.Installers
 {
@@ -60,6 +61,7 @@ namespace MOATT.Levels.Installers
         {
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
             Container.Bind<BillboardGroupFacade>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
         }
 
         private void InstallBuildingPlacer()

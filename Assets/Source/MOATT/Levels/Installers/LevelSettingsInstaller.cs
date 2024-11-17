@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
-using MOATT.Levels.Waves.States;
 
 namespace MOATT.Levels.Installers
 {
+    using Waves.States;
+
     [CreateAssetMenu(fileName = nameof(LevelSettingsInstaller), menuName = "Installers/" + nameof(LevelSettingsInstaller), order = 51)]
     public class LevelSettingsInstaller : ScriptableObjectInstaller
     {

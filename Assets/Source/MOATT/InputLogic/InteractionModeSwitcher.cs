@@ -12,6 +12,8 @@ namespace MOATT.InputLogic
 
         private InputActionMap currentMap;
 
+        public event System.Action<InputActionMap> OnModeChanged;
+
         public InputActionMap CurrentMap 
         { 
             get => currentMap;
@@ -20,6 +22,7 @@ namespace MOATT.InputLogic
                 currentMap?.Disable();
                 currentMap = value;
                 currentMap?.Enable();
+                OnModeChanged?.Invoke(currentMap);
             }
         }
 

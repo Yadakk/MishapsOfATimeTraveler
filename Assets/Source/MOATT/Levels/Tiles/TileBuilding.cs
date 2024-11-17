@@ -20,6 +20,7 @@ namespace MOATT.Levels.Tiles
         public void SetBuilding(BuildingFacade building)
         {
             building.transform.SetParent(facade.transform, false);
+            building.CreateHealthbar();
             CurrentBuilding = building;
         }
 

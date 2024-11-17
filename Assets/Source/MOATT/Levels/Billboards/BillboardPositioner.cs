@@ -5,9 +5,9 @@ using Zenject;
 
 namespace MOATT.Levels.Billboards
 {
-    public class BillboardPositioner : ITickable
+    public class BillboardPositioner : IInitializable, ITickable
     {
-        public readonly Transform transform;
+        public readonly BillboardFacade facade;
         private readonly Camera camera;
         private readonly BillboardSource source;
 
@@ -15,10 +15,14 @@ namespace MOATT.Levels.Billboards
         {
             this.source = source;
             this.camera = camera;
-            transform = facade.transform;
+            this.facade = facade;
         }
 
-        [Inject]
+        public void Initialize()
+        {
+            UpdatePosition();
+        }
+
         public void Tick()
         {
             UpdatePosition();
@@ -29,7 +33,7 @@ namespace MOATT.Levels.Billboards
             Vector3 displayerTop = source.Bounds.center;
             displayerTop.y = source.Bounds.max.y;
             displayerTop += source.Offset;
-            transform.position = camera.WorldToScreenPoint(displayerTop);
+            facade.transform.position = camera.WorldToScreenPoint(displayerTop);
         }
     }
 }

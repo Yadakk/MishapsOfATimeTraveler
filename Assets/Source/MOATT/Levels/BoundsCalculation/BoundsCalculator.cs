@@ -6,7 +6,7 @@ using BoundsMeasurement;
 
 namespace MOATT.Levels.BoundsCalculation
 {
-    public class BoundsCalculator : ITickable
+    public class BoundsCalculator : IInitializable, ITickable
     {
         private readonly Renderer[] renderers;
 
@@ -17,7 +17,17 @@ namespace MOATT.Levels.BoundsCalculation
 
         public Bounds Bounds { get; private set; }
 
+        public void Initialize()
+        {
+            UpdateBounds();
+        }
+
         public void Tick()
+        {
+            UpdateBounds();
+        }
+
+        public void UpdateBounds()
         {
             Bounds = renderers.GetBounds();
         }

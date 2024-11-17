@@ -8,7 +8,7 @@ namespace MOATT.Levels.Healthbars
     using Billboards;
     using BillboardGroup;
 
-    public class UnitHealthbarDisplayer : IInitializable, System.IDisposable
+    public class UnitHealthbarDisplayer : System.IDisposable
     {
         private readonly BillboardGroupFacade billboardGroup;
         private readonly BillboardSource source;
@@ -23,13 +23,14 @@ namespace MOATT.Levels.Healthbars
             this.source = source;
         }
 
-        public void Initialize()
+        public void CreateHealthbar()
         {
             healthbarBillboard = billboardGroup.AddBillboard(source, healthbar.gameObject);
         }
 
         public void Dispose()
         {
+            if (healthbarBillboard == null) return;
             healthbarBillboard.Dispose();
         }
     }

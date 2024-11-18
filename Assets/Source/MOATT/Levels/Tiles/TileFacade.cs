@@ -9,21 +9,21 @@ namespace MOATT.Levels.Tiles
 
     public class TileFacade : MonoBehaviour
     {
-        private TileBuilding tileBuilding;
-
         public TileCell TileCell { get; private set; }
-        public BuildingFacade CurrentBuilding => tileBuilding.CurrentBuilding;
+        public BuildingFacade CurrentBuilding => TileBuilding.CurrentBuilding;
+
+        public TileBuilding TileBuilding { get; private set; }
 
         [Inject]
         public void Construct(TileCell tileCell, TileBuilding tileBuilding)
         {
             TileCell = tileCell;
-            this.tileBuilding = tileBuilding;
+            this.TileBuilding = tileBuilding;
         }
 
         public void SetBuilding(BuildingFacade building)
         {
-            tileBuilding.SetBuilding(building);
+            TileBuilding.SetBuilding(building);
         }
     }
 }

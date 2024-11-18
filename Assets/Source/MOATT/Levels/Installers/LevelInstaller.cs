@@ -37,7 +37,6 @@ namespace MOATT.Levels.Installers
             InstallMap();
             InstallEnemies();
             InstallMisc();
-            InstallInputLogic();
         }
 
         private void InstallMap()
@@ -49,9 +48,9 @@ namespace MOATT.Levels.Installers
 
         private void InstallEnemies()
         {
-            Container.BindFactory<EnemyFacade, EnemyFacade.Factory>().
+            Container.BindFactory<Vector3, EnemyFacade, EnemyFacade.Factory>().
                 FromSubContainerResolve().
-                ByNewContextPrefab(settings.enemyPrefab).
+                ByNewContextPrefab<EnemyInstaller>(settings.enemyPrefab).
                 UnderTransform(context => transformGrouper.GetGroup("Enemies"));
         }
 
@@ -60,11 +59,6 @@ namespace MOATT.Levels.Installers
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
             Container.Bind<BillboardGroupFacade>().FromComponentInHierarchy().AsSingle();
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
-        }
-
-        private void InstallInputLogic()
-        {
-            
         }
 
         [System.Serializable]

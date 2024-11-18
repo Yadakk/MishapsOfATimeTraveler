@@ -16,8 +16,6 @@ namespace MOATT.Levels.Enemies
         private EnemyRegistry registry;
         private BoundsCalculator boundsCalculator;
 
-        public event System.Action OnStarted;
-
         public Vector3 Center => boundsCalculator.Bounds.center;
 
         private void Awake()
@@ -25,20 +23,18 @@ namespace MOATT.Levels.Enemies
             registry.Add(this);
         }
 
-        private void Start()
-        {
-            OnStarted?.Invoke();
-        }
-
         [Inject]
         public void Construct(
+            Vector3 initPos,
             HealthModel healthModel,
             EnemyRegistry registry,
             BoundsCalculator boundsCalculator)
         {
             this.healthModel = healthModel;
             this.registry = registry;
-            this.boundsCalculator = boundsCalculator;        
+            this.boundsCalculator = boundsCalculator;
+
+            transform.position = initPos;
         }
 
         public void Damage(float damage)
@@ -57,6 +53,6 @@ namespace MOATT.Levels.Enemies
             registry.Remove(this);
         }
 
-        public class Factory : PlaceholderFactory<EnemyFacade> { }
+        public class Factory : PlaceholderFactory<Vector3, EnemyFacade> { }
     }
 }

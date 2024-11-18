@@ -12,12 +12,11 @@ namespace MOATT.Levels.Enemies
     using Zenject;
     using Healthbars;
 
-    public class EnemyPathfinder : IInitializable, System.IDisposable
+    public class EnemyPathfinder : IInitializable
     {
         private readonly TileFacade[] tiles;
         private readonly EnemyFacade facade;
         private readonly Tilemap tilemap;
-        private readonly UnitHealthbarDisplayer unitHealthbarDisplayer;
 
         public event System.Action<TileFacade> OnTileReached;
         public event System.Action<TileFacade[]> OnPathCreated;
@@ -25,30 +24,17 @@ namespace MOATT.Levels.Enemies
         public EnemyPathfinder(
             TileFacade[] tiles,
             EnemyFacade facade,
-            Tilemap tilemap,
-            UnitHealthbarDisplayer unitHealthbarDisplayer = null)
+            Tilemap tilemap)
         {
             this.tiles = tiles;
             this.facade = facade;
             this.tilemap = tilemap;
-            this.unitHealthbarDisplayer = unitHealthbarDisplayer;
         }
 
         public void Initialize()
         {
-            facade.OnStarted += StartHandler;
-        }
-
-        public void Dispose()
-        {
-            facade.OnStarted -= StartHandler;
-        }
-
-        private void StartHandler()
-        {
             var towerTiles = tiles.Where(tile => tile is TowerTileFacade).ToArray();
             MoveToTile(towerTiles[Random.Range(0, towerTiles.Length)]);
-            unitHealthbarDisplayer.CreateHealthbar();
         }
 
         public void MoveToTile(TileFacade target)

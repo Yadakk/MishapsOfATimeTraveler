@@ -10,6 +10,7 @@ namespace MOATT.Levels.BoundsCalculation
         public override void InstallBindings()
         {
             Container.Bind<Renderer>().FromComponentsInHierarchy().AsSingle();
+            Container.BindExecutionOrder<BoundsCalculator>(1);
             Container.BindInterfacesAndSelfTo<BoundsCalculator>().AsSingle();
         }
     }

@@ -8,6 +8,7 @@ namespace MOATT.Levels.Installers
     using Health;
     using Healthbars;
     using Billboards;
+    using MOATT.Levels.BoundsCalculation;
 
     public class UnitHealthInstaller : MonoInstaller
     {
@@ -23,6 +24,7 @@ namespace MOATT.Levels.Installers
         {
             Container.Bind<HealthModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
+            Container.BindExecutionOrder<UnitHealthbarDisplayer>(2);
             Container.BindInterfacesAndSelfTo<UnitHealthbarDisplayer>().AsSingle();
             Container.BindInterfacesAndSelfTo<HealthWatcher>().AsSingle();
 

@@ -32,7 +32,7 @@ namespace MOATT.Levels.BuildingPlacement
             var selectedTile = TileHoverListener.TileUnderMouse;
             if (selectedTile == null) return false;
             if (selectedTile.CurrentBuilding != null) return false;
-            buildingFactory.Create(selector.BuildingPrefab, selectedTile.TileBuilding);
+            buildingFactory.Create(selector.BuildingPrefab, new(selectedTile));
             return true;
         }
     }

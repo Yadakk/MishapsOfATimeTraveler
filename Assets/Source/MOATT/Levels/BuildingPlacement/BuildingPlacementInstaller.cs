@@ -8,7 +8,6 @@ namespace MOATT.Levels.BuildingPlacement
 {
     using InputLogic;
     using Buildings;
-    using Tiles;
 
     public class BuildingPlacementInstaller : Installer
     {
@@ -19,8 +18,8 @@ namespace MOATT.Levels.BuildingPlacement
             Container.BindInterfacesAndSelfTo<BuildingPlacementInputBinder>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacementHologram>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacementSelector>().AsSingle();
-            Container.BindFactory<Object, TileBuilding, BuildingFacade, BuildingFacade.Factory>().
-                FromFactory<InstallerParamPrefabFactory<TileBuilding, BuildingInstaller, BuildingFacade>>();
+            Container.BindFactory<Object, BuildingTunables, BuildingFacade, BuildingFacade.Factory>().
+                FromFactory<TunablesPrefabFactory<BuildingTunables, BuildingFacade>>();
         }
     }
 }

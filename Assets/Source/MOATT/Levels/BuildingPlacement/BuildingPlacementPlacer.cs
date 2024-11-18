@@ -6,8 +6,7 @@ using Zenject;
 namespace MOATT.Levels.BuildingPlacement
 {
     using Buildings;
-    using MOATT.InputLogic;
-    using MOATT.Levels.Tiles;
+    using Tiles;
 
     public class BuildingPlacementPlacer
     {

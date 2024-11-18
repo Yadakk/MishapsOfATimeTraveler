@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using InstallerParamFactories;
 
 namespace MOATT.Levels.BuildingPlacement
 {
@@ -19,7 +20,7 @@ namespace MOATT.Levels.BuildingPlacement
             Container.BindInterfacesAndSelfTo<BuildingPlacementHologram>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacementSelector>().AsSingle();
             Container.BindFactory<Object, TileBuilding, BuildingFacade, BuildingFacade.Factory>().
-                FromFactory<PrefabFactory<TileBuilding, BuildingFacade>>();
+                FromFactory<InstallerParamPrefabFactory<TileBuilding, BuildingInstaller, BuildingFacade>>();
         }
     }
 }

@@ -8,5 +8,6 @@ namespace MOATT.Layers
     public class LayerMasks
     {
         public LayerMask enemyMask;
+        public LayerMask tileMask;
     }
 }

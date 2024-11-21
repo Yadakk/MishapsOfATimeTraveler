@@ -12,13 +12,16 @@ namespace MOATT.Levels.BuildingPlacement
     {
         private readonly BuildingPlacementSelector selector;
         private readonly BuildingFacade.Factory buildingFactory;
+        private readonly TileRaycaster tileRaycaster;
 
         public BuildingPlacementPlacer(
-            BuildingPlacementSelector selector, 
-            BuildingFacade.Factory buildingFactory)
+            BuildingPlacementSelector selector,
+            BuildingFacade.Factory buildingFactory,
+            TileRaycaster tileRaycaster = null)
         {
             this.selector = selector;
             this.buildingFactory = buildingFactory;
+            this.tileRaycaster = tileRaycaster;
         }
 
         public void PlaceBuilding()
@@ -29,7 +32,7 @@ namespace MOATT.Levels.BuildingPlacement
         private bool TryPlaceBuilding()
         {
             if (selector.BuildingPrefab == null) return false;
-            var selectedTile = TileHoverListener.TileUnderMouse;
+            var selectedTile = tileRaycaster.TileUnderMouse;
             if (selectedTile == null) return false;
             if (selectedTile.CurrentBuilding != null) return false;
             buildingFactory.Create(selector.BuildingPrefab, new(selectedTile));

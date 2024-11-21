@@ -13,29 +13,34 @@ namespace MOATT.Levels.BuildingPlacement
     {
         private readonly HologramDisplayer hologramDisplayer;
         private readonly BuildingPlacementSelector selector;
+        private readonly TileRaycaster tileRaycaster;
 
-        public BuildingPlacementHologram(HologramDisplayer hologramDisplayer, BuildingPlacementSelector selector = null)
+        public BuildingPlacementHologram(
+            HologramDisplayer hologramDisplayer,
+            BuildingPlacementSelector selector,
+            TileRaycaster tileRaycaster)
         {
             this.hologramDisplayer = hologramDisplayer;
             this.selector = selector;
+            this.tileRaycaster = tileRaycaster;
         }
 
         public void Initialize()
         {
-            TileHoverListener.OnTileUnderMouseChanged += TileUnderMouseChangedHandler;
+            tileRaycaster.OnTileUnderMouseChanged += TileUnderMouseChangedHandler;
             selector.OnBuildingSelected += ModeChangedHandler;
         }
 
         public void Dispose()
         {
-            TileHoverListener.OnTileUnderMouseChanged -= TileUnderMouseChangedHandler;
+            tileRaycaster.OnTileUnderMouseChanged -= TileUnderMouseChangedHandler;
             selector.OnBuildingSelected -= ModeChangedHandler;
         }
 
-        private void TileUnderMouseChangedHandler()
+        private void TileUnderMouseChangedHandler(TileFacade newTile)
         {
-            if (TileHoverListener.TileUnderMouse == null) return;
-            hologramDisplayer.transform.position = TileHoverListener.TileUnderMouse.transform.position;
+            if (newTile == null) return;
+            hologramDisplayer.transform.position = newTile.transform.position;
         }
 
         private void ModeChangedHandler(BuildingFacade buildingPrefab)

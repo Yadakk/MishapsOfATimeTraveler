@@ -24,3 +24,6 @@ MonoBehaviour:
     enemyMask:
       serializedVersion: 2
       m_Bits: 8
+    tileMask:
+      serializedVersion: 2
+      m_Bits: 64

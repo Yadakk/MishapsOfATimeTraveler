@@ -5,8 +5,8 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings.Turrets
 {
     [CreateAssetMenu(fileName = nameof(TurretSettingsInstaller),
-        menuName = "Installers/Buildings/" + nameof(TurretSettingsInstaller))]
-    public class TurretSettingsInstaller : BuildingSettingsInstaller
+        menuName = "Installers/Buildings/HealthBuildings" + nameof(TurretSettingsInstaller))]
+    public class TurretSettingsInstaller : HealthBuildingSettingsInstaller
     {
         public TurretReloader.Settings reloader;
         public TurretTargetPicker.Settings targetPicker;

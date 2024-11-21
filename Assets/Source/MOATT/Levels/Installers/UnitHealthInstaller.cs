@@ -8,9 +8,9 @@ namespace MOATT.Levels.Installers
     using Health;
     using Healthbars;
     using Billboards;
-    using MOATT.Levels.BoundsCalculation;
+    using BoundsCalculation;
 
-    public class UnitHealthInstaller : MonoInstaller
+    public class UnitHealthInstaller : Installer
     {
         private GlobalSettings globalSettings;
 
@@ -22,6 +22,7 @@ namespace MOATT.Levels.Installers
 
         public override void InstallBindings()
         {
+            Container.Install<BoundsCalculatorInstaller>();
             Container.Bind<HealthModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
             Container.BindExecutionOrder<UnitHealthbarDisplayer>(2);

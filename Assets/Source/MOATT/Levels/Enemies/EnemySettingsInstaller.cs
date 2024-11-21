@@ -11,16 +11,15 @@ namespace MOATT.Levels.Enemies
         menuName = "Installers/" + nameof(EnemySettingsInstaller))]
     public class EnemySettingsInstaller : ScriptableObjectInstaller
     {
-        [SerializeField]
-        private EnemyTowerDamager.Settings towerDamager;
-
-        [SerializeField]
-        private HealthModel.Settings healthModel;
+        public EnemyTowerDamager.Settings towerDamager;
+        public HealthModel.Settings healthModel;
+        public EnemyPathfinder.Settings enemyPathfinder;
 
         public override void InstallBindings()
         {
             Container.BindInstance(towerDamager);
             Container.BindInstance(healthModel);
+            Container.BindInstance(enemyPathfinder);
         }
     }
 }

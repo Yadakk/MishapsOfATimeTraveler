@@ -15,8 +15,10 @@ namespace MOATT.Levels.Enemies
         private HealthModel healthModel;
         private EnemyRegistry registry;
         private BoundsCalculator boundsCalculator;
+        private EnemyTilemapPositionCalculator enemyCellPositionCalculator;
 
         public Vector3 Center => boundsCalculator.Bounds.center;
+        public Vector3Int TilemapPos => enemyCellPositionCalculator.TilemapPosition;
 
         private void Awake()
         {
@@ -28,11 +30,14 @@ namespace MOATT.Levels.Enemies
             Vector3 initPos,
             HealthModel healthModel,
             EnemyRegistry registry,
-            BoundsCalculator boundsCalculator)
+            BoundsCalculator boundsCalculator,
+            EnemyTilemapPositionCalculator enemyCellPositionCalculator
+            )
         {
             this.healthModel = healthModel;
             this.registry = registry;
             this.boundsCalculator = boundsCalculator;
+            this.enemyCellPositionCalculator = enemyCellPositionCalculator;
 
             transform.position = initPos;
         }

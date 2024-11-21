@@ -9,20 +9,11 @@ namespace MOATT.Levels.Buildings
 
     public class BuildingFacade : MonoBehaviour
     {
-        private HealthModel healthModel;
-
         [Inject]
-        public void Construct(HealthModel healthModel, [InjectOptional] BuildingTunables tunables)
+        public void Construct([InjectOptional] BuildingTunables tunables)
         {
-            this.healthModel = healthModel;
-
             if (tunables == null) return;
             tunables.initTile.SetBuilding(this);
-        }
-
-        public void Damage(float damage)
-        {
-            healthModel.CurrentHealth -= damage;
         }
 
         public void Destroy()

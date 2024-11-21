@@ -30,13 +30,14 @@ namespace MOATT.Levels.Buildings.Turrets
                 Position = transform.position
             };
 
-            bulletFactory.Create(settings.bulletPrefab, new(goParams));
+            bulletFactory.Create(settings.bulletPrefab, new(goParams, settings.baseDamage));
         }
 
         [System.Serializable]
         public class Settings
         {
             public BulletFacade bulletPrefab;
+            public float baseDamage = 20f;
         }
     }
 }

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.BoundsCalculation
 {
-    public class BoundsCalculatorInstaller : MonoInstaller
+    public class BoundsCalculatorInstaller : Installer
     {
         public override void InstallBindings()
         {

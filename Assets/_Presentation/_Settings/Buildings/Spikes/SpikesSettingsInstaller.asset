@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd81a5a9c28973e439a1845d2cedc9e5, type: 3}
-  m_Name: EnemySettingsInstaller
+  m_Script: {fileID: 11500000, guid: 275002ea7c29fd24b91925cdbb876833, type: 3}
+  m_Name: SpikesSettingsInstaller
   m_EditorClassIdentifier: 
-  towerDamager:
-    damage: 2
-  healthModel:
-    maxHealth: 3
+  enemyDamager:
+    baseDamage: 10

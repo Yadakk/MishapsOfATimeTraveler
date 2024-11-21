@@ -11,6 +11,7 @@ namespace MOATT.Levels.Bullets
 
     public class BulletFacade : MonoBehaviour
     {
+        private BulletTunables tunables;
         private LayerMasks layerMasks;
 
         private void OnTriggerEnter(Collider other)
@@ -18,7 +19,7 @@ namespace MOATT.Levels.Bullets
             var otherGameObject = other.gameObject;
             if (!layerMasks.enemyMask.HasLayer(otherGameObject.layer)) return;
             var enemy = otherGameObject.GetComponentInParent<EnemyFacade>();
-            enemy.Damage(1f);
+            enemy.Damage(tunables.damage);
             Destroy();
         }
 
@@ -26,6 +27,7 @@ namespace MOATT.Levels.Bullets
         public void Construct(LayerMasks layerMasks, BulletTunables tunables)
         {
             this.layerMasks = layerMasks;
+            this.tunables = tunables;
 
             var goParams = tunables.goParams;
 

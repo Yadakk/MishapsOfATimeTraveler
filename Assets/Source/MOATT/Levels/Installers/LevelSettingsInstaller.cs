@@ -7,7 +7,10 @@ namespace MOATT.Levels.Installers
 {
     using Waves.States;
 
-    [CreateAssetMenu(fileName = nameof(LevelSettingsInstaller), menuName = "Installers/" + nameof(LevelSettingsInstaller), order = 51)]
+    [CreateAssetMenu(
+        fileName = nameof(LevelSettingsInstaller), 
+        menuName = "Installers/" + nameof(LevelSettingsInstaller), 
+        order = 51)]
     public class LevelSettingsInstaller : ScriptableObjectInstaller
     {
         [SerializeField]

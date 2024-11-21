@@ -7,11 +7,14 @@ namespace MOATT.Levels.Buildings.Turrets
 {
     using Bullets;
     using InstallerParamFactories;
+    using MOATT.Levels.Buildings.HealthBuildings;
 
-    public class TurretInstaller : MonoInstaller
+    public class TurretInstaller : HealthBuildingInstaller
     {
         public override void InstallBindings()
         {
+            base.InstallBindings();
+
             Container.BindInterfacesAndSelfTo<TurretTargetPicker>().AsSingle();
             Container.BindInterfacesAndSelfTo<TurretRotater>().AsSingle();
             Container.BindInterfacesAndSelfTo<TurretReloader>().AsSingle();

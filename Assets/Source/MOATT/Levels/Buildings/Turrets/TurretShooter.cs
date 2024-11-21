@@ -6,25 +6,37 @@ using Zenject;
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Bullets;
-    using Enemies;
 
     public class TurretShooter : MonoBehaviour
     {
+        private Settings settings;
         private TurretTargetPicker targetPicker;
         private BulletFacade.Factory bulletFactory;
 
         [Inject]
-        public void Construct(TurretTargetPicker targetPicker, BulletFacade.Factory bulletFactory)
+        public void Construct(Settings settings, TurretTargetPicker targetPicker, BulletFacade.Factory bulletFactory)
         {
             this.targetPicker = targetPicker;
             this.bulletFactory = bulletFactory;
+            this.settings = settings;
         }
 
         public void Shoot()
         {
             if (targetPicker.Enemy == null) return;
-            var bullet = bulletFactory.Create();
-            bullet.transform.position = transform.position;
+
+            GameObjectCreationParameters goParams = new()
+            {
+                Position = transform.position
+            };
+
+            bulletFactory.Create(settings.bulletPrefab, new(goParams));
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public BulletFacade bulletPrefab;
         }
     }
 }

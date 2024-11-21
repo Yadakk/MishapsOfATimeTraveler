@@ -6,12 +6,12 @@ using Zenject;
 
 namespace InstallerParamFactories
 {
-    public class TunablesPrefabFactory<TTunables, T> : IFactory<Object, TTunables, T>
+    public class TunablePrefabFactory<TTunables, T> : IFactory<Object, TTunables, T>
         where T : Component
     {
         private readonly DiContainer container;
 
-        public TunablesPrefabFactory(DiContainer container)
+        public TunablePrefabFactory(DiContainer container)
         {
             this.container = container;
         }

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthModel:
     maxHealth: 100
-  installer:
-    bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
-      type: 3}
   reloader:
     reloadTime: 1
   targetPicker:
     range: 12
+  shooter:
+    bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
+      type: 3}

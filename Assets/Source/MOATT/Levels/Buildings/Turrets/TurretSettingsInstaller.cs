@@ -8,17 +8,17 @@ namespace MOATT.Levels.Buildings.Turrets
         menuName = "Installers/Buildings/" + nameof(TurretSettingsInstaller))]
     public class TurretSettingsInstaller : BuildingSettingsInstaller
     {
-        public TurretInstaller.Settings installer;
         public TurretReloader.Settings reloader;
         public TurretTargetPicker.Settings targetPicker;
+        public TurretShooter.Settings shooter;
 
         public override void InstallBindings()
         {
             base.InstallBindings();
 
-            Container.BindInstance(installer);
             Container.BindInstance(reloader);
             Container.BindInstance(targetPicker);
+            Container.BindInstance(shooter);
         }
     }
 }

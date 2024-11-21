@@ -19,7 +19,7 @@ namespace MOATT.Levels.BuildingPlacement
             Container.BindInterfacesAndSelfTo<BuildingPlacementHologram>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacementSelector>().AsSingle();
             Container.BindFactory<Object, BuildingTunables, BuildingFacade, BuildingFacade.Factory>().
-                FromFactory<TunablesPrefabFactory<BuildingTunables, BuildingFacade>>();
+                FromFactory<TunablePrefabFactory<BuildingTunables, BuildingFacade>>();
         }
     }
 }

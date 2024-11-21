@@ -25,6 +25,7 @@ namespace MOATT.Levels.Buildings.Turrets
             var transform = facade.transform;
             Vector3 enemyDirection = enemy.transform.position - transform.position;
 
+            if (enemyDirection == Vector3.zero) return;
             transform.rotation = Quaternion.LookRotation(enemyDirection);
             transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         }

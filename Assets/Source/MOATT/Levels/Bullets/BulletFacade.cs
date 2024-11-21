@@ -23,9 +23,14 @@ namespace MOATT.Levels.Bullets
         }
 
         [Inject]
-        public void Construct(LayerMasks layerMasks)
+        public void Construct(LayerMasks layerMasks, BulletTunables tunables)
         {
             this.layerMasks = layerMasks;
+
+            var goParams = tunables.goParams;
+
+            if (goParams.Position.HasValue) 
+                transform.position = goParams.Position.Value;
         }
 
         public void Destroy()
@@ -33,6 +38,6 @@ namespace MOATT.Levels.Bullets
             Destroy(gameObject);
         }
 
-        public class Factory : PlaceholderFactory<BulletFacade> { }
+        public class Factory : PlaceholderFactory<Object, BulletTunables, BulletFacade> { }
     }
 }

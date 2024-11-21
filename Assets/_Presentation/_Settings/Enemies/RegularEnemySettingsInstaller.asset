@@ -16,3 +16,5 @@ MonoBehaviour:
     damage: 20
   healthModel:
     maxHealth: 100
+  enemyPathfinder:
+    speed: 1

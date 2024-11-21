@@ -6,7 +6,7 @@ using TimeTimers;
 
 namespace MOATT.Installers
 {
-    using Layers;
+    using GUILogic;
 
     public class GameInstaller : MonoInstaller
     {
@@ -14,6 +14,7 @@ namespace MOATT.Installers
         {
             Container.Bind<Timer>().AsTransient();
             Container.Bind<InputAsset>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PointerOverUIWatcher>().AsSingle();
         }
     }
 }

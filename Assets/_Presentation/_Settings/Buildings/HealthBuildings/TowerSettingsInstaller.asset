@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d49c4d99eb45eb4aa0bb34f6604aa3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 213e1a9847213fa40bfcf39f983b4db3, type: 3}
   m_Name: TowerSettingsInstaller
   m_EditorClassIdentifier: 
+  buildingFacade:
+    canBePlacedOn: 0
   healthModel:
     maxHealth: 100

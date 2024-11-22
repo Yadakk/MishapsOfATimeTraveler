@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileCell:
     isWalkable: 1
+  tileBuilding:
+    type: 2

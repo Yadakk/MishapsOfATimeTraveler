@@ -7,7 +7,6 @@ using Zenject;
 namespace MOATT.Levels.BuildingPlacement
 {
     using Tiles;
-    using Buildings;
 
     public class BuildingPlacementHologram : IInitializable, System.IDisposable
     {
@@ -28,25 +27,20 @@ namespace MOATT.Levels.BuildingPlacement
         public void Initialize()
         {
             tileRaycaster.OnTileUnderMouseChanged += TileUnderMouseChangedHandler;
-            selector.OnBuildingSelected += ModeChangedHandler;
         }
 
         public void Dispose()
         {
             tileRaycaster.OnTileUnderMouseChanged -= TileUnderMouseChangedHandler;
-            selector.OnBuildingSelected -= ModeChangedHandler;
         }
 
         private void TileUnderMouseChangedHandler(TileFacade newTile)
         {
-            if (newTile == null) return;
+            var args = selector.BuildingPrefab.GetHologramArgs(newTile);
+            if (!args.IsDisplayed) { Hide(); return; }
+            Show();
+            hologramDisplayer.SetColor(args.IsAcceptable ? Color.green : Color.red);
             hologramDisplayer.transform.position = newTile.transform.position;
-        }
-
-        private void ModeChangedHandler(BuildingFacade buildingPrefab)
-        {
-            if (buildingPrefab == null) Hide();
-            else Show(buildingPrefab);
         }
 
         private void Hide()
@@ -54,10 +48,16 @@ namespace MOATT.Levels.BuildingPlacement
             hologramDisplayer.SetActive(false);
         }
 
-        private void Show(BuildingFacade buildingPrefab)
+        private void Show()
         {
             hologramDisplayer.SetActive(true);
-            hologramDisplayer.SetModel(buildingPrefab.gameObject);
+            hologramDisplayer.SetModel(selector.BuildingPrefab.gameObject);
+        }
+
+        public class DisplayArgs
+        {
+            public bool IsDisplayed;
+            public bool IsAcceptable;
         }
     }
 }

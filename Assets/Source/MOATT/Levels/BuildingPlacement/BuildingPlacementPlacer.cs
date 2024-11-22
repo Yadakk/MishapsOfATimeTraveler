@@ -36,10 +36,8 @@ namespace MOATT.Levels.BuildingPlacement
         private bool TryPlaceBuilding()
         {
             if (pointerOverUIWatcher.IsPointerOverUI) return false;
-            if (selector.BuildingPrefab == null) return false;
             var selectedTile = tileRaycaster.TileUnderMouse;
-            if (selectedTile == null) return false;
-            if (selectedTile.CurrentBuilding != null) return false;
+            if (!selector.BuildingPrefab.CanBePlacedOn(selectedTile)) return false;
             buildingFactory.Create(selector.BuildingPrefab, new(selectedTile));
             return true;
         }

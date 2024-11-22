@@ -9,16 +9,27 @@ namespace HologramDisplayers
         public Material hologramMaterial;
 
         private Transform displayedModel;
+        private readonly List<MeshRenderer> renderers = new();
 
         public void SetActive(bool isActive) => gameObject.SetActive(isActive);
 
         public void SetModel(GameObject model)
         {
+            renderers.Clear();
+
             if (displayedModel != null) Destroy(displayedModel.gameObject);
             displayedModel = new GameObject(model.name).transform;
             displayedModel.SetParent(transform);
             var goTransform = model.transform;
             AddTransform(goTransform, displayedModel);
+        }
+
+        public void SetColor(Color color)
+        {
+            foreach(var renderer in renderers)
+            {
+                renderer.sharedMaterial.color = color;
+            }
         }
 
         private void AddTransform(Transform source, Transform target)
@@ -32,6 +43,7 @@ namespace HologramDisplayers
                 targetFilter.mesh = sourceFilter.sharedMesh;
 
                 var targetRenderer = target.gameObject.AddComponent<MeshRenderer>();
+                renderers.Add(targetRenderer);
                 targetRenderer.material = hologramMaterial;
             }
 

@@ -390,6 +390,11 @@ PrefabInstance:
       objectReference: {fileID: 6458483971053950309}
     - target: {fileID: 5270883031723927669, guid: 6de5ca44fb3229a40b6e80a41b6fcd85,
         type: 3}
+      propertyPath: _scriptableObjectInstallers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270883031723927669, guid: 6de5ca44fb3229a40b6e80a41b6fcd85,
+        type: 3}
       propertyPath: _scriptableObjectInstallers.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 339e4a8e4de942049b72216ef3288d25,

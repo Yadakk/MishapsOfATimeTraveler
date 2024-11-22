@@ -9,12 +9,13 @@ namespace MOATT.Levels.Tiles
         menuName = "Installers/" + nameof(TileSettingsInstaller))]
     public class TileSettingsInstaller : ScriptableObjectInstaller
     {
-        [SerializeField]
-        private TileCell.Settings tileCell;
+        public TileCell.Settings tileCell;
+        public TileBuilding.Settings tileBuilding;
 
         public override void InstallBindings()
         {
             Container.BindInstance(tileCell);
+            Container.BindInstance(tileBuilding);
         }
     }
 }

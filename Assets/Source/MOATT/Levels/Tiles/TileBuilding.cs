@@ -10,12 +10,24 @@ namespace MOATT.Levels.Tiles
     public class TileBuilding
     {
         private readonly TileFacade facade;
+        private readonly Settings settings;
 
-        public TileBuilding([InjectOptional] BuildingFacade building, TileFacade facade = null)
+        [System.Flags]
+        public enum TileType
+        {
+            Unplaceable,
+            Slot,
+            Road,
+        }
+
+        public TileBuilding([InjectOptional] BuildingFacade building, TileFacade facade = null, Settings settings = null)
         {
             CurrentBuilding = building;
             this.facade = facade;
+            this.settings = settings;
         }
+
+        public TileType Type => settings.type;
 
         public void SetBuilding(BuildingFacade building)
         {
@@ -24,5 +36,11 @@ namespace MOATT.Levels.Tiles
         }
 
         public BuildingFacade CurrentBuilding { get; private set; }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public TileType type;
+        }
     }
 }

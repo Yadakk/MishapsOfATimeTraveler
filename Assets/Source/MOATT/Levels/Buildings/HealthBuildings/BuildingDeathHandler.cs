@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.Buildings
+namespace MOATT.Levels.Buildings.HealthBuildings
 {
     public class BuildingDeathHandler : IInitializable, System.IDisposable
     {

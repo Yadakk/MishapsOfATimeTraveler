@@ -22,6 +22,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void SelectBuilding(BuildingFacade newPrefab)
         {
+            //TODO: Instantiate selected prefab and enable when placed
             BuildingPrefab = newPrefab;
 
             mapSwapper.CurrentMap = BuildingPrefab != null ?

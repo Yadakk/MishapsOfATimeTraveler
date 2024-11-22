@@ -10,8 +10,8 @@ namespace MOATT.Levels.Buildings.Bombs
         {
             base.InstallBindings();
 
-            Container.BindInterfacesAndSelfTo<BombTimer>();
-            Container.BindInterfacesAndSelfTo<BombExploder>();
+            Container.BindInterfacesAndSelfTo<BombTimer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BombExploder>().AsSingle();
         }
     }
 }

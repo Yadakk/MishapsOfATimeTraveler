@@ -9,11 +9,15 @@ namespace MOATT.Levels.Buildings.Bombs
         nameof(BombSettingsInstaller))]
     public class BombSettingsInstaller : BuildingSettingsInstaller
     {
+        public BombExploder.Settings exploder;
+        public BombTimer.Settings timer;
+
         public override void InstallBindings()
         {
             base.InstallBindings();
 
-            //TODO: Install settings
+            Container.BindInstance(exploder).AsSingle();
+            Container.BindInstance(timer).AsSingle();
         }
     }
 }

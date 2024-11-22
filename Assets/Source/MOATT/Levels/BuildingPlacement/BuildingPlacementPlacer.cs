@@ -16,6 +16,8 @@ namespace MOATT.Levels.BuildingPlacement
         private readonly TileRaycaster tileRaycaster;
         private readonly PointerOverUIWatcher pointerOverUIWatcher;
 
+        public System.Action OnBuildingPlaced;
+
         public BuildingPlacementPlacer(
             BuildingPlacementSelector selector,
             BuildingFacade.Factory buildingFactory,
@@ -31,7 +33,7 @@ namespace MOATT.Levels.BuildingPlacement
         public void PlaceBuilding()
         {
             if (pointerOverUIWatcher.IsPointerOverUI) return;
-            TryPlaceBuilding();
+            if (TryPlaceBuilding()) OnBuildingPlaced?.Invoke();
         }
 
         private bool TryPlaceBuilding()

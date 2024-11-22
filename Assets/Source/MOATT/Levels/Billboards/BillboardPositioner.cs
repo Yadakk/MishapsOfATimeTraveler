@@ -11,23 +11,11 @@ namespace MOATT.Levels.Billboards
         private readonly Camera camera;
         private readonly BillboardSource source;
 
-        private bool enabled = true;
-
         public BillboardPositioner(BillboardSource source, Camera camera, BillboardFacade facade)
         {
             this.source = source;
             this.camera = camera;
             this.facade = facade;
-        }
-
-        public bool Enabled
-        {
-            get => enabled;
-            set
-            {
-                enabled = value;
-                facade.gameObject.SetActive(enabled);
-            }
         }
 
         public void Initialize()
@@ -37,7 +25,6 @@ namespace MOATT.Levels.Billboards
 
         public void Tick()
         {
-            if (!Enabled) return;
             UpdatePosition();
         }
 

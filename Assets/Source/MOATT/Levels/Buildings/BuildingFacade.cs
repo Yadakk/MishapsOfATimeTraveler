@@ -9,17 +9,9 @@ namespace MOATT.Levels.Buildings
 
     public class BuildingFacade : MonoBehaviour
     {
-        [System.NonSerialized]
-        public TileFacade CurrentTile;
-
         private Settings settings;
 
         public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
-
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
 
         [Inject]
         public void Construct(Settings settings, [InjectOptional] BuildingTunables tunables)
@@ -27,20 +19,12 @@ namespace MOATT.Levels.Buildings
             this.settings = settings;
 
             if (tunables == null) return;
+            tunables.initTile.SetBuilding(this);
         }
 
         public void Destroy()
         {
             Destroy(gameObject);
-        }
-
-        public void SetTile(TileFacade newTile)
-        {
-            gameObject.SetActive(true);
-
-            if (CurrentTile != null) CurrentTile.SetBuilding(null);
-            CurrentTile = newTile;
-            CurrentTile.SetBuilding(this);
         }
 
         [System.Serializable]

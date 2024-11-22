@@ -36,7 +36,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void TileUnderMouseChangedHandler(TileFacade newTile)
         {
-            var args = selector.Building.GetHologramArgs(newTile);
+            var args = selector.BuildingPrefab.GetHologramArgs(newTile);
             if (!args.IsDisplayed) { Hide(); return; }
             Show();
             hologramDisplayer.SetColor(args.IsAcceptable ? Color.green : Color.red);
@@ -51,7 +51,7 @@ namespace MOATT.Levels.BuildingPlacement
         private void Show()
         {
             hologramDisplayer.SetActive(true);
-            hologramDisplayer.SetModel(selector.Building.gameObject);
+            hologramDisplayer.SetModel(selector.BuildingPrefab.gameObject);
         }
 
         public class DisplayArgs

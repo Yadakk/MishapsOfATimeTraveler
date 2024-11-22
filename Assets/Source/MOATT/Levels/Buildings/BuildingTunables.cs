@@ -10,10 +10,12 @@ namespace MOATT.Levels.Buildings
     public class BuildingTunables
     {
         public readonly GameObjectCreationParameters goParams;
+        public readonly TileFacade initTile;
 
-        public BuildingTunables(GameObjectCreationParameters goParams)
+        public BuildingTunables(GameObjectCreationParameters goParams, TileFacade initTile)
         {
             this.goParams = goParams;
+            this.initTile = initTile;
         }
     }
 }

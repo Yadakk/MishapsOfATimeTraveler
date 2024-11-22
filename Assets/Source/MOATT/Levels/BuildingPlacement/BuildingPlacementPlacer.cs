@@ -37,8 +37,8 @@ namespace MOATT.Levels.BuildingPlacement
         {
             if (pointerOverUIWatcher.IsPointerOverUI) return false;
             var selectedTile = tileRaycaster.TileUnderMouse;
-            if (!selector.Building.CanBePlacedOn(selectedTile)) return false;
-            selector.Building.SetTile(selectedTile);
+            if (!selector.BuildingPrefab.CanBePlacedOn(selectedTile)) return false;
+            buildingFactory.Create(selector.BuildingPrefab, new(new(), selectedTile));
             return true;
         }
     }

@@ -6,18 +6,15 @@ using Zenject;
 namespace MOATT.Levels.Buildings
 {
     using MOATT.Levels.Tiles;
+    using System.Linq;
 
     public class BuildingFacade : MonoBehaviour
     {
-        private Settings settings;
-
-        public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
+        public BuildingSettingsInstaller SettingsInstaller { get; private set; }
 
         [Inject]
-        public void Construct(Settings settings, [InjectOptional] BuildingTunables tunables)
+        public void Construct([InjectOptional] BuildingTunables tunables)
         {
-            this.settings = settings;
-
             if (tunables == null) return;
             tunables.initTile.SetBuilding(this);
         }
@@ -25,6 +22,15 @@ namespace MOATT.Levels.Buildings
         public void Destroy()
         {
             Destroy(gameObject);
+        }
+
+        public BuildingSettingsInstaller GetSettingsInstaller()
+        {
+            if (SettingsInstaller != null) return SettingsInstaller;
+            SettingsInstaller = GetComponent<GameObjectContext>().
+                ScriptableObjectInstallers.
+                OfType<BuildingSettingsInstaller>().First();
+            return SettingsInstaller;
         }
 
         [System.Serializable]

@@ -6,7 +6,7 @@ using Zenject;
 namespace MOATT.Installers
 {
     using Levels.BillboardGroup;
-    using Levels.Installers;
+    using Levels.UnitHealth;
     using Levels.Billboards;
     using Layers;
 

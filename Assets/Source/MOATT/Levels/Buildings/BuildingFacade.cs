@@ -5,18 +5,25 @@ using Zenject;
 
 namespace MOATT.Levels.Buildings
 {
-    using MOATT.Levels.Tiles;
+    using Health;
+    using Tiles;
     using System.Linq;
 
     public class BuildingFacade : MonoBehaviour
     {
-        public BuildingSettingsInstaller SettingsInstaller { get; private set; }
+        private HealthModel healthModel;
+
+        public BuildingSOInstaller SettingsInstaller { get; private set; }
+
+        public bool HasHealth { get; private set; }
 
         [Inject]
-        public void Construct([InjectOptional] BuildingTunables tunables)
+        public void Construct(
+            [InjectOptional] BuildingTunables tunables,
+            [InjectOptional] HealthModel healthModel)
         {
-            if (tunables == null) return;
-            tunables.initTile.SetBuilding(this);
+            if (healthModel != null) SetupHealthModel(healthModel);
+            tunables?.initTile.SetBuilding(this);
         }
 
         public void Destroy()
@@ -24,12 +31,23 @@ namespace MOATT.Levels.Buildings
             Destroy(gameObject);
         }
 
-        public BuildingSettingsInstaller GetSettingsInstaller()
+        public void Damage(float amount)
+        {
+            healthModel.CurrentHealth -= amount;
+        }
+
+        private void SetupHealthModel(HealthModel healthModel)
+        {
+            this.healthModel = healthModel;
+            HasHealth = true;
+        }
+
+        public BuildingSOInstaller GetSettingsInstaller()
         {
             if (SettingsInstaller != null) return SettingsInstaller;
             SettingsInstaller = GetComponent<GameObjectContext>().
                 ScriptableObjectInstallers.
-                OfType<BuildingSettingsInstaller>().First();
+                OfType<BuildingSOInstaller>().First();
             return SettingsInstaller;
         }
 

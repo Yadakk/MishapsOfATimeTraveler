@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3044,6 +3044,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 100422647}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &114492878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4297507151321528399, guid: f6ffb57fb1d905c49ba70df191411fff,
+    type: 3}
+  m_PrefabInstance: {fileID: 682664202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &119305157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5669,7 +5675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9410dfdd2e6a6a4798e8efb66dbf494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 8068844332987976930, guid: 9d2c9d35330372245b27ff020337d436,
+  buildingPrefab: {fileID: 4457310283655775695, guid: 9d2c9d35330372245b27ff020337d436,
     type: 3}
 --- !u!1001 &227374257
 PrefabInstance:
@@ -8882,7 +8888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9410dfdd2e6a6a4798e8efb66dbf494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 1269041530308538665, guid: 54cc25543610fbd449c4c9f5a0af48a3,
+  buildingPrefab: {fileID: 6295303179929738835, guid: 16f328e160bf2654ba6186777ec53e98,
     type: 3}
 --- !u!1001 &363478071
 PrefabInstance:
@@ -15391,12 +15397,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ffb57fb1d905c49ba70df191411fff, type: 3}
---- !u!4 &682664203 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4297507151321528399, guid: f6ffb57fb1d905c49ba70df191411fff,
-    type: 3}
-  m_PrefabInstance: {fileID: 682664202}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &683169750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17090,7 +17090,7 @@ Transform:
   - {fileID: 76768736}
   - {fileID: 844450573}
   - {fileID: 1601131944}
-  - {fileID: 682664203}
+  - {fileID: 114492878}
   - {fileID: 7782610}
   - {fileID: 1925440133}
   - {fileID: 1843616115}
@@ -18046,7 +18046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9410dfdd2e6a6a4798e8efb66dbf494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 3955637677694541467, guid: 16f328e160bf2654ba6186777ec53e98,
+  buildingPrefab: {fileID: 8080827644565336545, guid: 54cc25543610fbd449c4c9f5a0af48a3,
     type: 3}
 --- !u!1001 &775045850
 PrefabInstance:

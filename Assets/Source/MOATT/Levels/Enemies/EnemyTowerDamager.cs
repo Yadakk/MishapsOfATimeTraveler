@@ -5,7 +5,6 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
-    using MOATT.Levels.Buildings.HealthBuildings;
     using Tiles;
 
     public class EnemyTowerDamager : IInitializable, System.IDisposable
@@ -33,10 +32,10 @@ namespace MOATT.Levels.Enemies
 
         private void TileReachedHandler(TileFacade tile)
         {
-            if (tile.CurrentBuilding == null) return;
-            if (tile.CurrentBuilding is not HealthBuildingFacade) return;
-            var healthBuilding = (HealthBuildingFacade)tile.CurrentBuilding;
-            healthBuilding.Damage(settings.damage);
+            var building = tile.CurrentBuilding;
+            if (building == null) return;
+            if (building.HasHealth) return;
+            building.Damage(settings.damage);
             Object.Destroy(facade.gameObject);
         }
 

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
-    using Installers;
+    using UnitHealth;
 
     public class EnemyInstaller : MonoInstaller
     {
@@ -20,7 +20,6 @@ namespace MOATT.Levels.Enemies
         public override void InstallBindings()
         {
             Container.Install<UnitHealthInstaller>();
-
             Container.BindInstance(initPos).WhenInjectedInto<EnemyFacade>();
             Container.Bind<EnemyFacade>().FromComponentOnRoot().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyTowerDamager>().AsSingle();

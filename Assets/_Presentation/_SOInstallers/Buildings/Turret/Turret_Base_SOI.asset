@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
+  m_Name: Turret_Base_SOI
+  m_EditorClassIdentifier: 
+  buildingFacade:
+    canBePlacedOn: 1
+  healthModel:
+    maxHealth: 100
+  reloader:
+    reloadTime: 1
+  targetPicker:
+    range: 12
+  shooter:
+    bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
+      type: 3}
+    baseDamage: 20

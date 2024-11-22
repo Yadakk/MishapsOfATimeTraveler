@@ -5,16 +5,22 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings.Spikes
 {
     [CreateAssetMenu(
-    fileName = nameof(SpikesSettingsInstaller),
-    menuName = "Installers/Buildings/" + nameof(SpikesSettingsInstaller))]
-    public class SpikesSettingsInstaller : BuildingSettingsInstaller
+    fileName = "SpikesInstaller",
+    menuName = "Installers/Buildings/Spikes")]
+    public class SpikesSettingsInstaller : BuildingSOInstaller
     {
         public SpikesEnemyDamager.Settings enemyDamager;
         public SpikesReloader.Settings reloader;
 
         public override void InstallBindings()
         {
-            base.InstallBindings();
+            InstallSettings();
+            Container.Install<SpikesInstaller>();
+        }
+
+        protected override void InstallSettings()
+        {
+            base.InstallSettings();
 
             Container.BindInstance(enemyDamager);
             Container.BindInstance(reloader);

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Buildings
 {
-    public class BuildingInstaller : MonoInstaller
+    public class BuildingInstaller : Installer
     {
         public override void InstallBindings()
         {

@@ -30,7 +30,8 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void PlaceBuilding()
         {
-            if (!TryPlaceBuilding()) selector.SelectBuilding(null);
+            if (pointerOverUIWatcher.IsPointerOverUI) return;
+            TryPlaceBuilding();
         }
 
         private bool TryPlaceBuilding()

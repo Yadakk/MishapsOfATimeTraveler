@@ -23,7 +23,10 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void Select()
         {
-            selector.SelectBuilding(buildingPrefab);
+            if (selector.BuildingPrefab != buildingPrefab)
+                selector.SelectBuilding(buildingPrefab);
+            else
+                selector.SelectBuilding(null);
         }
     }
 }

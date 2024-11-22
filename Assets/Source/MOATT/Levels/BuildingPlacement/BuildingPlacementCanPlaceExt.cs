@@ -12,18 +12,14 @@ namespace MOATT.Levels.BuildingPlacement
     {
         public static bool CanBePlacedOn(this BuildingFacade building, TileFacade tile)
         {
-            if (building == null) return false;
-            if (tile == null) return false;
-
-            if (tile.CurrentBuilding != null) return false;
-
+            if (!CanBePlaced(building, tile)) return false;
             return DoTypesMatch(building, tile);
         }
 
         public static BuildingPlacementHologram.DisplayArgs GetHologramArgs(
             this BuildingFacade building, TileFacade tile)
         {
-            bool isDisplayed = CanBeDisplayed(building, tile);
+            bool isDisplayed = CanBePlaced(building, tile);
 
             bool isAcceptable = isDisplayed && DoTypesMatch(building, tile);
 
@@ -34,7 +30,7 @@ namespace MOATT.Levels.BuildingPlacement
             };
         }
 
-        private static bool CanBeDisplayed(BuildingFacade building, TileFacade tile)
+        private static bool CanBePlaced(BuildingFacade building, TileFacade tile)
         {
             if (building == null) return false;
             if (tile == null) return false;

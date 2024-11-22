@@ -10,29 +10,30 @@ namespace MOATT.Levels.Buildings.Spikes
     public class SpikesEnemyDamager : ITickable
     {
         private readonly Settings settings;
-        private readonly BuildingTunables tunables;
         private readonly EnemyRegistry enemyRegistry;
         private readonly SpikesReloader spikesReloader;
+        private readonly BuildingFacade facade;
 
         public SpikesEnemyDamager(
             Settings settings,
-            BuildingTunables tunables,
             EnemyRegistry enemyRegistry,
-            SpikesReloader spikesReloader)
+            SpikesReloader spikesReloader,
+            BuildingFacade facade)
         {
             this.settings = settings;
-            this.tunables = tunables;
             this.enemyRegistry = enemyRegistry;
             this.spikesReloader = spikesReloader;
+            this.facade = facade;
         }
 
         public void Tick()
         {
+            if (!facade.isActiveAndEnabled) return;
             var enemies = enemyRegistry.enemies;
 
             foreach (var enemy in enemies)
             {
-                if (tunables.initTile.TileCell.TilemapPos != enemy.TilemapPos) continue;
+                if (facade.CurrentTile.TileCell.TilemapPos != enemy.TilemapPos) continue;
                 if (!spikesReloader.IsReady) continue;
 
                 enemy.Damage(settings.baseDamage);

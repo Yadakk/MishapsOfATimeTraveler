@@ -5,14 +5,15 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings
 {
     using Tiles;
+    using Zenject;
 
     public class BuildingTunables
     {
-        public readonly TileFacade initTile;
+        public readonly GameObjectCreationParameters goParams;
 
-        public BuildingTunables(TileFacade initTile)
+        public BuildingTunables(GameObjectCreationParameters goParams)
         {
-            this.initTile = initTile;
+            this.goParams = goParams;
         }
     }
 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
   m_Name: TurretSettingsInstaller
   m_EditorClassIdentifier: 
+  buildingFacade:
+    canBePlacedOn: 1
   healthModel:
     maxHealth: 100
   reloader:
@@ -21,3 +23,4 @@ MonoBehaviour:
   shooter:
     bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
       type: 3}
+    baseDamage: 20

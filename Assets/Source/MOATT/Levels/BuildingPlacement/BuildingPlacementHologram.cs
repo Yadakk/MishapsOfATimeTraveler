@@ -6,6 +6,7 @@ using Zenject;
 
 namespace MOATT.Levels.BuildingPlacement
 {
+    using Buildings;
     using Tiles;
 
     public class BuildingPlacementHologram : IInitializable, System.IDisposable
@@ -27,6 +28,7 @@ namespace MOATT.Levels.BuildingPlacement
         public void Initialize()
         {
             tileRaycaster.OnTileUnderMouseChanged += TileUnderMouseChangedHandler;
+            selector.OnBuildingSelected += BuildingSelectedHandler;
         }
 
         public void Dispose()
@@ -36,11 +38,25 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void TileUnderMouseChangedHandler(TileFacade newTile)
         {
-            var args = selector.BuildingPrefab.GetHologramArgs(newTile);
+            UpdateDisplayer();
+        }
+
+        private void BuildingSelectedHandler(BuildingFacade facade)
+        {
+            UpdateDisplayer();
+        }
+
+        private void UpdateDisplayer()
+        {
+            var args = selector.BuildingPrefab.GetHologramArgs(
+                tileRaycaster.TileUnderMouse);
+
             if (!args.IsDisplayed) { Hide(); return; }
             Show();
             hologramDisplayer.SetColor(args.IsAcceptable ? Color.green : Color.red);
-            hologramDisplayer.transform.position = newTile.transform.position;
+
+            hologramDisplayer.transform.position = 
+                tileRaycaster.TileUnderMouse.transform.position;
         }
 
         private void Hide()

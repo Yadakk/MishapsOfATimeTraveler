@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace MOATT.Levels.BuildingPlacement
 {
     using UnitRange;
     using Buildings;
-    using MOATT.Levels.Range;
+    using TilemapSizeMultipliers;
 
     public class BuildingPlacementRange
     {
         private readonly UnitRangeHologram hologram;
-        private readonly Tilemap tilemap;
+        private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
 
-        public BuildingPlacementRange(Tilemap tilemap, UnitRangeHologram hologram = null)
+        public BuildingPlacementRange(TilemapSizeMultiplier tilemapSizeMultiplier, UnitRangeHologram hologram = null)
         {
-            this.tilemap = tilemap;
+            this.tilemapSizeMultiplier = tilemapSizeMultiplier;
             this.hologram = hologram;
         }
 
@@ -29,7 +28,7 @@ namespace MOATT.Levels.BuildingPlacement
         {
             var unitRangeSOI = buildingPrefab.GetSOInstaller<UnitRangeSOInstaller>();
             if (unitRangeSOI == null) return false;
-            hologram.DisplayRange(UnitTilemapRangeGetter.GetRange(tilemap, unitRangeSOI.unitRange.rangeTiles));
+            hologram.DisplayRange(tilemapSizeMultiplier.Multiply(unitRangeSOI.unitRange.rangeTiles));
             hologram.transform.position = newPosition;
             return true;
         }

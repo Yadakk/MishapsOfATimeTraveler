@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bomb_Range_SOI
   m_EditorClassIdentifier: 
   unitRange:
-    rangeTiles: 2
+    rangeTiles: 2.5

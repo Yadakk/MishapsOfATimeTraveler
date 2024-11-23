@@ -9,12 +9,14 @@ namespace MOATT.Levels.Enemies
 {
     using Tiles;
     using Zenject;
+    using TilemapSizeMultipliers;
 
     public class EnemyPathfinder : IInitializable
     {
         private readonly Settings settings;
         private readonly TileFacade[] tiles;
         private readonly EnemyFacade facade;
+        private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
 
         public event System.Action<TileFacade> OnTileReached;
         public event System.Action<TileFacade[]> OnPathCreated;
@@ -22,12 +24,13 @@ namespace MOATT.Levels.Enemies
         public EnemyPathfinder(
             TileFacade[] tiles,
             EnemyFacade facade,
-            Settings settings
-            )
+            Settings settings,
+            TilemapSizeMultiplier tilemapSizeMultiplier = null)
         {
             this.tiles = tiles;
             this.facade = facade;
             this.settings = settings;
+            this.tilemapSizeMultiplier = tilemapSizeMultiplier;
         }
 
         public void Initialize()
@@ -50,14 +53,14 @@ namespace MOATT.Levels.Enemies
             OnPathCreated?.Invoke(tilePath.ToArray());
             Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();
 
-            facade.transform.DOPath(path, settings.speed).SetSpeedBased().SetEase(Ease.Linear).
-                OnComplete(() => OnTileReached?.Invoke(target));
+            facade.transform.DOPath(path, tilemapSizeMultiplier.Multiply(settings.tilesPerSecond)).
+                SetSpeedBased().SetEase(Ease.Linear).OnComplete(() => OnTileReached?.Invoke(target));
         }
 
         [System.Serializable]
         public class Settings
         {
-            public float speed = 1f;
+            public float tilesPerSecond = 1f;
         }
     }
 }

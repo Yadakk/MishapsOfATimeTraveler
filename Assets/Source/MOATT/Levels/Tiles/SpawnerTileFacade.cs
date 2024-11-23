@@ -16,9 +16,9 @@ namespace MOATT.Levels.Tiles
             this.factory = factory;
         }
 
-        public EnemyFacade Spawn()
+        public EnemyFacade Spawn(EnemyFacade enemyPrefab)
         {
-            EnemyFacade enemy = factory.Create(transform.position);
+            EnemyFacade enemy = factory.Create(enemyPrefab, new(transform.position));
             return enemy;
         }
     }

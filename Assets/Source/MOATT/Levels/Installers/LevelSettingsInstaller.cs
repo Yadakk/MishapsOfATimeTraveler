@@ -13,11 +13,7 @@ namespace MOATT.Levels.Installers
         order = 51)]
     public class LevelSettingsInstaller : ScriptableObjectInstaller
     {
-        [SerializeField]
-        private LevelInstaller.Settings levelInstaller;
-
-        [SerializeField]
-        private WaveSettings waves;
+        public WaveSettings waves;
 
         public override void InstallBindings()
         {
@@ -26,7 +22,6 @@ namespace MOATT.Levels.Installers
 
         private void InstallWaves()
         {
-            Container.BindInstance(levelInstaller);
             Container.BindInstance(waves.delay);
             Container.BindInstance(waves.spawning);
         }

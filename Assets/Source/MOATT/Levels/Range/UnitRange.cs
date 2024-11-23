@@ -1,24 +1,24 @@
-﻿using MOATT.Levels.Range;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace MOATT.Levels.UnitRange
 {
+    using TilemapSizeMultipliers;
+
     public class UnitRange
     {
         private readonly Settings settings;
-        private readonly Tilemap tilemap;
+        private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
 
-        public UnitRange(Settings settings, Tilemap tilemap = null)
+        public UnitRange(Settings settings, TilemapSizeMultiplier tilemapSizeMultiplier)
         {
             this.settings = settings;
-            this.tilemap = tilemap;
+            this.tilemapSizeMultiplier = tilemapSizeMultiplier;
         }
 
-        public float Range => UnitTilemapRangeGetter.GetRange(tilemap, settings.rangeTiles);
+        public float Range => tilemapSizeMultiplier.Multiply(settings.rangeTiles);
 
         [Serializable]
         public class Settings

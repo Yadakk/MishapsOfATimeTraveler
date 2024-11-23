@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd81a5a9c28973e439a1845d2cedc9e5, type: 3}
-  m_Name: RegularEnemySettingsInstaller
+  m_Name: HeavyEnemy_Base_SOI
   m_EditorClassIdentifier: 
   towerDamager:
-    damage: 20
+    damage: 40
   healthModel:
-    maxHealth: 100
+    maxHealth: 200
   enemyPathfinder:
-    speed: 1
+    tilesPerSecond: 0.25

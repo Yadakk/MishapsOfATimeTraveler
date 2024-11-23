@@ -27,7 +27,7 @@ namespace MOATT.Levels.Enemies
 
         [Inject]
         public void Construct(
-            Vector3 initPos,
+            EnemyTunables tunables,
             HealthModel healthModel,
             EnemyRegistry registry,
             BoundsCalculator boundsCalculator,
@@ -39,7 +39,7 @@ namespace MOATT.Levels.Enemies
             this.boundsCalculator = boundsCalculator;
             this.enemyCellPositionCalculator = enemyCellPositionCalculator;
 
-            transform.position = initPos;
+            transform.position = tunables.initPos;
         }
 
         public void Damage(float damage)
@@ -58,6 +58,6 @@ namespace MOATT.Levels.Enemies
             registry.Remove(this);
         }
 
-        public class Factory : PlaceholderFactory<Vector3, EnemyFacade> { }
+        public class Factory : PlaceholderFactory<Object, EnemyTunables, EnemyFacade> { }
     }
 }

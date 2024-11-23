@@ -48,8 +48,9 @@ namespace MOATT.Levels.Waves.States
 
         private void SpawnEnemy()
         {
+            var enemyPrefabs = settings.enemyPrefabs;
             SpawnerTileFacade selectedSpawner = spawners[Random.Range(0, spawners.Length)];
-            selectedSpawner.Spawn();
+            selectedSpawner.Spawn(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]);
             remainingToSpawn--;
         }
 
@@ -58,6 +59,7 @@ namespace MOATT.Levels.Waves.States
         [System.Serializable]
         public class Settings
         {
+            public EnemyFacade[] enemyPrefabs;
             public float spawnInterval = 1f;
             public int enemiesToSpawn = 5;
         }

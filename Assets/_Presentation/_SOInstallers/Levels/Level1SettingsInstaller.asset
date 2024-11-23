@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe4ed4856fe09a4db392ebd004377ad, type: 3}
   m_Name: Level1SettingsInstaller
   m_EditorClassIdentifier: 
-  levelInstaller:
-    enemyPrefab: {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741,
-      type: 3}
   waves:
     delay:
       waveDelay: 1
     spawning:
+      enemyPrefabs:
+      - {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741, type: 3}
+      - {fileID: 4902633262727150827, guid: 2f31e71c1dc608743aeb3170ba45bffd, type: 3}
       spawnInterval: 1
       enemiesToSpawn: 5

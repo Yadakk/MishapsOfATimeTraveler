@@ -8,21 +8,27 @@ namespace MOATT.Levels.Buildings
     using Health;
     using Tiles;
     using System.Linq;
+    using MOATT.Levels.UnitRange;
 
     public class BuildingFacade : MonoBehaviour
     {
         private HealthModel healthModel;
 
-        public BuildingSOInstaller SettingsInstaller { get; private set; }
+        private GameObjectContext goContext;
 
-        public bool HasHealth { get; private set; }
+        public bool HasHealth => healthModel != null;
+        public UnitRange BuildingRange { get; private set; }
 
         [Inject]
         public void Construct(
             [InjectOptional] BuildingTunables tunables,
-            [InjectOptional] HealthModel healthModel)
+            [InjectOptional] HealthModel healthModel,
+            [InjectOptional] UnitRange buildingRange
+            )
         {
-            if (healthModel != null) SetupHealthModel(healthModel);
+            this.healthModel = healthModel;
+            BuildingRange = buildingRange;
+
             tunables?.initTile.SetBuilding(this);
         }
 
@@ -36,19 +42,10 @@ namespace MOATT.Levels.Buildings
             healthModel.CurrentHealth -= amount;
         }
 
-        private void SetupHealthModel(HealthModel healthModel)
+        public T GetSOInstaller<T>() where T : ScriptableObjectInstaller
         {
-            this.healthModel = healthModel;
-            HasHealth = true;
-        }
-
-        public BuildingSOInstaller GetSettingsInstaller()
-        {
-            if (SettingsInstaller != null) return SettingsInstaller;
-            SettingsInstaller = GetComponent<GameObjectContext>().
-                ScriptableObjectInstallers.
-                OfType<BuildingSOInstaller>().First();
-            return SettingsInstaller;
+            if (goContext == null) goContext = GetComponent<GameObjectContext>();
+            return goContext.ScriptableObjectInstallers.OfType<T>().FirstOrDefault();
         }
 
         [System.Serializable]

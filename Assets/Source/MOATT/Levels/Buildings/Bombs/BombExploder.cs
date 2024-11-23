@@ -5,18 +5,21 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings.Bombs
 {
     using Enemies;
+    using UnitRange;
 
     public class BombExploder
     {
         private readonly EnemyRegistry enemyRegistry;
         private readonly BuildingFacade facade;
         private readonly Settings settings;
+        private readonly UnitRange unitRange;
 
-        public BombExploder(EnemyRegistry enemyRegistry, BuildingFacade facade = null, Settings settings = null)
+        public BombExploder(EnemyRegistry enemyRegistry, BuildingFacade facade = null, Settings settings = null, UnitRange unitRange = null)
         {
             this.enemyRegistry = enemyRegistry;
             this.facade = facade;
             this.settings = settings;
+            this.unitRange = unitRange;
         }
 
         public void Explode()
@@ -25,7 +28,7 @@ namespace MOATT.Levels.Buildings.Bombs
             {
                 if (Vector3.Distance(
                     enemy.transform.position,
-                    facade.transform.position) > settings.range) continue;
+                    facade.transform.position) > unitRange.Range) continue;
 
                 enemy.Damage(settings.damage);
                 facade.Destroy();
@@ -35,7 +38,6 @@ namespace MOATT.Levels.Buildings.Bombs
         [System.Serializable]
         public class Settings
         {
-            public float range = 4f;
             public float damage = 200f;
         }
     }

@@ -9,25 +9,29 @@ namespace MOATT.Levels.BuildingPlacement
     using Buildings;
     using System;
     using Tiles;
+    using UnitRange;
 
-    public class BuildingPlacementHologram : IInitializable, System.IDisposable
+    public class BuildingPlacementHologram : IInitializable, IDisposable
     {
         private readonly HologramDisplayer hologramDisplayer;
         private readonly BuildingPlacementSelector selector;
         private readonly TileRaycaster tileRaycaster;
         private readonly BuildingPlacementPlacer buildingPlacementPlacer;
+        private readonly BuildingPlacementRange buildingPlacementRange;
 
         #region ctor
         public BuildingPlacementHologram(
             HologramDisplayer hologramDisplayer,
             BuildingPlacementSelector selector,
             TileRaycaster tileRaycaster,
-            BuildingPlacementPlacer buildingPlacementPlacer)
+            BuildingPlacementPlacer buildingPlacementPlacer,
+            BuildingPlacementRange buildingPlacementRange = null)
         {
             this.hologramDisplayer = hologramDisplayer;
             this.selector = selector;
             this.tileRaycaster = tileRaycaster;
             this.buildingPlacementPlacer = buildingPlacementPlacer;
+            this.buildingPlacementRange = buildingPlacementRange;
         }
         #endregion
 
@@ -69,8 +73,9 @@ namespace MOATT.Levels.BuildingPlacement
             Show();
             hologramDisplayer.SetColor(args.IsAcceptable ? Color.green : Color.red);
 
-            hologramDisplayer.transform.position = 
-                tileRaycaster.TileUnderMouse.transform.position;
+            var tileUnderMousePos = tileRaycaster.TileUnderMouse.transform.position;
+            hologramDisplayer.transform.position = tileUnderMousePos;
+            buildingPlacementRange.DisplayRange(selector.BuildingPrefab, tileUnderMousePos);
         }
 
         private void Hide()

@@ -13,6 +13,7 @@ namespace MOATT.Levels.Installers
     using Waves;
     using BillboardGroup;
     using BuildingPlacement;
+    using UnitRange;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -60,6 +61,7 @@ namespace MOATT.Levels.Installers
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
             Container.Bind<BillboardGroupFacade>().FromComponentInHierarchy().AsSingle();
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();
         }
 
         [System.Serializable]

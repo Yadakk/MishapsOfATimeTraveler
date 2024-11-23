@@ -9,7 +9,6 @@ namespace MOATT.Levels.Buildings.Turrets
     public class TurretSOInstaller : BuildingSOInstaller
     {
         public TurretReloader.Settings reloader;
-        public TurretTargetPicker.Settings targetPicker;
         public TurretShooter.Settings shooter;
 
         public override void InstallBindings()
@@ -23,7 +22,6 @@ namespace MOATT.Levels.Buildings.Turrets
             base.InstallSettings();
 
             Container.BindInstance(reloader);
-            Container.BindInstance(targetPicker);
             Container.BindInstance(shooter);
         }
     }

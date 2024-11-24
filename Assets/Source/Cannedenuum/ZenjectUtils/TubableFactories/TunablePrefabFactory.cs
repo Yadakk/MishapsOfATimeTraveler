@@ -19,7 +19,6 @@ namespace Cannedenuum.ZenjectUtils.Factories
         {
             var subContainer = container.CreateSubContainer();
             subContainer.BindInstance(tunables);
-            var prefabComponent = prefab as Component;
             return subContainer.InstantiatePrefabForComponent<T>(prefab);
         }
     }

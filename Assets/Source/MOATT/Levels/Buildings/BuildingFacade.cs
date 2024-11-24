@@ -1,32 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings
 {
     using Health;
     using Tiles;
-    using System.Linq;
-    using MOATT.Levels.UnitRange;
+    using UnitRange;
 
     public class BuildingFacade : MonoBehaviour
     {
-        private HealthModel healthModel;
-
-        private GameObjectContext goContext;
-
-        public bool HasHealth => healthModel != null;
+        public HealthModel HealthModel { get; private set; }
         public UnitRange BuildingRange { get; private set; }
+
+        public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
+
+        private Settings settings;
 
         [Inject]
         public void Construct(
+            Settings settings,
             [InjectOptional] BuildingTunables tunables,
             [InjectOptional] HealthModel healthModel,
             [InjectOptional] UnitRange buildingRange
             )
         {
-            this.healthModel = healthModel;
+            this.settings = settings;
+
+            HealthModel = healthModel;
             BuildingRange = buildingRange;
 
             tunables?.initTile.SetBuilding(this);
@@ -39,13 +43,7 @@ namespace MOATT.Levels.Buildings
 
         public void Damage(float amount)
         {
-            healthModel.CurrentHealth -= amount;
-        }
-
-        public T GetSOInstaller<T>() where T : ScriptableObjectInstaller
-        {
-            if (goContext == null) goContext = GetComponent<GameObjectContext>();
-            return goContext.ScriptableObjectInstallers.OfType<T>().FirstOrDefault();
+            HealthModel.CurrentHealth -= amount;
         }
 
         [System.Serializable]

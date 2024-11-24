@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Enemies;
     using UnitRange;
 
-    public class TurretTargetPicker : ITickable
+    public class TurretTargetPicker : IUpdatable
     {
         private readonly EnemyRegistry registry;
         private readonly BuildingFacade facade;
@@ -24,7 +25,7 @@ namespace MOATT.Levels.Buildings.Turrets
 
         public EnemyFacade Enemy { get; private set; }
 
-        public void Tick()
+        public void Update()
         {
             Enemy = registry.enemies.FirstOrDefault(enemy => Vector3.Distance(
                 facade.transform.position, enemy.transform.position) <= unitRange.Range);

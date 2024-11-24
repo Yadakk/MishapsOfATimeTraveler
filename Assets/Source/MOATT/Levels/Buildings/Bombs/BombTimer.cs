@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using TimeTimers;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings.Bombs
 {
-    public class BombTimer : ITickable
+    public class BombTimer : IUpdatable
     {
         private readonly Timer timer;
         private readonly Settings settings;
@@ -19,7 +20,7 @@ namespace MOATT.Levels.Buildings.Bombs
             this.exploder = exploder;
         }
 
-        public void Tick()
+        public void Update()
         {
             if (timer.Elapsed >= settings.explosionDelay)
                 exploder.Explode();

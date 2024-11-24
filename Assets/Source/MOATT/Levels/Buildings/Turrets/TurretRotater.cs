@@ -1,23 +1,22 @@
-﻿using MOATT.Levels.Enemies;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings.Turrets
 {
-    public class TurretRotater : ITickable
+    public class TurretRotater : IUpdatable
     {
         private readonly TurretTargetPicker targetPicker;
         private readonly BuildingFacade facade;
 
-        public TurretRotater(TurretTargetPicker registry, BuildingFacade facade = null)
+        public TurretRotater(TurretTargetPicker targetPicker, BuildingFacade facade = null)
         {
-            this.targetPicker = registry;
+            this.targetPicker = targetPicker;
             this.facade = facade;
         }
 
-        public void Tick()
+        public void Update()
         {
             var enemy = targetPicker.Enemy;
             if (enemy == null) return;

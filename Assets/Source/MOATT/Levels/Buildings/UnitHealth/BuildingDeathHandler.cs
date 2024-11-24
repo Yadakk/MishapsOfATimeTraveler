@@ -1,17 +1,20 @@
-﻿using MOATT.Levels.Health;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 namespace MOATT.Levels.Buildings.UnitHealth
 {
+    using Health;
+
     public class BuildingDeathHandler : IInitializable, System.IDisposable
     {
         private readonly HealthWatcher healthWatcher;
         private readonly BuildingFacade facade;
 
-        public BuildingDeathHandler(HealthWatcher healthWatcher, BuildingFacade facade = null)
+        public BuildingDeathHandler(
+            [InjectOptional] HealthWatcher healthWatcher, 
+            BuildingFacade facade = null)
         {
             this.healthWatcher = healthWatcher;
             this.facade = facade;
@@ -19,11 +22,13 @@ namespace MOATT.Levels.Buildings.UnitHealth
 
         public void Initialize()
         {
+            if (healthWatcher == null) return;
             healthWatcher.OnDied += DiedHandler;
         }
 
         public void Dispose()
         {
+            if (healthWatcher == null) return;
             healthWatcher.OnDied -= DiedHandler;
         }
 

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using TimeTimers;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings.Turrets
 {
-    public class TurretReloader : ITickable
+    public class TurretReloader : IUpdatable
     {
         private readonly Settings settings;
         private readonly Timer timer;
@@ -22,7 +23,7 @@ namespace MOATT.Levels.Buildings.Turrets
             this.shooter = shooter;
         }
 
-        public void Tick()
+        public void Update()
         {
             if (timer.Elapsed < settings.reloadTime) return;
             shooter.Shoot();

@@ -18,17 +18,17 @@ namespace MOATT.Levels.BuildingPlacement
             this.mapSwapper = mapSwapper;
         }
 
-        public BuildingFacade BuildingPrefab { get; private set; }
+        public BuildingFacade BuildingPrototype { get; private set; }
 
-        public void SelectBuilding(BuildingFacade newPrefab)
+        public void SelectBuilding(BuildingFacade newPrototype)
         {
-            BuildingPrefab = newPrefab;
+            BuildingPrototype = newPrototype;
 
-            mapSwapper.CurrentMap = BuildingPrefab != null ?
+            mapSwapper.CurrentMap = BuildingPrototype != null ?
                 mapSwapper.inputAsset.BuildingPlacement :
                 mapSwapper.inputAsset.Selection;
 
-            OnBuildingSelected?.Invoke(BuildingPrefab);
+            OnBuildingSelected?.Invoke(BuildingPrototype);
         }
     }
 }

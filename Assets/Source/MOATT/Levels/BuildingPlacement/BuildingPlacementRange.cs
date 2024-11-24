@@ -6,29 +6,26 @@ namespace MOATT.Levels.BuildingPlacement
 {
     using UnitRange;
     using Buildings;
-    using TilemapSizeMultipliers;
 
     public class BuildingPlacementRange
     {
         private readonly UnitRangeHologram hologram;
-        private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
 
-        public BuildingPlacementRange(TilemapSizeMultiplier tilemapSizeMultiplier, UnitRangeHologram hologram = null)
+        public BuildingPlacementRange(UnitRangeHologram hologram = null)
         {
-            this.tilemapSizeMultiplier = tilemapSizeMultiplier;
             this.hologram = hologram;
         }
 
-        public void DisplayRange(BuildingFacade buildingPrefab, Vector3 newPosition)
+        public void DisplayRange(BuildingFacade buildingPrototype, Vector3 newPosition)
         {
-            hologram.SetActive(TryDisplayRange(buildingPrefab, newPosition));
+            hologram.SetActive(TryDisplayRange(buildingPrototype, newPosition));
         }
 
-        private bool TryDisplayRange(BuildingFacade buildingPrefab, Vector3 newPosition)
+        private bool TryDisplayRange(BuildingFacade buildingPrototype, Vector3 newPosition)
         {
-            var unitRangeSOI = buildingPrefab.GetSOInstaller<UnitRangeSOInstaller>();
+            var unitRangeSOI = buildingPrototype.BuildingRange;
             if (unitRangeSOI == null) return false;
-            hologram.DisplayRange(tilemapSizeMultiplier.Multiply(unitRangeSOI.unitRange.rangeTiles));
+            hologram.DisplayRange(unitRangeSOI.Range);
             hologram.transform.position = newPosition;
             return true;
         }

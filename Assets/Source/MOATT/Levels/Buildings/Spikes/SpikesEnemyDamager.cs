@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings.Spikes
 {
     using Enemies;
 
-    public class SpikesEnemyDamager : ITickable
+    public class SpikesEnemyDamager : IUpdatable
     {
         private readonly Settings settings;
         private readonly EnemyRegistry enemyRegistry;
@@ -26,7 +27,7 @@ namespace MOATT.Levels.Buildings.Spikes
             this.tunables = tunables;
         }
 
-        public void Tick()
+        public void Update()
         {
             var enemies = enemyRegistry.enemies;
 

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Healthbars
 {
     using Billboards;
     using BillboardGroup;
 
-    public class UnitHealthbarDisplayer : IInitializable, System.IDisposable
+    public class UnitHealthbarDisplayer : IStartable, System.IDisposable
     {
         private readonly BillboardGroupFacade billboardGroup;
         private readonly BillboardSource source;
@@ -23,7 +24,7 @@ namespace MOATT.Levels.Healthbars
             this.source = source;
         }
 
-        public void Initialize()
+        public void Start()
         {
             healthbarBillboard = billboardGroup.AddBillboard(source, healthbar.gameObject);
         }

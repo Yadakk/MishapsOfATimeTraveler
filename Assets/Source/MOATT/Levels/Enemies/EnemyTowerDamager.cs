@@ -34,7 +34,7 @@ namespace MOATT.Levels.Enemies
         {
             var building = tile.CurrentBuilding;
             if (building == null) return;
-            if (building.HasHealth) return;
+            if (building.HealthModel == null) return;
             building.Damage(settings.damage);
             Object.Destroy(facade.gameObject);
         }

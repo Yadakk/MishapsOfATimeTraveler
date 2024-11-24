@@ -40,8 +40,9 @@ namespace MOATT.Levels.BuildingPlacement
         {
             if (pointerOverUIWatcher.IsPointerOverUI) return false;
             var selectedTile = tileRaycaster.TileUnderMouse;
-            if (!selector.BuildingPrefab.CanBePlacedOn(selectedTile)) return false;
-            buildingFactory.Create(selector.BuildingPrefab, new(new(), selectedTile));
+            if (!selector.BuildingPrototype.CanBePlacedOn(selectedTile)) return false;
+            var building = buildingFactory.Create(selector.BuildingPrototype, new(new(), selectedTile));
+            building.gameObject.SetActive(true);
             return true;
         }
     }

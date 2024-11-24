@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
-  m_Name: Turret_Base_SOI
+  m_Name: TurretSOI
   m_EditorClassIdentifier: 
   buildingFacade:
     canBePlacedOn: 1

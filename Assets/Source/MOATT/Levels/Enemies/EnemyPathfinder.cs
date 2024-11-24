@@ -44,11 +44,9 @@ namespace MOATT.Levels.Enemies
             TileFacade sourceTile = System.Array.Find(tiles,
                 tile => tile.TileCell.TilemapPos == facade.TilemapPos);
 
-            List<TileFacade> tilePath = RndPathfinder.Pathfind(
-                tiles.Select(tile => tile.TileCell).
-                Cast<ICell>().ToList(), 
-                sourceTile.TileCell, target.TileCell).
-                Cast<TileCell>().Select(tileCell => tileCell.facade).ToList();
+            List<ICell> cellMap = tiles.Select(tile => tile.TileCell).Cast<ICell>().ToList();
+            List<ICell> cellPath = RndPathfinder.Pathfind(cellMap, sourceTile.TileCell, target.TileCell);
+            List<TileFacade> tilePath = cellPath.Cast<TileCell>().Select(tileCell => tileCell.facade).ToList();
 
             OnPathCreated?.Invoke(tilePath.ToArray());
             Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();

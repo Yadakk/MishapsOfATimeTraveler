@@ -4,10 +4,9 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-namespace InstallerParamFactories
+namespace Cannedenuum.ZenjectUtils.Factories
 {
-    public class TunablePrefabFactory<TTunables, T> : IFactory<Object, TTunables, T>
-        where T : Component
+    public class TunablePrefabFactory<TTunables, T> : IFactory<Object, TTunables, T> where T : Component
     {
         private readonly DiContainer container;
 
@@ -20,6 +19,7 @@ namespace InstallerParamFactories
         {
             var subContainer = container.CreateSubContainer();
             subContainer.BindInstance(tunables);
+            var prefabComponent = prefab as Component;
             return subContainer.InstantiatePrefabForComponent<T>(prefab);
         }
     }

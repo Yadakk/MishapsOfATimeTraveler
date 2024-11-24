@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using InstallerParamFactories;
+using Cannedenuum.ZenjectUtils.Factories;
 
 namespace MOATT.Levels.BuildingPlacement
 {
@@ -19,6 +19,7 @@ namespace MOATT.Levels.BuildingPlacement
             Container.BindInterfacesAndSelfTo<BuildingPlacementHologram>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingPlacementSelector>().AsSingle();
             Container.Bind<BuildingPlacementRange>().AsSingle();
+
             Container.BindFactory<Object, BuildingTunables, BuildingFacade, BuildingFacade.Factory>().
                 FromFactory<TunablePrefabFactory<BuildingTunables, BuildingFacade>>();
         }

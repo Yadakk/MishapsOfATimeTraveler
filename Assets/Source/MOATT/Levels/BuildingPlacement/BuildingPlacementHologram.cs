@@ -9,7 +9,6 @@ namespace MOATT.Levels.BuildingPlacement
     using Buildings;
     using System;
     using Tiles;
-    using UnitRange;
 
     public class BuildingPlacementHologram : IInitializable, IDisposable
     {
@@ -66,7 +65,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void UpdateDisplayer()
         {
-            var args = selector.BuildingPrefab.GetHologramArgs(
+            var args = selector.BuildingPrototype.GetHologramArgs(
                 tileRaycaster.TileUnderMouse);
 
             if (!args.IsDisplayed) { Hide(); return; }
@@ -75,7 +74,7 @@ namespace MOATT.Levels.BuildingPlacement
 
             var tileUnderMousePos = tileRaycaster.TileUnderMouse.transform.position;
             hologramDisplayer.transform.position = tileUnderMousePos;
-            buildingPlacementRange.DisplayRange(selector.BuildingPrefab, tileUnderMousePos);
+            buildingPlacementRange.DisplayRange(selector.BuildingPrototype, tileUnderMousePos);
         }
 
         private void Hide()
@@ -86,7 +85,7 @@ namespace MOATT.Levels.BuildingPlacement
         private void Show()
         {
             hologramDisplayer.SetActive(true);
-            hologramDisplayer.SetModel(selector.BuildingPrefab.gameObject);
+            hologramDisplayer.SetModel(selector.BuildingPrototype.gameObject);
         }
 
         public class DisplayArgs

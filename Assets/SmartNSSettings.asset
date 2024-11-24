@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caaf21502e4a84c41b09323f0d84deda, type: 3}
-  m_Name: Turret_UnitHealth_SOI
+  m_Script: {fileID: 0}
+  m_Name: SmartNSSettings
   m_EditorClassIdentifier: 
-  healthModel:
-    maxHealth: 100
+  m_ScriptRoot: Assets
+  m_NamespacePrefix: 
+  m_UniversalNamespace: 
+  m_IndentUsingSpaces: 1
+  m_NumberOfSpaces: 4
+  m_UpdateNamespacesWhenMovingScripts: 0
+  m_DirectoryIgnoreList: 
+  m_EnableDebugLogging: 0

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using TimeTimers;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Buildings.Spikes
 {
-    public class SpikesReloader : ITickable
+    public class SpikesReloader : IUpdatable
     {
         private readonly Timer timer;
         private readonly Settings settings;
@@ -29,7 +30,7 @@ namespace MOATT.Levels.Buildings.Spikes
             }
         }
 
-        public void Tick()
+        public void Update()
         {
             if (IsReady) return;
             if (timer.Elapsed >= settings.reloadTime) IsReady = true;

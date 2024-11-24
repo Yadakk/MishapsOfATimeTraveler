@@ -41,8 +41,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private static bool DoTypesMatch(BuildingFacade building, TileFacade tile)
         {
-            return building.GetSOInstaller<BuildingSOInstaller>().buildingFacade.canBePlacedOn.
-                HasFlag(tile.TypeForBuildings);
+            return building.CanBePlacedOn.HasFlag(tile.TypeForBuildings);
         }
     }
 }

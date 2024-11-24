@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
+using Cannedenuum.ZenjectUtils.Factories;
 
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Bullets;
-    using InstallerParamFactories;
+    using Levels.UnitHealth;
 
     public class TurretInstaller : BuildingInstaller
     {
         public override void InstallBindings()
         {
             base.InstallBindings();
+
+            Container.Install<UnitHealthInstaller>();
 
             Container.BindInterfacesAndSelfTo<TurretTargetPicker>().AsSingle();
             Container.BindInterfacesAndSelfTo<TurretRotater>().AsSingle();

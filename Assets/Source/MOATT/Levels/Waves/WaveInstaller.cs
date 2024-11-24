@@ -4,11 +4,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
+using Cannedenuum.ZenjectUtils.Factories;
 
 namespace MOATT.Levels.Waves
 {
     using Enemies;
-    using InstallerParamFactories;
 
     public class WaveInstaller : Installer
     {

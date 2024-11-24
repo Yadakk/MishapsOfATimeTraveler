@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MOATT.Levels.BuildingPlacement
 {
-    using UnitRange;
+    using UnitRanges;
     using Buildings;
 
     public class BuildingPlacementRange
@@ -23,9 +23,9 @@ namespace MOATT.Levels.BuildingPlacement
 
         private bool TryDisplayRange(BuildingFacade buildingPrototype, Vector3 newPosition)
         {
-            var unitRangeSOI = buildingPrototype.BuildingRange;
-            if (unitRangeSOI == null) return false;
-            hologram.DisplayRange(unitRangeSOI.Range);
+            var unitRange = buildingPrototype.BuildingRange;
+            if (unitRange == null) return false;
+            hologram.DisplayRange(unitRange.Range);
             hologram.transform.position = newPosition;
             return true;
         }

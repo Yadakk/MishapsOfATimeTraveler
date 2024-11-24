@@ -7,7 +7,7 @@ namespace MOATT.Levels.Buildings.Turrets
 {
     using Bullets;
     using Levels.UnitHealth;
-    using UnitRange;
+    using UnitRanges;
 
     public class TurretInstaller : BuildingInstaller
     {

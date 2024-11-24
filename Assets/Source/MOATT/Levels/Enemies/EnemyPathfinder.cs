@@ -18,6 +18,11 @@ namespace MOATT.Levels.Enemies
         private readonly EnemyFacade facade;
         private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
 
+        private readonly List<object> blockers = new();
+
+        private bool isBlocked;
+        private Tweener pathTweener;
+
         public event System.Action<TileFacade> OnTileReached;
         public event System.Action<TileFacade[]> OnPathCreated;
 
@@ -51,8 +56,22 @@ namespace MOATT.Levels.Enemies
             OnPathCreated?.Invoke(tilePath.ToArray());
             Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();
 
-            facade.transform.DOPath(path, tilemapSizeMultiplier.Multiply(settings.tilesPerSecond)).
+            pathTweener = facade.transform.DOPath(path, tilemapSizeMultiplier.Multiply(settings.tilesPerSecond)).
                 SetSpeedBased().SetEase(Ease.Linear).OnComplete(() => OnTileReached?.Invoke(target));
+        }
+
+        public void RegisterBlocker(object obj)
+        {
+            if (blockers.Contains(obj)) return;
+            blockers.Add(obj);
+            if (blockers.Count > 0) pathTweener.timeScale = 0f;
+        }
+
+        public void UnregisterBlocker(object obj)
+        {
+            if (!blockers.Contains(obj)) return;
+            blockers.Remove(obj);
+            if (blockers.Count == 0) pathTweener.timeScale = 1f;
         }
 
         [System.Serializable]

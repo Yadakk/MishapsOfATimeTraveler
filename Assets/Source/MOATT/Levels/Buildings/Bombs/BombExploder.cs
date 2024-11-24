@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings.Bombs
 {
     using Enemies;
-    using UnitRange;
+    using UnitRanges;
 
     public class BombExploder
     {

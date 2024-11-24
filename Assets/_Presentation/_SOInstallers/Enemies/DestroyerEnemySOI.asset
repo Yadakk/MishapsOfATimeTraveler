@@ -9,22 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
-  m_Name: TurretSOI
+  m_Script: {fileID: 11500000, guid: ac5ed08a4318ee346b89b37b712562e8, type: 3}
+  m_Name: DestroyerEnemySOI
   m_EditorClassIdentifier: 
-  buildingFacade:
-    canBePlacedOn: 1
-    buildingType: 1
-  reloader:
-    reloadTime: 1
-  shooter:
-    bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
-      type: 3}
-    baseDamage: 20
-  turretInstaller:
-    unitHealth:
+  enemy:
+    unitHealthSettings:
       healthModel:
         maxHealth: 100
-    unitRange:
+    enemyPathfinder:
+      tilesPerSecond: 1
+    towerDamager:
+      damage: 1
+  destroyerEnemy:
+    unitRangeInstaller:
       unitRange:
         rangeTiles: 3.5
+    destroyerEnemyAttacker:
+      canDamageTypes: 1
+      damage: 25

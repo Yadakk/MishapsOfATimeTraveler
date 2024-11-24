@@ -7,7 +7,7 @@ namespace MOATT.Levels.Bullets
 {
     using Buildings;
     using Buildings.Turrets;
-    using UnitRange;
+    using UnitRanges;
 
     public class BulletDistanceWatcher : ITickable
     {

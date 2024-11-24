@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Zenject;
-using TransformGrouping;
 using HologramDisplayers;
 
 namespace MOATT.Levels.Installers
 {
     using Tiles;
-    using Enemies;
     using Waves;
     using BillboardGroup;
     using BuildingPlacement;
-    using UnitRange;
-    using MOATT.Levels.TilemapSizeMultipliers;
+    using UnitRanges;
+    using TilemapSizeMultipliers;
+    using Buildings;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -33,6 +32,7 @@ namespace MOATT.Levels.Installers
             Container.Bind<TileFacade>().FromComponentsInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<WaveStateMachine>().AsSingle();
             Container.BindInterfacesAndSelfTo<TileRaycaster>().AsSingle();
+            Container.Bind<BuildingRegistry>().AsSingle();
         }
 
         private void InstallMisc()

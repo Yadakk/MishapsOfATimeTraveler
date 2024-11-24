@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingFacade:
     canBePlacedOn: 0
+    buildingType: 2
+  towerInstallerSettings:
+    unitHealth:
+      healthModel:
+        maxHealth: 100

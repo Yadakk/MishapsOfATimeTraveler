@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MOATT.Levels.UnitRange
+namespace MOATT.Levels.UnitRanges
 {
     public class UnitRangeHologram : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace MOATT.Levels.UnitRange
         private bool TryDisplayRange(float range)
         {
             if (range <= 0f) return false;
-            gameObject.transform.localScale = Vector3.one * range * 2f;
+            gameObject.transform.localScale = 2f * range * Vector3.one;
 
             return true;
         }

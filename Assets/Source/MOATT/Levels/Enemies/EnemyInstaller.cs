@@ -6,7 +6,6 @@ using Zenject;
 namespace MOATT.Levels.Enemies
 {
     using UnitHealth;
-    using Health;
 
     public class EnemyInstaller : Installer
     {
@@ -19,21 +18,33 @@ namespace MOATT.Levels.Enemies
 
         public override void InstallBindings()
         {
+            Container.Bind<EnemyFacade>().FromComponentOnRoot().AsSingle();
+
             Container.BindInstance(settings.unitHealthSettings);
             Container.Install<UnitHealthInstaller>();
 
-            Container.Bind<EnemyFacade>().FromComponentOnRoot().AsSingle();
+            Container.BindInstance(settings.towerDamager);
             Container.BindInterfacesAndSelfTo<EnemyTowerDamager>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<EnemyRotater>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyTilemapPositionCalculator>().AsSingle();
+
+            Container.BindInstance(settings.enemyPathfinder);
             Container.BindInterfacesAndSelfTo<EnemyPathfinder>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<EnemyDeathHandler>().AsSingle();
+
+            Container.BindInstance(settings.reloader);
+            Container.BindInterfacesAndSelfTo<EnemyReloader>().AsSingle();
         }
 
         [System.Serializable]
         public class Settings
         {
             public UnitHealthInstaller.Settings unitHealthSettings;
+            public EnemyPathfinder.Settings enemyPathfinder;
+            public EnemyTowerDamager.Settings towerDamager;
+            public EnemyReloader.Settings reloader;
         }
     }
 }

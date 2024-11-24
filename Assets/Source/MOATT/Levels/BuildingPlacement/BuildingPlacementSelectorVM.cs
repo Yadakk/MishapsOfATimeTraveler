@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace MOATT.Levels.BuildingPlacement
@@ -22,8 +21,6 @@ namespace MOATT.Levels.BuildingPlacement
         {
             buildingPrototype = buildingFactory.Create(buildingPrefab, null);
             buildingPrototype.gameObject.SetActive(false);
-            MonoKernel[] monoKernels = buildingPrototype.GetComponentsInChildren<MonoKernel>();
-            foreach (var monoKernel in monoKernels) Destroy(monoKernel);
         }
 
         [Inject]

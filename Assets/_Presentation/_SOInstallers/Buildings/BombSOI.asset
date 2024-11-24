@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275002ea7c29fd24b91925cdbb876833, type: 3}
-  m_Name: Spikes_Base_SOI
+  m_Script: {fileID: 11500000, guid: 6ecb99c1db1fb3549bfb7bfd96e1889e, type: 3}
+  m_Name: BombSOI
   m_EditorClassIdentifier: 
   buildingFacade:
     canBePlacedOn: 2
-  enemyDamager:
-    baseDamage: 10
-  reloader:
-    reloadTime: 0.5
+  bombInstaller:
+    UnitRange:
+      unitRange:
+        rangeTiles: 2
+  exploder:
+    damage: 200
+  timer:
+    explosionDelay: 3

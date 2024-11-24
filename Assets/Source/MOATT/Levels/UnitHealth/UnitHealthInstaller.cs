@@ -13,17 +13,22 @@ namespace MOATT.Levels.UnitHealth
     public class UnitHealthInstaller : Installer
     {
         private GlobalSettings globalSettings;
+        private Settings settings;
 
         [Inject]
-        public void Construct(GlobalSettings globalSettings)
+        public void Construct(GlobalSettings globalSettings, Settings settings)
         {
             this.globalSettings = globalSettings;
+            this.settings = settings;
         }
 
         public override void InstallBindings()
         {
             Container.Install<BoundsCalculatorInstaller>();
+
+            Container.BindInstance(settings.healthModel).AsSingle();
             Container.Bind<HealthModel>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
             Container.BindExecutionOrder<UnitHealthbarDisplayer>(2);
             Container.BindInterfacesAndSelfTo<UnitHealthbarDisplayer>().AsSingle();
@@ -39,6 +44,12 @@ namespace MOATT.Levels.UnitHealth
         public class GlobalSettings
         {
             public HealthbarFacade healthbarPrefab;
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public HealthModel.Settings healthModel;
         }
     }
 }

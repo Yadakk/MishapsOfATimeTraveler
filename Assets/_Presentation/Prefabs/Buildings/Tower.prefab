@@ -100,7 +100,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _scriptableObjectInstallers.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: c35a1519277862044838c676a231c159,
+      objectReference: {fileID: 11400000, guid: b0aa3ceccbb4e5547b9523ce234a3c30,
         type: 2}
     - target: {fileID: 3877220274243636855, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}

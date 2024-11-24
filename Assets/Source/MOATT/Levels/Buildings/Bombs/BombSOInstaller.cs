@@ -9,6 +9,7 @@ namespace MOATT.Levels.Buildings.Bombs
         menuName = "Installers/Buildings/Bomb")]
     public class BombSOInstaller : BuildingSOInstaller
     {
+        public BombInstaller.Settings bombInstaller;
         public BombExploder.Settings exploder;
         public BombTimer.Settings timer;
 
@@ -22,6 +23,7 @@ namespace MOATT.Levels.Buildings.Bombs
         {
             base.InstallSettings();
 
+            Container.BindInstance(bombInstaller);
             Container.BindInstance(exploder).AsSingle();
             Container.BindInstance(timer).AsSingle();
         }

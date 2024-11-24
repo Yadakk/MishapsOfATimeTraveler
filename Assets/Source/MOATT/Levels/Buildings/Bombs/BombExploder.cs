@@ -31,8 +31,8 @@ namespace MOATT.Levels.Buildings.Bombs
                     facade.transform.position) > unitRange.Range) continue;
 
                 enemy.Damage(settings.damage);
-                facade.Destroy();
             }
+            facade.Destroy();
         }
 
         [System.Serializable]

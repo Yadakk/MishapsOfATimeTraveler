@@ -15,14 +15,9 @@ namespace MOATT.Levels.Buildings.Tower
 
         public override void InstallBindings()
         {
-            InstallSettings();
-            Container.Install<TowerInstaller>();
-        }
-
-        protected override void InstallSettings()
-        {
+            base.InstallBindings();
             Container.BindInstance(towerInstallerSettings);
-            base.InstallSettings();
+            Container.Install<TowerInstaller>();
         }
     }
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
         maxHealth: 100
     enemyPathfinder:
       tilesPerSecond: 0.5
-    towerDamager:
-      damage: 20
+    unitDamage:
+      value: 20
     reloader:
       secondsToReload: 1

@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using Cannedenuum.ZenjectUtils.MonoInterfaces;
 
 namespace MOATT.Levels.Enemies
 {
     using Tiles;
+    using Buildings;
+    using Units.Damage;
 
-    public class EnemyTowerDamager : IInitializable, System.IDisposable
+    public class EnemyTowerDamager : IInitializable, System.IDisposable, IUpdatable
     {
         private readonly EnemyPathfinder navigator;
-        private readonly EnemyFacade facade;
-        private readonly Settings settings;
+        private readonly UnitDamage unitDamage;
+        private readonly EnemyReloader reloader;
 
-        public EnemyTowerDamager(EnemyPathfinder navigator, EnemyFacade facade, Settings settings = null)
+        private BuildingFacade tower;
+
+        public EnemyTowerDamager(EnemyPathfinder navigator, EnemyReloader reloader = null, UnitDamage unitDamage = null)
         {
             this.navigator = navigator;
-            this.facade = facade;
-            this.settings = settings;
+            this.reloader = reloader;
+            this.unitDamage = unitDamage;
         }
 
         public void Initialize()
@@ -30,19 +35,20 @@ namespace MOATT.Levels.Enemies
             navigator.OnTileReached -= TileReachedHandler;
         }
 
+        public void Update()
+        {
+            if (tower == null) return;
+            if (!reloader.ReadyToAttack) return;
+            tower.Damage(unitDamage.Value);
+            reloader.ReadyToAttack = false;
+        }
+
         private void TileReachedHandler(TileFacade tile)
         {
             var building = tile.CurrentBuilding;
             if (building == null) return;
             if (building.HealthModel == null) return;
-            building.Damage(settings.damage);
-            Object.Destroy(facade.gameObject);
-        }
-
-        [System.Serializable]
-        public class Settings
-        {
-            public float damage = 1f;
+            tower = building;
         }
     }
 }

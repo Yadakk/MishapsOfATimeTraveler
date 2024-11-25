@@ -20,7 +20,6 @@ namespace MOATT.Levels.Enemies
 
         private readonly List<object> blockers = new();
 
-        private bool isBlocked;
         private Tweener pathTweener;
 
         public event System.Action<TileFacade> OnTileReached;
@@ -52,6 +51,7 @@ namespace MOATT.Levels.Enemies
             List<ICell> cellMap = tiles.Select(tile => tile.TileCell).Cast<ICell>().ToList();
             List<ICell> cellPath = RndPathfinder.Pathfind(cellMap, sourceTile.TileCell, target.TileCell);
             List<TileFacade> tilePath = cellPath.Cast<TileCell>().Select(tileCell => tileCell.facade).ToList();
+            tilePath.RemoveAt(tilePath.Count - 1);
 
             OnPathCreated?.Invoke(tilePath.ToArray());
             Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();

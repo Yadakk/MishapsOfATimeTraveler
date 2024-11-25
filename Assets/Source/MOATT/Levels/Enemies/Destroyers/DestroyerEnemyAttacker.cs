@@ -7,6 +7,7 @@ namespace MOATT.Levels.Enemies.Destroyers
 {
     using Buildings;
     using UnitRanges;
+    using Units.Damage;
 
     public class DestroyerEnemyAttacker : IUpdatable
     {
@@ -16,8 +17,9 @@ namespace MOATT.Levels.Enemies.Destroyers
         private readonly EnemyFacade facade;
         private readonly EnemyPathfinder pathfinder;
         private readonly EnemyReloader enemyReloader;
+        private readonly UnitDamage unitDamage;
 
-        public DestroyerEnemyAttacker(Settings settings, BuildingRegistry buildingRegistry = null, UnitRange unitRange = null, EnemyFacade facade = null, EnemyPathfinder pathfinder = null, EnemyReloader enemyReloader = null)
+        public DestroyerEnemyAttacker(Settings settings, BuildingRegistry buildingRegistry = null, UnitRange unitRange = null, EnemyFacade facade = null, EnemyPathfinder pathfinder = null, EnemyReloader enemyReloader = null, UnitDamage unitDamage = null)
         {
             this.settings = settings;
             this.buildingRegistry = buildingRegistry;
@@ -25,6 +27,7 @@ namespace MOATT.Levels.Enemies.Destroyers
             this.facade = facade;
             this.pathfinder = pathfinder;
             this.enemyReloader = enemyReloader;
+            this.unitDamage = unitDamage;
         }
 
         public void Update()
@@ -36,7 +39,7 @@ namespace MOATT.Levels.Enemies.Destroyers
                 pathfinder.RegisterBlocker(this);
                 if (enemyReloader.ReadyToAttack)
                 {
-                    building.Damage(settings.damage);
+                    building.Damage(unitDamage.Value);
                     enemyReloader.ReadyToAttack = false;
                 }
             }
@@ -64,7 +67,6 @@ namespace MOATT.Levels.Enemies.Destroyers
         public class Settings
         {
             public BuildingFacade.BuildingType canDamageTypes;
-            public float damage = 25f;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace MOATT.Levels.Buildings
         public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
         public BuildingType Type => settings.buildingType;
 
-        private void Awake()
+        private void Start()
         {
             buildingRegistry.Add(this);
         }

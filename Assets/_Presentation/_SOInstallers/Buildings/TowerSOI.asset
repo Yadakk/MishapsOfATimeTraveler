@@ -18,4 +18,4 @@ MonoBehaviour:
   towerInstallerSettings:
     unitHealth:
       healthModel:
-        maxHealth: 100
+        maxHealth: 2000

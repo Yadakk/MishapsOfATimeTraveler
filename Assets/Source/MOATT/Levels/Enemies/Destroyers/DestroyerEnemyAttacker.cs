@@ -36,7 +36,7 @@ namespace MOATT.Levels.Enemies.Destroyers
 
             if (wasBuildingFound)
             {
-                pathfinder.RegisterBlocker(this);
+                if (settings.stopsToAttack) pathfinder.RegisterBlocker(this);
                 if (enemyReloader.ReadyToAttack)
                 {
                     building.Damage(unitDamage.Value);
@@ -67,6 +67,7 @@ namespace MOATT.Levels.Enemies.Destroyers
         public class Settings
         {
             public BuildingFacade.BuildingType canDamageTypes;
+            public bool stopsToAttack = true;
         }
     }
 }

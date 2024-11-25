@@ -15,15 +15,17 @@ MonoBehaviour:
   enemy:
     unitHealthSettings:
       healthModel:
-        maxHealth: 100
+        maxHealth: 120
     enemyPathfinder:
-      tilesPerSecond: 1
+      tilesPerSecond: 0.5
     towerDamager:
-      damage: 1
+      damage: 25
+    reloader:
+      secondsToReload: 1.5
   destroyerEnemy:
     unitRangeInstaller:
       unitRange:
-        rangeTiles: 3.5
+        rangeTiles: 2
     destroyerEnemyAttacker:
       canDamageTypes: 1
       damage: 25

@@ -24,7 +24,7 @@ MonoBehaviour:
   turretInstaller:
     unitHealth:
       healthModel:
-        maxHealth: 100
+        maxHealth: 200
     unitRange:
       unitRange:
         rangeTiles: 3.5

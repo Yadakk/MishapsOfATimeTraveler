@@ -31,13 +31,13 @@ namespace MOATT.Levels.Enemies
 
         public void Update()
         {
-            if (timer.Elapsed > settings.attackSpeed) ReadyToAttack = true;
+            if (timer.Elapsed > settings.secondsToReload) ReadyToAttack = true;
         }
 
         [System.Serializable]
         public class Settings
         {
-            public float attackSpeed = 1f;
+            public float secondsToReload = 1f;
         }
     }
 }

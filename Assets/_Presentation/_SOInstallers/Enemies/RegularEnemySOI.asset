@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd81a5a9c28973e439a1845d2cedc9e5, type: 3}
   m_Name: RegularEnemySOI
   m_EditorClassIdentifier: 
-  towerDamager:
-    damage: 20
-  healthModel:
-    maxHealth: 100
-  enemyPathfinder:
-    tilesPerSecond: 0.5
+  enemy:
+    unitHealthSettings:
+      healthModel:
+        maxHealth: 100
+    enemyPathfinder:
+      tilesPerSecond: 0.5
+    towerDamager:
+      damage: 20
+    reloader:
+      secondsToReload: 1

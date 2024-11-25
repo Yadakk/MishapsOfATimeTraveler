@@ -34,7 +34,6 @@ namespace MOATT.Levels.Enemies.Destroyers
             if (wasBuildingFound)
             {
                 pathfinder.RegisterBlocker(this);
-                Debug.Log(enemyReloader.ReadyToAttack);
                 if (enemyReloader.ReadyToAttack)
                 {
                     building.Damage(settings.damage);

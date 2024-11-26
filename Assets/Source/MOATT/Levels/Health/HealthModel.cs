@@ -36,6 +36,7 @@ namespace MOATT.Levels.Health
             {
                 if (value == currentHealth) return;
                 currentHealth = value;
+                if (currentHealth > MaxHealth) currentHealth = MaxHealth;
                 OnHealthChanged?.Invoke();
             }
         }

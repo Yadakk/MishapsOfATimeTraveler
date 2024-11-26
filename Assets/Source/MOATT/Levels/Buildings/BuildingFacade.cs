@@ -66,6 +66,11 @@ namespace MOATT.Levels.Buildings
             HealthModel.CurrentHealth -= amount;
         }
 
+        public void Heal(float amount)
+        {
+            HealthModel.CurrentHealth += amount;
+        }
+
         [System.Serializable]
         public class Settings
         {

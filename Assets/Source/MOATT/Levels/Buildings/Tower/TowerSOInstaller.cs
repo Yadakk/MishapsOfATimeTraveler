@@ -9,7 +9,7 @@ namespace MOATT.Levels.Buildings.Tower
     [CreateAssetMenu(
         fileName = "TowerSOI",
         menuName = "Installers/Buildings/Tower")]
-    public class TowerSOInstaller : BuildingSOInstaller
+    public class TowerSOInstaller : BuildingSOI
     {
         public TowerInstaller.Settings towerInstallerSettings;
 

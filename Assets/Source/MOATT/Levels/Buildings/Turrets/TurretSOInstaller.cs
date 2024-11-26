@@ -9,7 +9,7 @@ namespace MOATT.Levels.Buildings.Turrets
     [CreateAssetMenu(
         fileName = "TurretSOI",
         menuName = "Installers/Buildings/Turret")]
-    public class TurretSOInstaller : BuildingSOInstaller
+    public class TurretSOInstaller : BuildingSOI
     {
         public TurretReloader.Settings reloader;
         public TurretShooter.Settings shooter;

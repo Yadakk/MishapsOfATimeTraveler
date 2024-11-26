@@ -7,7 +7,7 @@ namespace MOATT.Levels.Buildings.Bombs
     [CreateAssetMenu(
         fileName = "BombInstaller",
         menuName = "Installers/Buildings/Bomb")]
-    public class BombSOInstaller : BuildingSOInstaller
+    public class BombSOInstaller : BuildingSOI
     {
         public BombInstaller.Settings bombInstaller;
         public BombExploder.Settings exploder;

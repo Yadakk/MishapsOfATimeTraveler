@@ -8,7 +8,7 @@ namespace MOATT.Levels.Buildings
     [CreateAssetMenu(
         fileName = "BuildingInstaller",
     menuName = "Installers/Buildings/Base")]
-    public class BuildingSOInstaller : ScriptableObjectInstaller
+    public class BuildingSOI : ScriptableObjectInstaller
     {
         public BuildingFacade.Settings buildingFacade;
 

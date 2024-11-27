@@ -34,6 +34,7 @@ namespace MOATT.Levels.Buildings.Spikes
             foreach (var enemy in enemies)
             {
                 if (tunables.initTile.TileCell.TilemapPos != enemy.TilemapPos) continue;
+                if (enemy.IsFlying) continue;
                 if (!spikesReloader.IsReady) continue;
 
                 enemy.Damage(settings.baseDamage);

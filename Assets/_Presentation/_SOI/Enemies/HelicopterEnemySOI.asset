@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HelicopterEnemySOI
   m_EditorClassIdentifier: 
   enemy:
+    facade:
+      isFlying: 1
     unitHealthSettings:
       healthModel:
         maxHealth: 500

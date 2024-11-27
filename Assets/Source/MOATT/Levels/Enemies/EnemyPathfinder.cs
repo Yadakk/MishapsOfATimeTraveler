@@ -10,15 +10,16 @@ namespace MOATT.Levels.Enemies
     using Tiles;
     using Zenject;
     using TilemapSizeMultipliers;
+    using MOATT.Levels.Buildings.Fence;
 
     public class EnemyPathfinder : IInitializable
     {
+        public readonly List<object> blockers = new();
+
         private readonly Settings settings;
         private readonly TileFacade[] tiles;
         private readonly EnemyFacade facade;
         private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
-
-        private readonly List<object> blockers = new();
 
         private Tweener pathTweener;
 

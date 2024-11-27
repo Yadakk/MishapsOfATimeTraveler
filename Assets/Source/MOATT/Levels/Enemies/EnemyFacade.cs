@@ -16,9 +16,13 @@ namespace MOATT.Levels.Enemies
         private EnemyRegistry registry;
         private BoundsCalculator boundsCalculator;
         private EnemyTilemapPositionCalculator enemyCellPositionCalculator;
+        private EnemyPathfinder pathfinder;
+        private Settings settings;
 
         public Vector3 Center => boundsCalculator.Bounds.center;
         public Vector3Int TilemapPos => enemyCellPositionCalculator.TilemapPosition;
+        public EnemyPathfinder Pathfinder => pathfinder;
+        public bool IsFlying => settings.isFlying;
 
         private void Awake()
         {
@@ -31,13 +35,17 @@ namespace MOATT.Levels.Enemies
             HealthModel healthModel,
             EnemyRegistry registry,
             BoundsCalculator boundsCalculator,
-            EnemyTilemapPositionCalculator enemyCellPositionCalculator
+            EnemyTilemapPositionCalculator enemyCellPositionCalculator,
+            EnemyPathfinder pathfinder,
+            Settings settings
             )
         {
             this.healthModel = healthModel;
             this.registry = registry;
             this.boundsCalculator = boundsCalculator;
             this.enemyCellPositionCalculator = enemyCellPositionCalculator;
+            this.pathfinder = pathfinder;
+            this.settings = settings;
 
             transform.position = tunables.initPos;
         }
@@ -56,6 +64,12 @@ namespace MOATT.Levels.Enemies
         {
             transform.DOKill();
             registry.Remove(this);
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public bool isFlying = false;
         }
 
         public class Factory : PlaceholderFactory<Object, EnemyTunables, EnemyFacade> { }

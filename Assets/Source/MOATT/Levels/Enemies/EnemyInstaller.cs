@@ -19,6 +19,7 @@ namespace MOATT.Levels.Enemies
 
         public override void InstallBindings()
         {
+            Container.BindInstance(settings.facade);
             Container.Bind<EnemyFacade>().FromComponentOnRoot().AsSingle();
 
             Container.BindInstance(settings.unitHealthSettings);
@@ -40,11 +41,14 @@ namespace MOATT.Levels.Enemies
 
             Container.BindInstance(settings.reloader);
             Container.BindInterfacesAndSelfTo<EnemyReloader>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<EnemyFenceAttacker>().AsSingle();
         }
 
         [System.Serializable]
         public class Settings
         {
+            public EnemyFacade.Settings facade;
             public UnitHealthInstaller.Settings unitHealthSettings;
             public EnemyPathfinder.Settings enemyPathfinder;
             public UnitDamage.Settings unitDamage;

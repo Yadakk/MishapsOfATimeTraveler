@@ -28,7 +28,7 @@ namespace HologramDisplayers
         {
             foreach(var renderer in renderers)
             {
-                renderer.sharedMaterial.color = color;
+                renderer.material.color = color;
             }
         }
 

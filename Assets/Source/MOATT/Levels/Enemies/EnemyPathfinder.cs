@@ -10,7 +10,6 @@ namespace MOATT.Levels.Enemies
     using Tiles;
     using Zenject;
     using TilemapSizeMultipliers;
-    using MOATT.Levels.Buildings.Fence;
 
     public class EnemyPathfinder : IInitializable
     {
@@ -21,10 +20,12 @@ namespace MOATT.Levels.Enemies
         private readonly EnemyFacade facade;
         private readonly TilemapSizeMultiplier tilemapSizeMultiplier;
 
+        private int fenceIgnoreCount;
         private Tweener pathTweener;
 
         public event System.Action<TileFacade> OnTileReached;
         public event System.Action<TileFacade[]> OnPathCreated;
+        public event System.Action OnFenceIgnoreCountChanged;
 
         public EnemyPathfinder(
             TileFacade[] tiles,
@@ -36,6 +37,18 @@ namespace MOATT.Levels.Enemies
             this.facade = facade;
             this.settings = settings;
             this.tilemapSizeMultiplier = tilemapSizeMultiplier;
+
+            fenceIgnoreCount = settings.fenceIgnoreCount;
+        }
+
+        public int FenceIgnoreCount
+        {
+            get => fenceIgnoreCount;
+            set
+            {
+                fenceIgnoreCount = value;
+                OnFenceIgnoreCountChanged?.Invoke();
+            }
         }
 
         public void Initialize()
@@ -79,6 +92,7 @@ namespace MOATT.Levels.Enemies
         public class Settings
         {
             public float tilesPerSecond = 1f;
+            public int fenceIgnoreCount = 0;
         }
     }
 }

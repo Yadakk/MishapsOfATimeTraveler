@@ -16,7 +16,8 @@ namespace MOATT.Levels.Waves
         {
             Container.Bind<EnemyRegistry>().AsSingle();
             Container.BindFactory<Object, EnemyTunables, EnemyFacade, EnemyFacade.Factory>().
-                FromFactory<TunablePrefabFactory<EnemyTunables, EnemyFacade>>();
+                FromIFactory(x => x.To<TunablePrefabFactory<EnemyTunables, EnemyFacade>>().
+                AsSingle().WithArguments("Enemies"));
             Container.Bind<StateFactory>().AsSingle();
         }
     }

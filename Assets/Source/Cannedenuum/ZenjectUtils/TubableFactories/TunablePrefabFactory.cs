@@ -3,23 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
+using TransformGrouping;
 
 namespace Cannedenuum.ZenjectUtils.Factories
 {
     public class TunablePrefabFactory<TTunables, T> : IFactory<Object, TTunables, T> where T : Component
     {
         private readonly DiContainer container;
+        private readonly RootTransformGrouper rootTransformGrouper;
+        private readonly string groupName;
 
-        public TunablePrefabFactory(DiContainer container)
+        public TunablePrefabFactory(DiContainer container, [InjectOptional] RootTransformGrouper rootTransformGrouper, [InjectOptional] string groupName)
         {
             this.container = container;
+            this.rootTransformGrouper = rootTransformGrouper;
+            this.groupName = groupName;
         }
 
         public T Create(Object prefab, TTunables tunables)
         {
             var subContainer = container.CreateSubContainer();
             subContainer.BindInstance(tunables);
-            return subContainer.InstantiatePrefabForComponent<T>(prefab);
+            T instantiatedComponent = subContainer.InstantiatePrefabForComponent<T>(prefab);
+            if (groupName != null && rootTransformGrouper != null) MoveGameObjectToGroup(instantiatedComponent);
+            return instantiatedComponent;
+        }
+        
+        private void MoveGameObjectToGroup(T component)
+        {
+            component.transform.SetParent(rootTransformGrouper.GetGroup(groupName));
         }
     }
 }

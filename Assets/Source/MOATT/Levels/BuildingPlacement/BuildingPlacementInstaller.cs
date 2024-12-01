@@ -21,7 +21,8 @@ namespace MOATT.Levels.BuildingPlacement
             Container.Bind<BuildingPlacementRange>().AsSingle();
 
             Container.BindFactory<Object, BuildingTunables, BuildingFacade, BuildingFacade.Factory>().
-                FromFactory<TunablePrefabFactory<BuildingTunables, BuildingFacade>>();
+                FromIFactory(x => x.To<TunablePrefabFactory<BuildingTunables, BuildingFacade>>().
+                AsSingle().WithArguments("Buildings"));
         }
     }
 }

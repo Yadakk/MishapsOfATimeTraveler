@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 using Cannedenuum.ZenjectUtils.Factories;
 
 namespace MOATT.Levels.Buildings.Turrets
@@ -33,7 +34,8 @@ namespace MOATT.Levels.Buildings.Turrets
             Container.BindInterfacesAndSelfTo<TurretReloader>().AsSingle();
             Container.Bind<TurretShooter>().FromComponentInHierarchy().AsSingle();
             Container.BindFactory<Object, BulletTunables, BulletFacade, BulletFacade.Factory>().
-                FromFactory<TunablePrefabFactory<BulletTunables, BulletFacade>>();
+                FromIFactory(x => x.To<TunablePrefabFactory<BulletTunables, BulletFacade>>().
+                AsSingle().WithArguments("Bullets"));
         }
 
         [System.Serializable]

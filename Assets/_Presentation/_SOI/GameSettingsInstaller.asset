@@ -28,5 +28,6 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
   rtsCameraRotater:
-    minAngle: 30
+    minAngle: 10
     maxAngle: 80
+    deltaTimeLerpMultiplier: 10

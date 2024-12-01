@@ -14,6 +14,7 @@ namespace MOATT.Levels.Installers
     using UnitRanges;
     using TilemapSizeMultipliers;
     using Buildings;
+    using TransformGrouping;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -45,6 +46,7 @@ namespace MOATT.Levels.Installers
             Container.Bind<BillboardGroupFacade>().FromComponentInHierarchy().AsSingle();
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<RootTransformGrouper>().AsSingle();
         }
     }
 }

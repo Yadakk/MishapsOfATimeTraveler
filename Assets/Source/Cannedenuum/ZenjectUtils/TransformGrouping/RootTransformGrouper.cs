@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TransformGrouping
 {
-    public class TransformGrouper : MonoBehaviour
+    public class RootTransformGrouper
     {
         private readonly List<Transform> groups = new();
 
@@ -19,7 +19,6 @@ namespace TransformGrouping
             }
 
             Transform newGroup = new GameObject(name).transform;
-            newGroup.SetParent(transform.parent);
             groups.Add(newGroup);
             return newGroup;
         }

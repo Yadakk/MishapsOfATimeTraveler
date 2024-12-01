@@ -189,15 +189,69 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5451309668594435723, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4619159924547357705, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4549757445259455984, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4414783139530759127, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2934278184567441153, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a31dce1e9eec74147b5520a3fb3edb10,
         type: 3}
       propertyPath: m_Name
       value: Cowboy
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649750372343837064, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384055268147996015, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177084269400893961, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370810116207880622, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a31dce1e9eec74147b5520a3fb3edb10,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8730072159449782189}
   m_SourcePrefab: {fileID: 100100000, guid: a31dce1e9eec74147b5520a3fb3edb10, type: 3}
 --- !u!4 &8119042994625262908 stripped
 Transform:
@@ -205,3 +259,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8585580436640387799}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8928230383216193414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a31dce1e9eec74147b5520a3fb3edb10,
+    type: 3}
+  m_PrefabInstance: {fileID: 8585580436640387799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &8730072159449782189
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928230383216193414}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 4.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: -0.08}

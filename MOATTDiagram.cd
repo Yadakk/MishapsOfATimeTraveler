@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MOATT.GUILogic.PointerOverUIWatcher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\GUILogic\PointerOverUIWatcher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.InputLogic.InputAssetMapSwapper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAAAAAAAEAAAAAEAAEABAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\InputLogic\InputAssetMapSwapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="@InputAsset" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="@InputAsset.BuildingPlacementActions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\InputSystem\InputAsset.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="@InputAsset.SelectionActions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\InputSystem\InputAsset.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Interface Name="@InputAsset.IBuildingPlacementActions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\InputSystem\InputAsset.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Interface>
+      <Interface Name="@InputAsset.ISelectionActions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\InputSystem\InputAsset.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Interface>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAGAAABAACAAACBABAAAAAmAEAAAgAABSACA=</HashCode>
+      <FileName>Assets\Source\MOATT\InputSystem\InputAsset.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Installers.GameInstaller" Collapsed="true">
+    <Position X="26.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Installers\GameInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Installers.GameSettingsInstaller" Collapsed="true">
+    <Position X="28.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAAgAAAAAAAAAAAAAAAAAAACAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Installers\GameSettingsInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Layers.LayerMasks" Collapsed="true">
+    <Position X="26.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Layers\LayerMasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BillboardGroup.BillboardGroupFacade" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BillboardGroup\BillboardGroupFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BillboardGroup.BillboardGroupInstaller" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAoAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BillboardGroup\BillboardGroupInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Billboards.BillboardFacade" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Billboards\BillboardFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Billboards.BillboardInstaller" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAIAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Billboards\BillboardInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Billboards.BillboardPositioner" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAASIAAAAAAAAAAAAAAAAAAAAAAAQAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Billboards\BillboardPositioner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Billboards.BillboardSource" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAAAAggA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Billboards\BillboardSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BoundsCalculation.BoundsCalculator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAwgA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BoundsCalculation\BoundsCalculator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MOATT.Levels.BoundsCalculation.BoundsCalculatorInstaller" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BoundsCalculation\BoundsCalculatorInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementCanPlaceExt" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAIAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementCanPlaceExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementHologram" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAADAACAAAQAAGAAAAgAIAAAGAAAAAAAAhAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementHologram.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementInputBinder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAAAAAAEEAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementInputBinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementInstaller" Collapsed="true">
+    <Position X="26.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementPlacer" Collapsed="true">
+    <Position X="28.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACkAAAAAAAAAAAAAgAAAAAACAAAAIAAEAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementPlacer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementRange" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAgAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementSelector" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAEAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.BuildingPlacement.BuildingPlacementSelectorVM" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAgAAEAAAAAAAAAAAACAAAAAIAQAAAAEA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\BuildingPlacement\BuildingPlacementSelectorVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Bombs.BombExploder" Collapsed="true">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgkAAACAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Bombs\BombExploder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Bombs.BombInstaller" Collapsed="true">
+    <Position X="2.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Bombs\BombInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Bombs.BombSOInstaller" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAGCAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Bombs\BombSOInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Bombs.BombTimer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Bombs\BombTimer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.BuildingFacade" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAACAACAAgACAAAAAABAAAADAAAQAAQYAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\BuildingFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.BuildingInstaller" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\BuildingInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.BuildingRegistry" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\BuildingRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.BuildingSOI" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAACAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\BuildingSOI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.BuildingTunables" Collapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\BuildingTunables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Fence.FenceSOI" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Fence\FenceSOI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Fence.FenceUnitBlocker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABSAAEAAgCAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Fence\FenceUnitBlocker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Spikes.SpikesEnemyDamager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAAggAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Spikes\SpikesEnemyDamager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Spikes.SpikesInstaller" Collapsed="true">
+    <Position X="5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Spikes\SpikesInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Spikes.SpikesReloader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAACIAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Spikes\SpikesReloader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Spikes.SpikesSettingsInstaller" Collapsed="true">
+    <Position X="9.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAQACAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Spikes\SpikesSettingsInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Support.SupportBuildingHealer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAEAAAAAAAAAAEAAACAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Support\SupportBuildingHealer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Support.SupportBuildingSOI" Collapsed="true">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABgAAAAAAAAEAAAEAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Support\SupportBuildingSOI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Tower.TowerInstaller" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Tower\TowerInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Tower.TowerSOInstaller" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Tower\TowerSOInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Turrets.TurretInstaller" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Turrets\TurretInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Turrets.TurretReloader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Turrets\TurretReloader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Turrets.TurretRotater" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Turrets\TurretRotater.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Turrets.TurretShooter" Collapsed="true">
+    <Position X="25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAhAAAAAAAAAAAAACAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Turrets\TurretShooter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Turrets.TurretSOInstaller" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAQICAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Turrets\TurretSOInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.Turrets.TurretTargetPicker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgAAAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\Turrets\TurretTargetPicker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Buildings.UnitHealth.BuildingDeathHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAABAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Buildings\UnitHealth\BuildingDeathHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Bullets.BulletDistanceWatcher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAQAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Bullets\BulletDistanceWatcher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Bullets.BulletFacade" Collapsed="true">
+    <Position X="25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAAAAgAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Bullets\BulletFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Bullets.BulletInstaller" Collapsed="true">
+    <Position X="26.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Bullets\BulletInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Bullets.BulletTargetFollower" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAIAAAAAQAAAEAAAAAAAAAAAQAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Bullets\BulletTargetFollower.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Bullets.BulletTunables" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Bullets\BulletTunables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.Destroyers.DestroyerEnemyAttacker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAABAAAAAAAAgCAAAEAAACAAAAAAAQAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\Destroyers\DestroyerEnemyAttacker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.Destroyers.DestroyerEnemyInstaller" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\Destroyers\DestroyerEnemyInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.Destroyers.DestroyerEnemySOI" Collapsed="true">
+    <Position X="20" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\Destroyers\DestroyerEnemySOI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyDeathHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAABAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyDeathHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyFacade">
+    <Position X="14.5" Y="11.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MOATT.Levels.Enemies.EnemyFacade.Settings" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\Levels\Enemies\EnemyFacade.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="MOATT.Levels.Enemies.EnemyFacade.Factory" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\Levels\Enemies\EnemyFacade.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEABAACQAAAEgAAAAwAAAAIAAADQAEAAAAAAAAAIAEA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyFacade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="boundsCalculator" />
+      <Field Name="enemyCellPositionCalculator" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyFenceAttacker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyFenceAttacker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyInstaller" Collapsed="true">
+    <Position X="25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyLayers" Collapsed="true">
+    <Position X="26.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyLayers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyPathfinder" BaseTypeListCollapsed="true">
+    <Position X="24" Y="11.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="MOATT.Levels.Enemies.EnemyPathfinder.Settings" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Source\MOATT\Levels\Enemies\EnemyPathfinder.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAIAAAgQAAAQAAAAAAAgCAAAhAAABAAQSIIAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyPathfinder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="facade" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="tiles" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyRegistry">
+    <Position X="12" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyRegistry.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="enemies" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyReloader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAEAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyReloader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyRotater" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAACgAAAAQAAAAAAAAAAEQAAAQAQQA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyRotater.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="facade" />
+      <Field Name="pathfinder" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemySOI" Collapsed="true">
+    <Position X="20" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemySOI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyTilemapPositionCalculator" BaseTypeListCollapsed="true">
+    <Position X="18" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAASAAAAAAAAAAgAAAAAAAAAAAAAQAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyTilemapPositionCalculator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="facade" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyTowerDamager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQUAAAABCAAAQAAAAAAAAAAAACQAAAAAAIAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyTowerDamager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.EnemyTunables" Collapsed="true">
+    <Position X="23.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\EnemyTunables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Enemies.Jumpers.JumperEnemyJumper" Collapsed="true">
+    <Position X="25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAgAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Enemies\Jumpers\JumperEnemyJumper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Health.HealthModel" Collapsed="true">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAIAAAACAAAAAAEAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Health\HealthModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Health.HealthWatcher" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Health\HealthWatcher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Healthbars.HealthbarFacade" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Healthbars\HealthbarFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Healthbars.HealthbarInstaller" Collapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAQACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Healthbars\HealthbarInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Healthbars.HealthbarVM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACAQAAAAAAAAAAAAAAAAAAJAAEAAAIABA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Healthbars\HealthbarVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Healthbars.UnitHealthbarDisplayer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAACAAAAIAAAAAAAAAAAEAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Healthbars\UnitHealthbarDisplayer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Installers.LevelInstaller" Collapsed="true">
+    <Position X="28.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Installers\LevelInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Installers.LevelSettingsInstaller" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAAAAQ=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Installers\LevelSettingsInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.TilemapSizeMultipliers.TilemapSizeMultiplier" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\TilemapSizeMultipliers\TilemapSizeMultipliers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.SpawnerTileFacade" Collapsed="true">
+    <Position X="29" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAggAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\SpawnerTileFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TileBuilding" Collapsed="true">
+    <Position X="25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAEQIAAAQAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TileBuilding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TileCell" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAQAAAAAAAAAAgACAAIAAAAAAQAYAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TileCell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TileFacade" Collapsed="true">
+    <Position X="28" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAgAAAAAABAAAAAAAAAAAAEAIAAAACAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TileFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TileInstaller" Collapsed="true">
+    <Position X="28.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TileInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TileRaycaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAEwAAAAAAEAAAAAAAAgABAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TileRaycaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TileSettingsInstaller" Collapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAEAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TileSettingsInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Tiles.TowerTileFacade" Collapsed="true">
+    <Position X="26.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Tiles\TowerTileFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Units.Damage.UnitDamage" Collapsed="true">
+    <Position X="28.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Units\Damage\UnitDamage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.UnitHealth.UnitHealthInstaller" Collapsed="true">
+    <Position X="16.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAoAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Units\UnitHealth\UnitHealthInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.UnitRanges.UnitRange" Collapsed="true">
+    <Position X="18" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Units\UnitRanges\UnitRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.UnitRanges.UnitRangeHologram" Collapsed="true">
+    <Position X="19.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAACAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Units\UnitRanges\UnitRangeHologram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.UnitRanges.UnitRangeInstaller" Collapsed="true">
+    <Position X="21.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Units\UnitRanges\UnitRangeInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Waves.StateFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\StateFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Waves.WaveInstaller" Collapsed="true">
+    <Position X="23.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\WaveInstaller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Waves.WaveStateMachine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAQAAIAAAAAAAAAgAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\WaveStateMachine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MOATT.Levels.Waves.States.Delay" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\States\Delay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Waves.States.EnemiesAlive" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\States\EnemiesAlive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Waves.States.Spawning" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAACAAABAIAAAAgAAAACAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\States\Spawning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MOATT.Levels.Waves.States.State" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Source\MOATT\Levels\Waves\States\State.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

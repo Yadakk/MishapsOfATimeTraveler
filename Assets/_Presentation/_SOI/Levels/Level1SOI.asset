@@ -22,5 +22,5 @@ MonoBehaviour:
       - {fileID: 4902633262727150827, guid: 56dee33ff186b00448d90054f1c9bfbb, type: 3}
       - {fileID: 6120017670994111398, guid: 8a9b359a552e8594c801856a7ce7f7f3, type: 3}
       - {fileID: 7397318464504742507, guid: 12a7cd74a04da0d4eb05730258871047, type: 3}
-      spawnInterval: 3
-      enemiesToSpawn: 15
+      spawnInterval: 5
+      enemiesToSpawn: 20

@@ -12,7 +12,7 @@ namespace MOATT.Levels.Tiles
             Container.Bind<TileFacade>().FromComponentInHierarchy().AsSingle();
             Container.Bind<BuildingFacade>().FromComponentInHierarchy().AsSingle();
             Container.Bind<TileBuilding>().AsSingle();
-            Container.Bind<TileCell>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TileCell>().AsSingle();
         }
     }
 }

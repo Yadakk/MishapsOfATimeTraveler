@@ -34,7 +34,7 @@ namespace MOATT.Levels.UnitHealth
             Container.BindInterfacesAndSelfTo<UnitHealthbarDisplayer>().AsSingle();
             Container.BindInterfacesAndSelfTo<HealthWatcher>().AsSingle();
 
-            Container.Bind<HealthbarFacade>().
+            Container.BindFactory<HealthbarFacade, HealthbarFacade.Factory>().
                 FromSubContainerResolve().
                 ByNewContextPrefab(globalSettings.healthbarPrefab).
                 AsSingle();

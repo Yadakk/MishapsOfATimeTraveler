@@ -13,20 +13,20 @@ namespace MOATT.Levels.Healthbars
     {
         private readonly BillboardGroupFacade billboardGroup;
         private readonly BillboardSource source;
-        private readonly HealthbarFacade healthbar;
+        private readonly HealthbarFacade.Factory healthbarFactory;
 
         private BillboardFacade healthbarBillboard;
 
-        public UnitHealthbarDisplayer(BillboardGroupFacade billboardGroup, HealthbarFacade healthbar, BillboardSource source = null)
+        public UnitHealthbarDisplayer(BillboardGroupFacade billboardGroup, HealthbarFacade.Factory healthbarFactory, BillboardSource source = null)
         {
             this.billboardGroup = billboardGroup;
-            this.healthbar = healthbar;
+            this.healthbarFactory = healthbarFactory;
             this.source = source;
         }
 
         public void Start()
         {
-            healthbarBillboard = billboardGroup.AddBillboard(source, healthbar.gameObject);
+            healthbarBillboard = billboardGroup.AddBillboard(source, healthbarFactory.Create().gameObject);
         }
 
         public void Dispose()

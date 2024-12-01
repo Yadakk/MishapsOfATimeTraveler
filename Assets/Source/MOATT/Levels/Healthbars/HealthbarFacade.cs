@@ -7,6 +7,6 @@ namespace MOATT.Levels.Healthbars
 {
     public class HealthbarFacade : MonoBehaviour
     {
-
+        public class Factory : PlaceholderFactory<HealthbarFacade> { }
     }
 }

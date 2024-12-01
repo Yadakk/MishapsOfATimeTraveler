@@ -38,6 +38,10 @@ namespace MOATT.Levels.Installers
         private void InstallMisc()
         {
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<RTS_Cam.RTS_Camera>().FromComponentInHierarchy().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<LevelCamera.RTSCameraRotater>().AsSingle();
+
             Container.Bind<BillboardGroupFacade>().FromComponentInHierarchy().AsSingle();
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();

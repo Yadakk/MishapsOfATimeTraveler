@@ -18,6 +18,7 @@ namespace MOATT.Installers
         public BillboardGroupInstaller.GlobalSettings billboardGroupInstaller;
         public BillboardSource.Settings billboardSource;
         public LayerMasks layerMasks;
+        public Levels.LevelCamera.RTSCameraRotater.Settings rtsCameraRotater;
 
         public override void InstallBindings()
         {
@@ -25,6 +26,7 @@ namespace MOATT.Installers
             Container.BindInstance(billboardGroupInstaller);
             Container.BindInstance(unitHealthInstallers);
             Container.BindInstance(layerMasks);
+            Container.BindInstance(rtsCameraRotater);
         }
     }
 }

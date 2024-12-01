@@ -27,3 +27,6 @@ MonoBehaviour:
     tileMask:
       serializedVersion: 2
       m_Bits: 64
+  rtsCameraRotater:
+    minAngle: 30
+    maxAngle: 80

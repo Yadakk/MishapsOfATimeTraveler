@@ -1074,6 +1074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 7313250030912258687, guid: 9398ec8b0748af743b556c5558691c7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7712013694049353002, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}
       propertyPath: m_LocalScale.y

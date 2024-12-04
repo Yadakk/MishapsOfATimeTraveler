@@ -37,6 +37,7 @@ namespace MOATT.Levels.Enemies
             Container.BindInstance(settings.enemyPathfinder);
             Container.BindInterfacesAndSelfTo<EnemyPathfinder>().AsSingle();
 
+            Container.BindInstance(settings.deathHandler).AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyDeathHandler>().AsSingle();
 
             Container.BindInstance(settings.reloader);
@@ -54,6 +55,7 @@ namespace MOATT.Levels.Enemies
             public UnitDamage.Settings unitDamage;
             public EnemyReloader.Settings reloader;
             public EnemyTowerDamager.Settings towerDamager;
+            public EnemyDeathHandler.Settings deathHandler;
         }
     }
 }

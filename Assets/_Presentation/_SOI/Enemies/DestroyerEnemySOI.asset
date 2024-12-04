@@ -13,18 +13,26 @@ MonoBehaviour:
   m_Name: DestroyerEnemySOI
   m_EditorClassIdentifier: 
   enemy:
+    facade:
+      isFlying: 0
     unitHealthSettings:
       healthModel:
         maxHealth: 120
     enemyPathfinder:
       tilesPerSecond: 0.5
+      fenceIgnoreCount: 0
     unitDamage:
       value: 25
     reloader:
       secondsToReload: 1.5
+    towerDamager:
+      selfDestruct: 0
+    deathHandler:
+      nutsAndBoltsReward: 75
   destroyerEnemy:
     unitRangeInstaller:
       unitRange:
         rangeTiles: 2
     destroyerEnemyAttacker:
       canDamageTypes: 1
+      stopsToAttack: 1

@@ -48,7 +48,6 @@ namespace MOATT.Levels.Installers
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();
             Container.Bind<RootTransformGrouper>().AsSingle();
-            Container.Bind<PlayerResources>().AsSingle();
         }
     }
 }

@@ -24,3 +24,8 @@ MonoBehaviour:
       - {fileID: 7397318464504742507, guid: 12a7cd74a04da0d4eb05730258871047, type: 3}
       spawnInterval: 5
       enemiesToSpawn: 20
+  playerResources:
+    nutsAndBolts:
+      cachedValue: 150
+    scientists:
+      cachedValue: 0

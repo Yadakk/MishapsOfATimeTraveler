@@ -5,6 +5,7 @@ using Cannedenuum.UnityUtils.ValueChangeWatcher;
 
 namespace MOATT.Levels.Economics
 {
+    [System.Serializable]
     public class PlayerResources
     {
         public ValueChangeWatcher<int> nutsAndBolts = new();

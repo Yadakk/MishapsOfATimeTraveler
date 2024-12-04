@@ -13,12 +13,19 @@ MonoBehaviour:
   m_Name: HeavyEnemySOI
   m_EditorClassIdentifier: 
   enemy:
+    facade:
+      isFlying: 0
     unitHealthSettings:
       healthModel:
         maxHealth: 200
     enemyPathfinder:
       tilesPerSecond: 0.25
+      fenceIgnoreCount: 0
     unitDamage:
       value: 40
     reloader:
       secondsToReload: 2
+    towerDamager:
+      selfDestruct: 0
+    deathHandler:
+      nutsAndBoltsReward: 100

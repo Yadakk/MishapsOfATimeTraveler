@@ -20,12 +20,15 @@ MonoBehaviour:
         maxHealth: 500
     enemyPathfinder:
       tilesPerSecond: 0.75
+      fenceIgnoreCount: 0
     unitDamage:
       value: 35
     reloader:
       secondsToReload: 0.5
     towerDamager:
       selfDestruct: 1
+    deathHandler:
+      nutsAndBoltsReward: 175
   destroyerEnemy:
     unitRangeInstaller:
       unitRange:

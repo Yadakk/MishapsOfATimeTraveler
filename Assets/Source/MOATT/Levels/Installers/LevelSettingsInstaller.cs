@@ -5,6 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Installers
 {
+    using Economics;
     using Waves.States;
 
     [CreateAssetMenu(
@@ -14,10 +15,12 @@ namespace MOATT.Levels.Installers
     public class LevelSettingsInstaller : ScriptableObjectInstaller
     {
         public WaveSettings waves;
+        public PlayerResources playerResources;
 
         public override void InstallBindings()
         {
             InstallWaves();
+            Container.BindInstance(playerResources).AsSingle();
         }
 
         private void InstallWaves()

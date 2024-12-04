@@ -22,9 +22,9 @@ namespace MOATT.Levels.LevelCamera
 
         public void Tick()
         {
-            float rtsCameraHeightInverseLerp = Mathf.InverseLerp(
+            float rtsCameraHeightInverseLerp = Mathf.Pow(Mathf.InverseLerp(
                 rtsCamera.minHeight, rtsCamera.maxHeight,
-                rtsCameraTransform.position.y);
+                rtsCameraTransform.position.y), settings.anglePower);
             float rotationAngleLerp = Mathf.Lerp(settings.minAngle, settings.maxAngle, rtsCameraHeightInverseLerp);
 
             rtsCameraTransform.rotation = Quaternion.Lerp(
@@ -42,6 +42,7 @@ namespace MOATT.Levels.LevelCamera
             public float minAngle = 10f;
             public float maxAngle = 80f;
             public float deltaTimeLerpMultiplier = 5f;
+            public float anglePower = 2f;
         }
     }
 }

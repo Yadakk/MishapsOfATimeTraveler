@@ -27,6 +27,7 @@ namespace MOATT.Levels.Buildings
 
         public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
         public BuildingType Type => settings.buildingType;
+        public int NutsAndBoltsCost => settings.nutsAndBoltsCost;
 
         private void Start()
         {
@@ -76,6 +77,7 @@ namespace MOATT.Levels.Buildings
         {
             public TileBuilding.TileType canBePlacedOn;
             public BuildingType buildingType;
+            public int nutsAndBoltsCost = 100;
         }
 
         public class Factory : PlaceholderFactory<Object, BuildingTunables, BuildingFacade> { }

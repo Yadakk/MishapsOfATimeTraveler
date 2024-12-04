@@ -37,7 +37,7 @@ namespace MOATT.Levels.Enemies
         private void DiedHandler()
         {
             facade.Destroy();
-            playerResources.nutsAndBolts.Value += settings.nutsAndBoltsReward;
+            playerResources.NutsAndBolts += settings.nutsAndBoltsReward;
         }
 
         [Serializable]

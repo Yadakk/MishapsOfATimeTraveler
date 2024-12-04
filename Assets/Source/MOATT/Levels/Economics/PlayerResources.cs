@@ -5,10 +5,30 @@ using Cannedenuum.UnityUtils.ValueChangeWatcher;
 
 namespace MOATT.Levels.Economics
 {
-    [System.Serializable]
-    public class PlayerResources
+    public class PlayerResources : Zenject.IInitializable
     {
-        public ValueChangeWatcher<int> nutsAndBolts = new();
-        public ValueChangeWatcher<int> scientists = new();
+        public ValueChangeWatcher<int> nutsAndBoltsWatcher = new();
+        public ValueChangeWatcher<int> scientistsWatcher = new();
+
+        private readonly Settings settings;
+
+        public int NutsAndBolts { get => nutsAndBoltsWatcher.Value; set => nutsAndBoltsWatcher.Value = value; }
+        public int Scientists { get => scientistsWatcher.Value; set => scientistsWatcher.Value = value; }
+
+        public PlayerResources(Settings settings)
+        {
+            this.settings = settings;
+        }
+
+        public void Initialize()
+        {
+            NutsAndBolts = settings.startingNutsAndBolts;
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public int startingNutsAndBolts = 150;
+        }
     }
 }

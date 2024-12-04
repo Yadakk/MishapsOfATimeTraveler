@@ -15,6 +15,7 @@ MonoBehaviour:
   buildingFacade:
     canBePlacedOn: 2
     buildingType: 1
+    nutsAndBoltsCost: 50
   enemyDamager:
     baseDamage: 10
   reloader:

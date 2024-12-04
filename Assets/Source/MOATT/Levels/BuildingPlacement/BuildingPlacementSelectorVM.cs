@@ -6,6 +6,7 @@ using Zenject;
 namespace MOATT.Levels.BuildingPlacement
 {
     using Buildings;
+    using MOATT.Levels.Economics;
 
     public class BuildingPlacementSelectorVM : MonoBehaviour
     {
@@ -14,6 +15,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private BuildingPlacementSelector selector;
         private BuildingFacade.Factory buildingFactory;
+        private PlayerResources playerResources;
 
         private BuildingFacade buildingPrototype;
 
@@ -24,15 +26,19 @@ namespace MOATT.Levels.BuildingPlacement
         }
 
         [Inject]
-        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory)
+        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory, PlayerResources playerResources)
         {
             this.selector = selector;
             this.buildingFactory = buildingFactory;
+            this.playerResources = playerResources;
         }
 
         public void Select()
         {
-            if (selector.BuildingPrototype != buildingPrototype)
+            bool isDifferentBuilding = selector.BuildingPrototype != buildingPrototype;
+            bool isAffordable = playerResources.NutsAndBolts >= buildingPrototype.NutsAndBoltsCost;
+
+            if (isDifferentBuilding && isAffordable)
                 selector.SelectBuilding(buildingPrototype);
             else
                 selector.SelectBuilding(null);

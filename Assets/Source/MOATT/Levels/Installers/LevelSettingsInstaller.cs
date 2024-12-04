@@ -15,7 +15,7 @@ namespace MOATT.Levels.Installers
     public class LevelSettingsInstaller : ScriptableObjectInstaller
     {
         public WaveSettings waves;
-        public PlayerResources playerResources;
+        public PlayerResources.Settings playerResources;
 
         public override void InstallBindings()
         {

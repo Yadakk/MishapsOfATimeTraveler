@@ -15,6 +15,7 @@ MonoBehaviour:
   buildingFacade:
     canBePlacedOn: 2
     buildingType: 1
+    nutsAndBoltsCost: 150
   UnitHealth:
     healthModel:
       maxHealth: 500

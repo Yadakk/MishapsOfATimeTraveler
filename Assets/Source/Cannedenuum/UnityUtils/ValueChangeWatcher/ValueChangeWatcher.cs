@@ -5,10 +5,8 @@ using UnityEngine;
 
 namespace Cannedenuum.UnityUtils.ValueChangeWatcher
 {
-    [Serializable]
     public class ValueChangeWatcher<T>
     {
-        [SerializeField]
         private T cachedValue;
 
         public event Action OnValueChanged;

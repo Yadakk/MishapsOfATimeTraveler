@@ -15,6 +15,7 @@ namespace MOATT.Levels.Installers
     using TilemapSizeMultipliers;
     using Buildings;
     using TransformGrouping;
+    using MOATT.Levels.Economics;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -47,6 +48,7 @@ namespace MOATT.Levels.Installers
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();
             Container.Bind<RootTransformGrouper>().AsSingle();
+            Container.Bind<PlayerResources>().AsSingle();
         }
     }
 }

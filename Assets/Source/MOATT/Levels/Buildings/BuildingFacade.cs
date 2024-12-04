@@ -8,7 +8,7 @@ namespace MOATT.Levels.Buildings
 {
     using Health;
     using Tiles;
-    using UnitRanges;
+    using Units.Range;
 
     public class BuildingFacade : MonoBehaviour
     {

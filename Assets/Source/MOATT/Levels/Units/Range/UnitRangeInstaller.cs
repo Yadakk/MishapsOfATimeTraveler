@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.UnitRanges
+namespace MOATT.Levels.Units.Range
 {
     public class UnitRangeInstaller : Installer
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Cannedenuum.ZenjectUtils.Factories;
+using Cannedenuum.ZenjectUtils.TubableFactories;
 
 namespace MOATT.Levels.BuildingPlacement
 {

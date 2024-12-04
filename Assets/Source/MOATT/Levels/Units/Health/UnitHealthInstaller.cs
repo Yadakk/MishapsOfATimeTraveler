@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace MOATT.Levels.UnitHealth
+namespace MOATT.Levels.Units.Health
 {
-    using Health;
+    using Levels.Health;
     using Healthbars;
     using Billboards;
     using BoundsCalculation;

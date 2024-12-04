@@ -8,7 +8,7 @@ using Cannedenuum.ZenjectUtils.MonoInterfaces;
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Enemies;
-    using UnitRanges;
+    using Units.Range;
 
     public class TurretTargetPicker : IUpdatable
     {

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies.Destroyers
 {
-    using UnitRanges;
+    using Units.Range;
 
     public class DestroyerEnemyInstaller : Installer
     {

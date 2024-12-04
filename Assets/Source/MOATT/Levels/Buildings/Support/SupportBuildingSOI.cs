@@ -5,8 +5,8 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings.Support
 {
     using Units.Damage;
-    using UnitRanges;
-    using Levels.UnitHealth;
+    using Units.Health;
+    using Units.Range;
 
     [CreateAssetMenu(fileName = "SupportBuildingSOI", menuName = "Installers/Buildings/Support")]
     public class SupportBuildingSOI : BuildingSOI

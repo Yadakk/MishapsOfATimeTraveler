@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
-using Cannedenuum.ZenjectUtils.Factories;
+using Cannedenuum.ZenjectUtils.TubableFactories;
 
 namespace MOATT.Levels.Waves
 {

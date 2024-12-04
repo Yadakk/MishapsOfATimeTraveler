@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
-    using Levels.UnitHealth;
+    using Units.Health;
 
     [CreateAssetMenu(
         fileName = "EnemySOI",

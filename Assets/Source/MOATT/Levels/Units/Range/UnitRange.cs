@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MOATT.Levels.UnitRanges
+namespace MOATT.Levels.Units.Range
 {
     using TilemapSizeMultipliers;
 

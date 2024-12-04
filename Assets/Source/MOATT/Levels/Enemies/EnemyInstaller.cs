@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Enemies
 {
-    using UnitHealth;
+    using Units.Health;
     using Units.Damage;
 
     public class EnemyInstaller : Installer

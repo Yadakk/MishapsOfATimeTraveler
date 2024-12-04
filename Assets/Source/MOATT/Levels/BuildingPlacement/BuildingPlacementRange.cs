@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MOATT.Levels.BuildingPlacement
 {
-    using UnitRanges;
+    using Units.Range;
     using Buildings;
 
     public class BuildingPlacementRange

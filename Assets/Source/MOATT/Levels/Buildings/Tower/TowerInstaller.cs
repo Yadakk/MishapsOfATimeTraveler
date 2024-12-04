@@ -6,7 +6,7 @@ using Zenject;
 
 namespace MOATT.Levels.Buildings.Tower
 {
-    using Levels.UnitHealth;
+    using Units.Health;
 
     public class TowerInstaller : Installer
     {

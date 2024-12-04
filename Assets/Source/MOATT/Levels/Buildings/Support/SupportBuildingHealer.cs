@@ -8,7 +8,7 @@ using Cannedenuum.ZenjectUtils.MonoInterfaces;
 namespace MOATT.Levels.Buildings.Support
 {
     using Units.Damage;
-    using UnitRanges;
+    using Units.Range;
     using System.Linq;
 
     public class SupportBuildingHealer : IUpdatable

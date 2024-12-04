@@ -6,7 +6,6 @@ using Zenject;
 namespace MOATT.Installers
 {
     using Levels.BillboardGroup;
-    using Levels.UnitHealth;
     using Levels.Billboards;
     using Layers;
 
@@ -14,7 +13,7 @@ namespace MOATT.Installers
         menuName = "Installers/" + nameof(GameSettingsInstaller))]
     public class GameSettingsInstaller : ScriptableObjectInstaller
     {
-        public UnitHealthInstaller.GlobalSettings unitHealthInstallers;
+        public Levels.Units.Health.UnitHealthInstaller.GlobalSettings unitHealthInstallers;
         public BillboardGroupInstaller.GlobalSettings billboardGroupInstaller;
         public BillboardSource.Settings billboardSource;
         public LayerMasks layerMasks;

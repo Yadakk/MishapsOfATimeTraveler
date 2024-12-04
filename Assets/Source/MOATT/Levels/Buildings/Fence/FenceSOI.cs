@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MOATT.Levels.Buildings.Fence
 {
-    using Levels.UnitHealth;
+    using Units.Health;
 
     [CreateAssetMenu(
     fileName = "FenceSOI",

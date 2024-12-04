@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MOATT.Levels.Buildings.Bombs
 {
-    using UnitRanges;
+    using Units.Range;
 
     public class BombInstaller : BuildingInstaller
     {

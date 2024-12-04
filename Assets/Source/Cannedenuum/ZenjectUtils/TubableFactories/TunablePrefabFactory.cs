@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
-using TransformGrouping;
+using Cannedenuum.ZenjectUtils.TransformGrouping;
 
-namespace Cannedenuum.ZenjectUtils.Factories
+namespace Cannedenuum.ZenjectUtils.TubableFactories
 {
     public class TunablePrefabFactory<TTunables, T> : IFactory<Object, TTunables, T> where T : Component
     {

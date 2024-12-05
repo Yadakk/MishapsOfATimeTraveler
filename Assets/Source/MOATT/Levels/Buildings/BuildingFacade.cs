@@ -66,7 +66,7 @@ namespace MOATT.Levels.Buildings
             stringBuilder.AppendLine($"Cost: {NutsAndBoltsCost} Nuts and Bolts");
             if (HealthModel != null) stringBuilder.AppendLine($"Health: {HealthModel.MaxHealth} hp");
             if (BuildingRange != null) stringBuilder.AppendLine($"Range: {BuildingRange.RangeTiles} tiles");
-            return Regex.Replace(stringBuilder.ToString(), @"(^\p{Zs}*\r\n){2,}", "\r\n", RegexOptions.Multiline);
+            return stringBuilder.ToString();
         }
 
         public void Destroy()

@@ -19,6 +19,7 @@ namespace MOATT.Levels.Units.Range
         }
 
         public float Range => tilemapSizeMultiplier.Multiply(settings.rangeTiles);
+        public float RangeTiles => settings.rangeTiles;
 
         [Serializable]
         public class Settings

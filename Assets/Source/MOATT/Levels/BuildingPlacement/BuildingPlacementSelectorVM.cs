@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 namespace MOATT.Levels.BuildingPlacement
 {
     using Buildings;
-    using MOATT.Levels.Economics;
+    using Economics;
+    using System;
+    using Tooltips;
 
-    public class BuildingPlacementSelectorVM : MonoBehaviour
+    public class BuildingPlacementSelectorVM : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
         private BuildingFacade buildingPrefab;
@@ -16,6 +19,7 @@ namespace MOATT.Levels.BuildingPlacement
         private BuildingPlacementSelector selector;
         private BuildingFacade.Factory buildingFactory;
         private PlayerResources playerResources;
+        private Tooltip tooltip;
 
         private BuildingFacade buildingPrototype;
 
@@ -26,11 +30,22 @@ namespace MOATT.Levels.BuildingPlacement
         }
 
         [Inject]
-        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory, PlayerResources playerResources)
+        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory, PlayerResources playerResources, Tooltip tooltip)
         {
             this.selector = selector;
             this.buildingFactory = buildingFactory;
             this.playerResources = playerResources;
+            this.tooltip = tooltip;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            tooltip.DisplayAtCursor(buildingPrototype.ToString());
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            tooltip.Hide();
         }
 
         public void Select()

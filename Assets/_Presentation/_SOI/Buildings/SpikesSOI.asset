@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpikesSOI
   m_EditorClassIdentifier: 
   buildingFacade:
+    name: Spikes
     canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 50

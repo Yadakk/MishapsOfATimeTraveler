@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: TurretSOI
   m_EditorClassIdentifier: 
   buildingFacade:
+    name: Turret
     canBePlacedOn: 1
     buildingType: 1
+    nutsAndBoltsCost: 100
   reloader:
     reloadTime: 1
   shooter:

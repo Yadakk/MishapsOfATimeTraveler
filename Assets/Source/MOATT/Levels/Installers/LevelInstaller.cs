@@ -16,6 +16,7 @@ namespace MOATT.Levels.Installers
     using Buildings;
     using Cannedenuum.ZenjectUtils.TransformGrouping;
     using MOATT.Levels.Economics;
+    using MOATT.Tooltips;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -49,6 +50,7 @@ namespace MOATT.Levels.Installers
             Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();
             Container.Bind<RootTransformGrouper>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerResources>().AsSingle();
+            Container.Bind<Tooltip>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

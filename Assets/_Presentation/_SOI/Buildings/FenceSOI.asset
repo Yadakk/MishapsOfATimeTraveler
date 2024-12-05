@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FenceSOI
   m_EditorClassIdentifier: 
   buildingFacade:
+    name: Fence
     canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 150

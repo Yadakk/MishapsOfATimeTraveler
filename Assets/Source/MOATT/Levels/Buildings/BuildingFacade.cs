@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 using Zenject;
 
 namespace MOATT.Levels.Buildings
 {
     using Health;
+    using System.Text.RegularExpressions;
     using Tiles;
     using Units.Range;
 
@@ -57,6 +59,16 @@ namespace MOATT.Levels.Buildings
             tunables?.initTile.SetBuilding(this);
         }
 
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new();
+            stringBuilder.AppendLine(settings.name);
+            stringBuilder.AppendLine($"Cost: {NutsAndBoltsCost} Nuts and Bolts");
+            if (HealthModel != null) stringBuilder.AppendLine($"Health: {HealthModel.MaxHealth} hp");
+            if (BuildingRange != null) stringBuilder.AppendLine($"Range: {BuildingRange.RangeTiles} tiles");
+            return Regex.Replace(stringBuilder.ToString(), @"(^\p{Zs}*\r\n){2,}", "\r\n", RegexOptions.Multiline);
+        }
+
         public void Destroy()
         {
             Destroy(gameObject);
@@ -75,6 +87,7 @@ namespace MOATT.Levels.Buildings
         [System.Serializable]
         public class Settings
         {
+            public string name;
             public TileBuilding.TileType canBePlacedOn;
             public BuildingType buildingType;
             public int nutsAndBoltsCost = 100;

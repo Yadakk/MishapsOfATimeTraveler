@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SupportSOI
   m_EditorClassIdentifier: 
   buildingFacade:
+    name: Support Tower
     canBePlacedOn: 1
     buildingType: 1
     nutsAndBoltsCost: 200

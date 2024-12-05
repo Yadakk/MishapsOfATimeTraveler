@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEditor.PlayerSettings;
 
 namespace MOATT.Tooltips
 {
@@ -11,11 +12,13 @@ namespace MOATT.Tooltips
 
         private TextMeshProUGUI tmpu;
         private RectTransform rt;
+        private RectTransform canvasRT;
 
         private void Awake()
         {
             tmpu = GetComponentInChildren<TextMeshProUGUI>();
             rt = transform as RectTransform;
+            canvasRT = GetComponentInParent<Canvas>().transform as RectTransform;
         }
 
         private void Start()
@@ -36,7 +39,11 @@ namespace MOATT.Tooltips
 
         public void SetActive(bool value) => gameObject.SetActive(value);
 
-        public void MoveToCursor() => rt.transform.position = Input.mousePosition + (Vector3)offset;
+        public void MoveToCursor()
+        {
+            transform.position = Input.mousePosition + (Vector3)offset;
+            KeepFullyOnScreen();
+        }
 
         public void DisplayAtCursor(string text)
         {
@@ -48,6 +55,19 @@ namespace MOATT.Tooltips
         public void Hide()
         {
             SetActive(false);
+        }
+
+        private void KeepFullyOnScreen()
+        {
+            Vector3 pos = rt.localPosition;
+
+            Vector3 minPosition = canvasRT.rect.min - rt.rect.min;
+            Vector3 maxPosition = canvasRT.rect.max - rt.rect.max;
+
+            pos.x = Mathf.Clamp(rt.localPosition.x, minPosition.x, maxPosition.x);
+            pos.y = Mathf.Clamp(rt.localPosition.y, minPosition.y, maxPosition.y);
+
+            rt.localPosition = pos;
         }
     }
 }

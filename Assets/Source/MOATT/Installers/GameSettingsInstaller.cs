@@ -8,6 +8,7 @@ namespace MOATT.Installers
     using Levels.BillboardGroup;
     using Levels.Billboards;
     using Layers;
+    using MOATT.Levels.Economics;
 
     [CreateAssetMenu(fileName = nameof(GameSettingsInstaller),
         menuName = "Installers/" + nameof(GameSettingsInstaller))]
@@ -18,6 +19,7 @@ namespace MOATT.Installers
         public BillboardSource.Settings billboardSource;
         public LayerMasks layerMasks;
         public Levels.LevelCamera.RTSCameraRotater.Settings rtsCameraRotater;
+        public ScientistBuyerVM.Settings scientistBuyerVM;
 
         public override void InstallBindings()
         {
@@ -26,6 +28,7 @@ namespace MOATT.Installers
             Container.BindInstance(unitHealthInstallers);
             Container.BindInstance(layerMasks);
             Container.BindInstance(rtsCameraRotater);
+            Container.BindInstance(scientistBuyerVM);
         }
     }
 }

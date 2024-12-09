@@ -16,22 +16,26 @@ namespace MOATT.Levels.Waves.States
         private readonly WaveStateMachine stateMachine;
         private readonly Timer timer;
         private readonly SpawnerTileFacade[] spawners;
-        private readonly EnemyRegistry enemyRegistry;
         private readonly SpawnChanceDistribution spawnChanceDistribution;
+        private readonly WaveInfo waveInfo;
 
         private int remainingToSpawn;
 
         public Spawning(Settings settings, WaveStateMachine stateMachine,
-            Timer timer, TileFacade[] tiles, EnemyRegistry enemyRegistry, SpawnChanceDistribution spawnChanceDistribution)
+            Timer timer, TileFacade[] tiles, SpawnChanceDistribution spawnChanceDistribution, WaveInfo waveInfo)
         {
             this.settings = settings;
             this.stateMachine = stateMachine;
             this.timer = timer;
-            this.enemyRegistry = enemyRegistry;
-
-            spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
-            remainingToSpawn = settings.enemiesToSpawn;
             this.spawnChanceDistribution = spawnChanceDistribution;
+            spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
+            this.waveInfo = waveInfo;
+        }
+
+        public override void Start()
+        {
+            remainingToSpawn = Mathf.RoundToInt(
+                settings.enemiesToSpawn * Mathf.Pow(settings.waveMultiplier, waveInfo.currentWave - 1));
         }
 
         public override void Update()
@@ -62,6 +66,7 @@ namespace MOATT.Levels.Waves.States
         {
             public float spawnInterval = 1f;
             public int enemiesToSpawn = 5;
+            public float waveMultiplier = 1.5f;
         }
     }
 }

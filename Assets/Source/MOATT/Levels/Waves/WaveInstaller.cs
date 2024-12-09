@@ -28,6 +28,7 @@ namespace MOATT.Levels.Waves
             Container.Bind<StateFactory>().AsSingle();
 
             Container.Bind<SpawnChanceDistribution>().AsSingle().WithArguments(settings.spawnChanceDistribution);
+            Container.Bind<WaveInfo>().AsSingle();
         }
 
         [System.Serializable]

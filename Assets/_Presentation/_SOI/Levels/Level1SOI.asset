@@ -28,7 +28,8 @@ MonoBehaviour:
     delay:
       waveDelay: 1
     spawning:
-      spawnInterval: 0.1
-      enemiesToSpawn: 100
+      spawnInterval: 1
+      enemiesToSpawn: 5
+      waveMultiplier: 1.5
   playerResources:
     startingNutsAndBolts: 150

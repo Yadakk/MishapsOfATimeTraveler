@@ -33,6 +33,8 @@ namespace MOATT.Levels.BuildingPlacement
             }
         }
 
+        public Timer Timer => timer;
+
         public void Tick()
         {
             if (timer.Elapsed > rechargeTime) IsCharged = true;

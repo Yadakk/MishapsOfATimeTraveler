@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Zenject;
 
@@ -19,6 +20,9 @@ namespace MOATT.Levels.BuildingPlacement
         [SerializeField]
         private float rechargeTime = 1f;
 
+        [SerializeField]
+        private Image chargeFill;
+
         private BuildingPlacementBuildingInfo buildingInfo;
 
         private BuildingPlacementSelector selector;
@@ -36,6 +40,7 @@ namespace MOATT.Levels.BuildingPlacement
         private void Update()
         {
             buildingInfo.Tick();
+            chargeFill.fillAmount = buildingInfo.IsCharged ? 0f : 1f - buildingInfo.Timer.Elapsed / buildingInfo.rechargeTime;
         }
 
         [Inject]
@@ -61,7 +66,6 @@ namespace MOATT.Levels.BuildingPlacement
         public void Select()
         {
             bool isCharged = buildingInfo.IsCharged;
-            Debug.Log(isCharged);
             bool isDifferentBuilding = selector.BuildingInfo != buildingInfo;
             bool isAffordable = playerResources.NutsAndBolts >= buildingInfo.prototype.NutsAndBoltsCost;
 

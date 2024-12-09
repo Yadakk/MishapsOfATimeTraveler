@@ -11,24 +11,24 @@ namespace MOATT.Levels.BuildingPlacement
     {
         private readonly InputAssetMapSwapper mapSwapper;
 
-        public event System.Action<BuildingFacade> OnBuildingSelected;
+        public event System.Action<BuildingPlacementBuildingInfo> OnBuildingSelected;
 
         public BuildingPlacementSelector(InputAssetMapSwapper mapSwapper)
         {
             this.mapSwapper = mapSwapper;
         }
 
-        public BuildingFacade BuildingPrototype { get; private set; }
+        public BuildingPlacementBuildingInfo BuildingInfo { get; private set; }
 
-        public void SelectBuilding(BuildingFacade newPrototype)
+        public void SelectBuilding(BuildingPlacementBuildingInfo newInfo)
         {
-            BuildingPrototype = newPrototype;
+            BuildingInfo = newInfo;
 
-            mapSwapper.CurrentMap = BuildingPrototype != null ?
+            mapSwapper.CurrentMap = BuildingInfo != null ?
                 mapSwapper.inputAsset.BuildingPlacement :
                 mapSwapper.inputAsset.Selection;
 
-            OnBuildingSelected?.Invoke(BuildingPrototype);
+            OnBuildingSelected?.Invoke(BuildingInfo);
         }
     }
 }

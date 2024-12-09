@@ -16,31 +16,36 @@ namespace MOATT.Levels.BuildingPlacement
         [SerializeField]
         private BuildingFacade buildingPrefab;
 
+        [SerializeField]
+        private float rechargeTime = 1f;
+
+        private BuildingPlacementBuildingInfo buildingInfo;
+
         private BuildingPlacementSelector selector;
         private BuildingFacade.Factory buildingFactory;
         private PlayerResources playerResources;
         private Tooltip tooltip;
 
-        private BuildingFacade buildingPrototype;
-
         private void Awake()
         {
-            buildingPrototype = buildingFactory.Create(buildingPrefab, null);
-            buildingPrototype.gameObject.SetActive(false);
+            buildingInfo.RechargeTime = rechargeTime;
+            buildingInfo.prototype = buildingFactory.Create(buildingPrefab, null);
+            buildingInfo.prototype.gameObject.SetActive(false);
         }
 
         [Inject]
-        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory, PlayerResources playerResources, Tooltip tooltip)
+        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory, PlayerResources playerResources, Tooltip tooltip, BuildingPlacementBuildingInfo buildingInfo)
         {
             this.selector = selector;
             this.buildingFactory = buildingFactory;
             this.playerResources = playerResources;
             this.tooltip = tooltip;
+            this.buildingInfo = buildingInfo;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            tooltip.DisplayAtCursor(buildingPrototype.ToString());
+            tooltip.DisplayAtCursor(buildingInfo.prototype.ToString());
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -50,11 +55,11 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void Select()
         {
-            bool isDifferentBuilding = selector.BuildingPrototype != buildingPrototype;
-            bool isAffordable = playerResources.NutsAndBolts >= buildingPrototype.NutsAndBoltsCost;
+            bool isDifferentBuilding = selector.BuildingInfo != buildingInfo;
+            bool isAffordable = playerResources.NutsAndBolts >= buildingInfo.prototype.NutsAndBoltsCost;
 
             if (isDifferentBuilding && isAffordable)
-                selector.SelectBuilding(buildingPrototype);
+                selector.SelectBuilding(buildingInfo);
             else
                 selector.SelectBuilding(null);
         }

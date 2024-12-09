@@ -53,7 +53,7 @@ namespace MOATT.Levels.BuildingPlacement
             UpdateDisplayer();
         }
 
-        private void BuildingSelectedHandler(BuildingFacade facade)
+        private void BuildingSelectedHandler(BuildingPlacementBuildingInfo info)
         {
             UpdateDisplayer();
         }
@@ -65,7 +65,8 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void UpdateDisplayer()
         {
-            var args = selector.BuildingPrototype.GetHologramArgs(
+            var prototype = selector.BuildingInfo?.prototype;
+            var args = prototype.GetHologramArgs(
                 tileRaycaster.TileUnderMouse);
 
             if (!args.IsDisplayed) { Hide(); return; }
@@ -74,7 +75,7 @@ namespace MOATT.Levels.BuildingPlacement
 
             var tileUnderMousePos = tileRaycaster.TileUnderMouse.transform.position;
             hologramDisplayer.transform.position = tileUnderMousePos;
-            buildingPlacementRange.DisplayRange(selector.BuildingPrototype, tileUnderMousePos);
+            buildingPlacementRange.DisplayRange(selector.BuildingInfo.prototype, tileUnderMousePos);
         }
 
         private void Hide()
@@ -85,7 +86,7 @@ namespace MOATT.Levels.BuildingPlacement
         private void Show()
         {
             hologramDisplayer.SetActive(true);
-            hologramDisplayer.SetModel(selector.BuildingPrototype.gameObject);
+            hologramDisplayer.SetModel(selector.BuildingInfo.prototype.gameObject);
         }
 
         public class DisplayArgs

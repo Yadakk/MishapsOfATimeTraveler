@@ -17,11 +17,12 @@ namespace MOATT.Levels.Waves.States
         private readonly Timer timer;
         private readonly SpawnerTileFacade[] spawners;
         private readonly EnemyRegistry enemyRegistry;
+        private readonly SpawnChanceDistribution spawnChanceDistribution;
 
         private int remainingToSpawn;
 
         public Spawning(Settings settings, WaveStateMachine stateMachine,
-            Timer timer, TileFacade[] tiles, EnemyRegistry enemyRegistry)
+            Timer timer, TileFacade[] tiles, EnemyRegistry enemyRegistry, SpawnChanceDistribution spawnChanceDistribution)
         {
             this.settings = settings;
             this.stateMachine = stateMachine;
@@ -30,6 +31,7 @@ namespace MOATT.Levels.Waves.States
 
             spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
             remainingToSpawn = settings.enemiesToSpawn;
+            this.spawnChanceDistribution = spawnChanceDistribution;
         }
 
         public override void Update()
@@ -48,9 +50,8 @@ namespace MOATT.Levels.Waves.States
 
         private void SpawnEnemy()
         {
-            var enemyPrefabs = settings.enemyPrefabs;
             SpawnerTileFacade selectedSpawner = spawners[Random.Range(0, spawners.Length)];
-            selectedSpawner.Spawn(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]);
+            selectedSpawner.Spawn(spawnChanceDistribution.GetRandomEnemy());
             remainingToSpawn--;
         }
 
@@ -59,7 +60,6 @@ namespace MOATT.Levels.Waves.States
         [System.Serializable]
         public class Settings
         {
-            public EnemyFacade[] enemyPrefabs;
             public float spawnInterval = 1f;
             public int enemiesToSpawn = 5;
         }

@@ -6,6 +6,7 @@ using Zenject;
 namespace MOATT.Levels.Installers
 {
     using Economics;
+    using MOATT.Levels.Waves;
     using Waves.States;
 
     [CreateAssetMenu(
@@ -25,6 +26,7 @@ namespace MOATT.Levels.Installers
 
         private void InstallWaves()
         {
+            Container.BindInstance(waves.waveInstaller);
             Container.BindInstance(waves.delay);
             Container.BindInstance(waves.spawning);
         }
@@ -32,6 +34,7 @@ namespace MOATT.Levels.Installers
         [System.Serializable]
         public class WaveSettings
         {
+            public WaveInstaller.Settings waveInstaller;
             public Delay.Settings delay;
             public Spawning.Settings spawning;
         }

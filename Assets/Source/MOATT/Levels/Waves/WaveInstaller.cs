@@ -12,6 +12,13 @@ namespace MOATT.Levels.Waves
 
     public class WaveInstaller : Installer
     {
+        private readonly Settings settings;
+
+        public WaveInstaller(Settings settings)
+        {
+            this.settings = settings;
+        }
+
         public override void InstallBindings()
         {
             Container.Bind<EnemyRegistry>().AsSingle();
@@ -19,6 +26,14 @@ namespace MOATT.Levels.Waves
                 FromIFactory(x => x.To<TunablePrefabFactory<EnemyTunables, EnemyFacade>>().
                 AsSingle().WithArguments("Enemies"));
             Container.Bind<StateFactory>().AsSingle();
+
+            Container.Bind<SpawnChanceDistribution>().AsSingle().WithArguments(settings.spawnChanceDistribution);
+        }
+
+        [System.Serializable]
+        public class Settings
+        {
+            public SpawnChanceDistribution.Settings spawnChanceDistribution;
         }
     }
 }

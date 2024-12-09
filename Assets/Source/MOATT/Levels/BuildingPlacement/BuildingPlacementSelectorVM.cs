@@ -28,9 +28,14 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void Awake()
         {
-            buildingInfo.RechargeTime = rechargeTime;
+            buildingInfo.rechargeTime = rechargeTime;
             buildingInfo.prototype = buildingFactory.Create(buildingPrefab, null);
             buildingInfo.prototype.gameObject.SetActive(false);
+        }
+
+        private void Update()
+        {
+            buildingInfo.Tick();
         }
 
         [Inject]
@@ -55,10 +60,12 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void Select()
         {
+            bool isCharged = buildingInfo.IsCharged;
+            Debug.Log(isCharged);
             bool isDifferentBuilding = selector.BuildingInfo != buildingInfo;
             bool isAffordable = playerResources.NutsAndBolts >= buildingInfo.prototype.NutsAndBoltsCost;
 
-            if (isDifferentBuilding && isAffordable)
+            if (isDifferentBuilding && isAffordable && isCharged)
                 selector.SelectBuilding(buildingInfo);
             else
                 selector.SelectBuilding(null);

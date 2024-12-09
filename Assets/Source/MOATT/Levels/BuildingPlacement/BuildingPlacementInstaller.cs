@@ -24,7 +24,7 @@ namespace MOATT.Levels.BuildingPlacement
                 FromIFactory(x => x.To<TunablePrefabFactory<BuildingTunables, BuildingFacade>>().
                 AsSingle().WithArguments("Buildings"));
 
-            Container.BindInterfacesAndSelfTo<BuildingPlacementBuildingInfo>().AsTransient();
+            Container.Bind<BuildingPlacementBuildingInfo>().AsTransient();
         }
     }
 }

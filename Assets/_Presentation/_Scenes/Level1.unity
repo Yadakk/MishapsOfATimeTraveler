@@ -5667,7 +5667,7 @@ GameObject:
   - component: {fileID: 224902937}
   - component: {fileID: 224902936}
   m_Layer: 0
-  m_Name: TowerButton
+  m_Name: TurretButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5801,6 +5801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 4457310283655775695, guid: 9d2c9d35330372245b27ff020337d436,
     type: 3}
+  rechargeTime: 7
 --- !u!1001 &227374257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9000,6 +9001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 6295303179929738835, guid: 16f328e160bf2654ba6186777ec53e98,
     type: 3}
+  rechargeTime: 7
 --- !u!1001 &363478071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18097,6 +18099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 8080827644565336545, guid: 54cc25543610fbd449c4c9f5a0af48a3,
     type: 3}
+  rechargeTime: 30
 --- !u!1001 &775045850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22306,6 +22309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 6183603076813044932, guid: e0481eb0cd38dc54c8ea69443e07fc12,
     type: 3}
+  rechargeTime: 30
 --- !u!1001 &990581664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24076,6 +24080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 7011324562886082393, guid: fdb00d5e02277014599c767ad75e36c7,
     type: 3}
+  rechargeTime: 10
 --- !u!1001 &1070223380
 PrefabInstance:
   m_ObjectHideFlags: 0

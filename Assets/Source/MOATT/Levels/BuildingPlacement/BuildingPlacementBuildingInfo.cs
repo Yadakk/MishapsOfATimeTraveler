@@ -11,13 +11,10 @@ namespace MOATT.Levels.BuildingPlacement
 
     public class BuildingPlacementBuildingInfo : ITickable
     {
-        [NonSerialized]
         public BuildingFacade prototype;
+        public float rechargeTime = 1f;
 
-        [NonSerialized]
-        public float RechargeTime = 1f;
-
-        private bool isReady = true;
+        private bool isCharged = true;
 
         private readonly Timer timer;
 
@@ -26,19 +23,19 @@ namespace MOATT.Levels.BuildingPlacement
             this.timer = timer;
         }
 
-        public bool IsReady
+        public bool IsCharged
         {
-            get => isReady;
-            private set
+            get => isCharged;
+            set
             {
-                isReady = value;
-                if (!isReady) timer.Reset();
+                isCharged = value;
+                if (!isCharged) timer.Reset();
             }
         }
 
         public void Tick()
         {
-            IsReady = timer.Elapsed > RechargeTime;
+            if (timer.Elapsed > rechargeTime) IsCharged = true;
         }
     }
 }

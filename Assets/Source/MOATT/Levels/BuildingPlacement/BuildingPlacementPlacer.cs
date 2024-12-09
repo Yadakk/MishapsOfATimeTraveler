@@ -43,12 +43,14 @@ namespace MOATT.Levels.BuildingPlacement
         private bool TryPlaceBuilding()
         {
             if (pointerOverUIWatcher.IsPointerOverUI) return false;
+            if (!selector.BuildingInfo.IsCharged) return false;
             if (playerResources.NutsAndBolts < selector.BuildingInfo.prototype.NutsAndBoltsCost) return false;
             var selectedTile = tileRaycaster.TileUnderMouse;
             if (!selector.BuildingInfo.prototype.CanBePlacedOn(selectedTile)) return false;
             var building = buildingFactory.Create(selector.BuildingInfo.prototype, new(new(), selectedTile));
             building.gameObject.SetActive(true);
             playerResources.NutsAndBolts -= selector.BuildingInfo.prototype.NutsAndBoltsCost;
+            selector.BuildingInfo.IsCharged = false;
             return true;
         }
     }

@@ -34,6 +34,7 @@ namespace MOATT.Levels.Billboards
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0031:Используйте распространение значения NULL", Justification = "<Ожидание>")]
         public void UpdatePosition()
         {
+            if (source == null) return;
             Vector3 displayerTop = source.Bounds.center;
             displayerTop.y = source.Bounds.max.y;
             displayerTop += source.Offset;

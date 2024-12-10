@@ -32,3 +32,9 @@ MonoBehaviour:
     maxAngle: 80
     deltaTimeLerpMultiplier: 10
     anglePower: 0.35
+  scientistBuyerVM:
+    scientistCost: 300
+  buildingSelecton:
+    outlineColorizer:
+      hoveredColor: {r: 0.30459943, g: 0.65667367, b: 0.90188676, a: 1}
+      selectedColor: {r: 0.22591646, g: 0.8792453, b: 0.19077952, a: 1}

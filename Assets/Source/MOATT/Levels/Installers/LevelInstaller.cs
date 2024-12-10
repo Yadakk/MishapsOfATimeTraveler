@@ -15,8 +15,9 @@ namespace MOATT.Levels.Installers
     using TilemapSizeMultipliers;
     using Buildings;
     using Cannedenuum.ZenjectUtils.TransformGrouping;
-    using MOATT.Levels.Economics;
-    using MOATT.Tooltips;
+    using Economics;
+    using Tooltips;
+    using BuildingSelection;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -24,6 +25,7 @@ namespace MOATT.Levels.Installers
         {
             Container.Install<WaveInstaller>();
             Container.Install<BuildingPlacementInstaller>();
+            Container.Install<BuildingSelectionInstaller>();
             InstallMap();
             InstallMisc();
         }

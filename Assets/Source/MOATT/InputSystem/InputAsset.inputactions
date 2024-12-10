@@ -17,7 +17,7 @@
                 {
                     "name": "Deselect",
                     "type": "Button",
-                    "id": "a0f0791d-62ef-4f8f-9978-32e4ab41f346",
+                    "id": "d0680de7-b36e-469e-a0bd-a8712c7f7689",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -38,8 +38,8 @@
                 },
                 {
                     "name": "",
-                    "id": "0f627dcb-0500-48b2-b062-bebef7521350",
-                    "path": "<Mouse>/rightButton",
+                    "id": "4cf579c7-5b9e-4cfe-8a64-32b6a6f0f740",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

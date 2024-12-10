@@ -14,9 +14,6 @@ namespace MOATT.Levels.Buildings
 
     public class BuildingFacade : MonoBehaviour
     {
-        public HealthModel HealthModel { get; private set; }
-        public UnitRange BuildingRange { get; private set; }
-
         private Settings settings;
         private BuildingRegistry buildingRegistry;
 
@@ -26,6 +23,10 @@ namespace MOATT.Levels.Buildings
             Common = 1,
             Tower = 2,
         }
+
+        public HealthModel HealthModel { get; private set; }
+        public UnitRange BuildingRange { get; private set; }
+        public Outline Outline { get; private set; }
 
         public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
         public BuildingType Type => settings.buildingType;
@@ -47,11 +48,13 @@ namespace MOATT.Levels.Buildings
             [InjectOptional] BuildingTunables tunables,
             [InjectOptional] HealthModel healthModel,
             [InjectOptional] UnitRange buildingRange,
-            BuildingRegistry buildingRegistry
+            BuildingRegistry buildingRegistry,
+            Outline outline
             )
         {
             this.settings = settings;
             this.buildingRegistry = buildingRegistry;
+            Outline = outline;
 
             HealthModel = healthModel;
             BuildingRange = buildingRange;

@@ -35,6 +35,15 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Deselect"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0f0791d-62ef-4f8f-9978-32e4ab41f346"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -46,6 +55,17 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f627dcb-0500-48b2-b062-bebef7521350"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Deselect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -85,6 +105,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         // BuildingPlacement
         m_BuildingPlacement = asset.FindActionMap("BuildingPlacement", throwIfNotFound: true);
         m_BuildingPlacement_Place = m_BuildingPlacement.FindAction("Place", throwIfNotFound: true);
+        m_BuildingPlacement_Deselect = m_BuildingPlacement.FindAction("Deselect", throwIfNotFound: true);
         // Selection
         m_Selection = asset.FindActionMap("Selection", throwIfNotFound: true);
         m_Selection_Select = m_Selection.FindAction("Select", throwIfNotFound: true);
@@ -150,11 +171,13 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_BuildingPlacement;
     private List<IBuildingPlacementActions> m_BuildingPlacementActionsCallbackInterfaces = new List<IBuildingPlacementActions>();
     private readonly InputAction m_BuildingPlacement_Place;
+    private readonly InputAction m_BuildingPlacement_Deselect;
     public struct BuildingPlacementActions
     {
         private @InputAsset m_Wrapper;
         public BuildingPlacementActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Place => m_Wrapper.m_BuildingPlacement_Place;
+        public InputAction @Deselect => m_Wrapper.m_BuildingPlacement_Deselect;
         public InputActionMap Get() { return m_Wrapper.m_BuildingPlacement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -167,6 +190,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @Place.started += instance.OnPlace;
             @Place.performed += instance.OnPlace;
             @Place.canceled += instance.OnPlace;
+            @Deselect.started += instance.OnDeselect;
+            @Deselect.performed += instance.OnDeselect;
+            @Deselect.canceled += instance.OnDeselect;
         }
 
         private void UnregisterCallbacks(IBuildingPlacementActions instance)
@@ -174,6 +200,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @Place.started -= instance.OnPlace;
             @Place.performed -= instance.OnPlace;
             @Place.canceled -= instance.OnPlace;
+            @Deselect.started -= instance.OnDeselect;
+            @Deselect.performed -= instance.OnDeselect;
+            @Deselect.canceled -= instance.OnDeselect;
         }
 
         public void RemoveCallbacks(IBuildingPlacementActions instance)
@@ -240,6 +269,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     public interface IBuildingPlacementActions
     {
         void OnPlace(InputAction.CallbackContext context);
+        void OnDeselect(InputAction.CallbackContext context);
     }
     public interface ISelectionActions
     {

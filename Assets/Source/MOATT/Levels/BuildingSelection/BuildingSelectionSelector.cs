@@ -9,20 +9,23 @@ using Zenject;
 namespace MOATT.Levels.BuildingSelection
 {
     using Buildings;
+    using MOATT.GUILogic;
 
     public class BuildingSelectionSelector : IInitializable, IDisposable
     {
         private readonly InputAssetMapSwapper mapSwapper;
         private readonly InputAsset inputAsset;
+        private readonly PointerOverUIWatcher pointerOverUIWatcher;
 
         private BuildingFacade selectedBuilding;
 
         public event Action OnBuildingSelected;
 
-        public BuildingSelectionSelector(InputAssetMapSwapper mapSwapper, InputAsset inputAsset, BuildingSelectionHoverer hoverer)
+        public BuildingSelectionSelector(InputAssetMapSwapper mapSwapper, InputAsset inputAsset, BuildingSelectionHoverer hoverer, PointerOverUIWatcher pointerOverUIWatcher)
         {
             this.mapSwapper = mapSwapper;
             this.inputAsset = inputAsset;
+            this.pointerOverUIWatcher = pointerOverUIWatcher;
         }
 
         public BuildingFacade SelectedBuilding
@@ -38,6 +41,7 @@ namespace MOATT.Levels.BuildingSelection
 
         public void SelectBuilding(BuildingFacade newBuilding)
         {
+            if (pointerOverUIWatcher.IsPointerOverUI) return;
             SelectedBuilding = newBuilding;
         }
 

@@ -24,12 +24,9 @@ namespace MOATT.Levels.Units.Health
 
         public override void InstallBindings()
         {
-            Container.Install<BoundsCalculatorInstaller>();
-
             Container.BindInstance(settings.healthModel).AsSingle();
             Container.Bind<HealthModel>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
             Container.BindExecutionOrder<UnitHealthbarDisplayer>(2);
             Container.BindInterfacesAndSelfTo<UnitHealthbarDisplayer>().AsSingle();
             Container.BindInterfacesAndSelfTo<HealthWatcher>().AsSingle();

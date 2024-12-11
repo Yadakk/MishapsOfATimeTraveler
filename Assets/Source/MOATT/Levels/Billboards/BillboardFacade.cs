@@ -7,7 +7,15 @@ namespace MOATT.Levels.Billboards
 {
     public class BillboardFacade : MonoBehaviour, System.IDisposable
     {
+        private BillboardPositioner positioner;
+
         public GameObject Gui { get; private set; }
+
+        [Inject]
+        public void Construct(BillboardPositioner positioner)
+        {
+            this.positioner = positioner;
+        }
 
         public void Dispose()
         {
@@ -19,6 +27,11 @@ namespace MOATT.Levels.Billboards
         {
             gameObject.transform.SetParent(transform, false);
             Gui = gameObject;
+        }
+
+        public void SetSource(BillboardSource source)
+        {
+            positioner.Source = source;
         }
 
         public class Factory : PlaceholderFactory<BillboardSource, BillboardFacade> { }

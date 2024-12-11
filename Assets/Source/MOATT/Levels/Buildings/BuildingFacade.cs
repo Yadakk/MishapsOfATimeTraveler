@@ -8,6 +8,7 @@ using Zenject;
 namespace MOATT.Levels.Buildings
 {
     using Health;
+    using MOATT.Levels.Billboards;
     using System.Text.RegularExpressions;
     using Tiles;
     using Units.Range;
@@ -32,6 +33,8 @@ namespace MOATT.Levels.Buildings
         public BuildingType Type => settings.buildingType;
         public int NutsAndBoltsCost => settings.nutsAndBoltsCost;
 
+        public BillboardSource BillboardSource { get; private set; }
+
         private void Start()
         {
             buildingRegistry.Add(this);
@@ -49,7 +52,8 @@ namespace MOATT.Levels.Buildings
             [InjectOptional] HealthModel healthModel,
             [InjectOptional] UnitRange buildingRange,
             BuildingRegistry buildingRegistry,
-            Outline outline
+            Outline outline,
+            BillboardSource billboardSource
             )
         {
             this.settings = settings;
@@ -60,6 +64,7 @@ namespace MOATT.Levels.Buildings
             BuildingRange = buildingRange;
 
             tunables?.initTile.SetBuilding(this);
+            BillboardSource = billboardSource;
         }
 
         public override string ToString()

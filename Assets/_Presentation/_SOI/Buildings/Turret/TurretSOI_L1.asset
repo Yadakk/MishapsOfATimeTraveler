@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
-  m_Name: TurretSOI
+  m_Name: TurretSOI_L1
   m_EditorClassIdentifier: 
   buildingFacade:
     name: Turret
@@ -30,3 +30,9 @@ MonoBehaviour:
     unitRange:
       unitRange:
         rangeTiles: 3.5
+    buildingUpgrader:
+      nextLevelPrefab: {fileID: 4457310283655775695, guid: 8c09d481b1a866849861b101374ead08,
+        type: 3}
+      nutsAndBoltsCost: 100
+      scientistsCost: 1
+      upgradeTime: 3

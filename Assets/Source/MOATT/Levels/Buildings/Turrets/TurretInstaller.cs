@@ -36,6 +36,8 @@ namespace MOATT.Levels.Buildings.Turrets
             Container.BindFactory<Object, BulletTunables, BulletFacade, BulletFacade.Factory>().
                 FromIFactory(x => x.To<TunablePrefabFactory<BulletTunables, BulletFacade>>().
                 AsSingle().WithArguments("Bullets"));
+
+            Container.BindInterfacesAndSelfTo<BuildingUpgrader>().AsSingle().WithArguments(settings.buildingUpgrader);
         }
 
         [System.Serializable]
@@ -43,6 +45,7 @@ namespace MOATT.Levels.Buildings.Turrets
         {
             public UnitHealthInstaller.Settings unitHealth;
             public UnitRangeInstaller.Settings unitRange;
+            public BuildingUpgrader.Settings buildingUpgrader;
         }
     }
 }

@@ -8,12 +8,14 @@ namespace MOATT.Levels.Economics
     public class PlayerResources : Zenject.IInitializable
     {
         public ValueChangeWatcher<int> nutsAndBoltsWatcher = new();
-        public ValueChangeWatcher<int> scientistsWatcher = new();
+        public ValueChangeWatcher<int> idleScientistsWatcher = new();
+        public ValueChangeWatcher<int> busyScientistsWatcher = new();
 
         private readonly Settings settings;
 
         public int NutsAndBolts { get => nutsAndBoltsWatcher.Value; set => nutsAndBoltsWatcher.Value = value; }
-        public int Scientists { get => scientistsWatcher.Value; set => scientistsWatcher.Value = value; }
+        public int IdleScientists { get => idleScientistsWatcher.Value; set => idleScientistsWatcher.Value = value; }
+        public int BusyScientists { get => busyScientistsWatcher.Value; set => busyScientistsWatcher.Value = value; }
 
         public PlayerResources(Settings settings)
         {

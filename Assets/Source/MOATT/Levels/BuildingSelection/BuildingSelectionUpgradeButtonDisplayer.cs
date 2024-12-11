@@ -29,8 +29,16 @@ namespace MOATT.Levels.BuildingSelection
 
         private void UpdateDisplayer()
         {
-            button.gameObject.SetActive(selector.SelectedBuilding != null);
+            button.gameObject.SetActive(CanShowButton());
             button.SetBuilding(selector.SelectedBuilding);
+        }
+
+        private bool CanShowButton()
+        {
+            if (selector.SelectedBuilding == null) return false;
+            if (selector.SelectedBuilding.BuildingUpgrader == null) return false;
+            if (selector.SelectedBuilding.BuildingUpgrader.UpgradedPrefab == null) return false;
+            return true;
         }
     }
 }

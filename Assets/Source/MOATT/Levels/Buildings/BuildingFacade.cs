@@ -9,7 +9,6 @@ namespace MOATT.Levels.Buildings
 {
     using Health;
     using MOATT.Levels.Billboards;
-    using System.Text.RegularExpressions;
     using Tiles;
     using Units.Range;
 
@@ -34,6 +33,7 @@ namespace MOATT.Levels.Buildings
         public int NutsAndBoltsCost => settings.nutsAndBoltsCost;
 
         public BillboardSource BillboardSource { get; private set; }
+        public BuildingUpgrader BuildingUpgrader { get; private set; }
 
         private void Start()
         {
@@ -53,7 +53,8 @@ namespace MOATT.Levels.Buildings
             [InjectOptional] UnitRange buildingRange,
             BuildingRegistry buildingRegistry,
             Outline outline,
-            BillboardSource billboardSource
+            BillboardSource billboardSource,
+            [InjectOptional] BuildingUpgrader buildingUpgrader
             )
         {
             this.settings = settings;
@@ -65,6 +66,7 @@ namespace MOATT.Levels.Buildings
 
             tunables?.initTile.SetBuilding(this);
             BillboardSource = billboardSource;
+            BuildingUpgrader = buildingUpgrader;
         }
 
         public override string ToString()

@@ -37,7 +37,7 @@ namespace MOATT.Levels.Economics
         {
             if (resources.NutsAndBolts < settings.scientistCost) return;
             resources.NutsAndBolts -= settings.scientistCost;
-            resources.Scientists += 1;
+            resources.IdleScientists += 1;
         }
 
         [Serializable]

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 680572649167914304}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 0, y: 2.7, z: 1.3000002}
+  m_LocalPosition: {x: 0, y: 4.45, z: 1.3000053}
   m_LocalScale: {x: 0.3, y: 0.6, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -180,8 +180,8 @@ Transform:
   m_GameObject: {fileID: 8001383759550438215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1.4, y: 3, z: 1.4}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1.4, y: 5.0001, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4757906545983738267}
@@ -291,12 +291,12 @@ PrefabInstance:
     - target: {fileID: 7313250030912258687, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}
       propertyPath: m_Name
-      value: Turret
+      value: Turret_L2
       objectReference: {fileID: 0}
     - target: {fileID: 7313250030912258687, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7712013694049353002, guid: 9398ec8b0748af743b556c5558691c7e,
         type: 3}

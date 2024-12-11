@@ -34,6 +34,8 @@ namespace MOATT.Levels.Billboards
             positioner.Source = source;
         }
 
+        public void SetActive(bool value) => gameObject.SetActive(value);
+
         public class Factory : PlaceholderFactory<BillboardSource, BillboardFacade> { }
     }
 }

@@ -42,7 +42,7 @@ namespace MOATT.Levels.Billboards
             displayerTop += Source.Offset;
             Vector3 displayerTopDirection = displayerTop - cameraTransform.position;
             var lookDot = Vector3.Dot(displayerTopDirection, cameraTransform.forward);
-            if (facade.Gui != null) facade.Gui.SetActive(lookDot > 0);
+            if (facade.Gui != null) facade.SetActive(lookDot > 0);
 
             facade.transform.position = camera.WorldToScreenPoint(displayerTop);
         }

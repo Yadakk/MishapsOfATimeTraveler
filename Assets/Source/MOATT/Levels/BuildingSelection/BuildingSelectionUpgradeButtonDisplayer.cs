@@ -29,7 +29,7 @@ namespace MOATT.Levels.BuildingSelection
 
         private void UpdateDisplayer()
         {
-            button.gameObject.SetActive(CanShowButton());
+            button.Graphic.SetActive(CanShowButton());
             button.SetBuilding(selector.SelectedBuilding);
         }
 

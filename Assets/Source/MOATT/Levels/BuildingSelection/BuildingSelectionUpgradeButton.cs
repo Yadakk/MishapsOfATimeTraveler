@@ -13,12 +13,16 @@ namespace MOATT.Levels.BuildingSelection
 
     public class BuildingSelectionUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        [SerializeField] private GameObject graphic;
+
         private BillboardGroupFacade billboardGroup;
         private BuildingFacade building;
         private BillboardFacade billboard;
         private Tooltip tooltip;
 
         public BuildingFacade Building { get => building; private set => building = value; }
+
+        public GameObject Graphic { get => graphic; }
 
         [Inject]
         public void Construct(BillboardGroupFacade billboardGroup, Tooltip tooltip)
@@ -51,7 +55,7 @@ namespace MOATT.Levels.BuildingSelection
         private void Start()
         {
             billboard = billboardGroup.AddBillboard(null, gameObject);
-            gameObject.SetActive(false);
+            graphic.SetActive(false);
         }
     }
 }

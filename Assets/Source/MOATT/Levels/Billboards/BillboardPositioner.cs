@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using static Zenject.CheatSheet;
 
 namespace MOATT.Levels.Billboards
 {
@@ -33,7 +32,6 @@ namespace MOATT.Levels.Billboards
             UpdatePosition();
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0031:Используйте распространение значения NULL", Justification = "<Ожидание>")]
         public void UpdatePosition()
         {
             if (Source == null) return;
@@ -42,7 +40,7 @@ namespace MOATT.Levels.Billboards
             displayerTop += Source.Offset;
             Vector3 displayerTopDirection = displayerTop - cameraTransform.position;
             var lookDot = Vector3.Dot(displayerTopDirection, cameraTransform.forward);
-            if (facade.Gui != null) facade.SetActive(lookDot > 0);
+            if (facade.Gui != null) facade.Gui.SetActive(lookDot > 0);
 
             facade.transform.position = camera.WorldToScreenPoint(displayerTop);
         }

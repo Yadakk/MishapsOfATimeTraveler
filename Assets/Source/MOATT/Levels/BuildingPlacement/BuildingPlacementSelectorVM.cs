@@ -11,6 +11,7 @@ namespace MOATT.Levels.BuildingPlacement
     using Economics;
     using System;
     using Tooltips;
+    using PrototypePool;
 
     public class BuildingPlacementSelectorVM : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
@@ -26,15 +27,14 @@ namespace MOATT.Levels.BuildingPlacement
         private BuildingPlacementBuildingInfo buildingInfo;
 
         private BuildingPlacementSelector selector;
-        private BuildingFacade.Factory buildingFactory;
         private PlayerResources playerResources;
         private Tooltip tooltip;
+        private BuildingPrototypePool prototypePool;
 
         private void Awake()
         {
             buildingInfo.rechargeTime = rechargeTime;
-            buildingInfo.prototype = buildingFactory.Create(buildingPrefab, null);
-            buildingInfo.prototype.gameObject.SetActive(false);
+            buildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
         }
 
         private void Update()
@@ -44,13 +44,13 @@ namespace MOATT.Levels.BuildingPlacement
         }
 
         [Inject]
-        public void Construct(BuildingPlacementSelector selector, BuildingFacade.Factory buildingFactory, PlayerResources playerResources, Tooltip tooltip, BuildingPlacementBuildingInfo buildingInfo)
+        public void Construct(BuildingPlacementSelector selector, PlayerResources playerResources, Tooltip tooltip, BuildingPlacementBuildingInfo buildingInfo, BuildingPrototypePool prototypePool)
         {
             this.selector = selector;
-            this.buildingFactory = buildingFactory;
             this.playerResources = playerResources;
             this.tooltip = tooltip;
             this.buildingInfo = buildingInfo;
+            this.prototypePool = prototypePool;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

@@ -67,7 +67,12 @@ namespace MOATT.Levels.Buildings
             HealthModel = healthModel;
             BuildingRange = buildingRange;
 
-            tunables?.initTile.SetBuilding(this);
+            if (tunables?.initTile != null)
+                tunables.initTile.SetBuilding(this);
+
+            if (tunables?.goParams?.ParentTransform != null)
+                transform.SetParent(tunables.goParams.ParentTransform);
+
             BillboardSource = billboardSource;
             BuildingUpgrader = buildingUpgrader;
         }

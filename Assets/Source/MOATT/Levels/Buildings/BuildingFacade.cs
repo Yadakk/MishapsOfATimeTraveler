@@ -24,6 +24,8 @@ namespace MOATT.Levels.Buildings
             Tower = 2,
         }
 
+        public event System.Action OnDestroyed;
+
         public HealthModel HealthModel { get; private set; }
         public UnitRange BuildingRange { get; private set; }
         public Outline Outline { get; private set; }
@@ -43,6 +45,7 @@ namespace MOATT.Levels.Buildings
         private void OnDestroy()
         {
             buildingRegistry.Remove(this);
+            OnDestroyed?.Invoke();
         }
 
         [Inject]

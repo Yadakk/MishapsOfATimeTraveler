@@ -18,6 +18,8 @@ namespace MOATT.Levels.BuildingSelection
         private BillboardFacade billboard;
         private Tooltip tooltip;
 
+        public BuildingFacade Building { get => building; private set => building = value; }
+
         [Inject]
         public void Construct(BillboardGroupFacade billboardGroup, Tooltip tooltip)
         {
@@ -27,7 +29,7 @@ namespace MOATT.Levels.BuildingSelection
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            tooltip.DisplayAtCursor(building.BuildingUpgrader.ToString());
+            tooltip.DisplayAtCursor(Building.BuildingUpgrader.ToString());
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -37,13 +39,13 @@ namespace MOATT.Levels.BuildingSelection
 
         public void SetBuilding(BuildingFacade newBuilding)
         {
-            building = newBuilding;
-            billboard.SetSource(building != null ? building.BillboardSource : null);
+            Building = newBuilding;
+            billboard.SetSource(Building != null ? Building.BillboardSource : null);
         }
 
         public void UpgradeBuilding()
         {
-            building.BuildingUpgrader.TryUpgrade();
+            Building.BuildingUpgrader.TryUpgrade();
         }
 
         private void Start()

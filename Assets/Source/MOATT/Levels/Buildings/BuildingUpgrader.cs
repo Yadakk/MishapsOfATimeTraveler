@@ -34,6 +34,8 @@ namespace MOATT.Levels.Buildings
         public bool IsUpgrading { get; private set; }
         public BuildingFacade UpgradedPrefab => settings.nextLevelPrefab;
 
+        public float UpgradeProgress { get; private set; }
+
         public void Dispose()
         {
             playerResources.BusyScientists -= workingScientists;
@@ -42,7 +44,8 @@ namespace MOATT.Levels.Buildings
         public void Tick()
         {
             if (!IsUpgrading) return;
-            if (timer.Elapsed < settings.upgradeTime) return;
+            UpgradeProgress = timer.Elapsed / settings.upgradeTime;
+            if (UpgradeProgress < 1f) return;
             playerResources.IdleScientists += workingScientists;
             buildingFactory.Create(settings.nextLevelPrefab, new(null, tunables.initTile));
             facade.Destroy();

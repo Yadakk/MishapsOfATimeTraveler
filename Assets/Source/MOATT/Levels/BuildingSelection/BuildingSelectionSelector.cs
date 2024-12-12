@@ -34,7 +34,9 @@ namespace MOATT.Levels.BuildingSelection
             private set
             {
                 if (value == selectedBuilding) return;
+                if (selectedBuilding != null) selectedBuilding.OnDestroyed -= OnSelectedDestroyed;
                 selectedBuilding = value;
+                if (selectedBuilding != null) selectedBuilding.OnDestroyed += OnSelectedDestroyed;
                 OnBuildingSelected?.Invoke();
             }
         }
@@ -58,6 +60,11 @@ namespace MOATT.Levels.BuildingSelection
         private void ModeChangedHandler(InputActionMap map)
         {
             if (!inputAsset.Selection.enabled) SelectBuilding(null);
+        }
+
+        private void OnSelectedDestroyed()
+        {
+            SelectedBuilding = null;
         }
     }
 }

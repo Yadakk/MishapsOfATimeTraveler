@@ -7,6 +7,8 @@ using Cannedenuum.ZenjectUtils.TubableFactories;
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Bullets;
+    using MOATT.Levels.Units.Damage;
+    using MOATT.Levels.Units.ReloadTime;
     using Units.Health;
     using Units.Range;
 
@@ -28,6 +30,9 @@ namespace MOATT.Levels.Buildings.Turrets
 
             Container.BindInstance(settings.unitRange);
             Container.Install<UnitRangeInstaller>();
+
+            Container.Bind<UnitReloadTime>().AsSingle();
+            Container.Bind<UnitDamage>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<TurretTargetPicker>().AsSingle();
             Container.BindInterfacesAndSelfTo<TurretRotater>().AsSingle();

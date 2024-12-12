@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace MOATT.Levels.Buildings.Support
 {
+    using MOATT.Levels.Units.ReloadTime;
     using Units.Damage;
     using Units.Health;
     using Units.Range;
@@ -11,7 +12,7 @@ namespace MOATT.Levels.Buildings.Support
     [CreateAssetMenu(fileName = "SupportBuildingSOI", menuName = "Installers/Buildings/Support")]
     public class SupportBuildingSOI : BuildingSOI
     {
-        public SupportBuildingHealer.Settings supportBuildingHealer;
+        public UnitReloadTime.Settings unitReloadTime;
         public UnitDamage.Settings unitDamage;
         public UnitRange.Settings unitRange;
         public UnitHealthInstaller.Settings unitHealth;
@@ -24,7 +25,8 @@ namespace MOATT.Levels.Buildings.Support
             Container.Install<UnitHealthInstaller>();
             Container.Bind<UnitDamage>().AsSingle().WithArguments(unitDamage);
             Container.Bind<UnitRange>().AsSingle().WithArguments(unitRange);
-            Container.BindInterfacesAndSelfTo<SupportBuildingHealer>().AsSingle().WithArguments(supportBuildingHealer);
+            Container.Bind<UnitReloadTime>().AsSingle().WithArguments(unitReloadTime);
+            Container.BindInterfacesAndSelfTo<SupportBuildingHealer>().AsSingle();
         }
     }
 }

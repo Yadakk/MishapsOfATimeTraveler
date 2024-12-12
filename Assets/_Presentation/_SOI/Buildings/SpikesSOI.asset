@@ -19,5 +19,5 @@ MonoBehaviour:
     nutsAndBoltsCost: 50
   enemyDamager:
     baseDamage: 10
-  reloader:
-    reloadTime: 0.5
+  reloadTime:
+    value: 0.5

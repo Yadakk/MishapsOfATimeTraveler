@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using MOATT.Levels.Units.Damage;
+using MOATT.Levels.Units.ReloadTime;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +11,8 @@ namespace MOATT.Levels.Buildings.Spikes
     menuName = "Installers/Buildings/Spikes")]
     public class SpikesSettingsInstaller : BuildingSOI
     {
-        public SpikesEnemyDamager.Settings enemyDamager;
-        public SpikesReloader.Settings reloader;
+        public UnitDamage.Settings unitDamage;
+        public UnitReloadTime.Settings reloadTime;
 
         public override void InstallBindings()
         {
@@ -22,8 +24,8 @@ namespace MOATT.Levels.Buildings.Spikes
         {
             base.InstallSettings();
 
-            Container.BindInstance(enemyDamager);
-            Container.BindInstance(reloader);
+            Container.BindInstance(unitDamage);
+            Container.BindInstance(reloadTime);
         }
     }
 }

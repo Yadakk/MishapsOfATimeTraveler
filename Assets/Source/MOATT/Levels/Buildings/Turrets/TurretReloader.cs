@@ -4,36 +4,31 @@ using UnityEngine;
 using Zenject;
 using TimeTimers;
 using Cannedenuum.ZenjectUtils.MonoInterfaces;
+using MOATT.Levels.Units.ReloadTime;
 
 namespace MOATT.Levels.Buildings.Turrets
 {
     public class TurretReloader : IUpdatable
     {
-        private readonly Settings settings;
+        private readonly UnitReloadTime reloadTime;
         private readonly Timer timer;
         private readonly TurretShooter shooter;
 
         public TurretReloader(
-            Settings settings,
+            UnitReloadTime reloadTime,
             Timer timer, 
             TurretShooter shooter)
         {
-            this.settings = settings;
+            this.reloadTime = reloadTime;
             this.timer = timer;
             this.shooter = shooter;
         }
 
         public void Update()
         {
-            if (timer.Elapsed < settings.reloadTime) return;
+            if (timer.Elapsed < reloadTime.Value) return;
             shooter.Shoot();
             timer.Reset();
-        }
-
-        [System.Serializable]
-        public class Settings
-        {
-            public float reloadTime = 1f;
         }
     }
 }

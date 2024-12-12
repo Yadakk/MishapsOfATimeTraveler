@@ -7,21 +7,22 @@ using Cannedenuum.ZenjectUtils.MonoInterfaces;
 namespace MOATT.Levels.Buildings.Spikes
 {
     using Enemies;
+    using MOATT.Levels.Units.Damage;
 
     public class SpikesEnemyDamager : IUpdatable
     {
-        private readonly Settings settings;
+        private readonly UnitDamage unitDamage;
         private readonly EnemyRegistry enemyRegistry;
         private readonly SpikesReloader spikesReloader;
         private readonly BuildingTunables tunables;
 
         public SpikesEnemyDamager(
-            Settings settings,
+            UnitDamage unitDamage,
             EnemyRegistry enemyRegistry,
             SpikesReloader spikesReloader,
             BuildingTunables tunables)
         {
-            this.settings = settings;
+            this.unitDamage = unitDamage;
             this.enemyRegistry = enemyRegistry;
             this.spikesReloader = spikesReloader;
             this.tunables = tunables;
@@ -37,15 +38,9 @@ namespace MOATT.Levels.Buildings.Spikes
                 if (enemy.IsFlying) continue;
                 if (!spikesReloader.IsReady) continue;
 
-                enemy.Damage(settings.baseDamage);
+                enemy.Damage(unitDamage.Value);
                 spikesReloader.IsReady = false;
             }
-        }
-
-        [System.Serializable]
-        public class Settings
-        {
-            public float baseDamage = 10f;
         }
     }
 }

@@ -9,6 +9,8 @@ namespace MOATT.Levels.Buildings
 {
     using Health;
     using MOATT.Levels.Billboards;
+    using MOATT.Levels.Units.Damage;
+    using MOATT.Levels.Units.ReloadTime;
     using Tiles;
     using Units.Range;
 
@@ -16,6 +18,8 @@ namespace MOATT.Levels.Buildings
     {
         private Settings settings;
         private BuildingRegistry buildingRegistry;
+        private UnitReloadTime reloadTime;
+        private UnitDamage unitDamage;
 
         [System.Flags]
         public enum BuildingType
@@ -57,11 +61,15 @@ namespace MOATT.Levels.Buildings
             BuildingRegistry buildingRegistry,
             Outline outline,
             BillboardSource billboardSource,
-            [InjectOptional] BuildingUpgrader buildingUpgrader
+            [InjectOptional] BuildingUpgrader buildingUpgrader,
+            [InjectOptional] UnitReloadTime reloadTime,
+            [InjectOptional] UnitDamage unitDamage
             )
         {
             this.settings = settings;
             this.buildingRegistry = buildingRegistry;
+            this.reloadTime = reloadTime;
+            this.unitDamage = unitDamage;
             Outline = outline;
 
             HealthModel = healthModel;
@@ -84,6 +92,8 @@ namespace MOATT.Levels.Buildings
             stringBuilder.AppendLine($"Cost: {NutsAndBoltsCost} Nuts and Bolts");
             if (HealthModel != null) stringBuilder.AppendLine($"Health: {HealthModel.MaxHealth} hp");
             if (BuildingRange != null) stringBuilder.AppendLine($"Range: {BuildingRange.RangeTiles} tiles");
+            if (reloadTime != null) stringBuilder.AppendLine($"Can attack every: {reloadTime.Value} seconds");
+            if (unitDamage != null) stringBuilder.AppendLine($"Damage/Heal: {unitDamage.Value}");
             return stringBuilder.ToString();
         }
 

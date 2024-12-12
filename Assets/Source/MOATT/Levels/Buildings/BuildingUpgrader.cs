@@ -1,5 +1,7 @@
-﻿using MOATT.Levels.Economics;
+﻿using Cannedenuum.ZenjectUtils.MonoInterfaces;
+using MOATT.Levels.Economics;
 using MOATT.Levels.Health;
+using MOATT.Levels.PrototypePool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,24 +12,27 @@ using Zenject;
 
 namespace MOATT.Levels.Buildings
 {
-    public class BuildingUpgrader : IDisposable, ITickable
+    public class BuildingUpgrader : IDisposable, IStartable, ITickable
     {
         private readonly Settings settings;
         private readonly PlayerResources playerResources;
         private readonly Timer timer;
         private readonly BuildingFacade facade;
         private readonly BuildingTunables tunables;
+        private readonly BuildingPrototypePool buildingPrototypePool;
+        private BuildingFacade nextLevelPrototype;
         private readonly BuildingFacade.Factory buildingFactory;
 
         private int workingScientists = 0;
 
-        public BuildingUpgrader(Settings settings, PlayerResources playerResources, Timer timer, BuildingFacade facade, BuildingTunables tunables, BuildingFacade.Factory buildingFactory)
+        public BuildingUpgrader(Settings settings, PlayerResources playerResources, Timer timer, BuildingFacade facade, BuildingTunables tunables, BuildingPrototypePool buildingPrototypePool = null, BuildingFacade.Factory buildingFactory = null)
         {
             this.settings = settings;
             this.playerResources = playerResources;
             this.timer = timer;
             this.facade = facade;
             this.tunables = tunables;
+            this.buildingPrototypePool = buildingPrototypePool;
             this.buildingFactory = buildingFactory;
         }
 
@@ -36,9 +41,9 @@ namespace MOATT.Levels.Buildings
 
         public float UpgradeProgress { get; private set; }
 
-        public void Dispose()
+        public void Start()
         {
-            playerResources.BusyScientists -= workingScientists;
+            nextLevelPrototype = buildingPrototypePool.GetPrototype(settings.nextLevelPrefab);
         }
 
         public void Tick()
@@ -47,8 +52,13 @@ namespace MOATT.Levels.Buildings
             UpgradeProgress = timer.Elapsed / settings.upgradeTime;
             if (UpgradeProgress < 1f) return;
             playerResources.IdleScientists += workingScientists;
-            buildingFactory.Create(settings.nextLevelPrefab, new(null, tunables.initTile));
+            buildingFactory.Create(nextLevelPrototype, new(null, tunables.initTile));
             facade.Destroy();
+        }
+
+        public void Dispose()
+        {
+            playerResources.BusyScientists -= workingScientists;
         }
 
         public bool TryUpgrade()
@@ -76,6 +86,8 @@ namespace MOATT.Levels.Buildings
             stringBuilder.AppendLine($"Upgrade to next level at cost of {settings.nutsAndBoltsCost} Nuts And Bolts.");
             stringBuilder.AppendLine($"Will temporarily send {settings.scientistsCost} scientists.");
             stringBuilder.AppendLine($"Upgrade takes {settings.upgradeTime} seconds.");
+            stringBuilder.AppendLine($"Next level stats:");
+            stringBuilder.Append(nextLevelPrototype.ToString());
             return stringBuilder.ToString();
         }
 

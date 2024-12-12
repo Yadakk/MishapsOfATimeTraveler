@@ -4,20 +4,21 @@ using UnityEngine;
 using Zenject;
 using TimeTimers;
 using Cannedenuum.ZenjectUtils.MonoInterfaces;
+using MOATT.Levels.Units.ReloadTime;
 
 namespace MOATT.Levels.Buildings.Spikes
 {
     public class SpikesReloader : IUpdatable
     {
         private readonly Timer timer;
-        private readonly Settings settings;
+        private readonly UnitReloadTime reloadTime;
 
         private bool isReady = true;
 
-        public SpikesReloader(Timer timer, Settings settings = null)
+        public SpikesReloader(Timer timer, UnitReloadTime reloadTime)
         {
             this.timer = timer;
-            this.settings = settings;
+            this.reloadTime = reloadTime;
         }
 
         public bool IsReady
@@ -33,13 +34,7 @@ namespace MOATT.Levels.Buildings.Spikes
         public void Update()
         {
             if (IsReady) return;
-            if (timer.Elapsed >= settings.reloadTime) IsReady = true;
-        }
-
-        [System.Serializable]
-        public class Settings
-        {
-            public float reloadTime = 0.5f;
+            if (timer.Elapsed >= reloadTime.Value) IsReady = true;
         }
     }
 }

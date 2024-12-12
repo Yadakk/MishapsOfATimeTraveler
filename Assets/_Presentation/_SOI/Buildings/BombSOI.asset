@@ -23,5 +23,5 @@ MonoBehaviour:
         rangeTiles: 2.5
   exploder:
     damage: 200
-  timer:
-    explosionDelay: 3
+  reloadTime:
+    value: 3

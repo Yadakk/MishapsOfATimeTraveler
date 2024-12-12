@@ -5,15 +5,18 @@ using UnityEngine;
 namespace MOATT.Levels.Buildings.Turrets
 {
     using Health;
+    using MOATT.Levels.Units.Damage;
+    using MOATT.Levels.Units.ReloadTime;
 
     [CreateAssetMenu(
         fileName = "TurretSOI",
         menuName = "Installers/Buildings/Turret")]
     public class TurretSOInstaller : BuildingSOI
     {
-        public TurretReloader.Settings reloader;
+        public UnitReloadTime.Settings reloadTime;
         public TurretShooter.Settings shooter;
         public TurretInstaller.Settings turretInstaller;
+        public UnitDamage.Settings unitDamage;
 
         public override void InstallBindings()
         {
@@ -26,8 +29,9 @@ namespace MOATT.Levels.Buildings.Turrets
             base.InstallSettings();
 
             Container.BindInstance(turretInstaller);
-            Container.BindInstance(reloader);
+            Container.BindInstance(reloadTime);
             Container.BindInstance(shooter);
+            Container.BindInstance(unitDamage);
         }
     }
 }

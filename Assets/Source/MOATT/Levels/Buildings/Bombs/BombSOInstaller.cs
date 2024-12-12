@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using MOATT.Levels.Units.Damage;
+using MOATT.Levels.Units.ReloadTime;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +12,8 @@ namespace MOATT.Levels.Buildings.Bombs
     public class BombSOInstaller : BuildingSOI
     {
         public BombInstaller.Settings bombInstaller;
-        public BombExploder.Settings exploder;
-        public BombTimer.Settings timer;
+        public UnitDamage.Settings damage;
+        public UnitReloadTime.Settings reloadTime;
 
         public override void InstallBindings()
         {
@@ -24,8 +26,8 @@ namespace MOATT.Levels.Buildings.Bombs
             base.InstallSettings();
 
             Container.BindInstance(bombInstaller);
-            Container.BindInstance(exploder).AsSingle();
-            Container.BindInstance(timer).AsSingle();
+            Container.BindInstance(damage).AsSingle();
+            Container.BindInstance(reloadTime).AsSingle();
         }
     }
 }

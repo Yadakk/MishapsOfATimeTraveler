@@ -9,20 +9,20 @@ namespace MOATT.Levels.Buildings.Support
 {
     using Units.Damage;
     using Units.Range;
-    using System.Linq;
+    using MOATT.Levels.Units.ReloadTime;
 
     public class SupportBuildingHealer : IUpdatable
     {
-        private readonly Settings settings;
+        private readonly UnitReloadTime reloadTime;
         private readonly BuildingRegistry registry;
         private readonly Timer timer;
         private readonly UnitRange unitRange;
         private readonly BuildingFacade facade;
         private readonly UnitDamage unitDamage;
 
-        public SupportBuildingHealer(Settings settings, BuildingRegistry registry = null, Timer timer = null, UnitRange unitRange = null, BuildingFacade facade = null, UnitDamage unitDamage = null)
+        public SupportBuildingHealer(UnitReloadTime reloadTime, BuildingRegistry registry = null, Timer timer = null, UnitRange unitRange = null, BuildingFacade facade = null, UnitDamage unitDamage = null)
         {
-            this.settings = settings;
+            this.reloadTime = reloadTime;
             this.registry = registry;
             this.timer = timer;
             this.unitRange = unitRange;
@@ -32,7 +32,7 @@ namespace MOATT.Levels.Buildings.Support
 
         public void Update()
         {
-            if (timer.Elapsed < settings.reloadTime) return;
+            if (timer.Elapsed < reloadTime.Value) return;
 
             List<BuildingFacade> healableBuildings = new();
             foreach (var building in registry.buildings)
@@ -46,13 +46,6 @@ namespace MOATT.Levels.Buildings.Support
             healableBuildings.ForEach(building => building.Heal(unitDamage.Value));
 
             timer.Reset();
-
-        }
-
-        [Serializable]
-        public class Settings
-        {
-            public float reloadTime = 2f;
         }
     }
 }

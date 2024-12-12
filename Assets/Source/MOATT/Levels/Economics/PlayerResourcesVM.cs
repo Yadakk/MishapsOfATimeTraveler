@@ -18,6 +18,7 @@ namespace MOATT.Levels.Economics
         {
             playerResources.nutsAndBoltsWatcher.OnValueChanged += UpdateNutsAndBoltsTmpu;
             playerResources.idleScientistsWatcher.OnValueChanged += UpdateScientistsTmpu;
+            playerResources.busyScientistsWatcher.OnValueChanged += UpdateScientistsTmpu;
         }
 
         private void Start()
@@ -30,6 +31,7 @@ namespace MOATT.Levels.Economics
         {
             playerResources.nutsAndBoltsWatcher.OnValueChanged -= UpdateNutsAndBoltsTmpu;
             playerResources.idleScientistsWatcher.OnValueChanged -= UpdateScientistsTmpu;
+            playerResources.busyScientistsWatcher.OnValueChanged -= UpdateScientistsTmpu;
         }
 
         [Inject]
@@ -45,7 +47,7 @@ namespace MOATT.Levels.Economics
 
         private void UpdateScientistsTmpu()
         {
-            scientistsTmpu.text = $"Scientists: {playerResources.IdleScientists}";
+            scientistsTmpu.text = $"Scientists: {playerResources.IdleScientists} idle, {playerResources.BusyScientists} busy";
         }
     }
 }

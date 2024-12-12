@@ -8,6 +8,7 @@ using TimeTimers;
 namespace MOATT.Levels.BuildingPlacement
 {
     using Buildings;
+    using System.Text;
 
     public class BuildingPlacementBuildingInfo : ITickable
     {
@@ -38,6 +39,14 @@ namespace MOATT.Levels.BuildingPlacement
         public void Tick()
         {
             if (timer.Elapsed > rechargeTime) IsCharged = true;
+        }
+        
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+            sb.Append(prototype.ToString());
+            sb.AppendLine($"Can be placed every {rechargeTime} seconds");
+            return sb.ToString();
         }
     }
 }

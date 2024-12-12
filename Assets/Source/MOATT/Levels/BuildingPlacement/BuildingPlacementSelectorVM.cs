@@ -55,7 +55,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            tooltip.DisplayAtCursor(buildingInfo.prototype.ToString());
+            tooltip.DisplayAtCursor(buildingInfo.ToString());
         }
 
         public void OnPointerExit(PointerEventData eventData)

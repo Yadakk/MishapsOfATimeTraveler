@@ -17,6 +17,8 @@ namespace MOATT.Levels.Economics
         public int IdleScientists { get => idleScientistsWatcher.Value; set => idleScientistsWatcher.Value = value; }
         public int BusyScientists { get => busyScientistsWatcher.Value; set => busyScientistsWatcher.Value = value; }
 
+        public int MaxScientists => settings.maxScientists;
+
         public PlayerResources(Settings settings)
         {
             this.settings = settings;
@@ -31,6 +33,7 @@ namespace MOATT.Levels.Economics
         public class Settings
         {
             public int startingNutsAndBolts = 150;
+            public int maxScientists = 10;
         }
     }
 }

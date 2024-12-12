@@ -47,7 +47,8 @@ namespace MOATT.Levels.Economics
 
         private void UpdateScientistsTmpu()
         {
-            scientistsTmpu.text = $"Scientists: {playerResources.IdleScientists} idle, {playerResources.BusyScientists} busy";
+            scientistsTmpu.text = $"Scientists: {playerResources.IdleScientists} idle, " +
+                $"{playerResources.BusyScientists} busy / {playerResources.MaxScientists}";
         }
     }
 }

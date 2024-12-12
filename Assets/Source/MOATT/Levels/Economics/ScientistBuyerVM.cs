@@ -36,6 +36,7 @@ namespace MOATT.Levels.Economics
         public void BuyScientist()
         {
             if (resources.NutsAndBolts < settings.scientistCost) return;
+            if (resources.IdleScientists + resources.BusyScientists + 1 > resources.MaxScientists) return;
             resources.NutsAndBolts -= settings.scientistCost;
             resources.IdleScientists += 1;
         }

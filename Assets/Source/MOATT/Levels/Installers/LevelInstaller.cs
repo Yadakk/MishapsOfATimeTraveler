@@ -53,6 +53,7 @@ namespace MOATT.Levels.Installers
             Container.Bind<RootTransformGrouper>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerResources>().AsSingle();
             Container.Bind<Tooltip>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<ScientistRechargeMultiplier>().AsSingle();
         }
     }
 }

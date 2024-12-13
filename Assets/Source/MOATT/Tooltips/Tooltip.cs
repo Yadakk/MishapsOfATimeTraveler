@@ -61,8 +61,8 @@ namespace MOATT.Tooltips
         {
             Vector3 pos = rt.localPosition;
 
-            Vector3 minPosition = canvasRT.rect.min - rt.rect.min;
-            Vector3 maxPosition = canvasRT.rect.max - rt.rect.max;
+            Vector3 minPosition = canvasRT.rect.min - rt.rect.min * rt.localScale;
+            Vector3 maxPosition = canvasRT.rect.max - rt.rect.max * rt.localScale;
 
             pos.x = Mathf.Clamp(rt.localPosition.x, minPosition.x, maxPosition.x);
             pos.y = Mathf.Clamp(rt.localPosition.y, minPosition.y, maxPosition.y);

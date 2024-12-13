@@ -22,6 +22,7 @@ namespace MOATT.Installers
         public Levels.LevelCamera.RTSCameraRotater.Settings rtsCameraRotater;
         public ScientistBuyerVM.Settings scientistBuyerVM;
         public BuildingSelectionInstaller.Settings buildingSelecton;
+        public ScientistRechargeMultiplier.Settings scientistRechargeMultiplier;
 
         public override void InstallBindings()
         {
@@ -32,6 +33,7 @@ namespace MOATT.Installers
             Container.BindInstance(rtsCameraRotater);
             Container.BindInstance(scientistBuyerVM);
             Container.BindInstance(buildingSelecton);
+            Container.BindInstance(scientistRechargeMultiplier);
         }
     }
 }

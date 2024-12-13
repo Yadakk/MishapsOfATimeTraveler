@@ -39,7 +39,6 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void Update()
         {
-            buildingInfo.Tick();
             chargeFill.fillAmount = buildingInfo.IsCharged ? 0f : 1f - buildingInfo.Timer.Elapsed / buildingInfo.rechargeTime;
         }
 

@@ -9,6 +9,13 @@ namespace Cannedenuum.UnityUtils.ValueChangeWatcher
     {
         private T cachedValue;
 
+        public ValueChangeWatcher() { }
+
+        public ValueChangeWatcher(T cachedValue)
+        {
+            this.cachedValue = cachedValue;
+        }
+
         public event Action OnValueChanged;
         public event Action<T> OnValueChangedNewValue;
         public event Action<T, T> OnValueChangedOldNewValue;

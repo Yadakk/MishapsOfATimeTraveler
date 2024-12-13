@@ -24,7 +24,15 @@ namespace MOATT.Levels.BuildingPlacement
                 FromIFactory(x => x.To<TunablePrefabFactory<BuildingTunables, BuildingFacade>>().
                 AsSingle().WithArguments("Buildings"));
 
-            Container.Bind<BuildingPlacementBuildingInfo>().AsTransient();
+            Container.Bind<BuildingPlacementBuildingInfo>().AsTransient().
+                OnInstantiated((context, obj) =>
+                {
+                    if (obj is ITickable tickable)
+                        context.Container.Resolve<TickableManager>().Add(tickable);
+
+                    if (obj is IInitializable initializable)
+                        context.Container.Resolve<InitializableManager>().Add((IInitializable)obj);
+                });
         }
     }
 }

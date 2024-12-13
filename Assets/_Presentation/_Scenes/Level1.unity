@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9781461, g: 0.28219467, b: 0.08875295, a: 1}
+  m_IndirectSpecularColor: {r: 0.9781461, g: 0.2821947, b: 0.088752955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30976,7 +30976,7 @@ PrefabInstance:
         type: 3}
       propertyPath: buildingPrefab
       value: 
-      objectReference: {fileID: 7011324562886082393, guid: fdb00d5e02277014599c767ad75e36c7,
+      objectReference: {fileID: 7011324562886082393, guid: bfe8356154686ba49886e25c72e39167,
         type: 3}
     - target: {fileID: 8820124863684170995, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
@@ -41239,7 +41239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2784314, g: 0.38039216, b: 0.70980394, a: 1}
+  m_Color: {r: 0.2784314, g: 0.38039216, b: 0.70980394, a: 0.9019608}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

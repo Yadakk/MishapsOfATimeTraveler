@@ -97,6 +97,17 @@ namespace MOATT.Levels.Buildings
             return stringBuilder.ToString();
         }
 
+        public string ToStringNoCost()
+        {
+            StringBuilder stringBuilder = new();
+            stringBuilder.AppendLine(settings.name);
+            if (HealthModel != null) stringBuilder.AppendLine($"Health: {HealthModel.MaxHealth} hp");
+            if (BuildingRange != null) stringBuilder.AppendLine($"Range: {BuildingRange.RangeTiles} tiles");
+            if (reloadTime != null) stringBuilder.AppendLine($"Can attack every: {reloadTime.Value} seconds");
+            if (unitDamage != null) stringBuilder.AppendLine($"Damage/Heal: {unitDamage.Value}");
+            return stringBuilder.ToString();
+        }
+
         public void Destroy()
         {
             Destroy(gameObject);

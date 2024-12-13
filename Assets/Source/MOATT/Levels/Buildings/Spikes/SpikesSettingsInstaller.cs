@@ -13,6 +13,7 @@ namespace MOATT.Levels.Buildings.Spikes
     {
         public UnitDamage.Settings unitDamage;
         public UnitReloadTime.Settings reloadTime;
+        public BuildingUpgrader.Settings buildingUpgrader;
 
         public override void InstallBindings()
         {
@@ -26,6 +27,7 @@ namespace MOATT.Levels.Buildings.Spikes
 
             Container.BindInstance(unitDamage);
             Container.BindInstance(reloadTime);
+            Container.BindInstance(buildingUpgrader);
         }
     }
 }

@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9acac42caedf814a885c202f9690121, type: 3}
-  m_Name: FenceSOI
+  m_Name: FenceSOI_L2
   m_EditorClassIdentifier: 
   buildingFacade:
-    name: Fence
+    name: Fence LV2
     canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 150
-  UnitHealth:
+  unitHealth:
     healthModel:
-      maxHealth: 500
+      maxHealth: 1000
+  buildingUpgrader:
+    nextLevelPrefab: {fileID: 0}
+    nutsAndBoltsCost: 500
+    scientistsCost: 5
+    upgradeTime: 0

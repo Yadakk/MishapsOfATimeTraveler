@@ -10,14 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 275002ea7c29fd24b91925cdbb876833, type: 3}
-  m_Name: SpikesSOI
+  m_Name: SpikesSOI_L2
   m_EditorClassIdentifier: 
   buildingFacade:
-    name: Spikes
+    name: Spikes LV2
     canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 50
-  enemyDamager:
-    baseDamage: 10
+  unitDamage:
+    value: 25
   reloadTime:
     value: 0.5
+  buildingUpgrader:
+    nextLevelPrefab: {fileID: 0}
+    nutsAndBoltsCost: 0
+    scientistsCost: 0
+    upgradeTime: 0

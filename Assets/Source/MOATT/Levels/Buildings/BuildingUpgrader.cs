@@ -43,6 +43,7 @@ namespace MOATT.Levels.Buildings
 
         public void Start()
         {
+            if (settings.nextLevelPrefab == null) return;
             nextLevelPrototype = buildingPrototypePool.GetPrototype(settings.nextLevelPrefab);
         }
 
@@ -52,7 +53,7 @@ namespace MOATT.Levels.Buildings
             UpgradeProgress = timer.Elapsed / settings.upgradeTime;
             if (UpgradeProgress < 1f) return;
             playerResources.IdleScientists += workingScientists;
-            buildingFactory.Create(nextLevelPrototype, new(null, tunables.initTile));
+            buildingFactory.Create(nextLevelPrototype, new(null, tunables.initTile)).gameObject.SetActive(true);
             facade.Destroy();
         }
 
@@ -87,7 +88,7 @@ namespace MOATT.Levels.Buildings
             stringBuilder.AppendLine($"Will temporarily send {settings.scientistsCost} scientists.");
             stringBuilder.AppendLine($"Upgrade takes {settings.upgradeTime} seconds.");
             stringBuilder.AppendLine($"Next level stats:");
-            stringBuilder.Append(nextLevelPrototype.ToString());
+            stringBuilder.Append(nextLevelPrototype.ToStringNoCost());
             return stringBuilder.ToString();
         }
 

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275002ea7c29fd24b91925cdbb876833, type: 3}
+  m_Name: SpikesSOI_L1
+  m_EditorClassIdentifier: 
+  buildingFacade:
+    name: Spikes LV1
+    canBePlacedOn: 2
+    buildingType: 1
+    nutsAndBoltsCost: 50
+  unitDamage:
+    value: 10
+  reloadTime:
+    value: 0.5
+  buildingUpgrader:
+    nextLevelPrefab: {fileID: 8080827644565336545, guid: fc4f8cfc6a44c5749b863ada2689dab7,
+      type: 3}
+    nutsAndBoltsCost: 150
+    scientistsCost: 3
+    upgradeTime: 5

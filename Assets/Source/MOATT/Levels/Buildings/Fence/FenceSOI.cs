@@ -11,14 +11,16 @@ namespace MOATT.Levels.Buildings.Fence
     menuName = "Installers/Buildings/Fence")]
     public class FenceSOI : BuildingSOI
     {
-        public UnitHealthInstaller.Settings UnitHealth;
+        public UnitHealthInstaller.Settings unitHealth;
+        public BuildingUpgrader.Settings buildingUpgrader;
 
         public override void InstallBindings()
         {
             base.InstallBindings();
-            Container.BindInstance(UnitHealth);
+            Container.BindInstance(unitHealth);
             Container.Install<UnitHealthInstaller>();
             Container.BindInterfacesAndSelfTo<FenceUnitBlocker>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingUpgrader>().AsSingle().WithArguments(buildingUpgrader);
         }
     }
 }

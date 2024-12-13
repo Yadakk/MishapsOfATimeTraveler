@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106fab0144f72ce44a8cac23f1914e40, type: 3}
+  m_Name: SupportSOI_L2
+  m_EditorClassIdentifier: 
+  buildingFacade:
+    name: Support Tower LV2
+    canBePlacedOn: 1
+    buildingType: 1
+    nutsAndBoltsCost: 200
+  unitReloadTime:
+    value: 1
+  unitDamage:
+    value: 50
+  unitRange:
+    rangeTiles: 3.5
+  unitHealth:
+    healthModel:
+      maxHealth: 175
+  buildingUpgrader:
+    nextLevelPrefab: {fileID: 7011324562886082393, guid: fdb00d5e02277014599c767ad75e36c7,
+      type: 3}
+    nutsAndBoltsCost: 600
+    scientistsCost: 5
+    upgradeTime: 7

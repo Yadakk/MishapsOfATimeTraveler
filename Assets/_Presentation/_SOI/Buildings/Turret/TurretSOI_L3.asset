@@ -10,30 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b17fbc9088ff6b419f498983095d328, type: 3}
-  m_Name: TurretSOI_L1
+  m_Name: TurretSOI_L3
   m_EditorClassIdentifier: 
   buildingFacade:
-    name: Turret LV1
+    name: Turret LV3
     canBePlacedOn: 1
     buildingType: 1
     nutsAndBoltsCost: 100
   reloadTime:
-    value: 1
+    value: 0.5
   shooter:
     bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
       type: 3}
   turretInstaller:
     unitHealth:
       healthModel:
-        maxHealth: 200
+        maxHealth: 300
     unitRange:
       unitRange:
         rangeTiles: 3.5
     buildingUpgrader:
-      nextLevelPrefab: {fileID: 4457310283655775695, guid: 8c09d481b1a866849861b101374ead08,
-        type: 3}
-      nutsAndBoltsCost: 100
+      nextLevelPrefab: {fileID: 0}
+      nutsAndBoltsCost: 300
       scientistsCost: 1
-      upgradeTime: 3
+      upgradeTime: 7
   unitDamage:
-    value: 20
+    value: 40

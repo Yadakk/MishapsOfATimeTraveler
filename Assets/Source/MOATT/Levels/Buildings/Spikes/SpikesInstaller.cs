@@ -16,6 +16,7 @@ namespace MOATT.Levels.Buildings.Spikes
             Container.Bind<UnitDamage>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpikesReloader>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpikesEnemyDamager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingUpgrader>().AsSingle();
         }
     }
 }

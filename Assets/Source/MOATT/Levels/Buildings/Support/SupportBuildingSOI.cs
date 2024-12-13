@@ -16,6 +16,7 @@ namespace MOATT.Levels.Buildings.Support
         public UnitDamage.Settings unitDamage;
         public UnitRange.Settings unitRange;
         public UnitHealthInstaller.Settings unitHealth;
+        public BuildingUpgrader.Settings buildingUpgrader;
 
         public override void InstallBindings()
         {
@@ -27,6 +28,7 @@ namespace MOATT.Levels.Buildings.Support
             Container.Bind<UnitRange>().AsSingle().WithArguments(unitRange);
             Container.Bind<UnitReloadTime>().AsSingle().WithArguments(unitReloadTime);
             Container.BindInterfacesAndSelfTo<SupportBuildingHealer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingUpgrader>().AsSingle().WithArguments(buildingUpgrader);
         }
     }
 }

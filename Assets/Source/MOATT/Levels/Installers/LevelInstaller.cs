@@ -18,6 +18,7 @@ namespace MOATT.Levels.Installers
     using Economics;
     using Tooltips;
     using BuildingSelection;
+    using MOATT.Levels.GameplayConditions;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -51,9 +52,11 @@ namespace MOATT.Levels.Installers
             Container.Bind<HologramDisplayer>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitRangeHologram>().FromComponentInHierarchy().AsSingle();
             Container.Bind<RootTransformGrouper>().AsSingle();
+            Container.Bind<LevelLostInvoker>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerResources>().AsSingle();
             Container.Bind<Tooltip>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<ScientistRechargeMultiplier>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelProgress>().AsSingle();
         }
     }
 }

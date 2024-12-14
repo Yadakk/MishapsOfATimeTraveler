@@ -21,6 +21,7 @@ namespace MOATT.Levels.Buildings.Tower
         {
             Container.BindInstance(settings.unitHealth);
             Container.Install<UnitHealthInstaller>();
+            Container.BindInterfacesAndSelfTo<TowerLostInvoker>().AsSingle();
         }
 
         [Serializable]

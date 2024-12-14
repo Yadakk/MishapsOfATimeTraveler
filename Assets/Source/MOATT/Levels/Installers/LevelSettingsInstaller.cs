@@ -6,6 +6,7 @@ using Zenject;
 namespace MOATT.Levels.Installers
 {
     using Economics;
+    using MOATT.Levels.GameplayConditions;
     using MOATT.Levels.Waves;
     using Waves.States;
 
@@ -17,6 +18,7 @@ namespace MOATT.Levels.Installers
     {
         public WaveSettings waves;
         public PlayerResources.Settings playerResources;
+        public LevelProgress.Settings levelProgress;
 
         public override void InstallBindings()
         {
@@ -29,6 +31,7 @@ namespace MOATT.Levels.Installers
             Container.BindInstance(waves.waveInstaller);
             Container.BindInstance(waves.delay);
             Container.BindInstance(waves.spawning);
+            Container.BindInstance(levelProgress);
         }
 
         [System.Serializable]

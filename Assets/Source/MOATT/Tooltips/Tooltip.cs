@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static UnityEditor.PlayerSettings;
+using System;
 
 namespace MOATT.Tooltips
 {
@@ -14,6 +15,8 @@ namespace MOATT.Tooltips
         private RectTransform rt;
         private RectTransform canvasRT;
 
+        public event Action OnShown;
+
         private void Awake()
         {
             tmpu = GetComponentInChildren<TextMeshProUGUI>();
@@ -24,6 +27,11 @@ namespace MOATT.Tooltips
         private void Start()
         {
             SetActive(false);
+        }
+
+        private void OnEnable()
+        {
+            OnShown?.Invoke();
         }
 
         private void Update()

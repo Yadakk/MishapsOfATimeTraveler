@@ -15,9 +15,10 @@ namespace MOATT.Levels.Tiles
         [System.Flags]
         public enum TileType
         {
-            Unplaceable,
-            Slot,
-            Road,
+            Nothing = 0,
+            Unplaceable = 1,
+            Slot = 2,
+            Road = 4,
         }
 
         public TileBuilding([InjectOptional] BuildingFacade building, TileFacade facade = null, Settings settings = null)

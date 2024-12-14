@@ -15,4 +15,4 @@ MonoBehaviour:
   tileCell:
     isWalkable: 1
   tileBuilding:
-    type: 2
+    type: 4

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9571706d39ec09d48b75503c9aceb17a, type: 3}
-  m_Name: TileSettingsInstaller
+  m_Name: UnplaceableTileSettingsInstaller
   m_EditorClassIdentifier: 
   tileCell:
     isWalkable: 0
   tileBuilding:
-    type: 2
+    type: 1

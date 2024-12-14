@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingFacade:
     name: Support Tower LV2
-    canBePlacedOn: 1
+    canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 200
   unitReloadTime:

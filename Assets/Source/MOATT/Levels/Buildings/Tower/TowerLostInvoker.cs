@@ -32,7 +32,6 @@ namespace MOATT.Levels.Buildings.Tower
         private void DiedHandler()
         {
             levelLostInvoker.InvokeLose();
-            Debug.Log("Invok");
         }
     }
 }

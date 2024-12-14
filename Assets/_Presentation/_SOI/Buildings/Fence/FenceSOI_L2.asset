@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingFacade:
     name: Fence LV2
-    canBePlacedOn: 2
+    canBePlacedOn: 4
     buildingType: 1
     nutsAndBoltsCost: 150
   unitHealth:

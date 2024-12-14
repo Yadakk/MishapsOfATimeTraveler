@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingFacade:
     name: Turret LV1
-    canBePlacedOn: 1
+    canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 100
   reloadTime:

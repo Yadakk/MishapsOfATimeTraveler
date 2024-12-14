@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingFacade:
     name: Bomb
-    canBePlacedOn: 2
+    canBePlacedOn: 4
     buildingType: 1
     nutsAndBoltsCost: 300
   bombInstaller:
     UnitRange:
       unitRange:
         rangeTiles: 2.5
-  exploder:
-    damage: 200
+  damage:
+    value: 10
   reloadTime:
     value: 3

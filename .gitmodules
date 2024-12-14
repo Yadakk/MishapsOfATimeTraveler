@@ -2,7 +2,3 @@
 	path = Assets/Source/BoundsMeasurement
 	url = git@gitlab.com:cannedenuum-group/unity/utils/bounds-measurement.git
 	branch = master
-[submodule "Assets/Source/LayerComparison"]
-	path = Assets/Source/LayerComparison
-	url = git@gitlab.com:cannedenuum-group/unity/utils/layer-comparison.git
-	branch = master

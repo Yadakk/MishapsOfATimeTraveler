@@ -10,22 +10,25 @@ namespace MOATT.Levels.BuildingSelection
 {
     using Buildings;
     using MOATT.GUILogic;
+    using MOATT.Levels.BuildingPlacement;
 
     public class BuildingSelectionSelector : IInitializable, IDisposable
     {
         private readonly InputAssetMapSwapper mapSwapper;
         private readonly InputAsset inputAsset;
         private readonly PointerOverUIWatcher pointerOverUIWatcher;
+        private readonly BuildingPlacementSelector buildingPlacementSelector;
 
         private BuildingFacade selectedBuilding;
 
         public event Action OnBuildingSelected;
 
-        public BuildingSelectionSelector(InputAssetMapSwapper mapSwapper, InputAsset inputAsset, BuildingSelectionHoverer hoverer, PointerOverUIWatcher pointerOverUIWatcher)
+        public BuildingSelectionSelector(InputAssetMapSwapper mapSwapper, InputAsset inputAsset, BuildingSelectionHoverer hoverer, PointerOverUIWatcher pointerOverUIWatcher, BuildingPlacementSelector buildingPlacementSelector)
         {
             this.mapSwapper = mapSwapper;
             this.inputAsset = inputAsset;
             this.pointerOverUIWatcher = pointerOverUIWatcher;
+            this.buildingPlacementSelector = buildingPlacementSelector;
         }
 
         public BuildingFacade SelectedBuilding
@@ -50,16 +53,23 @@ namespace MOATT.Levels.BuildingSelection
         public void Initialize()
         {
             mapSwapper.OnModeChanged += ModeChangedHandler;
+            buildingPlacementSelector.OnBuildingSelected += BuildingSelectedHandler;
         }
 
         public void Dispose()
         {
             mapSwapper.OnModeChanged -= ModeChangedHandler;
+            buildingPlacementSelector.OnBuildingSelected -= BuildingSelectedHandler;
         }
 
         private void ModeChangedHandler(InputActionMap map)
         {
             if (!inputAsset.Selection.enabled) SelectBuilding(null);
+        }
+
+        private void BuildingSelectedHandler(BuildingPlacementBuildingInfo info)
+        {
+            SelectedBuilding = null;
         }
 
         private void OnSelectedDestroyed()

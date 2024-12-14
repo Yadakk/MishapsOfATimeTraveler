@@ -12,14 +12,16 @@ namespace MOATT.Levels.BuildingSelection
     public class BuildingSelectionHoverer : IInitializable, IDisposable
     {
         private readonly TileRaycaster tileRaycaster;
+        private readonly InputAsset inputAsset;
 
         private BuildingFacade hoveredBuilding;
 
         public event Action OnBuildingHovered;
 
-        public BuildingSelectionHoverer(TileRaycaster tileRaycaster)
+        public BuildingSelectionHoverer(TileRaycaster tileRaycaster, InputAsset inputAsset)
         {
             this.tileRaycaster = tileRaycaster;
+            this.inputAsset = inputAsset;
         }
 
         public BuildingFacade HoveredBuilding
@@ -45,7 +47,7 @@ namespace MOATT.Levels.BuildingSelection
 
         private void TileUnderMouseChangedHandler(TileFacade tile)
         {
-            if (tile == null) HoveredBuilding = null;
+            if (tile == null || inputAsset.BuildingPlacement.enabled) HoveredBuilding = null;
             else HoveredBuilding = tile.CurrentBuilding;
         }
     }

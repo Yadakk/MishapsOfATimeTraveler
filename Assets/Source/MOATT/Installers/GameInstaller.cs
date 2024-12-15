@@ -14,20 +14,16 @@ namespace MOATT.Installers
 
     public class GameInstaller : MonoInstaller
     {
+        private TickableManager tickableManager;
+
         public override void InstallBindings()
         {
             Container.Bind<Timer>().AsTransient();
-            Container.Bind<ScalableTimer>().AsTransient().
-                OnInstantiated((context, obj) =>
-                {
-                    if (obj is ITickable tickable)
-                        context.Container.Resolve<TickableManager>().Add(tickable);
-                });
-                
-
+            Container.Bind<ScalableTimer>().AsTransient().OnInstantiated(AddToTickableManager);
             Container.Bind<InputAsset>().AsSingle();
             Container.BindInterfacesAndSelfTo<PointerOverUIWatcher>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectedAbilityType>().AsSingle();
+            Container.Bind<AbilityActiveDuration>().AsTransient().OnInstantiated(AddToTickableManager);
 
             InstallAbilityDescriptions();
         }
@@ -36,6 +32,13 @@ namespace MOATT.Installers
         {
             Container.BindInterfacesAndSelfTo<AbilityDescriptionDictionary>().AsSingle();
             Container.Bind<RewindAbility.Description>().AsSingle();
+        }
+
+        private void AddToTickableManager(InjectContext context, object obj)
+        {
+            if (obj is not ITickable tickable) return;
+            tickableManager ??= context.Container.Resolve<TickableManager>();
+            tickableManager.Add(tickable);
         }
     }
 }

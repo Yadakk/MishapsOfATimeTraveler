@@ -29,6 +29,7 @@ namespace MOATT.Installers
         public EnemyPathHistory.Settings pathHistory;
 
         public RewindAbility.Settings rewindAbility;
+        public SlowEnemiesAbility.Settings slowEnemiesAbility;
 
         public AbilityRechargeTime abilityRechargeTime;
 
@@ -51,6 +52,7 @@ namespace MOATT.Installers
         private void InstallAbilities()
         {
             Container.BindInstance(rewindAbility);
+            Container.BindInstance(slowEnemiesAbility);
         }
     }
 }

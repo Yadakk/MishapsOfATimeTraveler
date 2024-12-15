@@ -14,7 +14,7 @@ namespace MOATT.Levels.Enemies
         private readonly Timer timer;
         private readonly Settings settings;
 
-        private readonly List<float> positionHistory = new();
+        private Dictionary<float, float> positionHistory = new();
 
         public EnemyPathHistory(EnemyPathfinder enemyPathfinder, Timer timer, Settings settings)
         {
@@ -27,23 +27,42 @@ namespace MOATT.Levels.Enemies
         {
             Reset();
         }
-
+        
         public void Tick()
         {
             if (timer.Elapsed < settings.savePositionEverySeconds) return;
-            positionHistory.Add(enemyPathfinder.PathTweener.position);
-            positionHistory.RemoveAll(pos => pos < enemyPathfinder.PathTweener.position - settings.removeLastAtDeltaSeconds);
+            positionHistory.Add(Time.time, enemyPathfinder.PathTweener.position);
+
+            var deprecatedPositions = positionHistory.Where(pair => Time.time - pair.Key > settings.removeLastAtDeltaSeconds);
+            for (int i = 0; i < deprecatedPositions.Count(); i++)
+            {
+                positionHistory.Remove(deprecatedPositions.ElementAt(i).Key);
+            }
+
+            positionHistory = new(positionHistory.OrderBy(x => x.Key));
+
+            timer.Reset();
         }
 
         public void Reset()
         {
             positionHistory.Clear();
-            positionHistory.Add(enemyPathfinder.PathTweener.position);
+            positionHistory.Add(Time.time, enemyPathfinder.PathTweener.position);
         }
 
         public void LoadPositionInPast(float deltaSeconds)
         {
-            enemyPathfinder.PathTweener.fullPosition = positionHistory.Last(pos => pos > enemyPathfinder.PathTweener.fullPosition - deltaSeconds);
+            float tragetPos = positionHistory.First(pair => pair.Key >= Time.time - deltaSeconds).Value;
+            enemyPathfinder.SetPosition(tragetPos);
+            Reset();
+        }
+
+        private void DebugHistory()
+        {
+            for (int i = 0; i < positionHistory.Count; i++)
+            {
+                Debug.Log($"Time: {positionHistory.ElementAt(i).Key}, Position: {positionHistory.ElementAt(i).Value}");
+            }
         }
 
         [Serializable]

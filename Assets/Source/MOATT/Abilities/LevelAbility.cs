@@ -1,4 +1,5 @@
 ﻿using MOATT.Abilities.Types;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace MOATT.Abilities
         public void Initialize()
         {
             SelectedAbility = abilityDictionary.Dictionary.GetValueOrDefault(selectedAbilityType.ability);
+        }
+
+        internal void Activate()
+        {
+            SelectedAbility.Activate();
         }
     }
 }

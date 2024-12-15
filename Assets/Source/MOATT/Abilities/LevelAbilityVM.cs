@@ -28,5 +28,10 @@ namespace MOATT.Abilities
         {
             tooltip.Hide();
         }
+
+        public void ActivateAbility()
+        {
+            levelAbility.Activate();
+        }
     }
 }

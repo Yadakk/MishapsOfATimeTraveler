@@ -10,6 +10,8 @@ namespace MOATT.Levels.Enemies
     using Buildings;
     using Units.Damage;
     using Health;
+    using UnityEngine.UI;
+    using System;
 
     public class EnemyTowerDamager : IInitializable, System.IDisposable, IUpdatable
     {
@@ -40,6 +42,7 @@ namespace MOATT.Levels.Enemies
         public void Dispose()
         {
             navigator.OnTileReached -= TileReachedHandler;
+            navigator.OnPositionChanged -= PositionChangedHandler;
         }
 
         public void Update()
@@ -52,6 +55,7 @@ namespace MOATT.Levels.Enemies
 
         private void TileReachedHandler(TileFacade tile)
         {
+            navigator.OnPositionChanged += PositionChangedHandler;
             var building = tile.CurrentBuilding;
             if (building == null) return;
             if (building.HealthModel == null) return;
@@ -63,7 +67,12 @@ namespace MOATT.Levels.Enemies
             else tower = building;
         }
 
-        [System.Serializable]
+        private void PositionChangedHandler()
+        {
+            tower = null;
+        }
+
+        [Serializable]
         public class Settings
         {
             public bool selfDestruct = false;

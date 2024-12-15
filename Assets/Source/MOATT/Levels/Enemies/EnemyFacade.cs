@@ -13,6 +13,7 @@ namespace MOATT.Levels.Enemies
     public class EnemyFacade : MonoBehaviour
     {
         private HealthModel healthModel;
+        private HealthWatcher healthWatcher;
         private EnemyRegistry registry;
         private BoundsCalculator boundsCalculator;
         private EnemyTilemapPositionCalculator enemyCellPositionCalculator;
@@ -23,6 +24,7 @@ namespace MOATT.Levels.Enemies
         public Vector3Int TilemapPos => enemyCellPositionCalculator.TilemapPosition;
         public EnemyPathfinder Pathfinder => pathfinder;
         public bool IsFlying => settings.isFlying;
+        public HealthWatcher HealthWatcher => healthWatcher;
 
         private void Awake()
         {
@@ -37,7 +39,8 @@ namespace MOATT.Levels.Enemies
             BoundsCalculator boundsCalculator,
             EnemyTilemapPositionCalculator enemyCellPositionCalculator,
             EnemyPathfinder pathfinder,
-            Settings settings
+            Settings settings,
+            HealthWatcher healthWatcher
             )
         {
             this.healthModel = healthModel;
@@ -46,6 +49,7 @@ namespace MOATT.Levels.Enemies
             this.enemyCellPositionCalculator = enemyCellPositionCalculator;
             this.pathfinder = pathfinder;
             this.settings = settings;
+            this.healthWatcher = healthWatcher;
 
             transform.position = tunables.initPos;
         }

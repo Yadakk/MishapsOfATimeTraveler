@@ -12,8 +12,23 @@ namespace MOATT.Levels.Tutorial
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<TutorialStateInitter>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TutorialGreetingState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TutorialTooltipState>().AsSingle();
+            BindTutorialState<TutorialGreetingState>();
+            BindTutorialState<TutorialTooltipState>();
+            BindTutorialState<TutorialEnemiesState>();
+            BindTutorialState<TutorialEnemyTypesState>();
+            BindTutorialState<TutorialBuildingPlacementState>();
+            BindTutorialState<TutorialBuildingTypesState>();
+            BindTutorialState<TutorialBuildingTriviaState>();
+            BindTutorialState<TutorialEarningNutsAndBoltsState>();
+            BindTutorialState<TutorialScientistsState>();
+            BindTutorialState<TutorialUpgradesState>();
+            BindTutorialState<TutorialWinConditionsState>();
+            BindTutorialState<TutorialCompleteState>();
+        }
+
+        private void BindTutorialState<T>() where T : TutorialState
+        {
+            Container.BindInterfacesAndSelfTo<T>().AsSingle();
         }
     }
 }

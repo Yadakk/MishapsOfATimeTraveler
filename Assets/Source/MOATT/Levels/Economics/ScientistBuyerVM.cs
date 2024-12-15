@@ -15,6 +15,8 @@ namespace MOATT.Levels.Economics
         private PlayerResources resources;
         private Tooltip tooltip;
 
+        public event Action OnScientistHired;
+
         [Inject]
         public void Construct(Settings settings, PlayerResources resources = null, Tooltip tooltip = null)
         {
@@ -39,6 +41,7 @@ namespace MOATT.Levels.Economics
             if (resources.IdleScientists + resources.BusyScientists + 1 > resources.MaxScientists) return;
             resources.NutsAndBolts -= settings.scientistCost;
             resources.IdleScientists += 1;
+            OnScientistHired?.Invoke();
         }
 
         [Serializable]

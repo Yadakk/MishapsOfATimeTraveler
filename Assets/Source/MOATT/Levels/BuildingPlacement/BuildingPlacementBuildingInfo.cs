@@ -66,7 +66,6 @@ namespace MOATT.Levels.BuildingPlacement
         private void SetTimerScale(float timeScale)
         {
             timer.timeScale = timeScale;
-            Debug.Log(timer.timeScale);
         }
     }
 }

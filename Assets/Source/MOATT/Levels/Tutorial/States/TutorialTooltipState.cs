@@ -10,16 +10,19 @@ namespace MOATT.Levels.Tutorial.States
     {
         private readonly TutorialWindow tutorialWindow;
         private readonly Tooltip tooltip;
+        private readonly TutorialEnemiesState tutorialEnemiesState;
 
-        public TutorialTooltipState(TutorialWindow tutorialWindow, Tooltip tooltip)
+        public TutorialTooltipState(TutorialWindow tutorialWindow, Tooltip tooltip, TutorialEnemiesState tutorialEnemiesState)
         {
             this.tutorialWindow = tutorialWindow;
             this.tooltip = tooltip;
+            this.tutorialEnemiesState = tutorialEnemiesState;
         }
 
         public override void Start()
         {
             tooltip.OnShown += StepComplete;
+
             StringBuilder sb = new();
             sb.AppendLine("There are tooltips that display information about certain mechanics in the game.");
             sb.AppendLine("Try hovering over some UI elements.");
@@ -36,7 +39,7 @@ namespace MOATT.Levels.Tutorial.States
         private void StepComplete()
         {
             tutorialWindow.SetActiveNextButton(true);
-            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(null));
+            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialEnemiesState));
         }
     }
 }

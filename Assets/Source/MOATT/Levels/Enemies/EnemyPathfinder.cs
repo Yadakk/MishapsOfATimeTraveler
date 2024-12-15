@@ -51,6 +51,8 @@ namespace MOATT.Levels.Enemies
             }
         }
 
+        public Tweener PathTweener => pathTweener;
+
         public void Initialize()
         {
             var towerTiles = tiles.Where(tile => tile is TowerTileFacade).ToArray();

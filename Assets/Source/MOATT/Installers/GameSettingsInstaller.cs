@@ -10,6 +10,8 @@ namespace MOATT.Installers
     using Layers;
     using MOATT.Levels.Economics;
     using MOATT.Levels.BuildingSelection;
+    using MOATT.Levels.Enemies;
+    using MOATT.Abilities.Types;
 
     [CreateAssetMenu(fileName = nameof(GameSettingsInstaller),
         menuName = "Installers/" + nameof(GameSettingsInstaller))]
@@ -23,6 +25,9 @@ namespace MOATT.Installers
         public ScientistBuyerVM.Settings scientistBuyerVM;
         public BuildingSelectionInstaller.Settings buildingSelecton;
         public ScientistRechargeMultiplier.Settings scientistRechargeMultiplier;
+        public EnemyPathHistory.Settings pathHistory;
+
+        public RewindAbility.Settings rewindAbility;
 
         public override void InstallBindings()
         {
@@ -34,6 +39,14 @@ namespace MOATT.Installers
             Container.BindInstance(scientistBuyerVM);
             Container.BindInstance(buildingSelecton);
             Container.BindInstance(scientistRechargeMultiplier);
+            Container.BindInstance(pathHistory);
+
+            InstallAbilities();
+        }
+
+        private void InstallAbilities()
+        {
+            Container.BindInstance(rewindAbility);
         }
     }
 }

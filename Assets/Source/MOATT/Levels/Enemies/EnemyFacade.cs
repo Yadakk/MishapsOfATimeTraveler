@@ -25,6 +25,7 @@ namespace MOATT.Levels.Enemies
         public EnemyPathfinder Pathfinder => pathfinder;
         public bool IsFlying => settings.isFlying;
         public HealthWatcher HealthWatcher => healthWatcher;
+        public EnemyPathHistory EnemyPathHistory { get; private set; }
 
         private void Awake()
         {
@@ -40,7 +41,8 @@ namespace MOATT.Levels.Enemies
             EnemyTilemapPositionCalculator enemyCellPositionCalculator,
             EnemyPathfinder pathfinder,
             Settings settings,
-            HealthWatcher healthWatcher
+            HealthWatcher healthWatcher,
+            EnemyPathHistory enemyPathHistory
             )
         {
             this.healthModel = healthModel;
@@ -50,6 +52,7 @@ namespace MOATT.Levels.Enemies
             this.pathfinder = pathfinder;
             this.settings = settings;
             this.healthWatcher = healthWatcher;
+            EnemyPathHistory = enemyPathHistory;
 
             transform.position = tunables.initPos;
         }

@@ -7,7 +7,10 @@ using TimeTimers;
 namespace MOATT.Installers
 {
     using GUILogic;
+    using MOATT.Abilities;
+    using MOATT.Abilities.Types;
     using MOATT.Utils;
+    using System;
 
     public class GameInstaller : MonoInstaller
     {
@@ -24,6 +27,15 @@ namespace MOATT.Installers
 
             Container.Bind<InputAsset>().AsSingle();
             Container.BindInterfacesAndSelfTo<PointerOverUIWatcher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SelectedAbility>().AsSingle();
+
+            InstallAbilityDescriptions();
+        }
+
+        private void InstallAbilityDescriptions()
+        {
+            Container.BindInterfacesAndSelfTo<AbilityDescriptionDictionary>().AsSingle();
+            Container.Bind<RewindAbility.Description>().AsSingle();
         }
     }
 }

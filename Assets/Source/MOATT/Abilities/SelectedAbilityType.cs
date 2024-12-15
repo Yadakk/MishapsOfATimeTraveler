@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MOATT.Abilities
 {
-    public class SelectedAbility
+    public class SelectedAbilityType
     {
         public AbilityType ability;
     }

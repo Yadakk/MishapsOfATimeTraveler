@@ -12,6 +12,7 @@ namespace MOATT.Installers
     using MOATT.Levels.BuildingSelection;
     using MOATT.Levels.Enemies;
     using MOATT.Abilities.Types;
+    using MOATT.Abilities;
 
     [CreateAssetMenu(fileName = nameof(GameSettingsInstaller),
         menuName = "Installers/" + nameof(GameSettingsInstaller))]
@@ -29,6 +30,8 @@ namespace MOATT.Installers
 
         public RewindAbility.Settings rewindAbility;
 
+        public AbilityRechargeTime abilityRechargeTime;
+
         public override void InstallBindings()
         {
             Container.BindInstance(billboardSource);
@@ -40,6 +43,7 @@ namespace MOATT.Installers
             Container.BindInstance(buildingSelecton);
             Container.BindInstance(scientistRechargeMultiplier);
             Container.BindInstance(pathHistory);
+            Container.BindInstance(abilityRechargeTime);
 
             InstallAbilities();
         }

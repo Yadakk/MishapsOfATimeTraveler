@@ -27,7 +27,7 @@ namespace MOATT.Installers
 
             Container.Bind<InputAsset>().AsSingle();
             Container.BindInterfacesAndSelfTo<PointerOverUIWatcher>().AsSingle();
-            Container.BindInterfacesAndSelfTo<SelectedAbility>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SelectedAbilityType>().AsSingle();
 
             InstallAbilityDescriptions();
         }

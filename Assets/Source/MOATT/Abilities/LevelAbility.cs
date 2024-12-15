@@ -1,4 +1,5 @@
 ﻿using MOATT.Abilities.Types;
+using MOATT.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,14 +11,16 @@ namespace MOATT.Abilities
     public class LevelAbility : IInitializable
     {
         private readonly AbilityTypeDictionary abilityDictionary;
-        private readonly SelectedAbility selectedAbilityType;
+        private readonly SelectedAbilityType selectedAbilityType;
+        private readonly AbilityRecharger abilityRecharger;
 
         public Ability SelectedAbility { get; private set; }
 
-        public LevelAbility(AbilityTypeDictionary abilityDictionary, SelectedAbility selectedAbilityType)
+        public LevelAbility(AbilityTypeDictionary abilityDictionary, SelectedAbilityType selectedAbilityType, AbilityRecharger abilityRecharger)
         {
             this.abilityDictionary = abilityDictionary;
             this.selectedAbilityType = selectedAbilityType;
+            this.abilityRecharger = abilityRecharger;
         }
 
         public void Initialize()
@@ -27,7 +30,9 @@ namespace MOATT.Abilities
 
         internal void Activate()
         {
+            if (!abilityRecharger.IsReady) return;
             SelectedAbility.Activate();
+            abilityRecharger.IsReady = false;
         }
     }
 }

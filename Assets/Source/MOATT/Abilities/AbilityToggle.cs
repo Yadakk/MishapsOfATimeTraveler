@@ -15,7 +15,7 @@ namespace MOATT.Abilities
         [SerializeField] private AbilityType abilityType;
 
         private Tooltip tooltip;
-        private SelectedAbility selectedAbility;
+        private SelectedAbilityType selectedAbility;
         private AbilityDescriptionDictionary descriptionDictionary;
         private object abilityDescription;
 
@@ -26,7 +26,7 @@ namespace MOATT.Abilities
         }
 
         [Inject]
-        public void Construct(SelectedAbility selectedAbility, Tooltip tooltip, AbilityDescriptionDictionary descriptionDictionary)
+        public void Construct(SelectedAbilityType selectedAbility, Tooltip tooltip, AbilityDescriptionDictionary descriptionDictionary)
         {
             this.selectedAbility = selectedAbility;
             this.tooltip = tooltip;

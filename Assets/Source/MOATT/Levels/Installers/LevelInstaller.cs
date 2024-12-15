@@ -67,6 +67,7 @@ namespace MOATT.Levels.Installers
         private void InstallAbilities()
         {
             Container.BindInterfacesAndSelfTo<AbilityTypeDictionary>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityRecharger>().AsSingle();
             Container.BindInterfacesAndSelfTo<RewindAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelAbility>().AsSingle();
         }

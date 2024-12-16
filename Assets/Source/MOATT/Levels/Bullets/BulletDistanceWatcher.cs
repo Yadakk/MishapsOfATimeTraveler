@@ -15,7 +15,7 @@ namespace MOATT.Levels.Bullets
         private readonly BulletFacade facade;
         private readonly UnitRange unitRange;
 
-        private Vector3 originPosition;
+        private Vector2 originPosition;
 
         public BulletDistanceWatcher(BuildingFacade origin, BulletFacade facade, UnitRange unitRange)
         {
@@ -26,12 +26,12 @@ namespace MOATT.Levels.Bullets
 
         public void Initialize()
         {
-            originPosition = origin.transform.position;
+            originPosition = new Vector2(origin.transform.position.x, origin.transform.position.z);
         }
 
         public void Tick()
         {
-            float distance = Vector3.Distance(originPosition, facade.transform.position);
+            float distance = Vector2.Distance(originPosition, new Vector2(facade.transform.position.x, facade.transform.position.z));
             if (distance <= unitRange.Range) return;
             facade.Destroy();
         }

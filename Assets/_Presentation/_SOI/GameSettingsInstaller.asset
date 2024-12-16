@@ -51,5 +51,8 @@ MonoBehaviour:
   fastBuildingsAbility:
     duration: 30
     multiplier: 2
+  fastRechargeUpgradeAbility:
+    duration: 30
+    multiplier: 2
   abilityRechargeTime:
     value: 90

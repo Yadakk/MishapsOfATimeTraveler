@@ -11,12 +11,14 @@ namespace MOATT.Abilities
         private readonly RewindAbility rewindAbility;
         private readonly SlowEnemiesAbility slowEnemies;
         private readonly FastBuildingsAbility fastBuildings;
+        private readonly FastRechargeUpgradeAbility fastRechargeUpgradeAbility;
 
-        public AbilityTypeDictionary(RewindAbility rewindAbility, SlowEnemiesAbility slowEnemies, FastBuildingsAbility fastBuildings)
+        public AbilityTypeDictionary(RewindAbility rewindAbility, SlowEnemiesAbility slowEnemies, FastBuildingsAbility fastBuildings, FastRechargeUpgradeAbility fastRechargeUpgradeAbility)
         {
             this.rewindAbility = rewindAbility;
             this.slowEnemies = slowEnemies;
             this.fastBuildings = fastBuildings;
+            this.fastRechargeUpgradeAbility = fastRechargeUpgradeAbility;
         }
 
         public Dictionary<AbilityType, Ability> Dictionary { get; private set; }
@@ -28,6 +30,7 @@ namespace MOATT.Abilities
                 { AbilityType.Rewind, rewindAbility },
                 { AbilityType.SlowEnemies, slowEnemies },
                 { AbilityType.FastBuildings, fastBuildings },
+                { AbilityType.RechargeUpgrade, fastRechargeUpgradeAbility },
             };
         }
     }

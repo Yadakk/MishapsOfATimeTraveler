@@ -18,9 +18,9 @@ MonoBehaviour:
     buildingType: 1
     nutsAndBoltsCost: 50
   unitDamage:
-    value: 25
+    value: 15
   reloadTime:
-    value: 0.5
+    value: 0.75
   buildingUpgrader:
     nextLevelPrefab: {fileID: 0}
     nutsAndBoltsCost: 0

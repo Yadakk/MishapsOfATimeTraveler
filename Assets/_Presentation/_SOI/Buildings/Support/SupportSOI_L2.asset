@@ -18,9 +18,9 @@ MonoBehaviour:
     buildingType: 1
     nutsAndBoltsCost: 200
   unitReloadTime:
-    value: 1
+    value: 1.25
   unitDamage:
-    value: 50
+    value: 35
   unitRange:
     rangeTiles: 3.5
   unitHealth:

@@ -18,7 +18,6 @@ namespace MOATT.Utils
 
         public void Tick()
         {
-            Debug.Log("Tick");
             Elapsed += Time.deltaTime * timeScale;
         }
     }

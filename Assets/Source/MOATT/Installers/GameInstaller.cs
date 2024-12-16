@@ -37,7 +37,6 @@ namespace MOATT.Installers
 
         private void AddToTickableManager(InjectContext context, object obj)
         {
-            Debug.Log(obj.GetType().FullName);
             if (obj is not ITickable tickable) return;
             tickableManager ??= context.Container.Resolve<TickableManager>();
             tickableManager.Add(tickable);

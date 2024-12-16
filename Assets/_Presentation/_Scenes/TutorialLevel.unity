@@ -7750,6 +7750,12 @@ PrefabInstance:
       propertyPath: lastTab
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3252557448962710981, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: _scriptableObjectInstallers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e4da42b97fc74e44b3428baa82679b8,
+        type: 2}
     - target: {fileID: 4339392461302417478, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: m_AnchorMax.y

@@ -10,11 +10,13 @@ namespace MOATT.Levels.Buildings
         public readonly List<BuildingFacade> buildings = new();
 
         public event Action OnBuildingUpgraded;
+        public event Action<BuildingFacade> OnBuildingAdded;
 
         public void Add(BuildingFacade building)
         {
             if (building.BuildingUpgrader != null) building.BuildingUpgrader.OnUpgradeComplete += InvokeOnBuildingUpgraded;
             buildings.Add(building);
+            OnBuildingAdded?.Invoke(building);
         }
 
         public void Remove(BuildingFacade building)

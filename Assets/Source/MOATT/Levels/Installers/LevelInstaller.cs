@@ -71,6 +71,8 @@ namespace MOATT.Levels.Installers
             Container.BindInterfacesAndSelfTo<AbilityRecharger>().AsSingle();
             Container.BindInterfacesAndSelfTo<RewindAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<SlowEnemiesAbility>().AsSingle();
+            Container.BindInterfacesAndSelfTo<FastBuildingsAbility>().AsSingle();
+            Container.BindInterfacesAndSelfTo<FastRechargeUpgradeAbility>().AsSingle();
         }
     }
 }

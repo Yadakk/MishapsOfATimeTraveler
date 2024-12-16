@@ -22,6 +22,11 @@ namespace HologramDisplayers
             displayedModel.SetParent(transform);
             var goTransform = model.transform;
             AddTransform(goTransform, displayedModel);
+
+            foreach (var renderer in renderers)
+            {
+                renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
         }
 
         public void SetColor(Color color)

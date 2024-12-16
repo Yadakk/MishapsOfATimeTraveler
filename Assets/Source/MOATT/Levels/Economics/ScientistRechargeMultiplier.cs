@@ -1,4 +1,6 @@
 ﻿using Cannedenuum.UnityUtils.ValueChangeWatcher;
+using MOATT.Abilities;
+using MOATT.Levels.BuildingPlacement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,11 +15,15 @@ namespace MOATT.Levels.Economics
 
         private readonly PlayerResources playerResources;
         private readonly Settings settings;
+        private readonly BuildingPlacementSelectorVM[] selectorVMs;
+        private readonly AbilityRecharger abilityRecharger;
 
-        public ScientistRechargeMultiplier(PlayerResources playerResources, Settings settings)
+        public ScientistRechargeMultiplier(PlayerResources playerResources, Settings settings, BuildingPlacementSelectorVM[] selectorVMs, AbilityRecharger abilityRecharger)
         {
             this.playerResources = playerResources;
             this.settings = settings;
+            this.selectorVMs = selectorVMs;
+            this.abilityRecharger = abilityRecharger;
         }
 
         public float Value { get => valueWatcher.Value; private set => valueWatcher.Value = value; }
@@ -35,6 +41,15 @@ namespace MOATT.Levels.Economics
         private void IdleScientistsValueChangedHandler(int newIdleScientists)
         {
             Value = 1f + settings.multiplierPerIdleScientist * newIdleScientists;
+
+            for (int i = 0; i < selectorVMs.Length; i++)
+            {
+                selectorVMs[i].BuildingInfo.RemoveMultiplier(this);
+                selectorVMs[i].BuildingInfo.AddMultiplier(this, Value);
+            }
+
+            abilityRecharger.RemoveMultiplier(this);
+            abilityRecharger.AddMultiplier(this, Value);
         }
 
         [Serializable]

@@ -9,22 +9,23 @@ namespace MOATT.Levels.BuildingPlacement
     using Buildings;
     using MOATT.Levels.Economics;
     using MOATT.Utils;
+    using System.Linq;
     using System.Text;
 
-    public class BuildingPlacementBuildingInfo : IInitializable, ITickable, IDisposable
+    public class BuildingPlacementBuildingInfo : ITickable
     {
+        private readonly Dictionary<object, float> multipliers = new();
+
         public BuildingFacade prototype;
         public float rechargeTime = 1f;
 
         private bool isCharged = true;
 
         private readonly ScalableTimer timer;
-        private readonly ScientistRechargeMultiplier scientistRechargeMultiplier;
 
-        public BuildingPlacementBuildingInfo(ScalableTimer timer, ScientistRechargeMultiplier scientistRechargeMultiplier)
+        public BuildingPlacementBuildingInfo(ScalableTimer timer)
         {
             this.timer = timer;
-            this.scientistRechargeMultiplier = scientistRechargeMultiplier;
         }
 
         public bool IsCharged
@@ -39,20 +40,24 @@ namespace MOATT.Levels.BuildingPlacement
 
         public ScalableTimer Timer => timer;
 
-        public void Initialize()
-        {
-            scientistRechargeMultiplier.valueWatcher.OnValueChangedNewValue += SetTimerScale;
-        }
-
         public void Tick()
         {
             if (timer.Elapsed < rechargeTime) return;
             IsCharged = true;
         }
 
-        public void Dispose()
+        public void AddMultiplier(object obj, float value)
         {
-            scientistRechargeMultiplier.valueWatcher.OnValueChangedNewValue -= SetTimerScale;
+            if (multipliers.ContainsKey(obj)) return;
+            multipliers.Add(obj, value);
+            RecalculateMultiplier();
+        }
+
+        public void RemoveMultiplier(object obj)
+        {
+            if (!multipliers.ContainsKey(obj)) return;
+            multipliers.Remove(obj);
+            RecalculateMultiplier();
         }
 
         public override string ToString()
@@ -63,9 +68,16 @@ namespace MOATT.Levels.BuildingPlacement
             return sb.ToString();
         }
 
-        private void SetTimerScale(float timeScale)
+        private void RecalculateMultiplier()
         {
-            timer.timeScale = timeScale;
+            float totalMultiplier = 1f;
+
+            for (int i = 0; i < multipliers.Count; i++)
+            {
+                totalMultiplier *= multipliers.ElementAt(i).Value;
+            }
+
+            timer.timeScale = totalMultiplier;
         }
     }
 }

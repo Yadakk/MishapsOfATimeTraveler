@@ -2,9 +2,11 @@
 using MOATT.Levels.Economics;
 using MOATT.Levels.Health;
 using MOATT.Levels.PrototypePool;
+using MOATT.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TimeTimers;
 using UnityEngine;
@@ -14,9 +16,11 @@ namespace MOATT.Levels.Buildings
 {
     public class BuildingUpgrader : IDisposable, IStartable, ITickable
     {
+        private readonly Dictionary<object, float> multipliers = new();
+
         private readonly Settings settings;
         private readonly PlayerResources playerResources;
-        private readonly Timer timer;
+        private readonly ScalableTimer timer;
         private readonly BuildingFacade facade;
         private readonly BuildingTunables tunables;
         private readonly BuildingPrototypePool buildingPrototypePool;
@@ -27,7 +31,7 @@ namespace MOATT.Levels.Buildings
 
         public event Action OnUpgradeComplete;
 
-        public BuildingUpgrader(Settings settings, PlayerResources playerResources, Timer timer, BuildingFacade facade, BuildingTunables tunables, BuildingPrototypePool buildingPrototypePool = null, BuildingFacade.Factory buildingFactory = null)
+        public BuildingUpgrader(Settings settings, PlayerResources playerResources, ScalableTimer timer, BuildingFacade facade, BuildingTunables tunables, BuildingPrototypePool buildingPrototypePool = null, BuildingFacade.Factory buildingFactory = null)
         {
             this.settings = settings;
             this.playerResources = playerResources;
@@ -93,6 +97,32 @@ namespace MOATT.Levels.Buildings
             stringBuilder.AppendLine($"Next level stats:");
             stringBuilder.Append(nextLevelPrototype.ToStringNoCost());
             return stringBuilder.ToString();
+        }
+
+        public void AddMultiplier(object obj, float value)
+        {
+            if (multipliers.ContainsKey(obj)) return;
+            multipliers.Add(obj, value);
+            RecalculateMultiplier();
+        }
+
+        public void RemoveMultiplier(object obj)
+        {
+            if (!multipliers.ContainsKey(obj)) return;
+            multipliers.Remove(obj);
+            RecalculateMultiplier();
+        }
+
+        private void RecalculateMultiplier()
+        {
+            float totalMultiplier = 1f;
+
+            for (int i = 0; i < multipliers.Count; i++)
+            {
+                totalMultiplier *= multipliers.ElementAt(i).Value;
+            }
+
+            timer.timeScale = totalMultiplier;
         }
 
         [Serializable]

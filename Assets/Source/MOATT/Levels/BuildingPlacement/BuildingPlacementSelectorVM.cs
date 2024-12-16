@@ -24,22 +24,22 @@ namespace MOATT.Levels.BuildingPlacement
         [SerializeField]
         private Image chargeFill;
 
-        private BuildingPlacementBuildingInfo buildingInfo;
-
         private BuildingPlacementSelector selector;
         private PlayerResources playerResources;
         private Tooltip tooltip;
         private BuildingPrototypePool prototypePool;
 
+        public BuildingPlacementBuildingInfo BuildingInfo { get; private set; }
+
         private void Awake()
         {
-            buildingInfo.rechargeTime = rechargeTime;
-            buildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
+            BuildingInfo.rechargeTime = rechargeTime;
+            BuildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
         }
 
         private void Update()
         {
-            chargeFill.fillAmount = buildingInfo.IsCharged ? 0f : 1f - buildingInfo.Timer.Elapsed / buildingInfo.rechargeTime;
+            chargeFill.fillAmount = BuildingInfo.IsCharged ? 0f : 1f - BuildingInfo.Timer.Elapsed / BuildingInfo.rechargeTime;
         }
 
         [Inject]
@@ -48,13 +48,13 @@ namespace MOATT.Levels.BuildingPlacement
             this.selector = selector;
             this.playerResources = playerResources;
             this.tooltip = tooltip;
-            this.buildingInfo = buildingInfo;
+            this.BuildingInfo = buildingInfo;
             this.prototypePool = prototypePool;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            tooltip.DisplayAtCursor(buildingInfo.ToString());
+            tooltip.DisplayAtCursor(BuildingInfo.ToString());
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -64,12 +64,12 @@ namespace MOATT.Levels.BuildingPlacement
 
         public void Select()
         {
-            bool isCharged = buildingInfo.IsCharged;
-            bool isDifferentBuilding = selector.BuildingInfo != buildingInfo;
-            bool isAffordable = playerResources.NutsAndBolts >= buildingInfo.prototype.NutsAndBoltsCost;
+            bool isCharged = BuildingInfo.IsCharged;
+            bool isDifferentBuilding = selector.BuildingInfo != BuildingInfo;
+            bool isAffordable = playerResources.NutsAndBolts >= BuildingInfo.prototype.NutsAndBoltsCost;
 
             if (isDifferentBuilding && isAffordable && isCharged)
-                selector.SelectBuilding(buildingInfo);
+                selector.SelectBuilding(BuildingInfo);
             else
                 selector.SelectBuilding(null);
         }

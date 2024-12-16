@@ -14,6 +14,7 @@ namespace MOATT.Levels.Enemies
     public class EnemyPathfinder : IInitializable
     {
         public readonly List<object> blockers = new();
+        private readonly Dictionary<object, float> multipliers = new();
 
         private readonly Settings settings;
         private readonly TileFacade[] tiles;
@@ -22,6 +23,7 @@ namespace MOATT.Levels.Enemies
 
         private int fenceIgnoreCount;
         private Tweener pathTweener;
+        private float multiplier = 1f;
 
         public event System.Action<TileFacade> OnTileReached;
         public event System.Action<TileFacade[]> OnPathCreated;
@@ -81,14 +83,14 @@ namespace MOATT.Levels.Enemies
         {
             if (blockers.Contains(obj)) return;
             blockers.Add(obj);
-            if (blockers.Count > 0) pathTweener.timeScale = 0f;
+            RecalculateTimeScale();
         }
 
         public void UnregisterBlocker(object obj)
         {
             if (!blockers.Contains(obj)) return;
             blockers.Remove(obj);
-            if (blockers.Count == 0) pathTweener.timeScale = 1f;
+            RecalculateTimeScale();
         }
 
         public void SetPosition(float value)
@@ -96,6 +98,38 @@ namespace MOATT.Levels.Enemies
             PathTweener.fullPosition = value;
             PathTweener.Play();
             OnPositionChanged?.Invoke();
+        }
+
+        public void AddMultiplier(object obj, float value)
+        {
+            if (multipliers.ContainsKey(obj)) return;
+            multipliers.Add(obj, value);
+            RecalculateMultiplier();
+        }
+
+        public void RemoveMultiplier(object obj)
+        {
+            if (!multipliers.ContainsKey(obj)) return;
+            multipliers.Remove(obj);
+            RecalculateMultiplier();
+        }
+
+        private void RecalculateMultiplier()
+        {
+            float totalMultiplier = 1f;
+
+            for (int i = 0; i < multipliers.Count; i++)
+            {
+                totalMultiplier *= multipliers.ElementAt(i).Value;
+            }
+
+            multiplier = totalMultiplier;
+            RecalculateTimeScale();
+        }
+
+        private void RecalculateTimeScale()
+        {
+            pathTweener.timeScale = blockers.Count == 0 ? 1f * multiplier : 0f;
         }
 
         [System.Serializable]

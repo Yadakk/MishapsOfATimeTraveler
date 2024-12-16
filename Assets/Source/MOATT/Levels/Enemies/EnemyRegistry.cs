@@ -10,11 +10,13 @@ namespace MOATT.Levels.Enemies
         public readonly List<EnemyFacade> enemies = new();
 
         public event Action OnEnemyDied;
+        public event Action<EnemyFacade> OnEnemyAdded;
 
         public void Add(EnemyFacade enemy)
         {
             enemies.Add(enemy);
             enemy.HealthWatcher.OnDied += InvokeOnEnemyDied;
+            OnEnemyAdded?.Invoke(enemy);
         }
 
         public void Remove(EnemyFacade enemy)

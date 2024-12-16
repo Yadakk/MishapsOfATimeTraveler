@@ -11,9 +11,10 @@ namespace MOATT.Abilities.Types
         private readonly AbilityActiveDuration abilityActiveDuration;
         private readonly Settings settings;
 
-        public SlowEnemiesAbility(AbilityActiveDuration abilityActiveDuration)
+        public SlowEnemiesAbility(AbilityActiveDuration abilityActiveDuration, Settings settings = null)
         {
             this.abilityActiveDuration = abilityActiveDuration;
+            this.settings = settings;
         }
 
         public void Initialize()

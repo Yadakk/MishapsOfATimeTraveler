@@ -66,8 +66,8 @@ namespace MOATT.Levels.Installers
 
         private void InstallAbilities()
         {
-            Container.BindInterfacesAndSelfTo<LevelAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityTypeDictionary>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityRecharger>().AsSingle();
             Container.BindInterfacesAndSelfTo<RewindAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<SlowEnemiesAbility>().AsSingle();

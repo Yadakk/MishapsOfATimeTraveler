@@ -8,12 +8,12 @@ namespace MOATT.Levels.Tutorial.States
     public class TutorialWinConditionsState : TutorialState
     {
         private readonly TutorialWindow tutorialWindow;
-        private readonly TutorialCompleteState tutorialCompleteState;
+        private readonly TutorialAbilitiesState tutorialAbilitiesState;
 
-        public TutorialWinConditionsState(TutorialWindow tutorialWindow, TutorialCompleteState tutorialCompleteState)
+        public TutorialWinConditionsState(TutorialWindow tutorialWindow, TutorialAbilitiesState tutorialAbilitiesState)
         {
             this.tutorialWindow = tutorialWindow;
-            this.tutorialCompleteState = tutorialCompleteState;
+            this.tutorialAbilitiesState = tutorialAbilitiesState;
         }
 
         public override void Start()
@@ -23,7 +23,7 @@ namespace MOATT.Levels.Tutorial.States
             sb.AppendLine("If you survive long enough you will win.");
             sb.AppendLine("The waves get stronger every time so keep advancing.");
             tutorialWindow.SetTextContent(sb.ToString());
-            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialCompleteState));
+            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialAbilitiesState));
         }
     }
 }

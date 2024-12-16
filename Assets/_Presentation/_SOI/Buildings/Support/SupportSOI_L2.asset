@@ -29,7 +29,7 @@ MonoBehaviour:
   buildingUpgrader:
     nextLevelPrefab: {fileID: 7011324562886082393, guid: fdb00d5e02277014599c767ad75e36c7,
       type: 3}
-    nutsAndBoltsCost: 600
+    nutsAndBoltsCost: 500
     scientistsCost: 5
     upgradeTime: 7
   supportBuildingHealer:

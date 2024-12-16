@@ -18,20 +18,20 @@ MonoBehaviour:
         enemyChances:
         - enemyPrefab: {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741,
             type: 3}
-          spawnChancePercent: 30
+          spawnChancePercent: 40
         - enemyPrefab: {fileID: 4902633262727150827, guid: 2f31e71c1dc608743aeb3170ba45bffd,
             type: 3}
-          spawnChancePercent: 25
+          spawnChancePercent: 27
         - enemyPrefab: {fileID: 4902633262727150827, guid: 56dee33ff186b00448d90054f1c9bfbb,
             type: 3}
           spawnChancePercent: 30
         - enemyPrefab: {fileID: 6120017670994111398, guid: 8a9b359a552e8594c801856a7ce7f7f3,
             type: 3}
-          spawnChancePercent: 15
+          spawnChancePercent: 3
     delay:
-      waveDelay: 1
+      waveDelay: 5
     spawning:
-      spawnInterval: 1
+      spawnInterval: 1.5
       enemiesToSpawn: 7
       waveMultiplier: 1.5
   playerResources:

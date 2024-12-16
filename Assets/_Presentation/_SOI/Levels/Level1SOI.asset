@@ -26,9 +26,9 @@ MonoBehaviour:
             type: 3}
           spawnChancePercent: 15
     delay:
-      waveDelay: 1
+      waveDelay: 7
     spawning:
-      spawnInterval: 1
+      spawnInterval: 1.5
       enemiesToSpawn: 5
       waveMultiplier: 1.5
   playerResources:

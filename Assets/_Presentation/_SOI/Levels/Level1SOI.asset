@@ -18,19 +18,19 @@ MonoBehaviour:
         enemyChances:
         - enemyPrefab: {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741,
             type: 3}
-          spawnChancePercent: 70
+          spawnChancePercent: 65
         - enemyPrefab: {fileID: 4902633262727150827, guid: 2f31e71c1dc608743aeb3170ba45bffd,
             type: 3}
           spawnChancePercent: 15
         - enemyPrefab: {fileID: 4902633262727150827, guid: 56dee33ff186b00448d90054f1c9bfbb,
             type: 3}
-          spawnChancePercent: 15
+          spawnChancePercent: 20
     delay:
-      waveDelay: 7
+      waveDelay: 5
     spawning:
       spawnInterval: 1.5
       enemiesToSpawn: 5
-      waveMultiplier: 1.5
+      waveMultiplier: 1.75
   playerResources:
     startingNutsAndBolts: 150
     maxScientists: 10

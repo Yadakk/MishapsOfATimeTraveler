@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cannedenuum.ZenjectUtils.MonoInterfaces;
-using TimeTimers;
+using MOATT.Utils;
+using System.Linq;
 
 namespace MOATT.Levels.Enemies
 {
     public class EnemyReloader : IUpdatable
     {
-        private readonly Timer timer;
+        private readonly Dictionary<object, float> multipliers = new();
+
+        private readonly ScalableTimer timer;
         private readonly Settings settings;
 
         private bool readyToAttack = true;
 
-        public EnemyReloader(Timer timer, Settings settings)
+        public EnemyReloader(ScalableTimer timer, Settings settings)
         {
             this.timer = timer;
             this.settings = settings;
@@ -32,6 +35,32 @@ namespace MOATT.Levels.Enemies
         public void Update()
         {
             if (timer.Elapsed > settings.secondsToReload) ReadyToAttack = true;
+        }
+
+        public void AddMultiplier(object obj, float value)
+        {
+            if (multipliers.ContainsKey(obj)) return;
+            multipliers.Add(obj, value);
+            RecalculateMultiplier();
+        }
+
+        public void RemoveMultiplier(object obj)
+        {
+            if (!multipliers.ContainsKey(obj)) return;
+            multipliers.Remove(obj);
+            RecalculateMultiplier();
+        }
+
+        private void RecalculateMultiplier()
+        {
+            float totalMultiplier = 1f;
+
+            for (int i = 0; i < multipliers.Count; i++)
+            {
+                totalMultiplier *= multipliers.ElementAt(i).Value;
+            }
+
+            timer.timeScale = totalMultiplier;
         }
 
         [System.Serializable]

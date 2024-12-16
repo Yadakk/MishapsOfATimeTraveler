@@ -1,4 +1,5 @@
-﻿using MOATT.Levels.Buildings;
+﻿using MOATT.Levels.BuildingPlacement;
+using MOATT.Levels.Buildings;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,13 +13,15 @@ namespace MOATT.Abilities.Types
         private readonly Description description;
         private readonly BuildingRegistry buildingRegistry;
         private readonly Settings settings;
+        private readonly BuildingPlacementSelectorVM[] selectorVMs;
 
-        public FastRechargeUpgradeAbility(AbilityActiveDuration abilityActiveDuration, Description description, BuildingRegistry buildingRegistry, Settings settings)
+        public FastRechargeUpgradeAbility(AbilityActiveDuration abilityActiveDuration, Description description, BuildingRegistry buildingRegistry, Settings settings, BuildingPlacementSelectorVM[] selectorVMs)
         {
             AbilityActiveDuration = abilityActiveDuration;
             this.description = description;
             this.buildingRegistry = buildingRegistry;
             this.settings = settings;
+            this.selectorVMs = selectorVMs;
         }
 
         public void Initialize()
@@ -46,6 +49,11 @@ namespace MOATT.Abilities.Types
                 {
                     AddMultipliersToBuilding(buildingRegistry.buildings[i]);
                 }
+
+                for (int i = 0; i < selectorVMs.Length; i++)
+                {
+                    selectorVMs[i].BuildingInfo.AddMultiplier(this, settings.multiplier);
+                }
             }
             else
             {
@@ -53,6 +61,11 @@ namespace MOATT.Abilities.Types
                 for (int i = 0; i < buildingRegistry.buildings.Count; i++)
                 {
                     RemoveMultipliersFromBuilding(buildingRegistry.buildings[i]);
+                }
+
+                for (int i = 0; i < selectorVMs.Length; i++)
+                {
+                    selectorVMs[i].BuildingInfo.RemoveMultiplier(this);
                 }
             }
         }

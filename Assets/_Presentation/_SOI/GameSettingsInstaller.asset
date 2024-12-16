@@ -45,5 +45,11 @@ MonoBehaviour:
     removeLastAtDeltaSeconds: 30
   rewindAbility:
     rewindDeltaSeconds: 30
+  slowEnemiesAbility:
+    duration: 30
+    multiplier: 0.5
+  fastBuildingsAbility:
+    duration: 30
+    multiplier: 2
   abilityRechargeTime:
     value: 90

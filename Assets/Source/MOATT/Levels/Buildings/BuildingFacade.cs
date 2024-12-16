@@ -41,6 +41,8 @@ namespace MOATT.Levels.Buildings
         public BillboardSource BillboardSource { get; private set; }
         public BuildingUpgrader BuildingUpgrader { get; private set; }
 
+        public IMultiplyableBuildingReloader MultiplyableBuildingReloader { get; private set; }
+
         private void Start()
         {
             buildingRegistry.Add(this);
@@ -63,7 +65,8 @@ namespace MOATT.Levels.Buildings
             BillboardSource billboardSource,
             [InjectOptional] BuildingUpgrader buildingUpgrader,
             [InjectOptional] UnitReloadTime reloadTime,
-            [InjectOptional] UnitDamage unitDamage
+            [InjectOptional] UnitDamage unitDamage,
+            [InjectOptional] IMultiplyableBuildingReloader multiplyableBuildingReloader
             )
         {
             this.settings = settings;
@@ -71,6 +74,7 @@ namespace MOATT.Levels.Buildings
             this.reloadTime = reloadTime;
             this.unitDamage = unitDamage;
             Outline = outline;
+            MultiplyableBuildingReloader = multiplyableBuildingReloader;
 
             HealthModel = healthModel;
             BuildingRange = buildingRange;

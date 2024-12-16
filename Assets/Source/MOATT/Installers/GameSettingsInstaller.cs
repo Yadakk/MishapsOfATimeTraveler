@@ -30,6 +30,7 @@ namespace MOATT.Installers
 
         public RewindAbility.Settings rewindAbility;
         public SlowEnemiesAbility.Settings slowEnemiesAbility;
+        public FastBuildingsAbility.Settings fastBuildingsAbility;
 
         public AbilityRechargeTime abilityRechargeTime;
 
@@ -53,6 +54,7 @@ namespace MOATT.Installers
         {
             Container.BindInstance(rewindAbility);
             Container.BindInstance(slowEnemiesAbility);
+            Container.BindInstance(fastBuildingsAbility);
         }
     }
 }

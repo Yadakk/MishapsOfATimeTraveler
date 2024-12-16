@@ -31,3 +31,5 @@ MonoBehaviour:
     nutsAndBoltsCost: 0
     scientistsCost: 0
     upgradeTime: 0
+  supportBuildingHealer:
+    canHeal: 1

@@ -1,4 +1,5 @@
 ﻿using MOATT.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,10 @@ namespace MOATT.Abilities
     public class AbilityActiveDuration : ITickable
     {
         public float duration = 30f;
-
+        private bool isActive;
         private readonly ScalableTimer scalableTimer;
+
+        public event Action<bool> OnActiveChanged;
 
         public AbilityActiveDuration(ScalableTimer scalableTimer)
         {
@@ -18,7 +21,16 @@ namespace MOATT.Abilities
         }
 
         public ScalableTimer ScalableTimer => scalableTimer;
-        public bool IsActive { get; private set; }
+        public bool IsActive
+        {
+            get => isActive;
+            private set
+            {
+                if (value == isActive) return;
+                isActive = value;
+                OnActiveChanged?.Invoke(isActive);
+            }
+        }
 
         public void Tick()
         {

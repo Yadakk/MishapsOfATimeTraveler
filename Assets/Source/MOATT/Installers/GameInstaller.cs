@@ -14,8 +14,6 @@ namespace MOATT.Installers
 
     public class GameInstaller : MonoInstaller
     {
-        private TickableManager tickableManager;
-
         public override void InstallBindings()
         {
             Container.Bind<Timer>().AsTransient();
@@ -32,13 +30,13 @@ namespace MOATT.Installers
         {
             Container.BindInterfacesAndSelfTo<AbilityDescriptionDictionary>().AsSingle();
             Container.Bind<RewindAbility.Description>().AsSingle();
+            Container.Bind<SlowEnemiesAbility.Description>().AsSingle();
         }
 
         private void AddToTickableManager(InjectContext context, object obj)
         {
             if (obj is not ITickable tickable) return;
-            tickableManager ??= context.Container.Resolve<TickableManager>();
-            tickableManager.Add(tickable);
+            context.Container.Resolve<TickableManager>().Add(tickable);
         }
     }
 }

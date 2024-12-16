@@ -9,10 +9,12 @@ namespace MOATT.Abilities
     public class AbilityDescriptionDictionary : IInitializable
     {
         private readonly RewindAbility.Description rewindAbility;
+        private readonly SlowEnemiesAbility.Description slowEnemies;
 
-        public AbilityDescriptionDictionary(RewindAbility.Description rewindAbility)
+        public AbilityDescriptionDictionary(RewindAbility.Description rewindAbility, SlowEnemiesAbility.Description slowEnemies)
         {
             this.rewindAbility = rewindAbility;
+            this.slowEnemies = slowEnemies;
         }
 
         public Dictionary<AbilityType, object> Dictionary { get; private set; }
@@ -22,6 +24,7 @@ namespace MOATT.Abilities
             Dictionary = new()
             {
                 { AbilityType.Rewind, rewindAbility },
+                { AbilityType.SlowEnemies, slowEnemies },
             };
         }
     }

@@ -32,3 +32,5 @@ MonoBehaviour:
     nutsAndBoltsCost: 200
     scientistsCost: 3
     upgradeTime: 5
+  supportBuildingHealer:
+    canHeal: 1

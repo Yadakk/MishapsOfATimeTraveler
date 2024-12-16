@@ -21,6 +21,7 @@ namespace MOATT.Abilities
 
         private void Start()
         {
+            if (selectedAbility.ability == abilityType) toggle.isOn = true;
             toggle.onValueChanged.AddListener(ToggleValueChangedHandler);
             abilityDescription = descriptionDictionary.Dictionary.GetValueOrDefault(abilityType);
         }

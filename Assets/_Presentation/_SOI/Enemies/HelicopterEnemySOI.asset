@@ -19,7 +19,7 @@ MonoBehaviour:
       healthModel:
         maxHealth: 500
     enemyPathfinder:
-      tilesPerSecond: 0.75
+      tilesPerSecond: 0.55
       fenceIgnoreCount: 0
     unitDamage:
       value: 35

@@ -19,7 +19,7 @@ MonoBehaviour:
       healthModel:
         maxHealth: 100
     enemyPathfinder:
-      tilesPerSecond: 0.5
+      tilesPerSecond: 0.75
       fenceIgnoreCount: 0
     unitDamage:
       value: 20
@@ -27,3 +27,5 @@ MonoBehaviour:
       secondsToReload: 1
     towerDamager:
       selfDestruct: 0
+    deathHandler:
+      nutsAndBoltsReward: 50

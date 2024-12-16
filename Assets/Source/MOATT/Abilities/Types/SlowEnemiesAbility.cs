@@ -6,21 +6,30 @@ using Zenject;
 
 namespace MOATT.Abilities.Types
 {
-    public class SlowEnemiesAbility : IInitializable
+    public class SlowEnemiesAbility : Ability, IInitializable
     {
         private readonly AbilityActiveDuration abilityActiveDuration;
         private readonly Settings settings;
+        private readonly Description description;
 
-        public SlowEnemiesAbility(AbilityActiveDuration abilityActiveDuration, Settings settings = null)
+        public SlowEnemiesAbility(AbilityActiveDuration abilityActiveDuration, Settings settings, Description description)
         {
             this.abilityActiveDuration = abilityActiveDuration;
             this.settings = settings;
+            this.description = description;
         }
 
         public void Initialize()
         {
             abilityActiveDuration.duration = settings.duration;
         }
+
+        public override void Activate()
+        {
+            abilityActiveDuration.Activate();
+        }
+
+        public override string ToString() => description.ToString();
 
         [Serializable]
         public class Settings
@@ -32,7 +41,7 @@ namespace MOATT.Abilities.Types
         {
             public override string ToString()
             {
-                return string.Empty;
+                return "All enemies walk and attack twice as slow for 30 seconds";
             }
         }
     }

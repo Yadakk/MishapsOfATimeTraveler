@@ -32,10 +32,12 @@ namespace MOATT.Installers
         {
             Container.BindInterfacesAndSelfTo<AbilityDescriptionDictionary>().AsSingle();
             Container.Bind<RewindAbility.Description>().AsSingle();
+            Container.Bind<SlowEnemiesAbility.Description>().AsSingle();
         }
 
         private void AddToTickableManager(InjectContext context, object obj)
         {
+            Debug.Log(obj.GetType().FullName);
             if (obj is not ITickable tickable) return;
             tickableManager ??= context.Container.Resolve<TickableManager>();
             tickableManager.Add(tickable);

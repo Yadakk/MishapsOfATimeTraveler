@@ -22,6 +22,6 @@ MonoBehaviour:
       unitRange:
         rangeTiles: 2.5
   damage:
-    value: 10
+    value: 300
   reloadTime:
     value: 3

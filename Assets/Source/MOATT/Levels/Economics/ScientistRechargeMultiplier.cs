@@ -48,6 +48,7 @@ namespace MOATT.Levels.Economics
                 selectorVMs[i].BuildingInfo.AddMultiplier(this, Value);
             }
 
+            abilityRecharger.RemoveMultiplier(this);
             abilityRecharger.AddMultiplier(this, Value);
         }
 

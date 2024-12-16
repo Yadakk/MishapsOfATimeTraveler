@@ -25,6 +25,8 @@ namespace MOATT.Levels.Buildings
 
         private int workingScientists = 0;
 
+        public event Action OnUpgradeComplete;
+
         public BuildingUpgrader(Settings settings, PlayerResources playerResources, Timer timer, BuildingFacade facade, BuildingTunables tunables, BuildingPrototypePool buildingPrototypePool = null, BuildingFacade.Factory buildingFactory = null)
         {
             this.settings = settings;
@@ -55,6 +57,7 @@ namespace MOATT.Levels.Buildings
             playerResources.IdleScientists += workingScientists;
             buildingFactory.Create(nextLevelPrototype, new(null, tunables.initTile)).gameObject.SetActive(true);
             facade.Destroy();
+            OnUpgradeComplete?.Invoke();
         }
 
         public void Dispose()

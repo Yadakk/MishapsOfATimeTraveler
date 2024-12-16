@@ -19,6 +19,9 @@ namespace MOATT.Levels.Installers
     using Tooltips;
     using BuildingSelection;
     using MOATT.Levels.GameplayConditions;
+    using System;
+    using MOATT.Abilities.Types;
+    using MOATT.Abilities;
 
     public class LevelInstaller : MonoInstaller
     {
@@ -57,6 +60,17 @@ namespace MOATT.Levels.Installers
             Container.Bind<Tooltip>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<ScientistRechargeMultiplier>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelProgress>().AsSingle();
+
+            InstallAbilities();
+        }
+
+        private void InstallAbilities()
+        {
+            Container.BindInterfacesAndSelfTo<AbilityTypeDictionary>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelAbility>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityRecharger>().AsSingle();
+            Container.BindInterfacesAndSelfTo<RewindAbility>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SlowEnemiesAbility>().AsSingle();
         }
     }
 }

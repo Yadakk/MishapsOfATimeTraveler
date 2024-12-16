@@ -26,6 +26,7 @@ namespace MOATT.Levels.Enemies
         public event System.Action<TileFacade> OnTileReached;
         public event System.Action<TileFacade[]> OnPathCreated;
         public event System.Action OnFenceIgnoreCountChanged;
+        public event System.Action OnPositionChanged;
 
         public EnemyPathfinder(
             TileFacade[] tiles,
@@ -51,6 +52,8 @@ namespace MOATT.Levels.Enemies
             }
         }
 
+        public Tweener PathTweener => pathTweener;
+
         public void Initialize()
         {
             var towerTiles = tiles.Where(tile => tile is TowerTileFacade).ToArray();
@@ -71,7 +74,7 @@ namespace MOATT.Levels.Enemies
             Vector3[] path = tilePath.Select(tile => tile.TileCell.WorldPos).ToArray();
 
             pathTweener = facade.transform.DOPath(path, tilemapSizeMultiplier.Multiply(settings.tilesPerSecond)).
-                SetSpeedBased().SetEase(Ease.Linear).OnComplete(() => OnTileReached?.Invoke(target));
+                SetSpeedBased().SetEase(Ease.Linear).OnComplete(() => OnTileReached?.Invoke(target)).SetAutoKill(false);
         }
 
         public void RegisterBlocker(object obj)
@@ -86,6 +89,13 @@ namespace MOATT.Levels.Enemies
             if (!blockers.Contains(obj)) return;
             blockers.Remove(obj);
             if (blockers.Count == 0) pathTweener.timeScale = 1f;
+        }
+
+        public void SetPosition(float value)
+        {
+            PathTweener.fullPosition = value;
+            PathTweener.Play();
+            OnPositionChanged?.Invoke();
         }
 
         [System.Serializable]

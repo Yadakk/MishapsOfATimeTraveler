@@ -49,6 +49,8 @@ namespace MOATT.Levels.Enemies
 
             Container.BindInterfacesAndSelfTo<EnemyFenceAttacker>().AsSingle();
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<EnemyPathHistory>().AsSingle();
         }
 
         [System.Serializable]

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingFacade:
     name: Spikes LV2
-    canBePlacedOn: 2
+    canBePlacedOn: 4
     buildingType: 1
     nutsAndBoltsCost: 50
   unitDamage:

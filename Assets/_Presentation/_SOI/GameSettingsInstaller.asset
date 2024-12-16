@@ -38,3 +38,12 @@ MonoBehaviour:
     outlineColorizer:
       hoveredColor: {r: 0.30459943, g: 0.65667367, b: 0.90188676, a: 1}
       selectedColor: {r: 0.22591646, g: 0.8792453, b: 0.19077952, a: 1}
+  scientistRechargeMultiplier:
+    multiplierPerIdleScientist: 0.05
+  pathHistory:
+    savePositionEverySeconds: 1
+    removeLastAtDeltaSeconds: 30
+  rewindAbility:
+    rewindDeltaSeconds: 30
+  abilityRechargeTime:
+    value: 90

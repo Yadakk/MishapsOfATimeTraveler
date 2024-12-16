@@ -23,6 +23,7 @@ namespace MOATT.Levels.Tutorial
             BindTutorialState<TutorialScientistsState>();
             BindTutorialState<TutorialUpgradesState>();
             BindTutorialState<TutorialWinConditionsState>();
+            BindTutorialState<TutorialAbilitiesState>();
             BindTutorialState<TutorialCompleteState>();
         }
 

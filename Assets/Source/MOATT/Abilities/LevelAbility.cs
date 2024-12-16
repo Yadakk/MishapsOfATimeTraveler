@@ -14,6 +14,8 @@ namespace MOATT.Abilities
         private readonly SelectedAbilityType selectedAbilityType;
         private readonly AbilityRecharger abilityRecharger;
 
+        public event Action OnAbilityActivated;
+
         public Ability SelectedAbility { get; private set; }
 
         public LevelAbility(AbilityTypeDictionary abilityDictionary, SelectedAbilityType selectedAbilityType, AbilityRecharger abilityRecharger)
@@ -33,6 +35,7 @@ namespace MOATT.Abilities
             if (!abilityRecharger.IsReady) return;
             SelectedAbility.Activate();
             abilityRecharger.IsReady = false;
+            OnAbilityActivated?.Invoke();
         }
     }
 }

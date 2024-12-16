@@ -19,6 +19,7 @@ namespace MOATT.Levels.Enemies.Jumpers
         private void OnDestroy()
         {
             pathfinder.OnFenceIgnoreCountChanged -= Jump;
+            transform.DOKill();
         }
 
         [Inject]

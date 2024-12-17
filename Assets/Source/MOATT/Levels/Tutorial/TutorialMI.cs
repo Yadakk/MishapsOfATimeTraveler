@@ -16,11 +16,11 @@ namespace MOATT.Levels.Tutorial
             Container.BindInterfacesTo<TutorialStateInitter>().AsSingle();
             BindTutorialState<TutorialGreetingState>();
             BindTutorialState<TutorialTooltipState>();
-            BindTutorialState<TutorialEnemiesState>();
-            BindTutorialState<TutorialEnemyTypesState>(enemyTypes);
             BindTutorialState<TutorialBuildingPlacementState>();
             BindTutorialState<TutorialBuildingTypesState>();
             BindTutorialState<TutorialBuildingTriviaState>();
+            BindTutorialState<TutorialEnemiesState>();
+            BindTutorialState<TutorialEnemyTypesState>(enemyTypes);
             BindTutorialState<TutorialEarningNutsAndBoltsState>();
             BindTutorialState<TutorialScientistsState>();
             BindTutorialState<TutorialUpgradesState>();

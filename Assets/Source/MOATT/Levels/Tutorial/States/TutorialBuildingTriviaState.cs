@@ -8,12 +8,12 @@ namespace MOATT.Levels.Tutorial.States
     public class TutorialBuildingTriviaState : TutorialState
     {
         private readonly TutorialWindow tutorialWindow;
-        private readonly TutorialEarningNutsAndBoltsState tutorialEarningNutsAndBoltsState;
+        private readonly TutorialEnemiesState nextState;
 
-        public TutorialBuildingTriviaState(TutorialWindow tutorialWindow, TutorialEarningNutsAndBoltsState tutorialEarningNutsAndBoltsState)
+        public TutorialBuildingTriviaState(TutorialWindow tutorialWindow, TutorialEnemiesState nextState)
         {
             this.tutorialWindow = tutorialWindow;
-            this.tutorialEarningNutsAndBoltsState = tutorialEarningNutsAndBoltsState;
+            this.nextState = nextState;
         }
 
         public override void Start()
@@ -23,7 +23,7 @@ namespace MOATT.Levels.Tutorial.States
             sb.AppendLine("You can't place this building while it's recharging.");
             sb.AppendLine("Also if you don't have enough Nuts and Bolts, the main currency, you can't place this building either.");
             tutorialWindow.SetTextContent(sb.ToString());
-            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialEarningNutsAndBoltsState));
+            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(nextState));
         }
     }
 }

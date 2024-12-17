@@ -19,8 +19,10 @@ MonoBehaviour:
         - enemyPrefab: {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741,
             type: 3}
           spawnChancePercent: 100
+      waveStateMachine:
+        startOnInit: 0
     delay:
-      waveDelay: 20
+      waveDelay: 5
     spawning:
       spawnInterval: 1
       enemiesToSpawn: 5

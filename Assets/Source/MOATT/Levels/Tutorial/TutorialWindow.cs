@@ -28,6 +28,11 @@ namespace MOATT.Levels.Tutorial
             collapsedY = -rt.sizeDelta.y;
         }
 
+        private void Update()
+        {
+            state?.Update();
+        }
+
         public void SetCollapsed(bool value)
         {
             rt.anchoredPosition = new(rt.anchoredPosition.x, value ? collapsedY : displayedY);

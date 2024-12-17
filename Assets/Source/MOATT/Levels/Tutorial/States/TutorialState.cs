@@ -12,6 +12,11 @@ namespace MOATT.Levels.Tutorial.States
 
         }
 
+        public virtual void Update()
+        {
+
+        }
+
         public virtual void Dispose()
         {
 

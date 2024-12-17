@@ -9,13 +9,15 @@ namespace MOATT.Levels.Tutorial
 
     public class TutorialMI : MonoInstaller
     {
+        public TutorialEnemyTypesState.Settings enemyTypes;
+
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<TutorialStateInitter>().AsSingle();
             BindTutorialState<TutorialGreetingState>();
             BindTutorialState<TutorialTooltipState>();
             BindTutorialState<TutorialEnemiesState>();
-            BindTutorialState<TutorialEnemyTypesState>();
+            BindTutorialState<TutorialEnemyTypesState>(enemyTypes);
             BindTutorialState<TutorialBuildingPlacementState>();
             BindTutorialState<TutorialBuildingTypesState>();
             BindTutorialState<TutorialBuildingTriviaState>();
@@ -30,6 +32,11 @@ namespace MOATT.Levels.Tutorial
         private void BindTutorialState<T>() where T : TutorialState
         {
             Container.BindInterfacesAndSelfTo<T>().AsSingle();
+        }
+
+        private void BindTutorialState<T>(object args) where T : TutorialState
+        {
+            Container.BindInterfacesAndSelfTo<T>().AsSingle().WithArguments(args);
         }
     }
 }

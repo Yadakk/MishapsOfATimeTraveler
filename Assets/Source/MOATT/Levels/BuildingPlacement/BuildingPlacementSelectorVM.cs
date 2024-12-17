@@ -24,6 +24,12 @@ namespace MOATT.Levels.BuildingPlacement
         [SerializeField]
         private Image chargeFill;
 
+        [SerializeField]
+        private Image image;
+
+        [SerializeField]
+        private Color selectedColor = Color.green;
+
         private BuildingPlacementSelector selector;
         private PlayerResources playerResources;
         private Tooltip tooltip;
@@ -35,6 +41,17 @@ namespace MOATT.Levels.BuildingPlacement
         {
             BuildingInfo.rechargeTime = rechargeTime;
             BuildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
+            selector.OnBuildingSelected += BuildingSelectedHandler;
+        }
+
+        private void OnDestroy()
+        {
+            selector.OnBuildingSelected -= BuildingSelectedHandler;
+        }
+
+        private void BuildingSelectedHandler(BuildingPlacementBuildingInfo info)
+        {
+            image.color = info == BuildingInfo ? selectedColor : Color.white;
         }
 
         private void Update()

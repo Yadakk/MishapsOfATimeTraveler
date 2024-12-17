@@ -18,7 +18,7 @@ namespace MOATT.Levels.Tutorial.States
     public class TutorialEnemyTypesState : TutorialState
     {
         private readonly TutorialWindow tutorialWindow;
-        private readonly TutorialBuildingPlacementState tutorialBuildingPlacementState;
+        private readonly TutorialEarningNutsAndBoltsState nextState;
         private readonly WaveStateMachine waveStateMachine;
         private readonly SpawnerTileFacade[] spawners;
         private readonly Timer timer;
@@ -27,10 +27,10 @@ namespace MOATT.Levels.Tutorial.States
 
         private int enemyIndex = 0;
 
-        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialBuildingPlacementState tutorialBuildingPlacementState, WaveStateMachine waveStateMachine, TileFacade[] tiles, Timer timer, Settings settings, BillboardGroupFacade billboardGroup)
+        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialEarningNutsAndBoltsState nextState, WaveStateMachine waveStateMachine, TileFacade[] tiles, Timer timer, Settings settings, BillboardGroupFacade billboardGroup)
         {
             this.tutorialWindow = tutorialWindow;
-            this.tutorialBuildingPlacementState = tutorialBuildingPlacementState;
+            this.nextState = nextState;
             this.waveStateMachine = waveStateMachine;
             spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
             this.timer = timer;
@@ -47,7 +47,7 @@ namespace MOATT.Levels.Tutorial.States
             sb.AppendLine("Helicopter - attacks your buildings without stopping. Once it reaches your main tower, deals damage equivalent to it's health and disappears.");
             sb.AppendLine("Jumper - fast and weak. Can jump over fences once.");
             tutorialWindow.SetTextContent(sb.ToString());
-            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialBuildingPlacementState));
+            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(nextState));
         }
 
         public override void Dispose()
@@ -69,6 +69,7 @@ namespace MOATT.Levels.Tutorial.States
 
             enemy.OnDestroyed += () =>
             {
+                if (billboard == null) return;
                 if (billboard.gameObject == null) return;
                 UnityEngine.Object.Destroy(billboard.gameObject);
             };

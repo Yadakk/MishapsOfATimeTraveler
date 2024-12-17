@@ -10,13 +10,13 @@ namespace MOATT.Levels.Tutorial.States
     {
         private readonly TutorialWindow tutorialWindow;
         private readonly Tooltip tooltip;
-        private readonly TutorialEnemiesState tutorialEnemiesState;
+        private readonly TutorialBuildingPlacementState nextState;
 
-        public TutorialTooltipState(TutorialWindow tutorialWindow, Tooltip tooltip, TutorialEnemiesState tutorialEnemiesState)
+        public TutorialTooltipState(TutorialWindow tutorialWindow, Tooltip tooltip, TutorialBuildingPlacementState nextState)
         {
             this.tutorialWindow = tutorialWindow;
             this.tooltip = tooltip;
-            this.tutorialEnemiesState = tutorialEnemiesState;
+            this.nextState = nextState;
         }
 
         public override void Start()
@@ -39,7 +39,7 @@ namespace MOATT.Levels.Tutorial.States
         private void StepComplete()
         {
             tutorialWindow.SetActiveNextButton(true);
-            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialEnemiesState));
+            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(nextState));
         }
     }
 }

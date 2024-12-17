@@ -57,6 +57,8 @@ MonoBehaviour:
     type: 3}
   rechargeTime: 7
   chargeFill: {fileID: 3017949486632872131}
+  image: {fileID: 1896950154758145270}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7814427941583554208
 MonoBehaviour:
   m_ObjectHideFlags: 0

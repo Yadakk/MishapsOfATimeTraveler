@@ -13,6 +13,7 @@ namespace MOATT.Installers
     using MOATT.Levels.Enemies;
     using MOATT.Abilities.Types;
     using MOATT.Abilities;
+    using MOATT.Particles;
 
     [CreateAssetMenu(fileName = nameof(GameSettingsInstaller),
         menuName = "Installers/" + nameof(GameSettingsInstaller))]
@@ -35,6 +36,8 @@ namespace MOATT.Installers
 
         public AbilityRechargeTime abilityRechargeTime;
 
+        public OneShotParticle exlposionPrefab;
+
         public override void InstallBindings()
         {
             Container.BindInstance(billboardSource);
@@ -47,6 +50,7 @@ namespace MOATT.Installers
             Container.BindInstance(scientistRechargeMultiplier);
             Container.BindInstance(pathHistory);
             Container.BindInstance(abilityRechargeTime);
+            Container.BindInstance(exlposionPrefab);
 
             InstallAbilities();
         }

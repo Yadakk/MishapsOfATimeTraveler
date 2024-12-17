@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace MOATT.Levels.Tutorial.States
 {
-    public class TutorialGreetingState : TutorialState
+    public class TutorialCameraState : TutorialState
     {
         private readonly TutorialWindow tutorialWindow;
-        private readonly TutorialCameraState nextState;
+        private readonly TutorialTooltipState nextState;
 
-        public TutorialGreetingState(TutorialWindow tutorialWindow, TutorialCameraState nextState)
+        public TutorialCameraState(TutorialWindow tutorialWindow, TutorialTooltipState nextState)
         {
             this.tutorialWindow = tutorialWindow;
             this.nextState = nextState;
@@ -19,9 +19,11 @@ namespace MOATT.Levels.Tutorial.States
         public override void Start()
         {
             StringBuilder sb = new();
-            sb.AppendLine("Welcome to the tutorial.");
-            sb.AppendLine("This window can be collapsed with the button on top.");
-            sb.AppendLine("Press \"Next\" to proceed to next page.");
+            sb.AppendLine("Here are camera controls:");
+            sb.AppendLine("Middle mouse button or WASD to pan.");
+            sb.AppendLine("Right click or Z/X to rotate.");
+            sb.AppendLine("Mouse scroll or E/Q to move up and down.");
+            sb.AppendLine("Left click is used for interaction.");
             tutorialWindow.SetTextContent(sb.ToString());
             tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(nextState));
         }

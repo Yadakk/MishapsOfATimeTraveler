@@ -1,4 +1,5 @@
-﻿using MOATT.Levels.Enemies;
+﻿using MOATT.Levels.BillboardGroup;
+using MOATT.Levels.Enemies;
 using MOATT.Levels.Tiles;
 using MOATT.Levels.Waves;
 using MOATT.Levels.Waves.States;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TimeTimers;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.Random;
 
@@ -21,10 +23,11 @@ namespace MOATT.Levels.Tutorial.States
         private readonly SpawnerTileFacade[] spawners;
         private readonly Timer timer;
         private readonly Settings settings;
+        private readonly BillboardGroupFacade billboardGroup;
 
         private int enemyIndex = 0;
 
-        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialBuildingPlacementState tutorialBuildingPlacementState, WaveStateMachine waveStateMachine, TileFacade[] tiles, Timer timer, Settings settings)
+        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialBuildingPlacementState tutorialBuildingPlacementState, WaveStateMachine waveStateMachine, TileFacade[] tiles, Timer timer, Settings settings, BillboardGroupFacade billboardGroup)
         {
             this.tutorialWindow = tutorialWindow;
             this.tutorialBuildingPlacementState = tutorialBuildingPlacementState;
@@ -32,6 +35,7 @@ namespace MOATT.Levels.Tutorial.States
             spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
             this.timer = timer;
             this.settings = settings;
+            this.billboardGroup = billboardGroup;
         }
 
         public override void Start()
@@ -55,7 +59,20 @@ namespace MOATT.Levels.Tutorial.States
         {
             if (timer.Elapsed < settings.spawnInterval) return;
             if (enemyIndex >= settings.displayEnemies.Length) return;
-            spawners[Range(0, spawners.Length)].Spawn(settings.displayEnemies[enemyIndex]);
+            var enemy = spawners[Range(0, spawners.Length)].Spawn(settings.displayEnemies[enemyIndex]);
+
+            GameObject nameBillboard = UnityEngine.Object.Instantiate(settings.nameBillboard, enemy.transform);
+            TextMeshProUGUI tmpuBillboard = nameBillboard.GetComponent<TextMeshProUGUI>();
+            tmpuBillboard.text = enemy.Name;
+
+            var billboard = billboardGroup.AddBillboard(enemy.BillboardSource, nameBillboard);
+
+            enemy.OnDestroyed += () =>
+            {
+                if (billboard.gameObject == null) return;
+                UnityEngine.Object.Destroy(billboard.gameObject);
+            };
+
             enemyIndex++;
             timer.Reset();
         }
@@ -65,6 +82,7 @@ namespace MOATT.Levels.Tutorial.States
         {
             public float spawnInterval = 3f;
             public EnemyFacade[] displayEnemies;
+            public GameObject nameBillboard;
         }
     }
 }

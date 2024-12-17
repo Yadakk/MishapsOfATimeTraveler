@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy:
     facade:
+      name: Destroyer
       isFlying: 0
     unitHealthSettings:
       healthModel:

@@ -154,8 +154,8 @@ RectTransform:
   m_Children:
   - {fileID: 2098915616}
   - {fileID: 1170977077}
-  - {fileID: 956961724}
   - {fileID: 1322433710}
+  - {fileID: 956961724}
   m_Father: {fileID: 1414109934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   loadingScreenPrefab: {fileID: 1306486288591981687, guid: 62fa37ed862fd29458fe6a1a68b93ef3,
     type: 3}
   canvasTransform: {fileID: 1414109934}
-  sceneName: Level2
+  sceneName: Level3
 --- !u!114 &956961727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   loadingScreenPrefab: {fileID: 1306486288591981687, guid: 62fa37ed862fd29458fe6a1a68b93ef3,
     type: 3}
   canvasTransform: {fileID: 1414109934}
-  sceneName: Level3
+  sceneName: Level2
 --- !u!114 &1322433713
 MonoBehaviour:
   m_ObjectHideFlags: 0

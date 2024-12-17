@@ -15,13 +15,15 @@ namespace MOATT.Levels.Enemies
         private readonly EnemyFacade facade;
         private readonly PlayerResources playerResources;
         private readonly Settings settings;
+        private readonly EnemyExplosionParticleEmitter particleEmitter;
 
-        public EnemyDeathHandler(HealthWatcher healthWatcher, EnemyFacade facade, PlayerResources playerResources, Settings settings = null)
+        public EnemyDeathHandler(HealthWatcher healthWatcher, EnemyFacade facade, PlayerResources playerResources, Settings settings = null, EnemyExplosionParticleEmitter particleEmitter = null)
         {
             this.healthWatcher = healthWatcher;
             this.facade = facade;
             this.playerResources = playerResources;
             this.settings = settings;
+            this.particleEmitter = particleEmitter;
         }
 
         public void Initialize()
@@ -36,6 +38,7 @@ namespace MOATT.Levels.Enemies
 
         private void DiedHandler()
         {
+            particleEmitter.EmitParticles();
             facade.Destroy();
             playerResources.NutsAndBolts += settings.nutsAndBoltsReward;
         }

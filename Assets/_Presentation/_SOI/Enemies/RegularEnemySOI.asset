@@ -30,3 +30,5 @@ MonoBehaviour:
       selfDestruct: 0
     deathHandler:
       nutsAndBoltsReward: 50
+    explosionPrefab: {fileID: 7234068217134403234, guid: fbe2b9533dadeda4ba79f3730f9606d9,
+      type: 3}

@@ -30,6 +30,8 @@ MonoBehaviour:
       selfDestruct: 1
     deathHandler:
       nutsAndBoltsReward: 175
+    explosionPrefab: {fileID: 7234068217134403234, guid: a54fa0dd27cae724e825e32e7df47799,
+      type: 3}
   destroyerEnemy:
     unitRangeInstaller:
       unitRange:

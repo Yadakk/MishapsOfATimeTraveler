@@ -21,6 +21,7 @@ namespace MOATT.Levels.Waves
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<WaveStateMachine>().AsSingle().WithArguments(settings.waveStateMachine);
             Container.Bind<EnemyRegistry>().AsSingle();
             Container.BindFactory<Object, EnemyTunables, EnemyFacade, EnemyFacade.Factory>().
                 FromIFactory(x => x.To<TunablePrefabFactory<EnemyTunables, EnemyFacade>>().
@@ -35,6 +36,7 @@ namespace MOATT.Levels.Waves
         public class Settings
         {
             public SpawnChanceDistribution.Settings spawnChanceDistribution;
+            public WaveStateMachine.Settings waveStateMachine;
         }
     }
 }

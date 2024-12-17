@@ -39,7 +39,6 @@ namespace MOATT.Levels.Installers
             Container.Bind<Tilemap>().FromComponentInHierarchy().AsSingle();
             Container.Bind<TilemapSizeMultiplier>().AsSingle();
             Container.Bind<TileFacade>().FromComponentsInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<WaveStateMachine>().AsSingle();
             Container.BindInterfacesAndSelfTo<TileRaycaster>().AsSingle();
             Container.Bind<BuildingRegistry>().AsSingle();
         }

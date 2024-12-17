@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using MOATT.Levels.Waves;
+using MOATT.Levels.Waves.States;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -9,11 +11,13 @@ namespace MOATT.Levels.Tutorial.States
     {
         private readonly TutorialWindow tutorialWindow;
         private readonly TutorialBuildingPlacementState tutorialBuildingPlacementState;
+        private readonly WaveStateMachine waveStateMachine;
 
-        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialBuildingPlacementState tutorialBuildingPlacementState)
+        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialBuildingPlacementState tutorialBuildingPlacementState, WaveStateMachine waveStateMachine)
         {
             this.tutorialWindow = tutorialWindow;
             this.tutorialBuildingPlacementState = tutorialBuildingPlacementState;
+            this.waveStateMachine = waveStateMachine;
         }
 
         public override void Start()
@@ -26,6 +30,11 @@ namespace MOATT.Levels.Tutorial.States
             sb.AppendLine("Jumper - fast and weak. Can jump over fences once.");
             tutorialWindow.SetTextContent(sb.ToString());
             tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialBuildingPlacementState));
+        }
+
+        public override void Dispose()
+        {
+            waveStateMachine.SetState<Delay>();
         }
     }
 }

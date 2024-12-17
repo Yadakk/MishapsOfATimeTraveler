@@ -10,6 +10,7 @@ namespace MOATT.Levels.Health
         private float maxHealth;
 
         public event System.Action OnHealthChanged;
+        public event System.Action<float, float> OnHealthChangedOldNew;
         public event System.Action OnMaxHealthChanged;
 
         public HealthModel(Settings settings)
@@ -35,9 +36,11 @@ namespace MOATT.Levels.Health
             set
             {
                 if (value == currentHealth) return;
+                float oldHealth = currentHealth;
                 currentHealth = value;
                 if (currentHealth > MaxHealth) currentHealth = MaxHealth;
                 OnHealthChanged?.Invoke();
+                OnHealthChangedOldNew?.Invoke(oldHealth, currentHealth);
             }
         }
 

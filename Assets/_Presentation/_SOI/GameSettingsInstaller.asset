@@ -56,3 +56,5 @@ MonoBehaviour:
     multiplier: 2
   abilityRechargeTime:
     value: 90
+  exlposionPrefab: {fileID: 7234068217134403234, guid: 48c177dbc3428df4e884e3e634e1df97,
+    type: 3}

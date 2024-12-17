@@ -69,6 +69,7 @@ namespace MOATT.Levels.Tutorial.States
 
             enemy.OnDestroyed += () =>
             {
+                if (billboard == null) return;
                 if (billboard.gameObject == null) return;
                 UnityEngine.Object.Destroy(billboard.gameObject);
             };

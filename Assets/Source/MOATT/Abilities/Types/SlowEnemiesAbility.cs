@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace MOATT.Abilities.Types
@@ -12,6 +13,8 @@ namespace MOATT.Abilities.Types
         private readonly Settings settings;
         private readonly Description description;
         private readonly EnemyRegistry enemyRegistry;
+
+        public override Sprite Sprite => settings.sprite;
 
         public SlowEnemiesAbility(AbilityActiveDuration abilityActiveDuration, Settings settings, Description description, EnemyRegistry enemyRegistry)
         {
@@ -71,6 +74,7 @@ namespace MOATT.Abilities.Types
         {
             public float duration = 30f;
             public float multiplier = 0.5f;
+            public Sprite sprite;
         }
 
         public class Description

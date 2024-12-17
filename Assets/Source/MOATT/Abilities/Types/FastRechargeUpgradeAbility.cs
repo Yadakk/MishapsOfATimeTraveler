@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace MOATT.Abilities.Types
@@ -14,6 +15,8 @@ namespace MOATT.Abilities.Types
         private readonly BuildingRegistry buildingRegistry;
         private readonly Settings settings;
         private readonly BuildingPlacementSelectorVM[] selectorVMs;
+
+        public override Sprite Sprite => settings.sprite;
 
         public FastRechargeUpgradeAbility(AbilityActiveDuration abilityActiveDuration, Description description, BuildingRegistry buildingRegistry, Settings settings, BuildingPlacementSelectorVM[] selectorVMs)
         {
@@ -89,6 +92,7 @@ namespace MOATT.Abilities.Types
         {
             public float duration = 30f;
             public float multiplier = 2f;
+            public Sprite sprite;
         }
 
         public class Description

@@ -20,15 +20,13 @@ namespace MOATT.Sound
 
         private void Start()
         {
-            if (!mixer.GetFloat(exposedParamName, out float value)) 
-                throw new Exception($"mixer has no param called {exposedParamName}");
-            slider.value = value;
+            mixer.GetFloat(exposedParamName, out float value);
+            slider.value = Mathf.Pow(Mathf.InverseLerp(-80f, 0f, value), 5);
         }
 
         private void SliderValueChanged(float value)
         {
-            if (!mixer.SetFloat(exposedParamName, value))
-                throw new Exception($"mixer has no param called {exposedParamName}");
+            mixer.SetFloat(exposedParamName, Mathf.Lerp(-80f, 0f, Mathf.Pow(value, 0.2f)));
         }
     }
 }

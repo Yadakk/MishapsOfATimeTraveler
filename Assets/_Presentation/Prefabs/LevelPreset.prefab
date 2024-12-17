@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 0
+  lastTab: 1
   movementSettingsFoldout: 1
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 1
@@ -3445,7 +3445,7 @@ MonoBehaviour:
   keyboardMovementSpeed: 60
   screenEdgeMovementSpeed: 3
   followingSpeed: 5
-  rotationSped: 3
+  rotationSped: 100
   panningSpeed: 100
   mouseRotationSpeed: -200
   autoHeight: 1

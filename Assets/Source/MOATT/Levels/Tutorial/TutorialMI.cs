@@ -15,6 +15,7 @@ namespace MOATT.Levels.Tutorial
         {
             Container.BindInterfacesTo<TutorialStateInitter>().AsSingle();
             BindTutorialState<TutorialGreetingState>();
+            BindTutorialState<TutorialCameraState>();
             BindTutorialState<TutorialTooltipState>();
             BindTutorialState<TutorialBuildingPlacementState>();
             BindTutorialState<TutorialBuildingTypesState>();

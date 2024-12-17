@@ -17,15 +17,15 @@ namespace MOATT.Levels.Buildings.Bombs
         private readonly BuildingFacade facade;
         private readonly UnitRange unitRange;
         private readonly UnitDamage unitDamage;
-        private readonly OneShotParticle exlposionPrefab;
+        private readonly OneShotParticle explosionPrefab;
 
-        public BombExploder(EnemyRegistry enemyRegistry, BuildingFacade facade, UnitDamage unitDamage, UnitRange unitRange, OneShotParticle exlposionPrefab)
+        public BombExploder(EnemyRegistry enemyRegistry, BuildingFacade facade, UnitDamage unitDamage, UnitRange unitRange, OneShotParticle explosionPrefab)
         {
             this.enemyRegistry = enemyRegistry;
             this.facade = facade;
             this.unitDamage = unitDamage;
             this.unitRange = unitRange;
-            this.exlposionPrefab = exlposionPrefab;
+            this.explosionPrefab = explosionPrefab;
         }
 
         public void Explode()
@@ -39,7 +39,7 @@ namespace MOATT.Levels.Buildings.Bombs
                 enemy.Damage(unitDamage.Value);
             }
 
-            Object.Instantiate(exlposionPrefab, facade.transform.position, Quaternion.identity, facade.transform.parent);
+            Object.Instantiate(explosionPrefab, facade.transform.position, Quaternion.identity, facade.transform.parent);
             facade.Destroy();
         }
     }

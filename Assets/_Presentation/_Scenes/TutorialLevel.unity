@@ -7729,6 +7729,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1263242863683774028, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263242863683774028, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2742194439324831820, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: limitX
@@ -21868,6 +21878,8 @@ MonoBehaviour:
     - {fileID: 4902633262727150827, guid: 2f31e71c1dc608743aeb3170ba45bffd, type: 3}
     - {fileID: 6120017670994111398, guid: 8a9b359a552e8594c801856a7ce7f7f3, type: 3}
     - {fileID: 7397318464504742507, guid: 12a7cd74a04da0d4eb05730258871047, type: 3}
+    nameBillboard: {fileID: 3432712724259829041, guid: 99e07f555c029b44fbd2d44e9d17cedd,
+      type: 3}
 --- !u!114 &1374879807
 MonoBehaviour:
   m_ObjectHideFlags: 0

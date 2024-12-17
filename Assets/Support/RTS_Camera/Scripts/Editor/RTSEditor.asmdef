@@ -1,8 +1,12 @@
 {
-    "name": "RTS_Camera",
+    "name": "Editor",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "GUID:4d61c05482c952b4e9ba5c5b0c178df4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

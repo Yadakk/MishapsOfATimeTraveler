@@ -40,7 +40,7 @@ MonoBehaviour:
       enemiesToSpawn: 10
       waveMultiplier: 2
   playerResources:
-    startingNutsAndBolts: 1000000
+    startingNutsAndBolts: 600
     maxScientists: 10
   levelProgress:
     timeLimitSeconds: 420

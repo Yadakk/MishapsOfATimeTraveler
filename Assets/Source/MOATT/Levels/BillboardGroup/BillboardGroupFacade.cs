@@ -21,6 +21,7 @@ namespace MOATT.Levels.BillboardGroup
         {
             var billboard = billboardFactory.Create(source);
             billboard.SetGUI(gui);
+            billboard.Refresh();
             return billboard;
         }
     }

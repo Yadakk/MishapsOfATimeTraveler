@@ -5,7 +5,7 @@ using Zenject;
 
 namespace MOATT.Levels.Billboards
 {
-    public class BillboardPositioner : IInitializable, ITickable
+    public class BillboardPositioner : ITickable
     {
         public readonly BillboardFacade facade;
         private readonly Camera camera;
@@ -21,11 +21,6 @@ namespace MOATT.Levels.Billboards
         }
 
         public BillboardSource Source { get => source; set => source = value; }
-
-        public void Initialize()
-        {
-            UpdatePosition();
-        }
 
         public void Tick()
         {

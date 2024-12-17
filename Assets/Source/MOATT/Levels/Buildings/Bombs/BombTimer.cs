@@ -13,16 +13,23 @@ namespace MOATT.Levels.Buildings.Bombs
         private readonly Timer timer;
         private readonly UnitReloadTime reloadTime;
         private readonly BombExploder exploder;
+        private readonly Renderer[] renderers;
 
-        public BombTimer(Timer timer, UnitReloadTime reloadTime, BombExploder exploder)
+        public BombTimer(Timer timer, UnitReloadTime reloadTime, BombExploder exploder, Renderer[] renderers)
         {
             this.timer = timer;
             this.reloadTime = reloadTime;
             this.exploder = exploder;
+            this.renderers = renderers;
         }
 
         public void Update()
         {
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                renderers[i].material.color = Color.Lerp(Color.white, Color.red, timer.Elapsed / reloadTime.Value);
+            }
+
             if (timer.Elapsed >= reloadTime.Value)
                 exploder.Explode();
         }

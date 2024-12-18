@@ -18,8 +18,9 @@ namespace MOATT.Levels.Enemies.Destroyers
         private readonly EnemyPathfinder pathfinder;
         private readonly EnemyReloader enemyReloader;
         private readonly UnitDamage unitDamage;
+        private readonly IAttackAnimator attackAnimator;
 
-        public DestroyerEnemyAttacker(Settings settings, BuildingRegistry buildingRegistry = null, UnitRange unitRange = null, EnemyFacade facade = null, EnemyPathfinder pathfinder = null, EnemyReloader enemyReloader = null, UnitDamage unitDamage = null)
+        public DestroyerEnemyAttacker(Settings settings, BuildingRegistry buildingRegistry = null, UnitRange unitRange = null, EnemyFacade facade = null, EnemyPathfinder pathfinder = null, EnemyReloader enemyReloader = null, UnitDamage unitDamage = null, IAttackAnimator attackAnimator = null)
         {
             this.settings = settings;
             this.buildingRegistry = buildingRegistry;
@@ -28,6 +29,7 @@ namespace MOATT.Levels.Enemies.Destroyers
             this.pathfinder = pathfinder;
             this.enemyReloader = enemyReloader;
             this.unitDamage = unitDamage;
+            this.attackAnimator = attackAnimator;
         }
 
         public void Update()
@@ -40,6 +42,7 @@ namespace MOATT.Levels.Enemies.Destroyers
                 if (enemyReloader.ReadyToAttack)
                 {
                     building.Damage(unitDamage.Value);
+                    attackAnimator?.Play(building.transform.position);
                     enemyReloader.ReadyToAttack = false;
                 }
             }

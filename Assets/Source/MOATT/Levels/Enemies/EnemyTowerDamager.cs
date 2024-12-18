@@ -13,7 +13,7 @@ namespace MOATT.Levels.Enemies
     using UnityEngine.UI;
     using System;
 
-    public class EnemyTowerDamager : IInitializable, System.IDisposable, IUpdatable
+    public class EnemyTowerDamager : IInitializable, IDisposable, IUpdatable
     {
         private readonly EnemyPathfinder navigator;
         private readonly UnitDamage unitDamage;
@@ -22,10 +22,11 @@ namespace MOATT.Levels.Enemies
         private readonly EnemyFacade facade;
         private readonly Settings settings;
         private readonly EnemyExplosionParticleEmitter particleEmitter;
+        private readonly IAttackAnimator attackAnimator;
 
         private BuildingFacade tower;
 
-        public EnemyTowerDamager(EnemyPathfinder navigator, EnemyReloader reloader = null, UnitDamage unitDamage = null, HealthModel healthModel = null, Settings settings = null, EnemyFacade facade = null, EnemyExplosionParticleEmitter particleEmitter = null)
+        public EnemyTowerDamager(EnemyPathfinder navigator, EnemyReloader reloader = null, UnitDamage unitDamage = null, HealthModel healthModel = null, Settings settings = null, EnemyFacade facade = null, EnemyExplosionParticleEmitter particleEmitter = null, IAttackAnimator attackAnimator = null)
         {
             this.navigator = navigator;
             this.reloader = reloader;
@@ -34,6 +35,7 @@ namespace MOATT.Levels.Enemies
             this.settings = settings;
             this.facade = facade;
             this.particleEmitter = particleEmitter;
+            this.attackAnimator = attackAnimator;
         }
 
         public void Initialize()
@@ -51,6 +53,7 @@ namespace MOATT.Levels.Enemies
         {
             if (tower == null) return;
             if (!reloader.ReadyToAttack) return;
+            attackAnimator?.Play(tower.transform.position);
             tower.Damage(unitDamage.Value);
             reloader.ReadyToAttack = false;
         }

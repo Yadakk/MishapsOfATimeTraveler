@@ -17,6 +17,7 @@ MonoBehaviour:
     canBePlacedOn: 0
     buildingType: 2
     nutsAndBoltsCost: 100
+    healable: 0
   towerInstallerSettings:
     unitHealth:
       healthModel:

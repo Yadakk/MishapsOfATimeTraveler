@@ -29,6 +29,7 @@ namespace MOATT.Levels.Enemies
         public event System.Action<TileFacade[]> OnPathCreated;
         public event System.Action OnFenceIgnoreCountChanged;
         public event System.Action OnPositionChanged;
+        public event System.Action<float> OnTimescaleChanged;
 
         public EnemyPathfinder(
             TileFacade[] tiles,
@@ -55,6 +56,7 @@ namespace MOATT.Levels.Enemies
         }
 
         public Tweener PathTweener => pathTweener;
+        public float TilesPerSecond => settings.tilesPerSecond;
 
         public void Initialize()
         {
@@ -130,6 +132,7 @@ namespace MOATT.Levels.Enemies
         private void RecalculateTimeScale()
         {
             pathTweener.timeScale = blockers.Count == 0 ? 1f * multiplier : 0f;
+            OnTimescaleChanged?.Invoke(pathTweener.timeScale);
         }
 
         [System.Serializable]

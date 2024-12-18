@@ -2,8 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace MOATT.Abilities.Types
@@ -13,6 +13,8 @@ namespace MOATT.Abilities.Types
         private readonly Description description;
         private readonly BuildingRegistry buildingRegistry;
         private readonly Settings settings;
+
+        public override Sprite Sprite => settings.sprite;
 
         public FastBuildingsAbility(AbilityActiveDuration abilityActiveDuration, Description description, BuildingRegistry buildingRegistry, Settings settings)
         {
@@ -77,6 +79,7 @@ namespace MOATT.Abilities.Types
         {
             public float duration = 30f;
             public float multiplier = 0.5f;
+            public Sprite sprite;
         }
 
         public class Description

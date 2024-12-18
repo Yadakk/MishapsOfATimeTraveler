@@ -45,15 +45,19 @@ MonoBehaviour:
     removeLastAtDeltaSeconds: 30
   rewindAbility:
     rewindDeltaSeconds: 30
+    sprite: {fileID: 21300000, guid: ffe73cec1cf21c4408c345bd036a1f38, type: 3}
   slowEnemiesAbility:
     duration: 30
     multiplier: 0.5
+    sprite: {fileID: 21300000, guid: 1000955b7af2a2b4a9f5b7e3ac78ccfb, type: 3}
   fastBuildingsAbility:
     duration: 30
     multiplier: 2
+    sprite: {fileID: 21300000, guid: 97d72125b9522f847b5f1b6ed80cb16f, type: 3}
   fastRechargeUpgradeAbility:
     duration: 30
     multiplier: 2
+    sprite: {fileID: 21300000, guid: c75f87b5543e7234dbfa6f00e48ff9bc, type: 3}
   abilityRechargeTime:
     value: 90
   exlposionPrefab: {fileID: 7234068217134403234, guid: 48c177dbc3428df4e884e3e634e1df97,

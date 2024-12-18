@@ -9,6 +9,7 @@ namespace MOATT.Levels.Enemies
     using Units.Damage;
     using MOATT.Levels.Billboards;
     using MOATT.Levels.BoundsCalculation;
+    using MOATT.Particles;
 
     public class EnemyInstaller : Installer
     {
@@ -51,6 +52,9 @@ namespace MOATT.Levels.Enemies
             Container.BindInterfacesAndSelfTo<BillboardSource>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<EnemyPathHistory>().AsSingle();
+
+            Container.BindInstance(settings.explosionPrefab).AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyExplosionParticleEmitter>().AsSingle();
         }
 
         [System.Serializable]
@@ -63,6 +67,7 @@ namespace MOATT.Levels.Enemies
             public EnemyReloader.Settings reloader;
             public EnemyTowerDamager.Settings towerDamager;
             public EnemyDeathHandler.Settings deathHandler;
+            public OneShotParticle explosionPrefab;
         }
     }
 }

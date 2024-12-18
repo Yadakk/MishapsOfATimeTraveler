@@ -16,7 +16,7 @@ namespace MOATT.Particles
 
         private void Destroy()
         {
-
+            Destroy(gameObject);
         }
     }
 }

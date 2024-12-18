@@ -17,6 +17,7 @@ MonoBehaviour:
     canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 200
+    healable: 0
   unitReloadTime:
     value: 1.25
   unitDamage:

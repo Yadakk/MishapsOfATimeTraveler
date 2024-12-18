@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MOATT.Abilities.Types
 {
@@ -12,6 +13,8 @@ namespace MOATT.Abilities.Types
         private readonly Settings settings;
         private readonly EnemyRegistry enemyRegistry;
         private readonly Description description;
+
+        public override Sprite Sprite => settings.sprite;
 
         public RewindAbility(Settings settings, EnemyRegistry enemyRegistry, Description description)
         {
@@ -31,6 +34,7 @@ namespace MOATT.Abilities.Types
         public class Settings
         {
             public float rewindDeltaSeconds = 30f;
+            public Sprite sprite;
         }
 
         public class Description

@@ -44,7 +44,7 @@ namespace MOATT.Levels.Buildings.Support
             foreach (var building in registry.buildings)
             {
                 if (building == facade) continue;
-                if (building.Type != settings.canHeal) continue;
+                if (!building.Healable) continue;
                 if (Vector3.Distance(building.transform.position, facade.transform.position) >= unitRange.Range) continue;
                 if (building.HealthModel == null) continue;
                 if (building.HealthModel.CurrentHealth >= building.HealthModel.MaxHealth) continue;

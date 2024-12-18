@@ -37,6 +37,7 @@ namespace MOATT.Levels.Buildings
         public TileBuilding.TileType CanBePlacedOn => settings.canBePlacedOn;
         public BuildingType Type => settings.buildingType;
         public int NutsAndBoltsCost => settings.nutsAndBoltsCost;
+        public bool Healable => settings.healable;
 
         public BillboardSource BillboardSource { get; private set; }
         public BuildingUpgrader BuildingUpgrader { get; private set; }
@@ -134,6 +135,7 @@ namespace MOATT.Levels.Buildings
             public TileBuilding.TileType canBePlacedOn;
             public BuildingType buildingType;
             public int nutsAndBoltsCost = 100;
+            public bool healable = true;
         }
 
         public class Factory : PlaceholderFactory<Object, BuildingTunables, BuildingFacade> { }

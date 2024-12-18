@@ -21,10 +21,11 @@ namespace MOATT.Levels.Enemies
         private readonly HealthModel healthModel;
         private readonly EnemyFacade facade;
         private readonly Settings settings;
+        private readonly EnemyExplosionParticleEmitter particleEmitter;
 
         private BuildingFacade tower;
 
-        public EnemyTowerDamager(EnemyPathfinder navigator, EnemyReloader reloader = null, UnitDamage unitDamage = null, HealthModel healthModel = null, Settings settings = null, EnemyFacade facade = null)
+        public EnemyTowerDamager(EnemyPathfinder navigator, EnemyReloader reloader = null, UnitDamage unitDamage = null, HealthModel healthModel = null, Settings settings = null, EnemyFacade facade = null, EnemyExplosionParticleEmitter particleEmitter = null)
         {
             this.navigator = navigator;
             this.reloader = reloader;
@@ -32,6 +33,7 @@ namespace MOATT.Levels.Enemies
             this.healthModel = healthModel;
             this.settings = settings;
             this.facade = facade;
+            this.particleEmitter = particleEmitter;
         }
 
         public void Initialize()
@@ -62,6 +64,7 @@ namespace MOATT.Levels.Enemies
             if (settings.selfDestruct)
             {
                 building.Damage(healthModel.CurrentHealth);
+                particleEmitter.EmitParticles();
                 facade.Destroy();
             }
             else tower = building;

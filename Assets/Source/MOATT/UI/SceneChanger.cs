@@ -29,5 +29,13 @@ namespace MOATT.UI
             loadingSlider = loadingScreen.GetComponentInChildren<Slider>();
             loadingOperation = SceneManager.LoadSceneAsync(sceneName);
         }
+
+        public void ChangeScene(int buildIndex)
+        {
+            GameObject loadingScreen = Instantiate(loadingScreenPrefab, canvasTransform);
+            loadingScreen.transform.SetAsLastSibling();
+            loadingSlider = loadingScreen.GetComponentInChildren<Slider>();
+            loadingOperation = SceneManager.LoadSceneAsync(buildIndex);
+        }
     }
 }

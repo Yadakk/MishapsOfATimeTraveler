@@ -7739,6 +7739,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1316046852342890642, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2742194439324831820, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: limitX
@@ -7790,6 +7795,26 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5244499565039408570, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244499565039408570, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244499565039408570, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244499565039408570, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5499787061773844468, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7805,6 +7830,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5979265838509663846, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6121198356528715377, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -7813,6 +7843,26 @@ PrefabInstance:
     - target: {fileID: 6121198356528715377, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183143873397063891, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183143873397063891, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183143873397063891, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183143873397063891, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6687105296592315116, guid: 036164cca8f86f34c8616bad0fc011fd,
@@ -7855,10 +7905,30 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f0fc84ec2ac052f45a8fe000b02c6462, type: 3}
+    - target: {fileID: 7365211010656486282, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901059732539284995, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901059732539284995, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8150732346610163586, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: m_Name
       value: LevelPreset
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627889059176715482, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8635812084541115587, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
@@ -16663,8 +16733,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Welcome to the tutorial.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3c390be687246254ab9a15b844171919, type: 2}
+  m_sharedMaterial: {fileID: -5958500667407808071, guid: 3c390be687246254ab9a15b844171919,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16724,7 +16795,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 2, y: 2, z: 2, w: 40}
+  m_margin: {x: 10, y: 5, z: 5, w: 40}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17679,8 +17750,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Collapse
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3c390be687246254ab9a15b844171919, type: 2}
+  m_sharedMaterial: {fileID: -5958500667407808071, guid: 3c390be687246254ab9a15b844171919,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28474,8 +28546,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3c390be687246254ab9a15b844171919, type: 2}
+  m_sharedMaterial: {fileID: -5958500667407808071, guid: 3c390be687246254ab9a15b844171919,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28535,7 +28608,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 3, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

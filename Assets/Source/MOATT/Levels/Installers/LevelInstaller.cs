@@ -72,6 +72,7 @@ namespace MOATT.Levels.Installers
             Container.BindInterfacesAndSelfTo<SlowEnemiesAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<FastBuildingsAbility>().AsSingle();
             Container.BindInterfacesAndSelfTo<FastRechargeUpgradeAbility>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelAbilitySoundPlayer>().AsSingle();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MOATT.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace MOATT.Abilities
         private readonly AbilityRechargeTime rechargeTime;
         private bool isReady = false;
 
+        public event Action OnReady;
+
         public AbilityRecharger(ScalableTimer scalableTimer, AbilityRechargeTime rechargeTime)
         {
             this.scalableTimer = scalableTimer;
@@ -26,8 +29,10 @@ namespace MOATT.Abilities
             get => isReady;
             set
             {
+                if (value == isReady) return;
                 isReady = value;
                 if (!isReady) scalableTimer.Reset();
+                if (isReady) OnReady.Invoke();
             }
         }
 
@@ -35,6 +40,7 @@ namespace MOATT.Abilities
 
         public void Tick()
         {
+            if (isReady) return;
             if (scalableTimer.Elapsed < rechargeTime.value) return;
             IsReady = true;
         }

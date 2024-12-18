@@ -38,6 +38,8 @@ namespace MOATT.Installers
 
         public OneShotParticle exlposionPrefab;
 
+        public LevelAbilitySoundPlayer.Settings levelAbilitySoundPlayer;
+
         public override void InstallBindings()
         {
             Container.BindInstance(billboardSource);
@@ -51,6 +53,7 @@ namespace MOATT.Installers
             Container.BindInstance(pathHistory);
             Container.BindInstance(abilityRechargeTime);
             Container.BindInstance(exlposionPrefab);
+            Container.BindInstance(levelAbilitySoundPlayer);
 
             InstallAbilities();
         }

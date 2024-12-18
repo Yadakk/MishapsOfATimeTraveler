@@ -36,7 +36,7 @@ namespace MOATT.Levels.Units.Health
                 ByNewContextPrefab(globalSettings.healthbarPrefab).
                 AsSingle();
 
-            //Container.BindInterfacesAndSelfTo<UnitHealthFlasher>().AsSingle();
+            Container.BindInterfacesAndSelfTo<UnitHealthFlasher>().AsSingle();
         }
 
         [System.Serializable]

@@ -17,10 +17,15 @@ MonoBehaviour:
     canBePlacedOn: 4
     buildingType: 1
     nutsAndBoltsCost: 300
+    healable: 1
   bombInstaller:
     UnitRange:
       unitRange:
         rangeTiles: 2.5
+    exploder:
+      clip: {fileID: 8300000, guid: 3c1b0fef99c9ad44fb97e6892c5ada8e, type: 3}
+      oneShotSoundPrefab: {fileID: 8306498556505010562, guid: aa34cd1edc7a6c240943f4a8f9c30462,
+        type: 3}
   damage:
     value: 300
   reloadTime:

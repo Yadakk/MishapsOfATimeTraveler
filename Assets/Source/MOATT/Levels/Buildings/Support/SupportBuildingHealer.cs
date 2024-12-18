@@ -24,8 +24,9 @@ namespace MOATT.Levels.Buildings.Support
         private readonly BuildingFacade facade;
         private readonly UnitDamage unitDamage;
         private readonly Settings settings;
+        private readonly AudioSource audioSource;
 
-        public SupportBuildingHealer(UnitReloadTime reloadTime, BuildingRegistry registry, ScalableTimer timer, UnitRange unitRange, BuildingFacade facade, UnitDamage unitDamage, Settings settings)
+        public SupportBuildingHealer(UnitReloadTime reloadTime, BuildingRegistry registry, ScalableTimer timer, UnitRange unitRange, BuildingFacade facade, UnitDamage unitDamage, Settings settings, AudioSource audioSource)
         {
             this.reloadTime = reloadTime;
             this.registry = registry;
@@ -34,6 +35,7 @@ namespace MOATT.Levels.Buildings.Support
             this.facade = facade;
             this.unitDamage = unitDamage;
             this.settings = settings;
+            this.audioSource = audioSource;
         }
 
         public void Update()
@@ -51,7 +53,7 @@ namespace MOATT.Levels.Buildings.Support
                 healableBuildings.Add(building);
             }
             healableBuildings.ForEach(building => building.Heal(unitDamage.Value));
-
+            if (healableBuildings.Count > 0) audioSource.PlayOneShot(settings.clip);
             timer.Reset();
         }
 
@@ -84,7 +86,7 @@ namespace MOATT.Levels.Buildings.Support
         [Serializable]
         public class Settings
         {
-            public BuildingFacade.BuildingType canHeal;
+            public AudioClip clip;
         }
     }
 }

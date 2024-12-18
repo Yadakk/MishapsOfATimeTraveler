@@ -23,6 +23,7 @@ MonoBehaviour:
   shooter:
     bulletPrefab: {fileID: 8716182856365686438, guid: d0b0d6c16b59c0c4192761d48ba7203e,
       type: 3}
+    clip: {fileID: 8300000, guid: 61b414e15d332b2468dec459e4e0feab, type: 3}
   turretInstaller:
     unitHealth:
       healthModel:

@@ -17,6 +17,7 @@ MonoBehaviour:
     canBePlacedOn: 4
     buildingType: 1
     nutsAndBoltsCost: 50
+    healable: 1
   unitDamage:
     value: 15
   reloadTime:
@@ -26,3 +27,5 @@ MonoBehaviour:
     nutsAndBoltsCost: 0
     scientistsCost: 0
     upgradeTime: 0
+  enemyDamager:
+    clip: {fileID: 8300000, guid: c105246d85206f84eb50793453b134e0, type: 3}

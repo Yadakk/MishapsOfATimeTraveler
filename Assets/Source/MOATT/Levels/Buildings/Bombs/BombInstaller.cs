@@ -7,6 +7,7 @@ namespace MOATT.Levels.Buildings.Bombs
     using MOATT.Levels.Units.Damage;
     using MOATT.Levels.Units.ReloadTime;
     using Units.Range;
+    using UnityEditor.Graphs;
 
     public class BombInstaller : BuildingInstaller
     {
@@ -27,7 +28,7 @@ namespace MOATT.Levels.Buildings.Bombs
             Container.Install<UnitRangeInstaller>();
 
             Container.BindInterfacesAndSelfTo<BombTimer>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BombExploder>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BombExploder>().AsSingle().WithArguments(settings.exploder);
             Container.Bind<UnitReloadTime>().AsSingle();
         }
 
@@ -35,6 +36,7 @@ namespace MOATT.Levels.Buildings.Bombs
         public class Settings
         {
             public UnitRangeInstaller.Settings UnitRange;
+            public BombExploder.Settings exploder;
         }
     }
 }

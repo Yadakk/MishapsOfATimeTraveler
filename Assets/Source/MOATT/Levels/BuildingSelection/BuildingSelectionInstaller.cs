@@ -22,6 +22,7 @@ namespace MOATT.Levels.BuildingSelection
             Container.BindInterfacesAndSelfTo<BuildingSelectionInputBinder>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSelectionOutlineColorizer>().AsSingle().WithArguments(settings.outlineColorizer);
             Container.BindInterfacesAndSelfTo<BuildingSelectionUpgradeButtonDisplayer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingSelectionRangeDisplayer>().AsSingle();
         }
 
         [Serializable]

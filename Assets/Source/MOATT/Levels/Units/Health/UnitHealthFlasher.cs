@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TimeTimers;
 using UnityEngine;
 using Zenject;
@@ -47,10 +48,7 @@ namespace MOATT.Levels.Units.Health
 
             for (int i = 0; i < renderers.Length; i++)
             {
-                for (int j = 0; j < renderers[i].materials.Length; j++)
-                {
-                    renderers[i].SetPropertyBlock(props, j);
-                }
+                renderers[i].SetPropertyBlock(props);
             }
 
             timer.Reset();
@@ -63,10 +61,7 @@ namespace MOATT.Levels.Units.Health
 
             for (int i = 0; i < renderers.Length; i++)
             {
-                for (int j = 0; j < renderers[i].materials.Length; j++)
-                {
-                    renderers[i].SetPropertyBlock(props, j);
-                }
+                renderers[i].SetPropertyBlock(props);
             }
 
             nonOriginalColorFlag = false;

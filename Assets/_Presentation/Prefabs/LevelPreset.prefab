@@ -5449,11 +5449,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingButton
       objectReference: {fileID: 0}
-    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+    - target: {fileID: 6379572751022749918, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: 3d54d94c92a1aac41b291f739c6c4ddc,
+        type: 3}
     - target: {fileID: 6835087514343023378, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: rechargeTime
@@ -5594,11 +5595,12 @@ PrefabInstance:
       propertyPath: m_Type
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+    - target: {fileID: 6379572751022749918, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: 4d47f599de7678e438cfb25eb0e6f60f,
+        type: 3}
     - target: {fileID: 6835087514343023378, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: rechargeTime
@@ -5734,11 +5736,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingButton (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+    - target: {fileID: 6379572751022749918, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: f6c48eaf7da88b544b2c40b92f8fbfad,
+        type: 3}
     - target: {fileID: 6835087514343023378, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: rechargeTime
@@ -5874,11 +5877,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingButton (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+    - target: {fileID: 6379572751022749918, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: d9a4d6e28c6baa048b458bafec69e4a1,
+        type: 3}
     - target: {fileID: 6835087514343023378, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: rechargeTime
@@ -6384,6 +6388,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896950154758145270, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8820124863684170995, guid: 3bc697a2e4fe8464ab617dc44e404cc6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6485,7 +6504,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8812808140209990507, guid: 3bc697a2e4fe8464ab617dc44e404cc6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc697a2e4fe8464ab617dc44e404cc6, type: 3}

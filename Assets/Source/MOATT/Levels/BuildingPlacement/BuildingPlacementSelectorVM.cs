@@ -34,11 +34,13 @@ namespace MOATT.Levels.BuildingPlacement
         private PlayerResources playerResources;
         private Tooltip tooltip;
         private BuildingPrototypePool prototypePool;
+        private Color initColor;
 
         public BuildingPlacementBuildingInfo BuildingInfo { get; private set; }
 
         private void Awake()
         {
+            initColor = image.color;
             BuildingInfo.rechargeTime = rechargeTime;
             BuildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
             selector.OnBuildingSelected += BuildingSelectedHandler;
@@ -51,7 +53,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void BuildingSelectedHandler(BuildingPlacementBuildingInfo info)
         {
-            image.color = info == BuildingInfo ? selectedColor : Color.white;
+            image.color = info == BuildingInfo ? selectedColor : initColor;
         }
 
         private void Update()

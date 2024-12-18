@@ -1485,7 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aa39b41cda532419d5c5ccfd92ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundOnHover: {fileID: 0}
+  backgroundOnHover: {fileID: 21300000, guid: bc2d2b37703fe7e46bf2ccb66dc21b31, type: 3}
 --- !u!1 &1130763297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aa39b41cda532419d5c5ccfd92ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundOnHover: {fileID: 0}
+  backgroundOnHover: {fileID: 21300000, guid: eac800c7b5bcb8d45ac31f5105f5dafe, type: 3}
 --- !u!1 &1190747466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aa39b41cda532419d5c5ccfd92ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundOnHover: {fileID: 0}
+  backgroundOnHover: {fileID: 21300000, guid: 2975eed89d176494faaa398835f12dea, type: 3}
 --- !u!1 &1414109930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,7 +2970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aa39b41cda532419d5c5ccfd92ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundOnHover: {fileID: 0}
+  backgroundOnHover: {fileID: 21300000, guid: 7fa686f58543e2f479e0332372946183, type: 3}
 --- !u!114 &280790279946854813
 MonoBehaviour:
   m_ObjectHideFlags: 0

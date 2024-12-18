@@ -65,5 +65,5 @@ MonoBehaviour:
   levelAbilitySoundPlayer:
     chargedSound: {fileID: 8300000, guid: 06969df3031b4a648a90483689eb67fd, type: 3}
     chargedSoundVolume: 0.3
-    activatedSound: {fileID: 8300000, guid: 367e9dd036343e9448edd38821e6fca2, type: 3}
-    activatedSoundVolume: 1
+    activatedSound: {fileID: 8300000, guid: 0825688dd23e11c40a5aa04346988172, type: 3}
+    activatedSoundVolume: 0.8

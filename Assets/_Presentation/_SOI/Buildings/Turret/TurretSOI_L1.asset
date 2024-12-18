@@ -17,6 +17,7 @@ MonoBehaviour:
     canBePlacedOn: 2
     buildingType: 1
     nutsAndBoltsCost: 100
+    healable: 1
   reloadTime:
     value: 1
   shooter:
@@ -36,4 +37,4 @@ MonoBehaviour:
       scientistsCost: 1
       upgradeTime: 3
   unitDamage:
-    value: 20
+    value: 17.5

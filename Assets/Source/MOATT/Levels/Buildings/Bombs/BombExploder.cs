@@ -9,6 +9,7 @@ namespace MOATT.Levels.Buildings.Bombs
     using Enemies;
     using MOATT.Levels.Units.Damage;
     using MOATT.Particles;
+    using MOATT.Sound;
     using Units.Range;
 
     public class BombExploder
@@ -18,14 +19,16 @@ namespace MOATT.Levels.Buildings.Bombs
         private readonly UnitRange unitRange;
         private readonly UnitDamage unitDamage;
         private readonly OneShotParticle explosionPrefab;
+        private readonly Settings settings;
 
-        public BombExploder(EnemyRegistry enemyRegistry, BuildingFacade facade, UnitDamage unitDamage, UnitRange unitRange, OneShotParticle explosionPrefab)
+        public BombExploder(EnemyRegistry enemyRegistry, BuildingFacade facade, UnitDamage unitDamage, UnitRange unitRange, OneShotParticle explosionPrefab, Settings settings)
         {
             this.enemyRegistry = enemyRegistry;
             this.facade = facade;
             this.unitDamage = unitDamage;
             this.unitRange = unitRange;
             this.explosionPrefab = explosionPrefab;
+            this.settings = settings;
         }
 
         public void Explode()
@@ -39,8 +42,18 @@ namespace MOATT.Levels.Buildings.Bombs
                 enemy.Damage(unitDamage.Value);
             }
 
+            var soundGO = Object.Instantiate(settings.oneShotSoundPrefab, facade.transform.position, Quaternion.identity, facade.transform.parent);
+            OneShotSound oneShotSound = soundGO.GetComponent<OneShotSound>();
             Object.Instantiate(explosionPrefab, facade.transform.position, Quaternion.identity, facade.transform.parent);
+            oneShotSound.PlayOneShot(settings.clip);
             facade.Destroy();
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public AudioClip clip;
+            public GameObject oneShotSoundPrefab;
         }
     }
 }

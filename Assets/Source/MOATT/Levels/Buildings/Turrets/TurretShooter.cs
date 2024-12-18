@@ -14,14 +14,16 @@ namespace MOATT.Levels.Buildings.Turrets
         private TurretTargetPicker targetPicker;
         private BulletFacade.Factory bulletFactory;
         private UnitDamage unitDamage;
+        private AudioSource source;
 
         [Inject]
-        public void Construct(Settings settings, TurretTargetPicker targetPicker, BulletFacade.Factory bulletFactory, UnitDamage unitDamage)
+        public void Construct(Settings settings, TurretTargetPicker targetPicker, BulletFacade.Factory bulletFactory, UnitDamage unitDamage, AudioSource source)
         {
             this.targetPicker = targetPicker;
             this.bulletFactory = bulletFactory;
             this.settings = settings;
             this.unitDamage = unitDamage;
+            this.source = source;
         }
 
         public void Shoot()
@@ -34,12 +36,14 @@ namespace MOATT.Levels.Buildings.Turrets
             };
 
             bulletFactory.Create(settings.bulletPrefab, new(goParams, unitDamage.Value));
+            source.PlayOneShot(settings.clip);
         }
 
         [System.Serializable]
         public class Settings
         {
             public BulletFacade bulletPrefab;
+            public AudioClip clip;
         }
     }
 }

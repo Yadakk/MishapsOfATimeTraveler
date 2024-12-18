@@ -34,4 +34,4 @@ MonoBehaviour:
     scientistsCost: 5
     upgradeTime: 7
   supportBuildingHealer:
-    canHeal: 1
+    clip: {fileID: 8300000, guid: 4ebdb63adce7d6646b3a8b2e80201103, type: 3}

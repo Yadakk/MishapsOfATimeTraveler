@@ -62,3 +62,8 @@ MonoBehaviour:
     value: 90
   exlposionPrefab: {fileID: 7234068217134403234, guid: 48c177dbc3428df4e884e3e634e1df97,
     type: 3}
+  levelAbilitySoundPlayer:
+    chargedSound: {fileID: 8300000, guid: 06969df3031b4a648a90483689eb67fd, type: 3}
+    chargedSoundVolume: 0.3
+    activatedSound: {fileID: 8300000, guid: 367e9dd036343e9448edd38821e6fca2, type: 3}
+    activatedSoundVolume: 1

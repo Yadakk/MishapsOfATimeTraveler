@@ -19,9 +19,9 @@ MonoBehaviour:
     nutsAndBoltsCost: 200
     healable: 0
   unitReloadTime:
-    value: 1.25
+    value: 1.5
   unitDamage:
-    value: 50
+    value: 40
   unitRange:
     rangeTiles: 5.5
   unitHealth:

@@ -50,6 +50,7 @@ namespace MOATT.Levels.BuildingPlacement
 
         private void TileUnderMouseChangedHandler(TileFacade newTile)
         {
+            if (selector.BuildingInfo == null) return;
             UpdateDisplayer();
         }
 
@@ -81,11 +82,13 @@ namespace MOATT.Levels.BuildingPlacement
         private void Hide()
         {
             hologramDisplayer.SetActive(false);
+            buildingPlacementRange.Hologram.SetActive(false);
         }
 
         private void Show()
         {
             hologramDisplayer.SetActive(true);
+            buildingPlacementRange.Hologram.SetActive(true);
             hologramDisplayer.SetModel(selector.BuildingInfo.prototype.gameObject);
         }
 

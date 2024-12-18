@@ -11,6 +11,8 @@ namespace MOATT.Levels.BuildingPlacement
     {
         private readonly UnitRangeHologram hologram;
 
+        public UnitRangeHologram Hologram => hologram;
+
         public BuildingPlacementRange(UnitRangeHologram hologram = null)
         {
             this.hologram = hologram;

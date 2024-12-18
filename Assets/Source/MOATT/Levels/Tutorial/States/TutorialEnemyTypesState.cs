@@ -21,33 +21,25 @@ namespace MOATT.Levels.Tutorial.States
         private readonly TutorialEarningNutsAndBoltsState nextState;
         private readonly WaveStateMachine waveStateMachine;
         private readonly SpawnerTileFacade[] spawners;
-        private readonly Timer timer;
         private readonly Settings settings;
         private readonly BillboardGroupFacade billboardGroup;
 
         private int enemyIndex = 0;
 
-        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialEarningNutsAndBoltsState nextState, WaveStateMachine waveStateMachine, TileFacade[] tiles, Timer timer, Settings settings, BillboardGroupFacade billboardGroup)
+        public TutorialEnemyTypesState(TutorialWindow tutorialWindow, TutorialEarningNutsAndBoltsState nextState, WaveStateMachine waveStateMachine, TileFacade[] tiles, Settings settings, BillboardGroupFacade billboardGroup)
         {
             this.tutorialWindow = tutorialWindow;
             this.nextState = nextState;
             this.waveStateMachine = waveStateMachine;
             spawners = tiles.OfType<SpawnerTileFacade>().ToArray();
-            this.timer = timer;
             this.settings = settings;
             this.billboardGroup = billboardGroup;
         }
 
         public override void Start()
         {
-            StringBuilder sb = new();
-            sb.AppendLine("Regular - just moves to main tower.");
-            sb.AppendLine("Heavy - slow but more health and attack.");
-            sb.AppendLine("Destroyer - stops to attack buildings you placed.");
-            sb.AppendLine("Helicopter - attacks your buildings without stopping. Once it reaches your main tower, deals damage equivalent to it's health and disappears.");
-            sb.AppendLine("Jumper - fast and weak. Can jump over fences once.");
-            tutorialWindow.SetTextContent(sb.ToString());
-            tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(nextState));
+            tutorialWindow.SetTextContent("Here are the enemy types. Press Next to see next enemy.");
+            tutorialWindow.SetNextButtonEvent(SpawnNextEnemy);
         }
 
         public override void Dispose()
@@ -55,10 +47,14 @@ namespace MOATT.Levels.Tutorial.States
             waveStateMachine.SetState<Delay>();
         }
 
-        public override void Update()
+        private void SpawnNextEnemy()
         {
-            if (timer.Elapsed < settings.spawnInterval) return;
-            if (enemyIndex >= settings.displayEnemies.Length) return;
+            if (enemyIndex >= settings.displayEnemies.Length)
+            {
+                tutorialWindow.SetState(nextState);
+                return;
+            }
+
             var enemy = spawners[Range(0, spawners.Length)].Spawn(settings.displayEnemies[enemyIndex]);
 
             GameObject nameBillboard = UnityEngine.Object.Instantiate(settings.nameBillboard, enemy.transform);
@@ -74,14 +70,25 @@ namespace MOATT.Levels.Tutorial.States
                 UnityEngine.Object.Destroy(billboard.gameObject);
             };
 
+            string windowText = string.Empty;
+
+            switch (enemyIndex)
+            {
+                case 0: windowText = "Regular - just moves to main tower."; break;
+                case 1: windowText = "Destroyer - stops to attack buildings you placed."; break;
+                case 2: windowText = "Heavy - slow but more health and attack."; break;
+                case 3: windowText = "Helicopter - attacks your buildings without stopping. Once it reaches your main tower, deals damage equivalent to it's health and disappears."; break;
+                case 4: windowText = "Jumper - fast and weak. Can jump over fences once."; break;
+            }
+
+            tutorialWindow.SetTextContent(windowText);
+
             enemyIndex++;
-            timer.Reset();
         }
 
         [Serializable]
         public class Settings
         {
-            public float spawnInterval = 3f;
             public EnemyFacade[] displayEnemies;
             public GameObject nameBillboard;
         }

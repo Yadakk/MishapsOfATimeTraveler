@@ -12531,6 +12531,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2115422906368335611, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2742194439324831820, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: limitX

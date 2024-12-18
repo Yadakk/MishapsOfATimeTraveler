@@ -12223,6 +12223,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2115422906368335611, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3252557448962710981, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: _scriptableObjectInstallers.Array.data[0]

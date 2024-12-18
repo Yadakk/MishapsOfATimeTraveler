@@ -1469,7 +1469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff7753b3d3d20d46a68402968fb39f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "For your final adventure the time machine \nhas thrown you right into the
+    battlefields of the first World War. \nToo bad that you fell right onto the bunker
+    full of generals \nthat were signing the declaration of peace \nand now you have
+    to defend yourself \nagainst the armies of angry and determined soldiers"
 --- !u!114 &956961730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,7 +1934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff7753b3d3d20d46a68402968fb39f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "Your time machine has landed in the infamous Wild West. \nUnfortunately,
+    it landed on everyone's favorite canteen \nso you have angered every cowboy in
+    a 10 mile radius. \nDefend your time machine while it reboots!"
 --- !u!114 &1170977083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2374,7 +2379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff7753b3d3d20d46a68402968fb39f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "This time your time machine has thrown you into the city of the future,\nguarded
+    by the unbeatable robotic security force. \nBut since you are not in their database,
+    prepare to get attacked"
 --- !u!114 &1322433716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,7 +2957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff7753b3d3d20d46a68402968fb39f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: "Learn the mechanics of the game \nin a simulated environment"
 --- !u!114 &2098915622
 MonoBehaviour:
   m_ObjectHideFlags: 0

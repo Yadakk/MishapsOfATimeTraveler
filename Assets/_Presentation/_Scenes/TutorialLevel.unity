@@ -21959,7 +21959,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
-    spawnInterval: 3
     displayEnemies:
     - {fileID: 3083051302333944569, guid: f6a2ad330f2150b4e8f836fe146f3741, type: 3}
     - {fileID: 4902633262727150827, guid: 56dee33ff186b00448d90054f1c9bfbb, type: 3}

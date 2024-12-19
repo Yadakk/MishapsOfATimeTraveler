@@ -13151,6 +13151,12 @@ PrefabInstance:
       propertyPath: m_RenderShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407666348973361858, guid: 036164cca8f86f34c8616bad0fc011fd,
+        type: 3}
+      propertyPath: buildingPrefab
+      value: 
+      objectReference: {fileID: 4457310283655775695, guid: e5ca00477e6afbc4a9a67b88ed69a161,
+        type: 3}
     - target: {fileID: 3252557448962710981, guid: 036164cca8f86f34c8616bad0fc011fd,
         type: 3}
       propertyPath: _scriptableObjectInstallers.Array.data[0]

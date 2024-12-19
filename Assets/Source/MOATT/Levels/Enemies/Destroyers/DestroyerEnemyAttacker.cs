@@ -19,6 +19,8 @@ namespace MOATT.Levels.Enemies.Destroyers
         private readonly EnemyReloader enemyReloader;
         private readonly UnitDamage unitDamage;
         private readonly IAttackAnimator attackAnimator;
+        private AudioSource audioSource;
+        private AudioClip attackSound;
 
         public DestroyerEnemyAttacker(Settings settings, BuildingRegistry buildingRegistry = null, UnitRange unitRange = null, EnemyFacade facade = null, EnemyPathfinder pathfinder = null, EnemyReloader enemyReloader = null, UnitDamage unitDamage = null, IAttackAnimator attackAnimator = null)
         {
@@ -30,6 +32,8 @@ namespace MOATT.Levels.Enemies.Destroyers
             this.enemyReloader = enemyReloader;
             this.unitDamage = unitDamage;
             this.attackAnimator = attackAnimator;
+            audioSource = facade.AudioSource;
+            attackSound = settings.attackSound;
         }
 
         public void Update()
@@ -43,6 +47,7 @@ namespace MOATT.Levels.Enemies.Destroyers
                 {
                     building.Damage(unitDamage.Value);
                     attackAnimator?.Play(building.transform.position);
+                    audioSource.PlayOneShot(attackSound);
                     enemyReloader.ReadyToAttack = false;
                 }
             }
@@ -71,6 +76,7 @@ namespace MOATT.Levels.Enemies.Destroyers
         {
             public BuildingFacade.BuildingType canDamageTypes;
             public bool stopsToAttack = true;
+            public AudioClip attackSound;
         }
     }
 }

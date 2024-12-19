@@ -10,6 +10,9 @@ namespace MOATT.Levels.GameplayConditions
     public class ResultVM : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI label;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip winMusic;
+        [SerializeField] private AudioClip loseMusic;
 
         private LevelProgress levelProgress;
         private LevelLostInvoker levelLostInvoker;
@@ -46,6 +49,8 @@ namespace MOATT.Levels.GameplayConditions
             gameObject.SetActive(true);
             label.text = "You won";
             resultFlag = true;
+            audioSource.Stop();
+            audioSource.PlayOneShot(winMusic);
         }
 
         private void LostHandler()
@@ -54,6 +59,8 @@ namespace MOATT.Levels.GameplayConditions
             gameObject.SetActive(true);
             label.text = "You lost";
             resultFlag = true;
+            audioSource.Stop();
+            audioSource.PlayOneShot(loseMusic);
         }
     }
 }

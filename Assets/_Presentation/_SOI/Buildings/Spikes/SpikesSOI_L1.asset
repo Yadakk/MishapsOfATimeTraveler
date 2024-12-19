@@ -20,9 +20,9 @@ MonoBehaviour:
     healable: 1
     TowerPlaced: {fileID: 8300000, guid: 7c550b0c4ce0dd043bbd4fe776f7ef58, type: 3}
   unitDamage:
-    value: 7.5
+    value: 7
   reloadTime:
-    value: 0.75
+    value: 0.8
   buildingUpgrader:
     nextLevelPrefab: {fileID: 8080827644565336545, guid: fc4f8cfc6a44c5749b863ada2689dab7,
       type: 3}

@@ -23,9 +23,9 @@ MonoBehaviour:
       - {fileID: 8300000, guid: f9d64b8ac778b5b42b19b1bbf1255c7d, type: 3}
     unitHealthSettings:
       healthModel:
-        maxHealth: 200
+        maxHealth: 300
     enemyPathfinder:
-      tilesPerSecond: 0.25
+      tilesPerSecond: 0.3
       fenceIgnoreCount: 0
     unitDamage:
       value: 40

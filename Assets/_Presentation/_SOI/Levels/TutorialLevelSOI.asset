@@ -31,4 +31,4 @@ MonoBehaviour:
     startingNutsAndBolts: 1000
     maxScientists: 10
   levelProgress:
-    timeLimitSeconds: 180
+    timeLimitSeconds: 600

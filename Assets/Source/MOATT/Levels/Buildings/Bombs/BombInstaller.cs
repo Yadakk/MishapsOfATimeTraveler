@@ -7,7 +7,6 @@ namespace MOATT.Levels.Buildings.Bombs
     using MOATT.Levels.Units.Damage;
     using MOATT.Levels.Units.ReloadTime;
     using Units.Range;
-    using UnityEditor.Graphs;
 
     public class BombInstaller : BuildingInstaller
     {

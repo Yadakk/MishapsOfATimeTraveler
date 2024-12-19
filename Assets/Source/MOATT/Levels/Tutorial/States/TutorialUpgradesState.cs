@@ -30,7 +30,7 @@ namespace MOATT.Levels.Tutorial.States
             sb.AppendLine("Click on it when not in building mode and press on arrow button above it.");
             sb.AppendLine("Tooltips will show the costs and new building stats after upgrade.");
             sb.AppendLine("You will temporarily send some of your scientists to upgrade it.");
-            sb.AppendLine("If building is destroyed during upgrade, the scientists are lost.");
+            sb.AppendLine("If the building is destroyed during upgrade, any scientists you sent to upgrade it are lost.");
             sb.AppendLine("Upgrade any building to proceed.");
             tutorialWindow.SetTextContent(sb.ToString());
         }

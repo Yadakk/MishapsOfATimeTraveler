@@ -29,7 +29,7 @@ namespace MOATT.Levels.Tutorial.States
             sb.AppendLine("Click buttons in the left bottom corner to enter build mode.");
             sb.AppendLine("Then hover your mouse over a tile to place it.");
             sb.AppendLine("If building hologram becomes green, you're placing on the right tile.");
-            sb.AppendLine("To exit building mode press escape or building button.");
+            sb.AppendLine("To exit building mode press the building button again or C on your keyboard.");
             sb.AppendLine("Place a building to proceed to next step.");
             tutorialWindow.SetTextContent(sb.ToString());
         }

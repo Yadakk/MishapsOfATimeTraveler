@@ -26,9 +26,9 @@ namespace MOATT.Levels.Tutorial.States
 
             StringBuilder sb = new();
             sb.AppendLine("You can select an ability in bottom right corner in level selection menu.");
-            sb.AppendLine("Each ability has a recharge time which can be boosted with idle scientists.");
-            sb.AppendLine("To see what ability does you can hover over it in level selection or on level.");
-            sb.AppendLine("Some abilities have green bar which appears after use. This is duration of it's effect.");
+            sb.AppendLine("Each ability has a recharge time which can be reduced with idle scientists.");
+            sb.AppendLine("To see what ability does you can hover over it in level selection or during gameplay.");
+            sb.AppendLine("Some abilities have green bar which appears after use. This is duration of its effect.");
             sb.AppendLine("To proceed, use your ability using button in bottom right corner");
             tutorialWindow.SetTextContent(sb.ToString());
         }

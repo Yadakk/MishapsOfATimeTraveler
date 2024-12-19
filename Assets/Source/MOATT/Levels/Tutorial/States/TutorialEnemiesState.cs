@@ -23,7 +23,7 @@ namespace MOATT.Levels.Tutorial.States
             StringBuilder sb = new();
             sb.AppendLine("There are 5 types of enemies.");
             sb.AppendLine("They follow a random path to your main tower and start damaging it.");
-            sb.AppendLine("If main tower is destroyed, level is lost.");
+            sb.AppendLine("If main tower is destroyed, the game is over.");
             sb.AppendLine("Enemy types are described on the next page.");
             tutorialWindow.SetTextContent(sb.ToString());
             tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialEnemyTypesState));

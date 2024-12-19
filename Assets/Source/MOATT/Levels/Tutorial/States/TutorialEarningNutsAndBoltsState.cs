@@ -25,7 +25,7 @@ namespace MOATT.Levels.Tutorial.States
             tutorialWindow.SetActiveNextButton(false);
 
             StringBuilder sb = new();
-            sb.AppendLine("To earn Nuts and Bolts you can defeat enemies with your buildings.");
+            sb.AppendLine("To earn Nuts and Bolts you need to defeat enemies with your buildings.");
             sb.AppendLine("Defeat an enemy to proceed.");
             tutorialWindow.SetTextContent(sb.ToString());
         }

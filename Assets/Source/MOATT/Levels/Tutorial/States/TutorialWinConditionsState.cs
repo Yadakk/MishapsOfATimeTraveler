@@ -21,7 +21,7 @@ namespace MOATT.Levels.Tutorial.States
             StringBuilder sb = new();
             sb.AppendLine("The progress bar on top right shows the progress of the mission.");
             sb.AppendLine("If you survive long enough you will win.");
-            sb.AppendLine("The waves get stronger every time so keep advancing.");
+            sb.AppendLine("The waves get stronger every time so keep building your defences.");
             tutorialWindow.SetTextContent(sb.ToString());
             tutorialWindow.SetNextButtonEvent(() => tutorialWindow.SetState(tutorialAbilitiesState));
         }

@@ -25,10 +25,10 @@ namespace MOATT.Levels.Tutorial.States
             tutorialWindow.SetActiveNextButton(false);
 
             StringBuilder sb = new();
-            sb.AppendLine("Scientists are second resource in the game.");
-            sb.AppendLine("When idle, scientists decrease charge time for buildings and abilities.");
+            sb.AppendLine("Scientists are the second resource in the game.");
+            sb.AppendLine("When idle, scientists reduce recharge time for buildings and abilities.");
             sb.AppendLine("You can also use them to upgrade your buildings.");
-            sb.AppendLine("There is a maximum amount of scientists you can have.");
+            sb.AppendLine("You can hire up to 10 scientists.");
             sb.AppendLine("Hire a scientist to proceed.");
             tutorialWindow.SetTextContent(sb.ToString());
         }

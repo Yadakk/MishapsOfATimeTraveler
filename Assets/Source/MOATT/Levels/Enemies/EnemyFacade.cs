@@ -22,6 +22,9 @@ namespace MOATT.Levels.Enemies
         private EnemyTilemapPositionCalculator enemyCellPositionCalculator;
         private EnemyPathfinder pathfinder;
         private Settings settings;
+        private AudioSource audioSource;
+        private List<AudioClip> spawnSounds;
+        private System.Random rnd;
 
         public event Action OnDestroyed;
 
@@ -38,6 +41,14 @@ namespace MOATT.Levels.Enemies
         private void Awake()
         {
             registry.Add(this);
+            if (spawnSounds.Count < 1)
+            {
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.PlayOneShot(spawnSounds[rnd.Next(0, spawnSounds.Count)]);
+            }
         }
 
         [Inject]
@@ -65,6 +76,9 @@ namespace MOATT.Levels.Enemies
             EnemyPathHistory = enemyPathHistory;
             Reloader = reloader;
             BillboardSource = billboardSource;
+            spawnSounds = settings.SpawnSounds;
+            audioSource = GetComponent<AudioSource>();
+            rnd = new();
 
             transform.position = tunables.initPos;
         }
@@ -91,6 +105,7 @@ namespace MOATT.Levels.Enemies
         {
             public string name;
             public bool isFlying = false;
+            public List<AudioClip> SpawnSounds;
         }
 
         public class Factory : PlaceholderFactory<Object, EnemyTunables, EnemyFacade> { }

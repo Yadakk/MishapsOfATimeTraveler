@@ -16,6 +16,7 @@ MonoBehaviour:
     facade:
       name: Helicopter
       isFlying: 1
+      SpawnSounds: []
     unitHealthSettings:
       healthModel:
         maxHealth: 500
@@ -30,6 +31,10 @@ MonoBehaviour:
       selfDestruct: 1
     deathHandler:
       nutsAndBoltsReward: 175
+      DeathSounds:
+      - {fileID: 8300000, guid: d17384786acdb3d428b289d91ab19ffb, type: 3}
+      OneShotSoundPrefab: {fileID: 8306498556505010562, guid: aa34cd1edc7a6c240943f4a8f9c30462,
+        type: 3}
     explosionPrefab: {fileID: 7234068217134403234, guid: a54fa0dd27cae724e825e32e7df47799,
       type: 3}
   destroyerEnemy:

@@ -16,6 +16,11 @@ MonoBehaviour:
     facade:
       name: Jumper
       isFlying: 0
+      SpawnSounds:
+      - {fileID: 8300000, guid: a54346f20dfc18146b99d0880d381e6b, type: 3}
+      - {fileID: 8300000, guid: af1386fe76f337e4296623dad59bf870, type: 3}
+      - {fileID: 8300000, guid: 84573c7a3f1a0214dbb2cc3cc4829995, type: 3}
+      - {fileID: 8300000, guid: 408c6d0fd1f351941bfc2c552e315428, type: 3}
     unitHealthSettings:
       healthModel:
         maxHealth: 50
@@ -30,5 +35,14 @@ MonoBehaviour:
       selfDestruct: 0
     deathHandler:
       nutsAndBoltsReward: 50
+      DeathSounds:
+      - {fileID: 8300000, guid: b186f167d2b1ca340881c698b4c682c5, type: 3}
+      - {fileID: 8300000, guid: e8510c54dc2c08949b55d59fc94140eb, type: 3}
+      - {fileID: 8300000, guid: 1f28d761820595c4a8e5a4a85539616f, type: 3}
+      - {fileID: 8300000, guid: 0141312dfd4adef4d9b062115ebad9fb, type: 3}
+      - {fileID: 8300000, guid: 0ac4f1cb8df23db4ea11cccde1f47f8d, type: 3}
+      - {fileID: 8300000, guid: bb05f06430de5a64a9b16ff0422d0b2f, type: 3}
+      OneShotSoundPrefab: {fileID: 8306498556505010562, guid: aa34cd1edc7a6c240943f4a8f9c30462,
+        type: 3}
     explosionPrefab: {fileID: 7234068217134403234, guid: fbe2b9533dadeda4ba79f3730f9606d9,
       type: 3}

@@ -17,6 +17,8 @@ MonoBehaviour:
     canBePlacedOn: 4
     buildingType: 1
     nutsAndBoltsCost: 150
+    healable: 1
+    TowerPlaced: {fileID: 8300000, guid: 7c550b0c4ce0dd043bbd4fe776f7ef58, type: 3}
   unitHealth:
     healthModel:
       maxHealth: 500

@@ -25,6 +25,8 @@ MonoBehaviour:
         - enemyPrefab: {fileID: 4902633262727150827, guid: 56dee33ff186b00448d90054f1c9bfbb,
             type: 3}
           spawnChancePercent: 20
+      waveStateMachine:
+        startOnInit: 1
     delay:
       waveDelay: 5
     spawning:
@@ -32,7 +34,7 @@ MonoBehaviour:
       enemiesToSpawn: 5
       waveMultiplier: 1.75
   playerResources:
-    startingNutsAndBolts: 150
+    startingNutsAndBolts: 125
     maxScientists: 10
   levelProgress:
     timeLimitSeconds: 180

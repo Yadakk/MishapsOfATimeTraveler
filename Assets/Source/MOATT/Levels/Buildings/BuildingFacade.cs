@@ -47,6 +47,11 @@ namespace MOATT.Levels.Buildings
         private void Start()
         {
             buildingRegistry.Add(this);
+            if (settings.TowerPlaced != null)
+            {
+                AudioSource audioSource = GetComponentInChildren<AudioSource>();
+                audioSource.PlayOneShot(settings.TowerPlaced);
+            }
         }
 
         private void OnDestroy()
@@ -136,6 +141,7 @@ namespace MOATT.Levels.Buildings
             public BuildingType buildingType;
             public int nutsAndBoltsCost = 100;
             public bool healable = true;
+            public AudioClip TowerPlaced;
         }
 
         public class Factory : PlaceholderFactory<Object, BuildingTunables, BuildingFacade> { }

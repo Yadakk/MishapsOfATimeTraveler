@@ -37,7 +37,7 @@ namespace MOATT.Levels.Buildings.Turrets
             Container.BindInterfacesAndSelfTo<TurretTargetPicker>().AsSingle();
             Container.BindInterfacesAndSelfTo<TurretRotater>().AsSingle();
             Container.BindInterfacesAndSelfTo<TurretReloader>().AsSingle();
-            Container.Bind<TurretShooter>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<TurretShooter>().FromComponentsInHierarchy().AsSingle();
             Container.BindFactory<Object, BulletTunables, BulletFacade, BulletFacade.Factory>().
                 FromIFactory(x => x.To<TunablePrefabFactory<BulletTunables, BulletFacade>>().
                 AsSingle().WithArguments("Bullets"));

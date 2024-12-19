@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7af1a234ffda5d45aa6a1ed49b39e00
+guid: 687df2c61afe7aa4b910f20842bbce54
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0446\u0432\u0435\u0442"
-    second: {fileID: 2100000, guid: 78410db064c51e4458b6de21910037a0, type: 2}
+      name: "\u043E\u0441\u043D\u043E\u0432\u0430"
+    second: {fileID: 2100000, guid: cddea4eb597e9004a8adf21760a0dcde, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u043F\u0430\u043B\u043E\u0447\u043A\u0438"
-    second: {fileID: 2100000, guid: 6d3d5d14e3191c249a5d4c0a0c232a08, type: 2}
+      name: "\u043E\u0441\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0443 \u044D\u043A\u0440\u0430\u043D\u0430"
+    second: {fileID: 2100000, guid: 670696beb9e0e0c4fa65a35cf2bbc152, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u0441\u0432\u0435\u0442"
-    second: {fileID: 2100000, guid: e9e510ad9206ac446a1bd76f77c3c53e, type: 2}
+      name: "\u043F\u0430\u043B\u043A\u04301"
+    second: {fileID: 2100000, guid: 273c6b2cea0145142b8b6f33d6fb387c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "\u0441\u0432\u0435\u04422"
-    second: {fileID: 2100000, guid: 4462fe9f322496b428707c37e0dbfdd2, type: 2}
+      name: "\u043F\u0430\u043B\u043A\u04302"
+    second: {fileID: 2100000, guid: c2fd272cfb603ae4dba2bc2cf1617796, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043F\u0430\u043B\u043A\u04303"
+    second: {fileID: 2100000, guid: 48178acf9ae3dbf47bbda07f4df4df64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043F\u0430\u043B\u043A\u04304"
+    second: {fileID: 2100000, guid: b108169323a67ad4bbb00ba19223d3e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u044D\u043A\u0440\u0430\u043D"
+    second: {fileID: 2100000, guid: 0352b1a5813b87d4b921b433f26226ee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

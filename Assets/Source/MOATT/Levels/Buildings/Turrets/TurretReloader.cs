@@ -16,22 +16,26 @@ namespace MOATT.Levels.Buildings.Turrets
 
         private readonly UnitReloadTime reloadTime;
         private readonly ScalableTimer timer;
-        private readonly TurretShooter shooter;
+        private readonly TurretShooter[] shooters;
+
+        private int barrelIndex;
 
         public TurretReloader(
             UnitReloadTime reloadTime,
             ScalableTimer timer, 
-            TurretShooter shooter)
+            TurretShooter[] shooters)
         {
             this.reloadTime = reloadTime;
             this.timer = timer;
-            this.shooter = shooter;
+            this.shooters = shooters;
         }
 
         public void Update()
         {
             if (timer.Elapsed < reloadTime.Value) return;
-            shooter.Shoot();
+            if (barrelIndex >= shooters.Length) barrelIndex = 0;
+            shooters[barrelIndex].Shoot();
+            barrelIndex++;
             timer.Reset();
         }
 

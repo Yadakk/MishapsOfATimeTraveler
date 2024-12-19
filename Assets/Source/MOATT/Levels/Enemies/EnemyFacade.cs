@@ -33,6 +33,7 @@ namespace MOATT.Levels.Enemies
         public EnemyPathfinder Pathfinder => pathfinder;
         public bool IsFlying => settings.isFlying;
         public HealthWatcher HealthWatcher => healthWatcher;
+        public AudioSource AudioSource => audioSource;
         public EnemyPathHistory EnemyPathHistory { get; private set; }
         public EnemyReloader Reloader { get; private set; }
         public BillboardSource BillboardSource { get; private set; }

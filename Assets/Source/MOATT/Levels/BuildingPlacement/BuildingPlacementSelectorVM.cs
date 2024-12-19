@@ -39,12 +39,14 @@ namespace MOATT.Levels.BuildingPlacement
         [SerializeField]
         private AudioClip pointerClick;
 
+        [SerializeField]
+        private AudioSource audioSource;
+
         private BuildingPlacementSelector selector;
         private PlayerResources playerResources;
         private Tooltip tooltip;
         private BuildingPrototypePool prototypePool;
         private Color initColor;
-        private AudioSource audioSource;
 
         public BuildingPlacementBuildingInfo BuildingInfo { get; private set; }
 
@@ -54,7 +56,6 @@ namespace MOATT.Levels.BuildingPlacement
             BuildingInfo.rechargeTime = rechargeTime;
             BuildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
             selector.OnBuildingSelected += BuildingSelectedHandler;
-            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnDestroy()

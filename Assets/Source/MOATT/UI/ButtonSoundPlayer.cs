@@ -10,12 +10,7 @@ namespace MOATT.UI
         [SerializeField] private AudioClip pointerEnter;
         [SerializeField] private AudioClip pointerExit;
         [SerializeField] private AudioClip pointerClick;
-        private AudioSource audioSource;
-
-        private void Start()
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
+        [SerializeField] private AudioSource audioSource;
 
         public void OnPointerEnter(PointerEventData eventData)
         {

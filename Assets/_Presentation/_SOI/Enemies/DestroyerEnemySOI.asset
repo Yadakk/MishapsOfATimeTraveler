@@ -45,3 +45,4 @@ MonoBehaviour:
     destroyerEnemyAttacker:
       canDamageTypes: 1
       stopsToAttack: 1
+      attackSound: {fileID: 8300000, guid: f11b53145d97d38469465dca4c6ca02f, type: 3}

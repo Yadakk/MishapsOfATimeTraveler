@@ -18,6 +18,7 @@ MonoBehaviour:
     buildingType: 1
     nutsAndBoltsCost: 100
     healable: 1
+    TowerPlaced: {fileID: 8300000, guid: 7c550b0c4ce0dd043bbd4fe776f7ef58, type: 3}
   reloadTime:
     value: 1
   shooter:

@@ -30,11 +30,21 @@ namespace MOATT.Levels.BuildingPlacement
         [SerializeField]
         private Color selectedColor = Color.green;
 
+        [SerializeField]
+        private AudioClip pointerEnter;
+
+        [SerializeField]
+        private AudioClip pointerExit;
+
+        [SerializeField]
+        private AudioClip pointerClick;
+
         private BuildingPlacementSelector selector;
         private PlayerResources playerResources;
         private Tooltip tooltip;
         private BuildingPrototypePool prototypePool;
         private Color initColor;
+        private AudioSource audioSource;
 
         public BuildingPlacementBuildingInfo BuildingInfo { get; private set; }
 
@@ -44,6 +54,7 @@ namespace MOATT.Levels.BuildingPlacement
             BuildingInfo.rechargeTime = rechargeTime;
             BuildingInfo.prototype = prototypePool.GetPrototype(buildingPrefab);
             selector.OnBuildingSelected += BuildingSelectedHandler;
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnDestroy()
@@ -74,11 +85,13 @@ namespace MOATT.Levels.BuildingPlacement
         public void OnPointerEnter(PointerEventData eventData)
         {
             tooltip.DisplayAtCursor(BuildingInfo.ToString());
+            audioSource.PlayOneShot(pointerEnter);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             tooltip.Hide();
+            audioSource.PlayOneShot(pointerExit);
         }
 
         public void Select()
@@ -88,7 +101,10 @@ namespace MOATT.Levels.BuildingPlacement
             bool isAffordable = playerResources.NutsAndBolts >= BuildingInfo.prototype.NutsAndBoltsCost;
 
             if (isDifferentBuilding && isAffordable && isCharged)
+            {
                 selector.SelectBuilding(BuildingInfo);
+                audioSource.PlayOneShot(pointerClick);
+            }
             else
                 selector.SelectBuilding(null);
         }
